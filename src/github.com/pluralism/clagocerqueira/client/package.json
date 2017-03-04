@@ -25,7 +25,9 @@
   "homepage": "https://github.com/pluralism/clagocerqueira#readme",
   "devDependencies": {
     "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.2.0",
     "babel-preset-react": "^6.23.0",
     "redux-logger": "^2.8.2",
     "redux-thunk": "^2.2.0",
