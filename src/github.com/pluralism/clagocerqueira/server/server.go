@@ -20,6 +20,9 @@ func main() {
 		// Allows all origins
 		cors.New(cors.Options{AllowedOrigins: []string{"*"}}))
 
+	// Serve static files from "../client/app/static" to the GET route http://IP:Port/public
+	app.StaticServe("../client/app/static", "/public")
+
 	app.Get("/", homePageHandler)
 
 	// Start the server on port 8080
