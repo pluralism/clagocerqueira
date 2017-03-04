@@ -25,6 +25,7 @@
   "homepage": "https://github.com/pluralism/clagocerqueira#readme",
   "devDependencies": {
     "babel-cli": "^6.23.0",
+    "babel-loader": "^6.3.2",
     "babel-preset-react": "^6.23.0",
     "webpack": "^2.2.1"
   },
