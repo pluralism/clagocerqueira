@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/pluralism/clagocerqueira#readme",
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-react": "^6.23.0",
     "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
   }
 }
