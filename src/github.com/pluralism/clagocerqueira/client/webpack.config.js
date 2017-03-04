@@ -25,17 +25,13 @@ module.exports = {
     publicPath: ''
   },
 
-  resolve: {
-    extensions: ['', '.js'],
-    modulesDirectories: ['node_modules']
-  },
 
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           cacheDirectory: true,
           presets: ['env', 'react']
