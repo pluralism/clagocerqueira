@@ -36,7 +36,8 @@ module.exports = {
 
   output: {
     path: join('app/static/prod'),
-    filename: "[name].js"
+    filename: "[name].js",
+    publicPath: '/public/prod/'
   },
 
 
