@@ -174,6 +174,11 @@ class HomeIndexView extends React.Component {
             <div className="cube-portfolio">
               <div id="grid-container" className="cbp-l-grid-gallery">
                 {this.renderAutoresAmarantinosItem('1401-1500', 'XV')}
+                {this.renderAutoresAmarantinosItem('1501-1600', 'XVI')}
+                {this.renderAutoresAmarantinosItem('1601-1700', 'XVII')}
+                {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII')}
+                {this.renderAutoresAmarantinosItem('1801-1900', 'XIX')}
+                {this.renderAutoresAmarantinosItem('1901-2000', 'XX')}
               </div>
             </div>
           </div>
