@@ -1,5 +1,5 @@
-let path = require('path');
-let webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
@@ -21,6 +21,10 @@ const extractText = new ExtractTextPlugin({
 module.exports = {
   entry: {
     application: [
+      web('static/bootstrap/js/bootstrap.min.js'),
+      web('static/backstretch/jquery.backstretch.min.js'),
+      web('static/smoothScroll/smoothScroll.js'),
+      web('static/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js'),
       web('application.js'),
       web('static/bootstrap/css/bootstrap.min.css'),
       web('static/theme/app.css'),
