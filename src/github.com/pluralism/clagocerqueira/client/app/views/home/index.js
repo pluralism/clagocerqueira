@@ -8,6 +8,36 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderIntro() {
+    return (
+      <section id="intro" className="row cover-section">
+        <div className="fullscreen-static-image fullheight">
+          <div className="flex-container">
+            <div className="start">
+              <div className="month_photo">
+              </div>
+            </div>
+
+            <div className="center">
+              <div className="title">
+                <div className="col-md-12 col-sm-12 col-xs-12 promo-section__promo-info text-center">
+                  <input id="search_anything" type="text" name="search" placeholder="Pesquise qualquer coisa&#8230;" autofocus />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-container end">
+            <div className="page-scroll">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
       <div id="body" data-spy="scroll" className="font-main web-padding-top">
@@ -71,6 +101,8 @@ class HomeIndexView extends React.Component {
               </div>
             </div>
           </nav>
+
+          {renderIntro()}
         </main>
       </div>
     );
