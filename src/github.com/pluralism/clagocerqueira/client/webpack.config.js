@@ -21,11 +21,6 @@ const extractText = new ExtractTextPlugin({
 module.exports = {
   entry: {
     application: [
-      web('static/bootstrap/js/bootstrap.min.js'),
-      web('static/backstretch/jquery.backstretch.min.js'),
-      web('static/smoothScroll/smoothScroll.js'),
-      web('static/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js'),
-      web('application.js'),
       web('static/bootstrap/css/bootstrap.min.css'),
       web('static/theme/app.css'),
       web('static/theme/style-one.css'),
@@ -36,6 +31,14 @@ module.exports = {
       web('static/line-icons/line-icons.css'),
       web('static/theme/style.scss'),
       web('static/theme/globals.css'),
+
+
+      web('static/bootstrap/js/bootstrap.min.js'),
+      web('static/backstretch/jquery.backstretch.min.js'),
+      web('static/smoothScroll/smoothScroll.js'),
+      web('static/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js'),
+      web('static/owl-carousel2/owl.carousel.min.js'),
+      web('application.js')
     ]
   },
 
@@ -116,7 +119,8 @@ module.exports = {
     */
     new webpack.ProvidePlugin({
       $: "jquery",
-      jQuery: "jquery"
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
     }),
     extractText
   ]

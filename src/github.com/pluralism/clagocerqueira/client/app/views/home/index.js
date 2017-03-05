@@ -31,6 +31,37 @@ class HomeIndexView extends React.Component {
         displayType: 'lazyLoading',
         displayTypeSpeed: 100
       });
+
+
+      // Initialize owl-carousel for orgaos_autarquicos_list
+      $('.orgaos_autarquicos_list').owlCarousel({
+        loop: true,
+        margin: 20,
+        responsive: {
+          0: {
+            items: 1
+          },
+          500: {
+            items: 2
+          },
+          650: {
+            items: 3
+          },
+          850: {
+            items: 4
+          },
+          1024: {
+            items: 5
+          },
+          1270: {
+            items: 6
+          }
+        },
+        navText: [, ],
+        nav: true,
+        dots: false,
+        navContainerClass: 'owl-buttons'
+      });
     });
   }
 
@@ -188,15 +219,69 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderOrgaosAutarquicosCard(title, description) {
+    return (
+      <div className="orgaos-card">
+        <div className="orgaos-card-image">
+          <img src={require('../../static/img/orgaos_1.jpg')} alt="Órgãos 1" className="img-responsive" />
+        </div>
+
+        <div className="orgaos-card-title">
+          <h3>{title}</h3>
+        </div>
+
+        <div className="orgaos-card-text">
+          <p>{description}</p>
+        </div>
+
+        <div className="orgaos-card-footer">
+          <div className="view-more">
+            <a href="#">Ver mais</a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+
+  renderOrgaosAutarquicos() {
+    return (
+      <section className="row" id="orgaos_autarquicos">
+        <div className="g-pt-80 g-pb-80 text-center">
+          <div className="container-fluid">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20 title">Órgãos Autárquicos</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
+
+            <div className="orgaos_autarquicos_wrapper">
+              <div className="orgaos_autarquicos_list">
+                {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
-      <div>
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderIntro()}
           {this.renderAutoresAmarantinos()}
+          {this.renderOrgaosAutarquicos()}
         </main>
-      </div>
     );
   }
 }
