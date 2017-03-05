@@ -49,19 +49,6 @@ a:hover {
 	color: #a7a7a7;
 }
 
-/* Container fluids with two different background colors */
-.container-fluid.with-bg-1 {
-	background: #d65779;
-}
-
-.container-fluid.with-bg-2 {
-	background: url(../img-temp/testimonials-bg.jpg) no-repeat;
-	background-size: cover;
-}
-
-.container-fluid.with-bg-3 {
-	background: #f9f9f9;
-}
 
 /* Global Classes
 ------------------------------------*/
