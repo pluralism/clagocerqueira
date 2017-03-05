@@ -22,6 +22,7 @@ module.exports = {
   entry: {
     application: [
       web('application.js'),
+      web('static/bootstrap/css/bootstrap.min.css'),
       web('static/theme/app.css'),
       web('static/theme/style-one.css'),
       web('static/font-awesome/css/font-awesome.min.css'),
