@@ -9,7 +9,7 @@ export default class MainLayout extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="body" data-spy="scroll" className="font-main web-padding-top">
         {this.props.children}
       </div>
     );

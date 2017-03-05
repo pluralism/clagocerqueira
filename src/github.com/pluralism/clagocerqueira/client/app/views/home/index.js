@@ -29,7 +29,7 @@ class HomeIndexView extends React.Component {
 
           <div className="flex-container end">
             <div className="page-scroll">
-              
+
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ class HomeIndexView extends React.Component {
 
   render() {
     return (
-      <div id="body" data-spy="scroll" className="font-main web-padding-top">
+      <div>
         <main className="container-fluid">
           <nav className="clc-header one-page-header navbar navbar-default navbar-fixed-top navbar-toggleable-sm" data-role="navigation">
             <div className="container-fluid">
@@ -102,7 +102,7 @@ class HomeIndexView extends React.Component {
             </div>
           </nav>
 
-          {renderIntro()}
+          {this.renderIntro()}
         </main>
       </div>
     );
