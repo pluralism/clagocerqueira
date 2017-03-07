@@ -328,7 +328,7 @@ class HomeIndexView extends React.Component {
               </p>
             </div>
 
-            <div className="row content-wrapper">
+            <div className="content-wrapper">
               <div className="col-md-12 associacoes-list-wrapper">
                 <div className="associacoes-list">
                   {this.renderAssociacoesItem('Associações Sociais',
