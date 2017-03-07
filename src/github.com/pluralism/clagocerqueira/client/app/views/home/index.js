@@ -18,6 +18,8 @@ class HomeIndexView extends React.Component {
       let gridContainer = $('#grid-container');
       let associacoesList = $('.associacoes-list');
       let orgaosAutarquicosList = $('.orgaos_autarquicos_list');
+      let festividadesGrid = $('#festividades-grid');
+
 
       gridContainer.cubeportfolio({
         layoutMode: 'grid',
@@ -30,6 +32,35 @@ class HomeIndexView extends React.Component {
         gridAdjustment: 'responsive',
         mediaQueries: [{ width: 1440, cols: 5 }, { width: 1024, cols: 2 }, { width: 768, cols: 2 }, { width: 480, cols: 2 }, { width: 320, cols: 1 }],
         caption: 'fadeIn',
+        displayType: 'lazyLoading',
+        displayTypeSpeed: 100
+      });
+
+
+      festividadesGrid.cubeportfolio({
+        layoutMode: 'grid',
+        defaultFilter: '*',
+        animationType: 'fadeOutTop',
+        gapHorizontal: 0,
+        gapVertical: 2,
+        gridAdjustment: 'responsive',
+        mediaQueries: [{
+            width: 1500,
+            cols: 3
+        }, {
+            width: 1100,
+            cols: 3
+        }, {
+            width: 800,
+            cols: 1
+        }, {
+            width: 480,
+            cols: 1
+        }, {
+            width: 320,
+            cols: 1
+        }],
+        caption: 'zoom',
         displayType: 'lazyLoading',
         displayTypeSpeed: 100
       });
@@ -364,6 +395,56 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderFestividadesItem(title, subTitle) {
+    return (
+      <div className="cbp-item">
+        <Link to={require('../../static/img/orgaos_1.jpg')} className="cbp-caption"
+          data-title="Sed feugiat porttitor nunc<br>by Vivamus">
+          <div className="cbp-caption-defaultWrap">
+            <img src={require('../../static/img/orgaos_1.jpg')} />
+          </div>
+        </Link>
+
+        <div className="item-content">
+          <h1 className="title">{title}</h1>
+          <h2 className="subtitle">{subTitle}</h2>
+        </div>
+      </div>
+    );
+  }
+
+
+  renderFestividades() {
+    return (
+      <section id="festividades" className="row">
+        <div className="g-pt-80 g-pb-80 text-center">
+          <div className="container-fluid">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20">Festividades</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
+
+            <div className="grid">
+              <div id="festividades-grid" className="cbp-l-grid-gallery">
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
         <main className="container-fluid">
@@ -372,6 +453,7 @@ class HomeIndexView extends React.Component {
           {this.renderAutoresAmarantinos()}
           {this.renderOrgaosAutarquicos()}
           {this.renderAssociacoes()}
+          {this.renderFestividades()}
         </main>
     );
   }
