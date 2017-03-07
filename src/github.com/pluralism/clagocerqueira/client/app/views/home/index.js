@@ -274,6 +274,48 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderAssociacoesItem(title, description) {
+    return (
+      <div className="item associacoes-list-item">
+        <div className="img-wrapper img-wrapper--shadow">
+
+        </div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <Link to={'#'} className="btn-u btn-u-lg btn-u-upper">Ver Mais</Link>
+      </div>
+    );
+  }
+
+
+  renderAssociacoes() {
+    return (
+      <section id="associacoes" className="row">
+        <div className="g-pt-80 g-pb-80 text-center">
+          <div className="container-fluid">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20">Associações</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
+
+            <div className="row content-wrapper">
+              <div className="col-md-12 associacoes-list-wrapper">
+                <div className="associacoes-list">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
         <main className="container-fluid">
@@ -281,6 +323,7 @@ class HomeIndexView extends React.Component {
           {this.renderIntro()}
           {this.renderAutoresAmarantinos()}
           {this.renderOrgaosAutarquicos()}
+          {thisa.renderAssociacoes()}
         </main>
     );
   }
