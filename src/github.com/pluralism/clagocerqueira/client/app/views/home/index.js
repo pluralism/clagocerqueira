@@ -335,9 +335,25 @@ class HomeIndexView extends React.Component {
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'Associações Sociais')}
 
-                    {this.renderAssociacoesItem('Associações Sociais',
-                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'Associações Sociais')}
+                  {this.renderAssociacoesItem('Associações Cívicas',
+                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'Associações Cívicas')}
+
+                  {this.renderAssociacoesItem('Associações Desportivas',
+                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'Associações Desportivas')}
+
+                  {this.renderAssociacoesItem('Associações Recreativas',
+                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'Associações Recreativas')}
+
+                  {this.renderAssociacoesItem('Associações Culturais',
+                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'Associações Culturais')}
+
+                  {this.renderAssociacoesItem('Associações Religiosas',
+                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'Associações Religiosas')}
                 </div>
               </div>
             </div>
