@@ -19,6 +19,7 @@ class HomeIndexView extends React.Component {
       let associacoesList = $('.associacoes-list');
       let orgaosAutarquicosList = $('.orgaos_autarquicos_list');
       let festividadesGrid = $('#festividades-grid');
+      let imprensaGrid = $('.imprensa-grid');
 
 
       gridContainer.cubeportfolio({
@@ -66,7 +67,7 @@ class HomeIndexView extends React.Component {
       });
 
 
-      // Initialize owl-carousel for the item with ID associacoes-list
+
       associacoesList.owlCarousel({
         loop: true,
         margin: 0,
@@ -89,7 +90,31 @@ class HomeIndexView extends React.Component {
       });
 
 
-      // Initialize owl-carousel for orgaos_autarquicos_list
+      imprensaGrid.owlCarousel({
+        loop: true,
+        margin: 30,
+        responsive: {
+          300: {
+            items: 1
+          },
+          768: {
+            items: 2,
+          },
+          992: {
+            items: 3
+          },
+          1200: {
+            items: 4
+          }
+        },
+        navText: [, ],
+        nav: true,
+        dots: false,
+        navContainerClass: 'owl-buttons'
+      });
+
+
+
       orgaosAutarquicosList.owlCarousel({
         loop: true,
         margin: 20,
