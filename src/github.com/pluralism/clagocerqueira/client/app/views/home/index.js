@@ -445,6 +445,60 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderImprensaItem(title, description) {
+    return (
+      <div className="item text-left">
+        <div className="item-info">
+          <div className="item-info__block">
+            <img className="item-info__img" src={require('../../static/img/orgaos_1.jpg')} />
+            <h2 className="item-info__title font-main">
+              <Link to={'#'} className="item-info__link">
+                {title}
+              </Link>
+            </h2>
+          </div>
+
+          <div className="item-info__bottom">
+            <p className="item-info__b_desc">
+              <span className="item-info__b_desc--big">
+                {description}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+
+  renderImprensa() {
+    return (
+      <section id="imprensa" className="row">
+        <div className="g-pt-80 g-pb-80 text-center">
+          <div className="container-fluid">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20">Imprensa</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
+
+            <div className="imprensa-grid imprensa-theme">
+              {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina')}
+              {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina')}
+              {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina')}
+              {this.renderImprensaItem('Rádios Online', 'Rádios online de Amarante')}
+              {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante')}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
         <main className="container-fluid">
@@ -454,6 +508,7 @@ class HomeIndexView extends React.Component {
           {this.renderOrgaosAutarquicos()}
           {this.renderAssociacoes()}
           {this.renderFestividades()}
+          {this.renderImprensa()}
         </main>
     );
   }
