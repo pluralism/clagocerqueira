@@ -16,6 +16,8 @@ class HomeIndexView extends React.Component {
 
 
       let gridContainer = $('#grid-container');
+      let associacoesList = $('.associacoes-list');
+      let orgaosAutarquicosList = $('.orgaos_autarquicos_list');
 
       gridContainer.cubeportfolio({
         layoutMode: 'grid',
@@ -33,8 +35,31 @@ class HomeIndexView extends React.Component {
       });
 
 
+      // Initialize owl-carousel for the item with ID associacoes-list
+      associacoesList.owlCarousel({
+        loop: true,
+        margin: 0,
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          500: {
+            items: 2
+          },
+          700: {
+            items: 4
+          }
+        },
+        navText: [, ],
+        nav: true,
+        dots: false,
+        navContainerClass: 'owl-buttons'
+      });
+
+
       // Initialize owl-carousel for orgaos_autarquicos_list
-      $('.orgaos_autarquicos_list').owlCarousel({
+      orgaosAutarquicosList.owlCarousel({
         loop: true,
         margin: 20,
         responsive: {
@@ -274,11 +299,12 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderAssociacoesItem(title, description) {
+  renderAssociacoesItem(title, description, altText = undefined) {
     return (
       <div className="item associacoes-list-item">
         <div className="img-wrapper img-wrapper--shadow">
-
+          <img src={require('../../static/img/orgaos_1.jpg')} className="img-responsive"
+            alt={altText === undefined ? "Órgãos 1" : altText} />
         </div>
         <h3>{title}</h3>
         <p>{description}</p>
@@ -305,7 +331,13 @@ class HomeIndexView extends React.Component {
             <div className="row content-wrapper">
               <div className="col-md-12 associacoes-list-wrapper">
                 <div className="associacoes-list">
+                  {this.renderAssociacoesItem('Associações Sociais',
+                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'Associações Sociais')}
 
+                    {this.renderAssociacoesItem('Associações Sociais',
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'Associações Sociais')}
                 </div>
               </div>
             </div>
@@ -323,7 +355,7 @@ class HomeIndexView extends React.Component {
           {this.renderIntro()}
           {this.renderAutoresAmarantinos()}
           {this.renderOrgaosAutarquicos()}
-          {thisa.renderAssociacoes()}
+          {this.renderAssociacoes()}
         </main>
     );
   }
