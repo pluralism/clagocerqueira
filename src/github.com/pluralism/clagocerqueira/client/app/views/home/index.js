@@ -73,8 +73,8 @@ class HomeIndexView extends React.Component {
           <div className="flex-container">
             <div className="start">
               <div className="month_photo">
-                <Link to={require('../../static/img/cover.jpg')} target="_blank" title="Imagem do Mês">
-                  <img src={require('../../static/img/cover.jpg')} width="200" height="150" />
+                <Link to={require('../../static/img/month_photo.jpg')} target="_blank" title="Imagem do Mês">
+                  <img src={require('../../static/img/month_photo.jpg')} width="200" height="150" />
                 </Link>
               </div>
             </div>
