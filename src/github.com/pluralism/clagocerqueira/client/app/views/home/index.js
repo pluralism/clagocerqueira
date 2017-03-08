@@ -524,13 +524,13 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderPersonalidadesItem(personalidadeName, altText = undefined) {
+  renderPersonalidadesItem(personalidadeName, personalidadeImgUrl, altText = undefined) {
     return (
       <div className="cbp-item">
         <div className="cbp-caption">
           <Link to={require('../../static/img/orgaos_1.jpg')}>
             <div className="cbp-caption-defaultWrap">
-              <img src={'https://ciberduvidas.iscte-iul.pt/autores/145/photo'}
+              <img src={personalidadeImgUrl}
                 alt={altText !== undefined ? altText : 'Item de personalidade'} />
             </div>
 
@@ -562,7 +562,12 @@ class HomeIndexView extends React.Component {
 
             <div className="personalidades-wrapper">
               <div id="personalidades-grid">
-
+                {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
+                  'https://ciberduvidas.iscte-iul.pt/autores/145/photo')}
+                {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
+                  'https://s-media-cache-ak0.pinimg.com/736x/e7/65/e2/e765e26c56e1f707b0d83832e871754e.jpg')}
+                {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Amadeo_de_Souza_Cardoso_with_tie_and_looking_right.jpg/1200px-Amadeo_de_Souza_Cardoso_with_tie_and_looking_right.jpg')}
               </div>
             </div>
           </div>
@@ -582,6 +587,7 @@ class HomeIndexView extends React.Component {
           {this.renderAssociacoes()}
           {this.renderFestividades()}
           {this.renderImprensa()}
+          {this.renderPersonalidades()}
         </main>
     );
   }
