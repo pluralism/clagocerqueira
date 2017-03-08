@@ -20,6 +20,30 @@ class HomeIndexView extends React.Component {
       let orgaosAutarquicosList = $('.orgaos_autarquicos_list');
       let festividadesGrid = $('#festividades-grid');
       let imprensaGrid = $('.imprensa-grid');
+      let personalidadesGrid = $('#personalidades-grid');
+
+
+      personalidadesGrid.cubeportfolio({
+        layoutMode: 'grid',
+        mediaQueries: [{
+          width: 1100,
+          cols: 3
+        }, {
+          width: 800,
+          cols: 2
+        }, {
+          width: 500,
+          cols: 1
+        }],
+        defaultFilter: '*',
+        animationType: 'rotateSides',
+        gapHorizontal: 0,
+        gapVertical: 0,
+        gridAdjustment: 'responsive',
+        caption: 'fadeIn',
+        displayType: 'sequentially',
+        displayTypeSpeed: 100
+      });
 
 
       gridContainer.cubeportfolio({
@@ -528,7 +552,7 @@ class HomeIndexView extends React.Component {
     return (
       <div className="cbp-item">
         <div className="cbp-caption">
-          <Link to={require('../../static/img/orgaos_1.jpg')}>
+          <Link to={require('../../static/img/orgaos_1.jpg')} target="_blank">
             <div className="cbp-caption-defaultWrap">
               <img src={personalidadeImgUrl}
                 alt={altText !== undefined ? altText : 'Item de personalidade'} />
@@ -569,6 +593,11 @@ class HomeIndexView extends React.Component {
                 {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Amadeo_de_Souza_Cardoso_with_tie_and_looking_right.jpg/1200px-Amadeo_de_Souza_Cardoso_with_tie_and_looking_right.jpg')}
               </div>
+            </div>
+
+
+            <div className="view_all_personalidades">
+              <button type="button" className="btn-u btn-u-lg btn-u-upper">Ver Todos</button>
             </div>
           </div>
         </div>
