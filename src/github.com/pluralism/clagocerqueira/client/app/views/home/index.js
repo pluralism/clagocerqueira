@@ -524,6 +524,54 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderPersonalidadesItem(personalidadeName, altText = undefined) {
+    return (
+      <div className="cbp-item">
+        <div className="cbp-caption">
+          <Link to={require('../../static/img/orgaos_1.jpg')}>
+            <div className="cbp-caption-defaultWrap">
+              <img src={'https://ciberduvidas.iscte-iul.pt/autores/145/photo'}
+                alt={altText !== undefined ? altText : 'Item de personalidade'} />
+            </div>
+
+            <div className="popup-title font-main">
+              <h3>
+                <em>{personalidadeName}</em>
+              </h3>
+            </div>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+
+  renderPersonalidades() {
+    return (
+      <section id="personalidades" className="row">
+        <div className="g-pt-80 g-pb-80 text-center">
+          <div className="container-fluid">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20">Personalidades</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
+
+            <div className="personalidades-wrapper">
+              <div id="personalidades-grid">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
         <main className="container-fluid">
