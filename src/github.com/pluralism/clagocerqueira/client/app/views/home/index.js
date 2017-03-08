@@ -606,6 +606,92 @@ class HomeIndexView extends React.Component {
   }
 
 
+
+  renderContacto() {
+    return (
+      <section id="contacto" className="row">
+        <div className="g-pt-80 g-pb-80">
+          <div className="container-fluid">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20">Contacto</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
+
+            <div className="form-wrapper">
+              <div className="row">
+                <div className="col-md-9 col-sm-6 form no-side-padding">
+                  <form className="sky-form contact-style">
+                    <fieldset>
+                      <div className="row margin-bottom-30">
+                        <div className="col-md-6">
+                          <input type="text" name="name" id="name" className="form-control" placeholder="Nome" />
+                        </div>
+
+                        <div className="col-md-6">
+                          <input type="text" name="phone" id="phone" className="form-control" placeholder="Telemóvel" />
+                        </div>
+                      </div>
+
+
+                      <div className="row margin-bottom-30">
+                        <div className="col-md-6">
+                          <input type="email" name="email" id="email" className="form-control" placeholder="Email *" />
+                        </div>
+
+                        <div className="col-md-6">
+                          <input type="text" name="subject" id="subject" className="form-control" placeholder="Assunto" />
+                        </div>
+                      </div>
+
+
+                      <div className="row margin-bottom-30">
+                        <div className="col-md-12">
+                          <textarea rows="4" name="message" id="message" className="form-control g-textarea-noresize" placeholder="Mensagem&#8230;"></textarea>
+                        </div>
+                      </div>
+
+                      <p>
+                        <button type="submit" className="submit-button btn-u btn-u-lg btn-u-bg-default btn-u-upper">
+                          Enviar Mensagem
+                        </button>
+                      </p>
+                    </fieldset>
+                  </form>
+                </div>
+
+
+                <div className="col-md-3 col-sm-6 contact-list">
+                  <ul className="list-unstyled margin-bottom-30">
+                    <li><span aria-hidden="true" className="icon-directions icon"></span></li>
+                    <li className="first-item">Morada</li>
+                    <li className="second-item">Sit amet adipiscing</li>
+                  </ul>
+
+                  <ul className="list-unstyled margin-bottom-30">
+                    <li><span aria-hidden="true" className="icon-call-in icon"></span></li>
+                    <li className="first-item">Telemóvel</li>
+                    <li className="second-item">+4586 585 4580</li>
+                  </ul>
+
+                  <ul className="list-unstyled margin-bottom-30">
+                    <li><span aria-hidden="true" className="icon-envelope-open icon"></span></li>
+                    <li className="first-item">Email</li>
+                    <li className="second-item">info@clagocerqueira.com</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
   render() {
     return (
         <main className="container-fluid">
@@ -617,6 +703,7 @@ class HomeIndexView extends React.Component {
           {this.renderFestividades()}
           {this.renderImprensa()}
           {this.renderPersonalidades()}
+          {this.renderContacto()}
         </main>
     );
   }
