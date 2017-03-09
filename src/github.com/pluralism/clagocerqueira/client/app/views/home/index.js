@@ -632,14 +632,30 @@ class HomeIndexView extends React.Component {
     const name = target.name;
     const value = target.value;
 
-    // Update the state of the "name" field
+    // Update the object with key "name"
+    const item = this.state[name];
+    item.value = value;
+    item.invalid = this.isInvalidContactFormField(name, value)
+
     this.setState({
-      [name.value]: value
+      [this.state[name]]: item
     });
   }
 
 
-  validateContactField(name, value) {
+  isInvalidContactFormField(name, value) {
+    // For these fields we just check if the fields are not empty
+    if(name == "name" || name == "subject" || name == "message") {
+      return value.length == 0;
+    } else if(name == "phone") {
+      // Check if the phone matches a certain regex
+      const nameRegex = /^\+?(\d{9,})$/;
+      return nameRegex.test(value) != true;
+    } else if(name == "email") {
+      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return emailRegex.test(value) != true;
+    }
+    return true;
   }
 
 
