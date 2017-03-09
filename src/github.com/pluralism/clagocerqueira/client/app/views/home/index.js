@@ -103,7 +103,7 @@ class HomeIndexView extends React.Component {
           500: {
             items: 2
           },
-          700: {
+          1100: {
             items: 4
           }
         },

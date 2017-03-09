@@ -153,10 +153,6 @@ body {
 
         > li {
           float: none;
-
-          > a {
-            padding: 30px 5px 13px;
-          }
         }
       }
     }
@@ -673,7 +669,7 @@ body {
 
 
     .item-info__b_desc {
-        color: #FFF;
+      color: #FFF;
 	    font-size: 12px;
 	    text-transform: uppercase;
 	    visibility: hidden;
@@ -696,7 +692,7 @@ body {
     .item-info {
         &:hover {
             .item-info__bottom {
-                background: rgba(97, 60, 47, 0.8);
+              background: rgba(97, 60, 47, 0.8);
 	            box-shadow: 2px 2px 2px #ebebeb;
             }
 
