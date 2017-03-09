@@ -52,21 +52,6 @@ body {
 }
 
 
-/**
-  * Header code
-*/
-@media(min-width: 992px) {
-    .clc-header.one-page-header.navbar {
-        padding: 10px 0px;
-        transition: all 0.3s ease-in-out 0s, padding 0.3s ease-in-out 0s;
-    }
-
-    .clc-header.one-page-header.top-nav-collapse {
-        padding: 0;
-    }
-}
-
-
 .clc-header.one-page-header {
     background: #fff;
     border-radius: 0;
@@ -142,6 +127,10 @@ body {
 
         font-size: 9px;
     }
+
+    .navbar-header {
+
+    }
 }
 
 @media (max-width: 1045px) {
@@ -173,11 +162,6 @@ body {
 	    height: 1px;
 	    background: #000;
 	 	margin-bottom: 7px;
-	}
-
-	/* Removing margin for the navbar */
-	.clc-header.one-page-header-style-2.navbar .navbar-nav {
-	   	margin: 0;
 	}
 }
 
