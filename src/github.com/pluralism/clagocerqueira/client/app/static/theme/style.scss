@@ -888,6 +888,10 @@ body {
         &:focus {
             box-shadow: none;
         }
+
+        &.invalid {
+          border: 1px solid #F00;
+        }
     }
 
 
