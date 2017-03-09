@@ -204,7 +204,8 @@ class HomeIndexView extends React.Component {
           <div className="flex-container">
             <div className="start">
               <div className="month_photo">
-                <Link to={require('../../static/img/month_photo.jpg')} target="_blank" title="Imagem do Mês">
+                <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
+                  title="Imagem do Mês">
                   <img src={require('../../static/img/month_photo.jpg')} width="200" height="150" />
                 </Link>
               </div>
@@ -213,7 +214,8 @@ class HomeIndexView extends React.Component {
             <div className="center">
               <div className="title">
                 <div className="col-md-12 col-sm-12 col-xs-12 promo-section__promo-info text-center">
-                  <input id="search_anything" type="text" name="search" placeholder="Pesquise qualquer coisa&#8230;" autoFocus />
+                  <input id="search_anything" type="text" name="search"
+                    placeholder="Pesquise qualquer coisa&#8230;" autoFocus />
                 </div>
               </div>
             </div>
@@ -239,7 +241,8 @@ class HomeIndexView extends React.Component {
       <nav className="clc-header one-page-header navbar navbar-default navbar-fixed-top navbar-toggleable-sm" data-role="navigation">
         <div className="navbar-header">
           <div className="menu-container page-scroll">
-            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".clc-collapse">
+            <button type="button" className="navbar-toggle" data-toggle="collapse"
+              data-target=".clc-collapse">
               <span className="sr-only">Toggle Navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
@@ -299,7 +302,8 @@ class HomeIndexView extends React.Component {
   renderAutoresAmarantinosItem(year, sec) {
     return (
       <div className="cbp-item">
-        <a href="http://scriptpie.com/cubeportfolio/live-preview/img/480x250/13.jpg" className="cbp-caption">
+        <a href="http://scriptpie.com/cubeportfolio/live-preview/img/480x250/13.jpg"
+          className="cbp-caption">
           <div className="cbp-caption-defaultWrap">
             <img src="http://scriptpie.com/cubeportfolio/live-preview/img/480x250/13.jpg" />
           </div>
@@ -649,17 +653,19 @@ class HomeIndexView extends React.Component {
   handleContactFormSubmit(event) {
     event.preventDefault();
     let foundInvalidField = false;
-    const [lastElement] = Object.keys(this.state.contactFormFields).slice(-1);  
+    let contactFormFieldsKeys = Object.keys(this.state.contactFormFields);
+    // Extract last element from the contactFormFields object
+    const [lastElement] = contactFormFieldsKeys.slice(-1);
 
     /**
      * Validate the form fields
      *
      * Iterate over each one and check whether it is valid or not
     */
-    Object.keys(this.state.contactFormFields).forEach((field) => {
+    contactFormFieldsKeys.forEach((field) => {
       const item = this.state.contactFormFields[field];
       item.invalid = this.isInvalidContactFormField(field,
-        this.state.contactFormFields[field].value);
+        item.value);
 
       this.setState({
         [this.state.contactFormFields[field]]: item
