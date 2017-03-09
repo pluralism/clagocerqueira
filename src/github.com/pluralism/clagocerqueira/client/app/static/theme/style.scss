@@ -113,13 +113,6 @@ body {
 
 /* Responsive mode */
 @media (max-width: 1220px) {
-    /*.clc-header.one-page-header .navbar-nav > li > a,
-    .clc-header.one-page-header .navbar-nav > li > a:focus {
-        padding: 30px 5px 13px;
-
-        font-size: 9px;
-    }*/
-
     .clc-header.one-page-header {
       .navbar-header {
         float: none;
@@ -567,6 +560,7 @@ body {
         p {
             margin: 0 45px 35px;
             color: #FFF;
+            font-size: 16px;
         }
 
         .btn-u-lg {
@@ -1272,4 +1266,11 @@ body {
             font-size: 20px;
         }
     }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .heading-v12__block-name {
+    font-size: 40px !important;
+  }
 }
