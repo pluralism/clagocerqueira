@@ -6,6 +6,14 @@ import { Link }                             from 'react-router';
 class HomeIndexView extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      name: "",
+      phone: "",
+      email: "",
+      subject: "",
+      message: ""
+    };
   }
 
 
@@ -603,6 +611,18 @@ class HomeIndexView extends React.Component {
   }
 
 
+  handleContactoInputChange(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    // Update the state of the "name" field
+    this.setState({
+      [name]: value
+    });
+  }
+
+
 
   renderContacto() {
     return (
@@ -625,29 +645,34 @@ class HomeIndexView extends React.Component {
                     <fieldset>
                       <div className="row margin-bottom-30">
                         <div className="col-md-6">
-                          <input type="text" name="name" id="name" className="form-control" placeholder="Nome" />
+                          <input type="text" name="name" id="name" className="form-control" placeholder="Nome"
+                            onChange={::this.handleContactoInputChange} />
                         </div>
 
                         <div className="col-md-6">
-                          <input type="text" name="phone" id="phone" className="form-control" placeholder="Telemóvel" />
+                          <input type="text" name="phone" id="phone" className="form-control" placeholder="Telemóvel"
+                            onChange={::this.handleContactoInputChange} />
                         </div>
                       </div>
 
 
                       <div className="row margin-bottom-30">
                         <div className="col-md-6">
-                          <input type="email" name="email" id="email" className="form-control" placeholder="Email *" />
+                          <input type="email" name="email" id="email" className="form-control" placeholder="Email *"
+                            onChange={::this.handleContactoInputChange} />
                         </div>
 
                         <div className="col-md-6">
-                          <input type="text" name="subject" id="subject" className="form-control" placeholder="Assunto" />
+                          <input type="text" name="subject" id="subject" className="form-control" placeholder="Assunto"
+                            onChange={::this.handleContactoInputChange} />
                         </div>
                       </div>
 
 
                       <div className="row margin-bottom-30">
                         <div className="col-md-12">
-                          <textarea rows="4" name="message" id="message" className="form-control g-textarea-noresize" placeholder="Mensagem&#8230;"></textarea>
+                          <textarea rows="4" name="message" id="message" className="form-control g-textarea-noresize" placeholder="Mensagem&#8230;"
+                            onChange={::this.handleContactoInputChange}></textarea>
                         </div>
                       </div>
 
@@ -705,6 +730,7 @@ class HomeIndexView extends React.Component {
       </section>
     );
   }
+
 
 
   render() {

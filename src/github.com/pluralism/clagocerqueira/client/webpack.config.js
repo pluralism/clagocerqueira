@@ -57,8 +57,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          cacheDirectory: true,
-          presets: ['env', 'react']
+          cacheDirectory: false,
+          presets: ['env',
+          'react',
+          'stage-0']
         }
       },
       {
