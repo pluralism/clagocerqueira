@@ -30,6 +30,15 @@ class HomeIndexView extends React.Component {
         invalid: false
       }
     };
+
+
+    this.contactFormFields = [
+      "name",
+      "phone",
+      "email",
+      "subject",
+      "message"
+    ];
   }
 
 
@@ -627,6 +636,7 @@ class HomeIndexView extends React.Component {
   }
 
 
+
   handleContactInputChange(event) {
     const target = event.target;
     const name = target.name;
@@ -639,6 +649,38 @@ class HomeIndexView extends React.Component {
 
     this.setState({
       [this.state[name]]: item
+    });
+  }
+
+
+  handleContactFormSubmit(event) {
+    event.preventDefault();
+    let foundInvalidField = false;
+    const [lastElement] = this.contactFormFields.slice(-1);
+
+    /**
+     * Validate the form fields
+     *
+     * Iterate over each one and check whether it is valid or not
+    */
+    this.contactFormFields.forEach((field) => {
+      const item = this.state[field];
+      item.invalid = this.isInvalidContactFormField(field, this.state[field].value);
+
+      this.setState({
+        [this.state[field]]: item
+      }, () => {
+        if(this.state[field].invalid)
+          foundInvalidField = true;
+
+        /**
+         * We just analyzed the last element and we didn't find any invalid element,
+         * which means we can now submit the form
+        */
+        if(field === lastElement && !foundInvalidField) {
+          console.log("Submit the form...");
+        }
+      });
     });
   }
 
@@ -677,7 +719,7 @@ class HomeIndexView extends React.Component {
             <div className="form-wrapper">
               <div className="row">
                 <div className="col-md-9 col-sm-6 form no-side-padding">
-                  <form className="sky-form contact-style">
+                  <form className="sky-form contact-style" onSubmit={::this.handleContactFormSubmit}>
                     <fieldset>
                       <div className="row margin-bottom-30">
                         <div className="col-md-6">
