@@ -9,36 +9,29 @@ class HomeIndexView extends React.Component {
     super(props);
 
     this.state = {
-      name: {
-        value: "",
-        invalid: false
-      },
-      phone: {
-        value: "",
-        invalid: false
-      },
-      email: {
-        value: "",
-        invalid: false
-      },
-      subject: {
-        value: "",
-        invalid: false
-      },
-      message: {
-        value: "",
-        invalid: false
+      contactFormFields: {
+        name: {
+          value: "",
+          invalid: false
+        },
+        phone: {
+          value: "",
+          invalid: false
+        },
+        email: {
+          value: "",
+          invalid: false
+        },
+        subject: {
+          value: "",
+          invalid: false
+        },
+        message: {
+          value: "",
+          invalid: false
+        }
       }
     };
-
-
-    this.contactFormFields = [
-      "name",
-      "phone",
-      "email",
-      "subject",
-      "message"
-    ];
   }
 
 
@@ -643,12 +636,12 @@ class HomeIndexView extends React.Component {
     const value = target.value;
 
     // Update the object with key "name"
-    const item = this.state[name];
+    const item = this.state.contactFormFields[name];
     item.value = value;
     item.invalid = this.isInvalidContactFormField(name, value)
 
     this.setState({
-      [this.state[name]]: item
+      [this.state.contactFormFields[name]]: item
     });
   }
 
@@ -656,28 +649,29 @@ class HomeIndexView extends React.Component {
   handleContactFormSubmit(event) {
     event.preventDefault();
     let foundInvalidField = false;
-    const [lastElement] = this.contactFormFields.slice(-1);
+    const [lastElement] = Object.keys(this.state.contactFormFields).slice(-1);  
 
     /**
      * Validate the form fields
      *
      * Iterate over each one and check whether it is valid or not
     */
-    this.contactFormFields.forEach((field) => {
-      const item = this.state[field];
-      item.invalid = this.isInvalidContactFormField(field, this.state[field].value);
+    Object.keys(this.state.contactFormFields).forEach((field) => {
+      const item = this.state.contactFormFields[field];
+      item.invalid = this.isInvalidContactFormField(field,
+        this.state.contactFormFields[field].value);
 
       this.setState({
-        [this.state[field]]: item
+        [this.state.contactFormFields[field]]: item
       }, () => {
-        if(this.state[field].invalid)
+        if(this.state.contactFormFields[field].invalid)
           foundInvalidField = true;
 
         /**
          * We just analyzed the last element and we didn't find any invalid element,
          * which means we can now submit the form
         */
-        if(field === lastElement && !foundInvalidField) {
+        if(field == lastElement && !foundInvalidField) {
           console.log("Submit the form...");
         }
       });
@@ -726,7 +720,7 @@ class HomeIndexView extends React.Component {
                           <input type="text" name="name" id="name"
                             className={classNames({
                               "form-control": true,
-                              "invalid": this.state.name.invalid
+                              "invalid": this.state.contactFormFields.name.invalid
                             })}
                             placeholder="Nome"
                             onChange={::this.handleContactInputChange} />
@@ -736,7 +730,7 @@ class HomeIndexView extends React.Component {
                           <input type="text" name="phone" id="phone"
                             className={classNames({
                               "form-control": true,
-                              "invalid": this.state.phone.invalid
+                              "invalid": this.state.contactFormFields.phone.invalid
                             })}
                             placeholder="Telemóvel"
                             onChange={::this.handleContactInputChange} />
@@ -749,7 +743,7 @@ class HomeIndexView extends React.Component {
                           <input type="email" name="email" id="email"
                             className={classNames({
                               "form-control": true,
-                              "invalid": this.state.email.invalid
+                              "invalid": this.state.contactFormFields.email.invalid
                             })}
                             placeholder="Email *"
                             onChange={::this.handleContactInputChange} />
@@ -759,7 +753,7 @@ class HomeIndexView extends React.Component {
                           <input type="text" name="subject" id="subject"
                             className={classNames({
                               "form-control": true,
-                              "invalid": this.state.subject.invalid
+                              "invalid": this.state.contactFormFields.subject.invalid
                             })}
                             placeholder="Assunto"
                             onChange={::this.handleContactInputChange} />
@@ -773,7 +767,7 @@ class HomeIndexView extends React.Component {
                             className={classNames({
                               "form-control": true,
                               "g-textarea-noresize": true,
-                              "invalid": this.state.message.invalid
+                              "invalid": this.state.contactFormFields.message.invalid
                             })}
                             placeholder="Mensagem&#8230;"
                             onChange={::this.handleContactInputChange}></textarea>
