@@ -258,7 +258,7 @@ class HomeIndexView extends React.Component {
                 </li>
 
                 <li className="page-scroll">
-                  <a href="#patrimonio_edificado">Património Edificado</a>
+                  <a href="#contacto">Contacto</a>
                 </li>
 
                 <li className="page-scroll">
@@ -668,13 +668,13 @@ class HomeIndexView extends React.Component {
                   <ul className="list-unstyled margin-bottom-30">
                     <li><span aria-hidden="true" className="icon-directions icon"></span></li>
                     <li className="first-item">Morada</li>
-                    <li className="second-item">Sit amet adipiscing</li>
+                    <li className="second-item">Apartado 35, Amarante</li>
                   </ul>
 
                   <ul className="list-unstyled margin-bottom-30">
                     <li><span aria-hidden="true" className="icon-call-in icon"></span></li>
                     <li className="first-item">Telemóvel</li>
-                    <li className="second-item">+4586 585 4580</li>
+                    <li className="second-item">+351 918 601 719</li>
                   </ul>
 
                   <ul className="list-unstyled margin-bottom-30">
