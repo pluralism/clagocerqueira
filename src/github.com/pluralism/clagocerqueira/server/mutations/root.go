@@ -32,9 +32,9 @@ var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 			Resolve: func(params graphql.ResolveParams) (interface{}, error) {
 				name, _ := params.Args["name"].(string)
 				phone, _ := params.Args["phone"].(string)
-				email := params.Args["email"].(string)
-				subject := params.Args["subject"].(string)
-				content := params.Args["content"].(string)
+				email, _ := params.Args["email"].(string)
+				subject, _ := params.Args["subject"].(string)
+				content, _ := params.Args["content"].(string)
 
 				newMessage := models.Message{
 					Name:    name,

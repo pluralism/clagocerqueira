@@ -26,5 +26,8 @@ var MessageType = graphql.NewObject(graphql.ObjectConfig{
 		"content": &graphql.Field{
 			Type: graphql.String,
 		},
+		"created_at": &graphql.Field{
+			Type: graphql.String,
+		},
 	},
 })

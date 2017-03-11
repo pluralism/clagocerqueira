@@ -1,10 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
+	"log"
 
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/mutations"
+	"github.com/pluralism/clagocerqueira/server/queries"
 	iris "gopkg.in/kataras/iris.v6"
 	"gopkg.in/kataras/iris.v6/adaptors/cors"
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
@@ -52,10 +54,16 @@ func graphqlAPIHandler(context *iris.Context) {
 		context.JSON(iris.StatusBadRequest, res)
 		return
 	}
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(context.Request.Body)
+	result := executeGraphQLQuery(buf.String(), schema)
+	context.JSON(iris.StatusOK, result)
 }
 
 var schema, _ = graphql.NewSchema(graphql.SchemaConfig{
 	Mutation: mutations.RootMutation,
+	Query:    queries.RootQuery,
 })
 
 func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
@@ -65,7 +73,7 @@ func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
 	})
 
 	if len(result.Errors) > 0 {
-		fmt.Printf("wrong result, unexpected errors: %v", result.Errors)
+		log.Fatalf("Failed to execute query. Errors: %v", result.Errors)
 	}
 
 	return result
