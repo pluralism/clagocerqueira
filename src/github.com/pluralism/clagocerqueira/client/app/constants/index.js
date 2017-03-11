@@ -1,0 +1,7 @@
+const Constants = {
+  MESSAGE_SENDING: 'MESSAGE_SENDING',
+  MESSAGE_SENT: 'MESSAGE_SENT',
+  MESSAGE_SENT_ERRORS: 'MESSAGE_SENT_ERRORS'
+};
+
+export default Constants;
