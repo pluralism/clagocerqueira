@@ -678,10 +678,21 @@ class HomeIndexView extends React.Component {
          * which means we can now submit the form
         */
         if(field == lastElement && !foundInvalidField) {
-          console.log("Submit the form...");
+          this.submitContactForm();
         }
       });
     });
+  }
+
+
+  submitContactForm() {
+    const contactFormData = {
+      name: this.state.contactFormFields.name,
+      email: this.state.contactFormFields.email,
+      phone: this.state.contactFormFields.phone,
+      subject: this.state.contactFormFields.subject,
+      content: this.state.contactFormFields.message
+    };
   }
 
 
