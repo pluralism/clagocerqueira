@@ -1,9 +1,6 @@
 package main
 
 import (
-	"strings"
-
-	"github.com/pluralism/clagocerqueira/server/models"
 	iris "gopkg.in/kataras/iris.v6"
 	"gopkg.in/kataras/iris.v6/adaptors/cors"
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
@@ -41,8 +38,9 @@ func homePageHandler(context *iris.Context) {
 }
 
 func graphqlAPIHandler(context *iris.Context) {
-	var message models.Message
-	if err := context.ReadJSON(&message); err != nil {
+	contentType := context.RequestHeader("Content-Type")
+
+	if contentType != "application/graphql" {
 		// Maps are reference types, so if we don't use make the value is nil
 		res := make(map[string]interface{})
 		res["error"] = "Bad Request"
@@ -50,13 +48,4 @@ func graphqlAPIHandler(context *iris.Context) {
 		context.JSON(iris.StatusBadRequest, res)
 		return
 	}
-
-	// Returns a slice of s with all leading and trailing white space removed
-	message.Name = strings.TrimSpace(message.Name)
-	message.Phone = strings.TrimSpace(message.Phone)
-	message.Email = strings.TrimSpace(message.Email)
-	message.Content = strings.TrimSpace(message.Content)
-	message.Subject = strings.TrimSpace(message.Subject)
-
-	context.Writef("Subject: %s\nContent: %s\n", message.Subject, message.Content)
 }
