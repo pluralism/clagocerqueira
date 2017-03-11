@@ -42,9 +42,19 @@ func homePageHandler(context *iris.Context) {
 
 func graphqlAPIHandler(context *iris.Context) {
 	var message models.Message
-	context.ReadJSON(&message)
+	if err := context.ReadJSON(&message); err != nil {
+		// Maps are reference types, so if we don't use make the value is nil
+		res := make(map[string]interface{})
+		res["error"] = "Bad Request"
+
+		context.JSON(iris.StatusBadRequest, res)
+		return
+	}
 
 	// Returns a slice of s with all leading and trailing white space removed
+	message.Name = strings.TrimSpace(message.Name)
+	message.Phone = strings.TrimSpace(message.Phone)
+	message.Email = strings.TrimSpace(message.Email)
 	message.Content = strings.TrimSpace(message.Content)
 	message.Subject = strings.TrimSpace(message.Subject)
 
