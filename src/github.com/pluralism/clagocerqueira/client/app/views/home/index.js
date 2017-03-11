@@ -689,6 +689,7 @@ class HomeIndexView extends React.Component {
   submitContactForm() {
     const { dispatch } = this.props;
 
+
     const contactFormData = {
       name: this.state.contactFormFields.name,
       email: this.state.contactFormFields.email,

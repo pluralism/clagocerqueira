@@ -11,19 +11,19 @@ struct and the field type matches the field type in the struct
 var MessageType = graphql.NewObject(graphql.ObjectConfig{
 	Name: "Message",
 	Fields: graphql.Fields{
-		"Name": &graphql.Field{
+		"name": &graphql.Field{
 			Type: graphql.String,
 		},
-		"Email": &graphql.Field{
+		"email": &graphql.Field{
 			Type: graphql.String,
 		},
-		"Phone": &graphql.Field{
+		"phone": &graphql.Field{
 			Type: graphql.String,
 		},
-		"Subject": &graphql.Field{
+		"subject": &graphql.Field{
 			Type: graphql.String,
 		},
-		"Content": &graphql.Field{
+		"content": &graphql.Field{
 			Type: graphql.String,
 		},
 	},
