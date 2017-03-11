@@ -2,6 +2,7 @@ import React                                from 'react';
 import { connect }                          from 'react-redux';
 import { Link }                             from 'react-router';
 import classNames                           from 'classnames';
+import ContactMessageActions                from '../../actions/contactMessage';
 
 
 class HomeIndexView extends React.Component {
@@ -686,6 +687,8 @@ class HomeIndexView extends React.Component {
 
 
   submitContactForm() {
+    const { dispatch } = this.props;
+
     const contactFormData = {
       name: this.state.contactFormFields.name,
       email: this.state.contactFormFields.email,
@@ -693,6 +696,9 @@ class HomeIndexView extends React.Component {
       subject: this.state.contactFormFields.subject,
       content: this.state.contactFormFields.message
     };
+
+    // Dispatch the action
+    dispatch(ContactMessageActions.sendMessage(contactFormData));
   }
 
 

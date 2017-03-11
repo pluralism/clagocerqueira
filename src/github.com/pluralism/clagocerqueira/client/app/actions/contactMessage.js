@@ -1,16 +1,20 @@
 import Constants from '../constants/index';
 
 
-const Actions = {};
+const ContactMessageActions = {};
 
 
-Actions.sendMessage = (data) => {
+ContactMessageActions.sendMessage = (data) => {
   return dispatch => {
     dispatch({
       type: Constants.MESSAGE_SENDING
+    });
+
+    dispatch({
+      type: Constants.MESSAGE_SENT
     });
   }
 };
 
 
-export default Actions;
+export default ContactMessageActions;
