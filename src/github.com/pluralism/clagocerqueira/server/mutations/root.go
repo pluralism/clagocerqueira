@@ -2,6 +2,7 @@ package mutations
 
 import (
 	"github.com/graphql-go/graphql"
+	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/types"
 )
 
@@ -15,6 +16,35 @@ var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 				"name": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
+				"phone": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
+				"email": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
+				"content": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
+				"subject": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
+			},
+			Resolve: func(params graphql.ResolveParams) (interface{}, error) {
+				name, _ := params.Args["name"].(string)
+				phone, _ := params.Args["phone"].(string)
+				email := params.Args["email"].(string)
+				subject := params.Args["subject"].(string)
+				content := params.Args["content"].(string)
+
+				newMessage := models.Message{
+					Name:    name,
+					Phone:   phone,
+					Email:   email,
+					Subject: subject,
+					Content: content,
+				}
+
+				return newMessage, nil
 			},
 		},
 	},

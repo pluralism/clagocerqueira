@@ -1,6 +1,10 @@
 package main
 
 import (
+	"fmt"
+
+	"github.com/graphql-go/graphql"
+	"github.com/pluralism/clagocerqueira/server/mutations"
 	iris "gopkg.in/kataras/iris.v6"
 	"gopkg.in/kataras/iris.v6/adaptors/cors"
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
@@ -48,4 +52,21 @@ func graphqlAPIHandler(context *iris.Context) {
 		context.JSON(iris.StatusBadRequest, res)
 		return
 	}
+}
+
+var schema, _ = graphql.NewSchema(graphql.SchemaConfig{
+	Mutation: mutations.RootMutation,
+})
+
+func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
+	result := graphql.Do(graphql.Params{
+		Schema:        schema,
+		RequestString: query,
+	})
+
+	if len(result.Errors) > 0 {
+		fmt.Printf("wrong result, unexpected errors: %v", result.Errors)
+	}
+
+	return result
 }
