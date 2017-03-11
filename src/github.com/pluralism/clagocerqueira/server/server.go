@@ -72,8 +72,9 @@ func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
 		RequestString: query,
 	})
 
+	// Show errors to the user if something goes wrong
 	if len(result.Errors) > 0 {
-		log.Fatalf("Failed to execute query. Errors: %v", result.Errors)
+		log.Printf("Failed to execute query. Errors: %v", result.Errors)
 	}
 
 	return result

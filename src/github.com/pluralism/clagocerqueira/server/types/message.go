@@ -15,7 +15,7 @@ var MessageType = graphql.NewObject(graphql.ObjectConfig{
 			Type: graphql.String,
 		},
 		"email": &graphql.Field{
-			Type: graphql.String,
+			Type: Email,
 		},
 		"phone": &graphql.Field{
 			Type: graphql.String,
