@@ -1,6 +1,8 @@
 package mutations
 
 import (
+	"time"
+
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/types"
@@ -35,13 +37,15 @@ var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 				email, _ := params.Args["email"].(string)
 				subject, _ := params.Args["subject"].(string)
 				content, _ := params.Args["content"].(string)
+				createdAt := time.Now()
 
 				newMessage := models.Message{
-					Name:    name,
-					Phone:   phone,
-					Email:   email,
-					Subject: subject,
-					Content: content,
+					Name:      name,
+					Phone:     phone,
+					Email:     email,
+					Subject:   subject,
+					Content:   content,
+					CreatedAt: createdAt,
 				}
 
 				return newMessage, nil
