@@ -1,6 +1,9 @@
 package main
 
 import (
+	"strings"
+
+	"github.com/pluralism/clagocerqueira/server/models"
 	iris "gopkg.in/kataras/iris.v6"
 	"gopkg.in/kataras/iris.v6/adaptors/cors"
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
@@ -23,7 +26,10 @@ func main() {
 	// Serve static files from "../client/app/static" to the GET route http://IP:Port/public
 	app.StaticServe("../client/app/static", "/public")
 
+	// Homepage of the application
 	app.Get("/", homePageHandler)
+
+	app.Post("/graphql", graphqlAPIHandler)
 
 	// Start the server on port 8080
 	app.Listen(":8080")
@@ -32,4 +38,15 @@ func main() {
 func homePageHandler(context *iris.Context) {
 	// Enable gzip for better compression
 	context.Render("index.html", iris.RenderOptions{"gzip": true})
+}
+
+func graphqlAPIHandler(context *iris.Context) {
+	var message models.Message
+	context.ReadJSON(&message)
+
+	// Returns a slice of s with all leading and trailing white space removed
+	message.Content = strings.TrimSpace(message.Content)
+	message.Subject = strings.TrimSpace(message.Subject)
+
+	context.Writef("Subject: %s\nContent: %s\n", message.Subject, message.Content)
 }
