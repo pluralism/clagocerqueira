@@ -7,14 +7,27 @@ import (
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/mutations"
 	"github.com/pluralism/clagocerqueira/server/queries"
+	"github.com/pluralism/clagocerqueira/server/refs"
 	iris "gopkg.in/kataras/iris.v6"
 	"gopkg.in/kataras/iris.v6/adaptors/cors"
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
 	"gopkg.in/kataras/iris.v6/adaptors/view"
+	mgo "gopkg.in/mgo.v2"
 )
 
 func main() {
+	var err error
 	app := iris.New()
+	refs.Session, err = mgo.Dial("mongodb://localhost")
+
+	if err != nil {
+		panic(err)
+	}
+
+	// Make sure the session is actually closed
+	defer refs.Session.Close()
+
+	refs.Session.SetMode(mgo.Monotonic, true)
 
 	app.Adapt(
 		// Prints all errors to the os.Stdout

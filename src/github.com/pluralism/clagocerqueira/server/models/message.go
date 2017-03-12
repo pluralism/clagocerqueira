@@ -1,16 +1,21 @@
 package models
 
-import "time"
+import (
+	"time"
+
+	"gopkg.in/mgo.v2/bson"
+)
 
 /*
 Message represents a message that a user is able to send in the
 contact form.
 */
 type Message struct {
-	Name      string    `json:"name"`
-	Email     string    `json:"email"`
-	Phone     string    `json:"phone"`
-	Subject   string    `json:"subject"`
-	Content   string    `json:"content"`
-	CreatedAt time.Time `json:"created_at"`
+	ID        bson.ObjectId `json:"id" bson:"_id"`
+	Name      string        `json:"name" bson:"name"`
+	Email     string        `json:"email" bson:"email"`
+	Phone     string        `json:"phone" bson:"phone"`
+	Subject   string        `json:"subject" bson:"subject"`
+	Content   string        `json:"content" bson:"content"`
+	CreatedAt time.Time     `json:"created_at" bson:"created_at"`
 }
