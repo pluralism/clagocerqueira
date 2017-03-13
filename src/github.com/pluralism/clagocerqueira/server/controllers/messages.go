@@ -26,7 +26,7 @@ func AddMessage(s *mgo.Session, message *models.Message) (*models.Message, error
 	err := c.Insert(message)
 
 	if err != nil {
-		return nil, errors.New("something wrong happened")
+		return nil, errors.New("the message could not be created")
 	}
 
 	return message, nil

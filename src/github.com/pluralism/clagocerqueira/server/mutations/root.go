@@ -45,7 +45,11 @@ var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 					Subject: subject,
 					Content: content,
 				}
-				newMessage, _ = controllers.AddMessage(refs.Session, newMessage)
+				newMessage, err := controllers.AddMessage(refs.Session, newMessage)
+
+				if err != nil {
+					return nil, err
+				}
 
 				return newMessage, nil
 			},

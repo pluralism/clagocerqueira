@@ -59,6 +59,7 @@ func homePageHandler(context *iris.Context) {
 func graphqlAPIHandler(context *iris.Context) {
 	contentType := context.RequestHeader("Content-Type")
 
+	// The content-type header must "application/graphql"
 	if contentType != "application/graphql" {
 		// Maps are reference types, so if we don't use make the value is nil
 		res := make(map[string]interface{})
