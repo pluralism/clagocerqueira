@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"errors"
-	"fmt"
 	"sync"
 
 	"github.com/pluralism/clagocerqueira/server/models"
@@ -13,7 +12,6 @@ import (
 )
 
 func AddMessage(s *mgo.Session, message *models.Message, wg *sync.WaitGroup) {
-	fmt.Println("a enviar nova mensagem")
 	session := s.Copy()
 	defer session.Close()
 
