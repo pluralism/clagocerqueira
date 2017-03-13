@@ -5,11 +5,13 @@ import (
 	"html/template"
 	"net/smtp"
 	"os"
+	"sync"
 
 	"github.com/pluralism/clagocerqueira/server/models"
+	"github.com/pluralism/clagocerqueira/server/refs"
 )
 
-func SendContactEmail(message *models.Message) error {
+func SendContactEmail(message *models.Message, wg *sync.WaitGroup) {
 	const emailTemplate = `
   Mensagem recebida de: {{.Name}}({{.Email}})
   Número de telemóvel: {{.Phone}}
@@ -24,13 +26,13 @@ func SendContactEmail(message *models.Message) error {
 	template, err := template.Parse(emailTemplate)
 
 	if err != nil {
-		return err
+		sendEmailResult(wg, err)
 	}
 
 	err = template.Execute(&buffer, message)
 
 	if err != nil {
-		return err
+		sendEmailResult(wg, err)
 	}
 
 	// Send the email
@@ -41,9 +43,15 @@ func SendContactEmail(message *models.Message) error {
 		buffer.Bytes())
 
 	if err != nil {
-		return err
+		sendEmailResult(wg, err)
 	}
 
 	// No errors returned, return success
-	return nil
+	sendEmailResult(wg, nil)
+	return
+}
+
+func sendEmailResult(wg *sync.WaitGroup, err error) {
+	wg.Done()
+	refs.MessagesChannel <- nil
 }

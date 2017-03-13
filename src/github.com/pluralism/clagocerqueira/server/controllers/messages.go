@@ -2,13 +2,18 @@ package controllers
 
 import (
 	"errors"
+	"fmt"
+	"sync"
 
 	"github.com/pluralism/clagocerqueira/server/models"
+	"github.com/pluralism/clagocerqueira/server/refs"
+	"github.com/pluralism/clagocerqueira/server/types"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
-func AddMessage(s *mgo.Session, message *models.Message) (*models.Message, error) {
+func AddMessage(s *mgo.Session, message *models.Message, wg *sync.WaitGroup) {
+	fmt.Println("a enviar nova mensagem")
 	session := s.Copy()
 	defer session.Close()
 
@@ -18,7 +23,7 @@ func AddMessage(s *mgo.Session, message *models.Message) (*models.Message, error
 	message.ID = bson.NewObjectId()
 
 	if !message.ID.Valid() {
-		return nil, errors.New("the ID is not valid")
+		sendAddMessageRes(errors.New("the ID is invalid"), message, wg)
 	}
 
 	// Update the CreatedAt field according to the ID of the document
@@ -26,8 +31,18 @@ func AddMessage(s *mgo.Session, message *models.Message) (*models.Message, error
 	err := c.Insert(message)
 
 	if err != nil {
-		return nil, errors.New("the message could not be created")
+		sendAddMessageRes(errors.New("the message could not be created"), message, wg)
+	} else {
+		sendAddMessageRes(nil, message, wg)
 	}
+	return
+}
 
-	return message, nil
+func sendAddMessageRes(err error, message *models.Message, wg *sync.WaitGroup) {
+	res := types.CreateMessageResult{
+		Error:   err,
+		Message: message,
+	}
+	wg.Done()
+	refs.CreateMessageChannel <- res
 }

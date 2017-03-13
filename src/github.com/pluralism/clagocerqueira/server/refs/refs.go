@@ -1,5 +1,10 @@
 package refs
 
-import mgo "gopkg.in/mgo.v2"
+import (
+	"github.com/pluralism/clagocerqueira/server/types"
+	mgo "gopkg.in/mgo.v2"
+)
 
 var Session *mgo.Session
+var MessagesChannel = make(chan error)
+var CreateMessageChannel = make(chan types.CreateMessageResult)
