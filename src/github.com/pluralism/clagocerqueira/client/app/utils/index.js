@@ -1,3 +1,6 @@
+import fetch from 'isomorphic-fetch';
+
+
 const defaultHeaders = {
   /**
    * Content-Type header: Indicates the media type of the entity-body
