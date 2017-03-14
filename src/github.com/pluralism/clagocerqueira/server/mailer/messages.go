@@ -44,10 +44,10 @@ func SendContactEmail(message *models.Message, wg *sync.WaitGroup) {
 
 	if err != nil {
 		sendEmailResult(wg, err)
+	} else {
+		// No errors returned, return success
+		sendEmailResult(wg, nil)
 	}
-
-	// No errors returned, return success
-	sendEmailResult(wg, nil)
 	return
 }
 
