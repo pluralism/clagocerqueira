@@ -11,13 +11,13 @@ const initialState = {
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case Constants.MESSAGE_SENDING:
-      return { ...state, sending: true, sent: false };
+      return { ...state, sending: true, sent: false, sentWithSuccess: false };
 
     case Constants.MESSAGE_SENT:
       return { ...state, sending: false, sent: true, sentWithSuccess: true };
 
     case Constants.MESSAGE_SENT_ERRORS:
-      return { ...state, sending: false, sent: false, sentWithSuccess: false };
+      return { ...state, sending: false, sent: true, sentWithSuccess: false };
 
     default:
       return state;

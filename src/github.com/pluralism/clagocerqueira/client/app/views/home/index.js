@@ -33,10 +33,18 @@ class HomeIndexView extends React.Component {
         }
       }
     };
+
+
+    this.showedMessage = false;
   }
 
 
   componentDidMount() {
+    // Configuring the default options for messenger
+    Messenger.options = {
+      theme: 'flat'
+    };
+
     $(function() {
       // Init backstretch with the image we want
       $('.fullscreen-static-image').backstretch(require('../../static/img/cover1.jpg'));
@@ -698,6 +706,8 @@ class HomeIndexView extends React.Component {
       content: this.state.contactFormFields.message.value
     };
 
+    // Reset the showedMessage flag, so new errors can be shown to the user
+    this.showedMessage = false;
     // Dispatch the action
     dispatch(ContactMessageActions.sendMessage(contactFormData));
   }
@@ -854,9 +864,44 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderMessenger() {
+    const { contactMessage } = this.props;
+
+    if(!this.showedMessage) {
+      if(!contactMessage.sentWithSuccess && contactMessage.sent) {
+        let message = "Ocorreu um erro ao enviar a mensagem!";
+
+        // Creates the new Messenger object
+        Messenger().post({
+          type: 'error',
+          message: message,
+          showCloseButton: true
+        });
+
+        this.showedMessage = true;
+      } else if(contactMessage.sentWithSuccess && contactMessage.sent) {
+        let message = "A mensagem foi enviada com sucesso! Obrigado pelo seu contacto!";
+
+        // Creates the new Messenger object here
+        Messenger().post({
+          type: 'success',
+          message: message,
+          showCloseButton: true
+        });
+
+        this.showedMessage = true;
+      }
+    }
+
+    return false;
+  }
+
+
 
   render() {
     return (
+      <div>
+        {this.renderMessenger()}
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderIntro()}
@@ -869,11 +914,14 @@ class HomeIndexView extends React.Component {
           {this.renderContacto()}
           {this.renderFooter()}
         </main>
+      </div>
     );
   }
 }
 
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  contactMessage: state.contactMessage
+});
 
 export default connect(mapStateToProps)(HomeIndexView);

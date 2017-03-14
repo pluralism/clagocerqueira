@@ -23,15 +23,18 @@ module.exports = {
   entry: {
     application: [
       web('static/bootstrap/css/bootstrap.min.css'),
-      web('static/theme/app.css'),
-      web('static/theme/style-one.css'),
       web('static/font-awesome/css/font-awesome.min.css'),
       web('static/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css'),
       web('static/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css'),
       web('static/owl-carousel2/assets/owl.carousel.css'),
       web('static/line-icons/line-icons.css'),
+      web('static/theme/app.css'),
+      web('static/theme/style-one.css'),
       web('static/theme/style.scss'),
       web('static/theme/globals.css'),
+      web('static/messenger/messenger.css'),
+      web('static/messenger/messenger-spinner.css'),
+      web('static/messenger/messenger-theme-flat.css'),
 
 
       web('static/bootstrap/js/bootstrap.min.js'),
@@ -39,6 +42,8 @@ module.exports = {
       web('static/smoothScroll/smoothScroll.js'),
       web('static/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js'),
       web('static/owl-carousel2/owl.carousel.min.js'),
+      web('static/messenger/messenger.min.js'),
+      web('static/messenger/messenger-theme-flat.js'),
       web('application.js')
     ]
   },
