@@ -691,11 +691,11 @@ class HomeIndexView extends React.Component {
 
 
     const contactFormData = {
-      name: this.state.contactFormFields.name,
-      email: this.state.contactFormFields.email,
-      phone: this.state.contactFormFields.phone,
-      subject: this.state.contactFormFields.subject,
-      content: this.state.contactFormFields.message
+      name: this.state.contactFormFields.name.value,
+      email: this.state.contactFormFields.email.value,
+      phone: this.state.contactFormFields.phone.value,
+      subject: this.state.contactFormFields.subject.value,
+      content: this.state.contactFormFields.message.value
     };
 
     // Dispatch the action

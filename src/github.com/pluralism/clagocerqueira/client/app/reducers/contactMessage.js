@@ -17,7 +17,7 @@ export default function reduce(state = initialState, action = {}) {
       return { ...state, sending: false, sent: true, sentWithSuccess: true };
 
     case Constants.MESSAGE_SENT_ERRORS:
-      return { ...state, sending: false, sent: true, sentWithSuccess: false };
+      return { ...state, sending: false, sent: false, sentWithSuccess: false };
 
     default:
       return state;
