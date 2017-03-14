@@ -32,10 +32,16 @@ export function httpPost(url, data) {
   const body = JSON.stringify(data);
 
   return fetch(url, {
-    method: 'POST',
+    method: 'post',
     headers: buildHeaders(),
     body: body
   })
   .then(checkStatus)
   .then(parseJSON);
+}
+
+
+
+export function httpPostGraphQL(data) {
+  httpPost('/graphql', data);
 }
