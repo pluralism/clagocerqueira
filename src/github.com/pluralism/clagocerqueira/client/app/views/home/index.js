@@ -31,11 +31,13 @@ class HomeIndexView extends React.Component {
           value: "",
           invalid: false
         }
-      }
+      },
+      submitButtonDisabled: false
     };
 
 
     this.showedMessage = false;
+    this.isButtonDisabled = true;
   }
 
 
@@ -706,10 +708,15 @@ class HomeIndexView extends React.Component {
       content: this.state.contactFormFields.message.value
     };
 
-    // Reset the showedMessage flag, so new errors can be shown to the user
-    this.showedMessage = false;
-    // Dispatch the action
-    dispatch(ContactMessageActions.sendMessage(contactFormData));
+    // Disabled the send button
+    this.setState({
+      submitButtonDisabled: true
+    }, () => {
+      this.showedMessage = false;
+      this.isButtonDisabled = true;
+      // Dispatch the action
+      dispatch(ContactMessageActions.sendMessage(contactFormData));
+    });
   }
 
 
@@ -809,7 +816,9 @@ class HomeIndexView extends React.Component {
                       </div>
 
                       <p>
-                        <button type="submit" className="submit-button btn-u btn-u-lg btn-u-bg-default btn-u-upper">
+                        <button type="submit"
+                          className="submit-button btn-u btn-u-lg btn-u-bg-default btn-u-upper"
+                          disabled={this.state.submitButtonDisabled}>
                           Enviar Mensagem
                         </button>
                       </p>
@@ -864,36 +873,44 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderMessenger() {
+
+  componentDidUpdate() {
     const { contactMessage } = this.props;
 
-    if(!this.showedMessage) {
-      if(!contactMessage.sentWithSuccess && contactMessage.sent) {
-        let message = "Ocorreu um erro ao enviar a mensagem!";
+    if(!this.showedMessage && this.isButtonDisabled) {
+      if(contactMessage.sent) {
+        let message = "";
+        let type = "";
+
+        if(!contactMessage.sentWithSuccess) {
+          message = "Ocorreu um erro ao enviar a mensagem!";
+          type = "error";
+        }
+        else {
+          message = "A mensagem foi enviada com sucesso! Obrigado pelo seu contacto!";
+          type = "success";
+        }
 
         // Creates the new Messenger object
         Messenger().post({
-          type: 'error',
+          type: type,
           message: message,
           showCloseButton: true
         });
 
         this.showedMessage = true;
-      } else if(contactMessage.sentWithSuccess && contactMessage.sent) {
-        let message = "A mensagem foi enviada com sucesso! Obrigado pelo seu contacto!";
+        /**
+         * By setting isButtonDisabled to false we prevent the app from
+         * entering in an infinite loop
+         */
+        this.isButtonDisabled = false;
 
-        // Creates the new Messenger object here
-        Messenger().post({
-          type: 'success',
-          message: message,
-          showCloseButton: true
+        // Now we can update the state of the app
+        this.setState({
+          submitButtonDisabled: false
         });
-
-        this.showedMessage = true;
       }
     }
-
-    return false;
   }
 
 
@@ -901,7 +918,6 @@ class HomeIndexView extends React.Component {
   render() {
     return (
       <div>
-        {this.renderMessenger()}
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderIntro()}
