@@ -53,5 +53,5 @@ func SendContactEmail(message *models.Message, wg *sync.WaitGroup) {
 
 func sendEmailResult(wg *sync.WaitGroup, err error) {
 	wg.Done()
-	refs.MessagesChannel <- nil
+	refs.MessagesChannel <- err
 }
