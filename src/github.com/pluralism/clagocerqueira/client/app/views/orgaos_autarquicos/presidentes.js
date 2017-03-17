@@ -97,9 +97,14 @@ class PresidentesView extends React.Component {
   }
 
 
-  renderFirstTab() {
+  renderFirstTab(active) {
     return (
-      <div id="first_date" role="tabpanel" className="tab-pane active fade in">
+      <div id="first_tab" role="tabpanel" className={classNames({
+          "tab-pane": true,
+          "active": active,
+          "fade": true,
+          "in": true
+        })}>
         <ul className="listing-list">
           {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
           "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
@@ -127,6 +132,111 @@ class PresidentesView extends React.Component {
   }
 
 
+  renderSecondTab(active) {
+    return (
+      <div id="second_tab" role="tabpanel" className={classNames({
+          "tab-pane": true,
+          "active": active,
+          "fade": true,
+          "in": true
+        })}>
+        <ul className="listing-list">
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+        </ul>
+
+
+        <div className="control-buttons">
+          <div className="prev-button"></div>
+          <div className="next-button"></div>
+        </div>
+      </div>
+    );
+  }
+
+
+  renderThirdTab(active) {
+    return (
+      <div id="third_tab" role="tabpanel" className={classNames({
+          "tab-pane": true,
+          "active": active,
+          "fade": true,
+          "in": true
+        })}>
+        <ul className="listing-list">
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+        </ul>
+
+
+        <div className="control-buttons">
+          <div className="prev-button"></div>
+          <div className="next-button"></div>
+        </div>
+      </div>
+    );
+  }
+
+
+
+  renderFourthTab(active) {
+    return (
+      <div id="fourth_date" role="tabpanel" className={classNames({
+          "tab-pane": true,
+          "active": active,
+          "fade": true,
+          "in": true
+        })}>
+        <ul className="listing-list">
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André YAAAA Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André YAAAA Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André YAAAA Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+        </ul>
+
+
+        <div className="control-buttons">
+          <div className="prev-button"></div>
+          <div className="next-button"></div>
+        </div>
+      </div>
+    );
+  }
+
 
   renderUpperSection() {
     return (
@@ -148,22 +258,25 @@ class PresidentesView extends React.Component {
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
-                <Link to={"#first_date"} role="tab" data-toggle="tab">1836-1910</Link>
+                <Link to={"#first_tab"} role="tab" data-toggle="tab">1836-1910</Link>
               </li>
               <li role="presentation">
-                <Link to={"#second_date"} role="tab" data-toggle="tab">1910-1926</Link>
+                <Link to={"#second_tab"} role="tab" data-toggle="tab">1910-1926</Link>
               </li>
               <li role="presentation">
-                <Link to={"#third_date"} role="tab" data-toggle="tab">1926-1974</Link>
+                <Link to={"#third_tab"} role="tab" data-toggle="tab">1926-1974</Link>
               </li>
               <li role="presentation">
-                <Link to={"#fourth_date"} role="tab" data-toggle="tab">1976-2013</Link>
+                <Link to={"#fourth_tab"} role="tab" data-toggle="tab">1976-2013</Link>
               </li>
             </ul>
 
 
             <div className="tab-content">
-              {this.renderFirstTab()}
+              {this.renderFirstTab(true)}
+              {this.renderSecondTab(false)}
+              {this.renderThirdTab(false)}
+              {this.renderFourthTab(false)}
             </div>
           </div>
         </div>

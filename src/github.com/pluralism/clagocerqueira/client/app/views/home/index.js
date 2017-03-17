@@ -668,6 +668,7 @@ class HomeIndexView extends React.Component {
   }
 
 
+
   handleContactFormSubmit(event) {
     event.preventDefault();
     let foundInvalidField = false;
@@ -703,6 +704,8 @@ class HomeIndexView extends React.Component {
   }
 
 
+
+
   submitContactForm() {
     const { dispatch } = this.props;
 
@@ -721,6 +724,7 @@ class HomeIndexView extends React.Component {
     }, () => {
       this.showedMessage = false;
       this.isButtonDisabled = true;
+
       // Dispatch the action
       dispatch(ContactMessageActions.sendMessage(contactFormData));
     });
