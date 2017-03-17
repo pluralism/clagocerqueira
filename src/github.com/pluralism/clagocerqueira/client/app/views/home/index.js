@@ -369,7 +369,7 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderOrgaosAutarquicosCard(title, description) {
+  renderOrgaosAutarquicosCard(title, description, link) {
     return (
       <div className="orgaos-card">
         <div className="orgaos-card-image">
@@ -386,7 +386,7 @@ class HomeIndexView extends React.Component {
 
         <div className="orgaos-card-footer">
           <div className="view-more">
-            <a href="#">Ver mais</a>
+            <Link to={link} target="_blank">Ver mais</Link>
           </div>
         </div>
       </div>
@@ -408,13 +408,13 @@ class HomeIndexView extends React.Component {
 
             <div className="orgaos_autarquicos_wrapper">
               <div className="orgaos_autarquicos_list">
-                {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante')}
+                {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
               </div>
             </div>
           </div>
