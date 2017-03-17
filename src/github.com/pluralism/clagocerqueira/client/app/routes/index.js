@@ -8,8 +8,8 @@ import PresidentesView from '../views/orgaos_autarquicos/presidentes';
 export default function configRoutes(store) {
   return (
     <Route>
-      <Route component={MainLayout}>
-        <Route path="/" component={HomeIndexView} />
+      <Route path="/" component={MainLayout}>
+        <IndexRoute component={HomeIndexView} />
         <Route path="presidentes" component={PresidentesView} />
       </Route>
     </Route>
