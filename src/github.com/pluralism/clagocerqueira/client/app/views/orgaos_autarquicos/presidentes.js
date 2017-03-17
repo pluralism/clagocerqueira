@@ -97,6 +97,37 @@ class PresidentesView extends React.Component {
   }
 
 
+  renderFirstTab() {
+    return (
+      <div id="first_date" role="tabpanel" className="tab-pane active fade in">
+        <ul className="listing-list">
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+
+          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+        </ul>
+
+
+        <div className="control-buttons">
+          <div className="prev-button"></div>
+          <div className="next-button"></div>
+        </div>
+      </div>
+    );
+  }
+
+
+
   renderUpperSection() {
     return (
       <section id="presidentes_data">
@@ -127,12 +158,7 @@ class PresidentesView extends React.Component {
 
 
             <div className="tab-content">
-              <div id="first_date" role="tabpanel" className="tab-pane active fade in">
-                <ul className="listing-list">
-                  {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-                  "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-                </ul>
-              </div>
+              {this.renderFirstTab()}
             </div>
           </div>
         </div>
