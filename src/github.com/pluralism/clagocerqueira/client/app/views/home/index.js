@@ -35,6 +35,12 @@ class HomeIndexView extends React.Component {
       submitButtonDisabled: false
     };
 
+    // Store a reference for the input fields in the contact form
+    this.nameInput = "";
+    this.phoneInput = "";
+    this.emailInput = "";
+    this.subjectInput = "";
+    this.messageInput = "";
 
     this.showedMessage = false;
     this.isButtonDisabled = true;
@@ -647,7 +653,7 @@ class HomeIndexView extends React.Component {
 
   handleContactInputChange(event) {
     const target = event.target;
-    const name = target.name;
+    const name = target.id;
     const value = target.value;
 
     // Update the object with key "name"
@@ -758,7 +764,7 @@ class HomeIndexView extends React.Component {
                     <fieldset>
                       <div className="row margin-bottom-30">
                         <div className="col-md-6">
-                          <input type="text" name="name" id="name"
+                          <input type="text" ref={(ref) => this.nameInput = ref} id="name"
                             className={classNames({
                               "form-control": true,
                               "invalid": this.state.contactFormFields.name.invalid
@@ -768,7 +774,7 @@ class HomeIndexView extends React.Component {
                         </div>
 
                         <div className="col-md-6">
-                          <input type="text" name="phone" id="phone"
+                          <input type="text" ref={(ref) => this.phoneInput = ref} id="phone"
                             className={classNames({
                               "form-control": true,
                               "invalid": this.state.contactFormFields.phone.invalid
@@ -781,7 +787,7 @@ class HomeIndexView extends React.Component {
 
                       <div className="row margin-bottom-30">
                         <div className="col-md-6">
-                          <input type="email" name="email" id="email"
+                          <input type="email" ref={(ref) => this.emailInput = ref} id="email"
                             className={classNames({
                               "form-control": true,
                               "invalid": this.state.contactFormFields.email.invalid
@@ -791,7 +797,7 @@ class HomeIndexView extends React.Component {
                         </div>
 
                         <div className="col-md-6">
-                          <input type="text" name="subject" id="subject"
+                          <input type="text" ref={(ref) => this.subjectInput = ref} id="subject"
                             className={classNames({
                               "form-control": true,
                               "invalid": this.state.contactFormFields.subject.invalid
@@ -804,7 +810,7 @@ class HomeIndexView extends React.Component {
 
                       <div className="row margin-bottom-30">
                         <div className="col-md-12">
-                          <textarea rows="4" name="message" id="message"
+                          <textarea rows="4" ref={(ref) => this.messageInput = ref} id="message"
                             className={classNames({
                               "form-control": true,
                               "g-textarea-noresize": true,
@@ -819,7 +825,7 @@ class HomeIndexView extends React.Component {
                         <button type="submit"
                           className="submit-button btn-u btn-u-lg btn-u-bg-default btn-u-upper"
                           disabled={this.state.submitButtonDisabled}>
-                          Enviar Mensagem
+                          {this.state.submitButtonDisabled ? 'A enviar...' : 'Enviar Mensagem'}
                         </button>
                       </p>
                     </fieldset>
@@ -889,6 +895,26 @@ class HomeIndexView extends React.Component {
         else {
           message = "A mensagem foi enviada com sucesso! Obrigado pelo seu contacto!";
           type = "success";
+
+          let keys = Object.keys(this.state.contactFormFields);
+          // Update the state
+          keys.forEach((val) => {
+            const item = this.state.contactFormFields[val];
+            item.value = "";
+            item.invalid = false
+
+            this.setState({
+              [this.state.contactFormFields[val]]: item
+            });
+          });
+
+
+          // And finally clear the fields...
+          this.nameInput.value = "";
+          this.emailInput.value = "";
+          this.phoneInput.value = "";
+          this.subjectInput.value = "";
+          this.messageInput.value = "";
         }
 
         // Creates the new Messenger object
