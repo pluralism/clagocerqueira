@@ -42,8 +42,9 @@ func main() {
 	// Serve static files from "../client/app/static" to the GET route http://IP:Port/public
 	app.StaticServe("../client/app/static", "/public")
 
-	// Homepage of the application
+	// Match all GET routes to homePageHandler
 	app.Get("/", homePageHandler)
+	app.Get("/presidentes", homePageHandler)
 
 	app.Post("/graphql", graphqlAPIHandler)
 
