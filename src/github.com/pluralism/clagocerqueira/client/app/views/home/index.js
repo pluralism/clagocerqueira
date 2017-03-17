@@ -35,6 +35,7 @@ class HomeIndexView extends React.Component {
       submitButtonDisabled: false
     };
 
+
     // Store a reference for the input fields in the contact form
     this.nameInput = "";
     this.phoneInput = "";
