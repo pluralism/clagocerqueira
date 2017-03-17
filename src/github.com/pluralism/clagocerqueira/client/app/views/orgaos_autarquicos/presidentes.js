@@ -136,7 +136,7 @@ class PresidentesView extends React.Component {
             <div className="g-mb-30">
               <h2><span className="g-color-default">Presidentes</span></h2>
             </div>
-            <p class="g-page-title">Nam sed erat aliquet libero aliquet commodo. Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo. Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
           </div>
 
 
@@ -145,13 +145,18 @@ class PresidentesView extends React.Component {
           </div>
 
 
-          // Render tabs...
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_date"} role="tab" data-toggle="tab">1836-1910</Link>
+              </li>
+              <li role="presentation">
                 <Link to={"#second_date"} role="tab" data-toggle="tab">1910-1926</Link>
+              </li>
+              <li role="presentation">
                 <Link to={"#third_date"} role="tab" data-toggle="tab">1926-1974</Link>
+              </li>
+              <li role="presentation">
                 <Link to={"#fourth_date"} role="tab" data-toggle="tab">1976-2013</Link>
               </li>
             </ul>
