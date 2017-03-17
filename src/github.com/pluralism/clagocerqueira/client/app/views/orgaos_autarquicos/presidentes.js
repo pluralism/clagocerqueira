@@ -72,11 +72,33 @@ class PresidentesView extends React.Component {
     );
   }
 
+
+  renderImprensa() {
+    return (
+      <section id="imprensa_data">
+        <div className="g-pt-40">
+          <div className="g-mb-30 text-center">
+            <div className="g-mb-30">
+              <h2><span className="g-color-default">Presidentes</span></h2>
+            </div>
+            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo. Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+          </div>
+
+
+          <div className="search_in_list g-mb-30 text-center font-main">
+            <input type="text" placeholder="Pesquisar presidente&#8230;" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   render() {
     return(
       <div>
         <main className="container-fluid">
           {this.renderHeader()}
+          {this.renderImprensa()}
         </main>
       </div>
     )
