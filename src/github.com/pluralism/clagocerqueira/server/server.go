@@ -44,6 +44,7 @@ func main() {
 
 	// Match all GET routes to homePageHandler
 	app.Get("/", homePageHandler)
+	app.Get("/presidentes", homePageHandler)
 
 	app.Post("/graphql", graphqlAPIHandler)
 
