@@ -73,6 +73,30 @@ class PresidentesView extends React.Component {
   }
 
 
+
+  renderItem(imgURL, subtitle, title, text, altText = undefined) {
+    return (
+      <li className="clearfix g-pb-50">
+        <Link to={"#"} className="listing-list-item">
+          <div className="listing-list-center-wrap">
+            <div className="listing-list-media-wrap listing-list-center">
+              <div className="listing-list-media">
+                <img className="listing-list-media-img" src={imgURL} alt={altText !== undefined ? altText : "Presidente"} />
+              </div>
+            </div>
+
+            <div className="listing-list-body listing-list-center">
+              <span className="listing-list-media-subtitle">{subtitle}</span>
+              <h3 className="listing-list-media-title">{title}</h3>
+              <p className="listing-list-item-text">{text}</p>
+            </div>
+          </div>
+        </Link>
+      </li>
+    );
+  }
+
+
   renderUpperSection() {
     return (
       <section id="presidentes_data">
@@ -104,7 +128,10 @@ class PresidentesView extends React.Component {
 
             <div className="tab-content">
               <div id="first_date" role="tabpanel" className="tab-pane active fade in">
-                
+                <ul className="listing-list">
+                  {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+                  "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+                </ul>
               </div>
             </div>
           </div>
