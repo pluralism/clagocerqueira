@@ -272,12 +272,37 @@ class PresidentesView extends React.Component {
             </ul>
 
 
-            <div className="tab-content">
-              {this.renderFirstTab(true)}
-              {this.renderSecondTab(false)}
-              {this.renderThirdTab(false)}
-              {this.renderFourthTab(false)}
-            </div>
+            {this.renderTabContent()}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
+  renderTabContent() {
+    return (
+      <div className="tab-content">
+        {this.renderFirstTab(true)}
+        {this.renderSecondTab(false)}
+        {this.renderThirdTab(false)}
+        {this.renderFourthTab(false)}
+      </div>
+    );
+  }
+
+
+  renderFooter() {
+    return (
+      <section id="footer" className="row">
+        <div className="informations container-fluid page-scroll">
+          <div className="vertical-center">
+            <ul className="list-inline footer-list">
+              <li><Link to={'#'}><i className="fa fa-twitter"></i></Link></li>
+              <li><Link to={'#'}><i className="fa fa-facebook"></i></Link></li>
+              <li><Link to={'#'}><i className="fa fa-instagram"></i></Link></li>
+              <li><Link to={'#'}><i className="fa fa-youtube"></i></Link></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -291,6 +316,7 @@ class PresidentesView extends React.Component {
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderUpperSection()}
+          {this.renderFooter()}
         </main>
       </div>
     );
