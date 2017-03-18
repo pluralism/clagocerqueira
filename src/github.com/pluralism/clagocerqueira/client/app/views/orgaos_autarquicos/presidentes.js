@@ -5,6 +5,10 @@ import classNames from 'classnames';
 import PresidentsActions from '../../actions/presidents';
 
 
+// Require all presidents images
+// require("../../static/img/site/presidents/" + /^.*$/);
+
+
 class RenderItem extends React.Component {
   constructor(props) {
     super(props);
@@ -127,9 +131,9 @@ class PresidentesView extends React.Component {
         })}>
         <ul className="listing-list">
           {presidents.data.map((president) => {
-            return <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
+            return <RenderItem key={president.name} imgURL={president.image}
               subtitle={"Presidentes"} title={president.name}
-              text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
+              text={president.description != null ? president.description : 'Descrição indisponível'} />
           })}
         </ul>
 

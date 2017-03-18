@@ -63,23 +63,23 @@ func main() {
 		Objects: []President{
 			President{
 				Name:        "Amadeu Cerqueira da Silva",
-				Image:       "/img/site/presidents/1976_2013/amadeu_cerqueira_silva.jpg",
+				Image:       "/public/prod/images/amadeu_cerqueira_silva.jpg",
 				Description: ""},
 			President{
 				Name:        "Joaquim José Macedo Teixeira",
-				Image:       "/img/site/presidents/1976_2013/joaquim_teixeira.jpg",
+				Image:       "/public/prod/images/joaquim_teixeira.jpg",
 				Description: ""},
 			President{
 				Name:        "Francisco José Pereira de Assis Miranda",
-				Image:       "/img/site/presidents/1976_2013/francisco_assis.jpg",
+				Image:       "/public/prod/images/francisco_assis.jpg",
 				Description: ""},
 			President{
 				Name:        "Armindo José da Cunha Abreu",
-				Image:       "/img/site/presidents/1976_2013/armindo_abreu.jpg",
+				Image:       "/public/prod/images/armindo_abreu.jpg",
 				Description: ""},
 			President{
 				Name:        "José Luís Gaspar Jorge",
-				Image:       "/img/site/presidents/1976_2013/jose_jorge.jpg",
+				Image:       "/public/prod/images/jose_jorge.jpg",
 				Description: ""},
 		},
 	}
