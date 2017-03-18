@@ -272,7 +272,7 @@ class PresidentesView extends React.Component {
             </ul>
 
 
-            {this.renderTabContent()}
+            {this.renderTabsContents()}
           </div>
         </div>
       </section>
@@ -280,7 +280,7 @@ class PresidentesView extends React.Component {
   }
 
 
-  renderTabContent() {
+  renderTabsContents() {
     return (
       <div className="tab-content">
         {this.renderFirstTab(true)}

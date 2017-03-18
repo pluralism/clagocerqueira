@@ -11,7 +11,7 @@ import (
 var Email = graphql.NewScalar(graphql.ScalarConfig{
 	Name: "Email",
 	Description: "The `Email` scalar type represents an e-mail in the RFC 5322 format." +
-		"The regex that is used should work in most cases.",
+		"The regex that is used should work in any case.",
 	Serialize:  coerceEmail,
 	ParseValue: coerceEmail,
 	ParseLiteral: func(valueAST ast.Value) interface{} {

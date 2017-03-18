@@ -6,5 +6,7 @@ import (
 )
 
 var Session *mgo.Session
+
+// Both channels are unbuffered
 var MessagesChannel = make(chan error)
 var CreateMessageChannel = make(chan types.CreateMessageResult)

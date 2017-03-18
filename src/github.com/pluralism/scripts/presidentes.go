@@ -6,11 +6,11 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
-// Presidente is the basic struct to insert a president in the database
-type Presidente struct {
-	Nome      string
-	Imagem    string
-	Descricao string
+// President is the basic struct to insert a president in the database
+type President struct {
+	Name        string
+	Image       string
+	Description string
 }
 
 func findElement(list []string, value string) bool {
@@ -42,46 +42,46 @@ func main() {
 	}
 
 	// Check if the collection already exists in the database
-	presidentesExist := findElement(collections, "presidentes")
+	presidentsExist := findElement(collections, "presidents")
 
-	if presidentesExist {
+	if presidentsExist {
 		// Drop the collection if it does not exist
-		err = db.C("presidentes").DropCollection()
+		err = db.C("presidents").DropCollection()
 
 		if err != nil {
 			panic(err.Error())
 		}
 	}
 
-	presidentesMap := make(map[string][]Presidente)
+	presidentsMap := make(map[string][]Presidente)
 
-	presidentesMap["1976-2013"] = []Presidente{
-		Presidente{
-			Nome:      "Amadeu Cerqueira da Silva",
-			Imagem:    "/img/site/presidentes/1976_2013/amadeu_cerqueira_silva.jpg",
+	presidentsMap["1976-2013"] = []President{
+		President{
+			Name:        "Amadeu Cerqueira da Silva",
+			Image:       "/img/site/presidents/1976_2013/amadeu_cerqueira_silva.jpg",
+			Description: ""},
+		President{
+			Name:        "Joaquim José Macedo Teixeira",
+			Image:       "/img/site/presidents/1976_2013/joaquim_teixeira.jpg",
+			Description: ""},
+		President{
+			Name:        "Francisco José Pereira de Assis Miranda",
+			Image:       "/img/site/presidents/1976_2013/francisco_assis.jpg",
+			Description: ""},
+		President{Nome: "Armindo José da Cunha Abreu",
+			Imagem:    "/img/site/presidents/1976_2013/armindo_abreu.jpg",
 			Descricao: ""},
-		Presidente{
-			Nome:      "Joaquim José Macedo Teixeira",
-			Imagem:    "/img/site/presidentes/1976_2013/joaquim_teixeira.jpg",
-			Descricao: ""},
-		Presidente{
-			Nome:      "Francisco José Pereira de Assis Miranda",
-			Imagem:    "/img/site/presidentes/1976_2013/francisco_assis.jpg",
-			Descricao: ""},
-		Presidente{Nome: "Armindo José da Cunha Abreu",
-			Imagem:    "/img/site/presidentes/1976_2013/armindo_abreu.jpg",
-			Descricao: ""},
-		Presidente{
-			Nome:      "José Luís Gaspar Jorge",
-			Imagem:    "/img/site/presidentes/1976_2013/jose_jorge.jpg",
-			Descricao: ""},
+		President{
+			Name:        "José Luís Gaspar Jorge",
+			Image:       "/img/site/presidents/1976_2013/jose_jorge.jpg",
+			Description: ""},
 	}
 
-	err = db.C("presidentes").Insert(presidentesMap)
+	err = db.C("presidents").Insert(presidentsMap)
 
 	if err != nil {
 		panic(err.Error())
 	} else {
-		fmt.Println("[*] Presidentes inseridos na base de dados...")
+		fmt.Println("[*] Presidents created with success...")
 	}
 }
