@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import PresidentsActions from '../../actions/presidents';
 
 
 class PresidentesView extends React.Component {
@@ -9,11 +10,16 @@ class PresidentesView extends React.Component {
     super(props);
 
     this.currentPresidentesData = [];
+    this.currentDate = "1976-2013";
   }
 
 
   componentDidMount() {
     const { dispatch } = this.props;
+
+    console.log(this.currentDate);
+    // Try to extract the presidents for the current date from the database
+    dispatch(PresidentsActions.getDataByDate(this.currentDate));
   }
 
 
@@ -105,6 +111,8 @@ class PresidentesView extends React.Component {
 
 
   renderFirstTab(active) {
+    const { presidents } = this.props;
+
     return (
       <div id="first_tab" role="tabpanel" className={classNames({
           "tab-pane": true,
@@ -113,20 +121,13 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "Agostinho Alão de Moraes Pimentel", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+          {presidents.data.forEach((president) => {
+            console.log(president);
+            {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+            "Presidentes", president.name, president.description != null ?  president.description : 'Descrição indisponível')}
+            {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
+            "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+          })}
         </ul>
 
 
@@ -331,6 +332,8 @@ class PresidentesView extends React.Component {
 }
 
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  presidents: state.presidents
+});
 
 export default connect(mapStateToProps)(PresidentesView);

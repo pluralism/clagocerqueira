@@ -5,7 +5,7 @@ import { httpPostGraphQL } from '../utils/index';
 const PresidentsActions = {};
 
 
-PresidentsActions.getDataByDate = (date) => ({
+PresidentsActions.getDataByDate = (date) => {
   return dispatch => {
     dispatch({
       type: Constants.LOADING_DATA
@@ -13,15 +13,16 @@ PresidentsActions.getDataByDate = (date) => ({
 
     // Query to send to the GraphQL server
     const graphQLData = `{
-      presidents(date: ${date}) {
+      presidents(date: "${date}") {
         date
 	      objects {
-		          name
-		          image
-		          description
+          name
+          image
+          description
 	      }
       }
     }`;
+
 
     httpPostGraphQL(graphQLData)
     .then((data) => {
@@ -40,7 +41,7 @@ PresidentsActions.getDataByDate = (date) => ({
       }
     });
   };
-});
+};
 
 
 export default PresidentsActions;
