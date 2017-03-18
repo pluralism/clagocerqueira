@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const fs = require('fs');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
@@ -10,6 +11,22 @@ function join(dest) {
 
 function web(dest) {
   return join('app/' + dest);
+}
+
+
+function extractImages(folder) {
+  let result = [];
+  let dirFiles = fs.readdirSync(web(folder));
+
+  for(let i = 0; i < dirFiles.length; i++) {
+    let from = path.join(web(folder), dirFiles[i]);
+    let statRes = fs.statSync(from);
+    if(statRes.isFile()) {
+      result.push(from);
+    }
+  }
+
+  return result.length == 0 ? ["eu"] : result;
 }
 
 
@@ -45,7 +62,9 @@ module.exports = {
       web('static/messenger/messenger.min.js'),
       web('static/messenger/messenger-theme-flat.js'),
       web('application.js')
-    ]
+    ],
+
+    images: extractImages('static/img/site/presidents/1976_2013/')
   },
 
   output: {
@@ -91,7 +110,7 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         exclude: /node_modules/,
-        loaders: ['file-loader?hash=sha512&digest=hex&name=images/[name].[ext]', {
+        loaders: ['file-loader?digest=hex&name=images/[name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             mozjpeg: {
