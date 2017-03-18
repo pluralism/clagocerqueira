@@ -68,9 +68,10 @@ func main() {
 			Name:        "Francisco José Pereira de Assis Miranda",
 			Image:       "/img/site/presidents/1976_2013/francisco_assis.jpg",
 			Description: ""},
-		President{Nome: "Armindo José da Cunha Abreu",
-			Imagem:    "/img/site/presidents/1976_2013/armindo_abreu.jpg",
-			Descricao: ""},
+		President{
+			Name:        "Armindo José da Cunha Abreu",
+			Image:       "/img/site/presidents/1976_2013/armindo_abreu.jpg",
+			Description: ""},
 		President{
 			Name:        "José Luís Gaspar Jorge",
 			Image:       "/img/site/presidents/1976_2013/jose_jorge.jpg",
