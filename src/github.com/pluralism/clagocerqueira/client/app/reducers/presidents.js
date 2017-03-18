@@ -8,8 +8,8 @@ const initialState = {
 };
 
 
-export default function reducer(state = initialState, action = {}) {
-  switch(action.type) {
+export default function reduce(state = initialState, action = {}) {
+  switch (action.type) {
     case Constants.LOADING_DATA:
       return { loading: true, data: [], currentDate: action.currentDate };
 
@@ -17,9 +17,9 @@ export default function reducer(state = initialState, action = {}) {
       return { initialState };
 
     case Constants.LOADING_DATA_SUCCESS:
-      return { loading: false, data: action.data, currentDate: action.currentDate };
+      return { ...state, loading: false, data: action.data, currentDate: action.currentDate };
 
     default:
-      return initialState;
+      return state;
   }
 }

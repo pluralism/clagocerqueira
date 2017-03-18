@@ -5,11 +5,40 @@ import classNames from 'classnames';
 import PresidentsActions from '../../actions/presidents';
 
 
+class RenderItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    return (
+      <li className="clearfix g-pb-50">
+        <Link to={"#"} className="listing-list-item">
+          <div className="listing-list-center-wrap">
+            <div className="listing-list-media-wrap listing-list-center">
+              <div className="listing-list-media">
+                <img className="listing-list-media-img" src={this.props.imgURL} alt={this.props.altText !== undefined ? altText : "Presidente"} />
+              </div>
+            </div>
+
+            <div className="listing-list-body listing-list-center">
+              <span className="listing-list-media-subtitle">{this.props.subtitle}</span>
+              <h3 className="listing-list-media-title">{this.props.title}</h3>
+              <p className="listing-list-item-text">{this.props.text}</p>
+            </div>
+          </div>
+        </Link>
+      </li>
+    );
+  }
+}
+
+
 class PresidentesView extends React.Component {
   constructor(props) {
     super(props);
 
-    this.currentPresidentesData = [];
     this.currentDate = "1976-2013";
   }
 
@@ -86,30 +115,6 @@ class PresidentesView extends React.Component {
   }
 
 
-
-  renderItem(imgURL, subtitle, title, text, altText = undefined) {
-    return (
-      <li className="clearfix g-pb-50">
-        <Link to={"#"} className="listing-list-item">
-          <div className="listing-list-center-wrap">
-            <div className="listing-list-media-wrap listing-list-center">
-              <div className="listing-list-media">
-                <img className="listing-list-media-img" src={imgURL} alt={altText !== undefined ? altText : "Presidente"} />
-              </div>
-            </div>
-
-            <div className="listing-list-body listing-list-center">
-              <span className="listing-list-media-subtitle">{subtitle}</span>
-              <h3 className="listing-list-media-title">{title}</h3>
-              <p className="listing-list-item-text">{text}</p>
-            </div>
-          </div>
-        </Link>
-      </li>
-    );
-  }
-
-
   renderFirstTab(active) {
     const { presidents } = this.props;
 
@@ -121,12 +126,10 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          {presidents.data.forEach((president) => {
-            console.log(president);
-            {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-            "Presidentes", president.name, president.description != null ?  president.description : 'Descrição indisponível')}
-            {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-            "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+          {presidents.data.map((president) => {
+            return <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
+              subtitle={"Presidentes"} title={president.name}
+              text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
           })}
         </ul>
 
@@ -149,20 +152,9 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+          <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
+            subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
+            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
         </ul>
 
 
@@ -184,20 +176,9 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André adasdasd Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+          <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
+            subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
+            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
         </ul>
 
 
@@ -220,20 +201,9 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André YAAAA Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André YAAAA Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André YAAAA Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
-
-          {this.renderItem("http://www.citador.pt/images/autorid01232.jpg",
-          "Intro to UI/UX Design", "André Pedro Deus Pinheiro", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet")}
+          <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
+            subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
+            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
         </ul>
 
 

@@ -13,5 +13,4 @@ const target = document.getElementById('app-container');
 const node = <Root routerHistory={history} store={store} />;
 
 
-
 ReactDOM.render(node, target);
