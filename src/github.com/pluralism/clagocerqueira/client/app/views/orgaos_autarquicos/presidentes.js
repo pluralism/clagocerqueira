@@ -220,6 +220,8 @@ class PresidentesView extends React.Component {
 
   updateCurrentDate(value) {
     console.log(value);
+    // Update the currentDate variable
+    this.currentDate = value;
   }
 
 
@@ -244,7 +246,7 @@ class PresidentesView extends React.Component {
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentDate("1836-1910")} 
+                  onClick={() => this.updateCurrentDate("1836-1910")}
                   role="tab" data-toggle="tab">1836-1910</Link>
               </li>
               <li role="presentation">
