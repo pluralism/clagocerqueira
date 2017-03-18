@@ -13,6 +13,11 @@ type President struct {
 	Description string
 }
 
+type PresidentList struct {
+	Date    string
+	Objects []President
+}
+
 func findElement(list []string, value string) bool {
 	for _, elem := range list {
 		if elem == value {
@@ -53,32 +58,33 @@ func main() {
 		}
 	}
 
-	presidentsMap := make(map[string][]President)
-
-	presidentsMap["1976-2013"] = []President{
-		President{
-			Name:        "Amadeu Cerqueira da Silva",
-			Image:       "/img/site/presidents/1976_2013/amadeu_cerqueira_silva.jpg",
-			Description: ""},
-		President{
-			Name:        "Joaquim José Macedo Teixeira",
-			Image:       "/img/site/presidents/1976_2013/joaquim_teixeira.jpg",
-			Description: ""},
-		President{
-			Name:        "Francisco José Pereira de Assis Miranda",
-			Image:       "/img/site/presidents/1976_2013/francisco_assis.jpg",
-			Description: ""},
-		President{
-			Name:        "Armindo José da Cunha Abreu",
-			Image:       "/img/site/presidents/1976_2013/armindo_abreu.jpg",
-			Description: ""},
-		President{
-			Name:        "José Luís Gaspar Jorge",
-			Image:       "/img/site/presidents/1976_2013/jose_jorge.jpg",
-			Description: ""},
+	presidentList := PresidentList{
+		Date: "1976-2013",
+		Objects: []President{
+			President{
+				Name:        "Amadeu Cerqueira da Silva",
+				Image:       "/img/site/presidents/1976_2013/amadeu_cerqueira_silva.jpg",
+				Description: ""},
+			President{
+				Name:        "Joaquim José Macedo Teixeira",
+				Image:       "/img/site/presidents/1976_2013/joaquim_teixeira.jpg",
+				Description: ""},
+			President{
+				Name:        "Francisco José Pereira de Assis Miranda",
+				Image:       "/img/site/presidents/1976_2013/francisco_assis.jpg",
+				Description: ""},
+			President{
+				Name:        "Armindo José da Cunha Abreu",
+				Image:       "/img/site/presidents/1976_2013/armindo_abreu.jpg",
+				Description: ""},
+			President{
+				Name:        "José Luís Gaspar Jorge",
+				Image:       "/img/site/presidents/1976_2013/jose_jorge.jpg",
+				Description: ""},
+		},
 	}
 
-	err = db.C("presidents").Insert(presidentsMap)
+	err = db.C("presidents").Insert(presidentList)
 
 	if err != nil {
 		panic(err.Error())
