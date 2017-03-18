@@ -26,7 +26,7 @@ function extractImages(folder) {
     }
   }
 
-  return result.length == 0 ? ["eu"] : result;
+  return result.length == 0 ? ["error"] : result;
 }
 
 

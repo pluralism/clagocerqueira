@@ -125,6 +125,7 @@ class PresidentesView extends React.Component {
           "fade": true,
           "in": true
         })}>
+
         <ul className="listing-list">
           {presidents.data.map((president) => {
             return <RenderItem key={president.name} imgURL={president.image}
@@ -134,7 +135,6 @@ class PresidentesView extends React.Component {
                 'Descrição indisponível'} />
           })}
         </ul>
-
 
         <div className="control-buttons">
           <div className="prev-button"></div>
@@ -218,6 +218,11 @@ class PresidentesView extends React.Component {
   }
 
 
+  updateCurrentDate(value) {
+    console.log(value);
+  }
+
+
   renderUpperSection() {
     return (
       <section id="presidentes_data">
@@ -238,16 +243,24 @@ class PresidentesView extends React.Component {
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
-                <Link to={"#first_tab"} role="tab" data-toggle="tab">1836-1910</Link>
+                <Link to={"#first_tab"}
+                  onClick={() => this.updateCurrentDate("1836-1910")} 
+                  role="tab" data-toggle="tab">1836-1910</Link>
               </li>
               <li role="presentation">
-                <Link to={"#second_tab"} role="tab" data-toggle="tab">1910-1926</Link>
+                <Link to={"#second_tab"}
+                  onClick={() => this.updateCurrentDate("1910-1926")}
+                  role="tab" data-toggle="tab">1910-1926</Link>
               </li>
               <li role="presentation">
-                <Link to={"#third_tab"} role="tab" data-toggle="tab">1926-1974</Link>
+                <Link to={"#third_tab"}
+                  onClick={() => this.updateCurrentDate("1926-1974")}
+                  role="tab" data-toggle="tab">1926-1974</Link>
               </li>
               <li role="presentation">
-                <Link to={"#fourth_tab"} role="tab" data-toggle="tab">1976-2013</Link>
+                <Link to={"#fourth_tab"}
+                  onClick={() => this.updateCurrentDate("1976-2013")}
+                  role="tab" data-toggle="tab">1976-2013</Link>
               </li>
             </ul>
 
