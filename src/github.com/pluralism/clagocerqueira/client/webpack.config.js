@@ -49,7 +49,7 @@ module.exports = {
   },
 
   output: {
-    path: join('app/static/prod'),
+    path: join('../server/static/prod'),
     filename: "[name].js",
     publicPath: '/public/prod/'
   },
