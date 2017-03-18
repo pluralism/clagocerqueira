@@ -22,7 +22,7 @@ func GetPresidentsByDate(s *mgo.Session, date string) *models.GenericList {
 		return nil
 	}
 
-	// Must only return one result
+	// Make sure we're returning just one result!
 	if len(result) > 1 {
 		return nil
 	}

@@ -7,6 +7,13 @@ import classNames from 'classnames';
 class PresidentesView extends React.Component {
   constructor(props) {
     super(props);
+
+    this.currentPresidentesData = [];
+  }
+
+
+  componentDidMount() {
+    const { dispatch } = this.props;
   }
 
 
