@@ -56,15 +56,24 @@ func main() {
 	presidentesMap := make(map[string][]Presidente)
 
 	presidentesMap["1976-2013"] = []Presidente{
-		Presidente{Nome: "Amadeu Cerqueira da Silva", Imagem: "/img/site/presidentes/amadeu_cerqueira_silva.jpg",
+		Presidente{
+			Nome:      "Amadeu Cerqueira da Silva",
+			Imagem:    "/img/site/presidentes/1976_2013/amadeu_cerqueira_silva.jpg",
 			Descricao: ""},
-		Presidente{Nome: "Joaquim José Macedo Teixeira", Imagem: "/img/site/presidentes/joaquim_teixeira.jpg",
+		Presidente{
+			Nome:      "Joaquim José Macedo Teixeira",
+			Imagem:    "/img/site/presidentes/1976_2013/joaquim_teixeira.jpg",
 			Descricao: ""},
-		Presidente{Nome: "Francisco José Pereira de Assis Miranda", Imagem: "/img/site/presidentes/francisco_assis.jpg",
+		Presidente{
+			Nome:      "Francisco José Pereira de Assis Miranda",
+			Imagem:    "/img/site/presidentes/1976_2013/francisco_assis.jpg",
 			Descricao: ""},
-		Presidente{Nome: "Armindo José da Cunha Abreu", Imagem: "/img/site/presidentes/armindo_abreu.jpg",
+		Presidente{Nome: "Armindo José da Cunha Abreu",
+			Imagem:    "/img/site/presidentes/1976_2013/armindo_abreu.jpg",
 			Descricao: ""},
-		Presidente{Nome: "José Luís Gaspar Jorge", Imagem: "/img/site/presidentes/jose_jorge.jpg",
+		Presidente{
+			Nome:      "José Luís Gaspar Jorge",
+			Imagem:    "/img/site/presidentes/1976_2013/jose_jorge.jpg",
 			Descricao: ""},
 	}
 
