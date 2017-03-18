@@ -9,7 +9,7 @@ var GenericPersonType = graphql.NewObject(graphql.ObjectConfig{
 			Type: graphql.NewNonNull(graphql.String),
 		},
 		"image": &graphql.Field{
-			Type: graphql.NewNonNull(graphql.String),
+			Type: graphql.String,
 		},
 		"description": &graphql.Field{
 			Type: graphql.String,

@@ -219,7 +219,6 @@ class PresidentesView extends React.Component {
 
 
   updateCurrentDate(value) {
-    console.log(value);
     // Update the currentDate variable
     this.currentDate = value;
   }
