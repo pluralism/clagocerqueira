@@ -240,7 +240,7 @@ class HomeIndexView extends React.Component {
           </div>
 
           <div className="flex-container end">
-            <div className="page-scroll">
+            <div className="bounce-icon page-scroll">
               <a href={'#autores_amarantinos'} title="Autores Amarantinos">
                 <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
                   <i className="fa fa-angle-down down-arrow"></i>
@@ -274,43 +274,45 @@ class HomeIndexView extends React.Component {
         </div>
 
         <div className="collapse navbar-collapse clc-collapse">
-          <ul className="nav navbar-nav">
-            <li className="page-scroll home">
-              <a href="#">Início</a>
-            </li>
+          <div className="menu-container">
+            <ul className="nav navbar-nav">
+              <li className="page-scroll home">
+                <a href="#intro">Início</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#autores_amarantinos">Autores Amarantinos</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#autores_amarantinos">Autores Amarantinos</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#orgaos_autarquicos">Órgãos Autárquicos</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#orgaos_autarquicos">Órgãos Autárquicos</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#associacoes">Associações</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#associacoes">Associações</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#festividades">Festividades</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#festividades">Festividades</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#imprensa">Imprensa</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#imprensa">Imprensa</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#personalidades">Personalidades</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#personalidades">Personalidades</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#contacto">Contacto</a>
-            </li>
+              <li className="page-scroll">
+                <a href="#patrimonio_natural">Património Natural</a>
+              </li>
 
-            <li className="page-scroll">
-              <a href="#patrimonio_natural">Património Natural</a>
-            </li>
-          </ul>
+              <li className="page-scroll">
+                <a href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     );
