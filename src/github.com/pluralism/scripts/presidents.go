@@ -53,7 +53,7 @@ func main() {
 		}
 	}
 
-	presidentsMap := make(map[string][]Presidente)
+	presidentsMap := make(map[string][]President)
 
 	presidentsMap["1976-2013"] = []President{
 		President{
