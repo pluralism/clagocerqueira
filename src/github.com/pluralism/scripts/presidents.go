@@ -1,7 +1,12 @@
 package main
 
 import (
+	"bufio"
+	"encoding/csv"
 	"fmt"
+	"io"
+	"os"
+	"strings"
 
 	mgo "gopkg.in/mgo.v2"
 )
@@ -26,6 +31,32 @@ func findElement(list []string, value string) bool {
 	}
 
 	return false
+}
+
+func readPresidents18361910(session *mgo.Session) []President {
+	f, err := os.Open("presidentes1836_1910.csv")
+	var presidentList []President
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	reader := csv.NewReader(bufio.NewReader(f))
+	for {
+		record, err := reader.Read()
+		if err == io.EOF {
+			break
+		}
+
+		// Append the president to the list of presidents
+		presidentList = append(presidentList, President{
+			Name:        strings.TrimSpace(record[0]),
+			Image:       "/public/prod/images/monarquia.jpg",
+			Description: "",
+		})
+	}
+
+	return presidentList
 }
 
 func main() {
@@ -91,4 +122,6 @@ func main() {
 	} else {
 		fmt.Println("[*] Presidents created with success...")
 	}
+
+	readPresidents18361910(session)
 }
