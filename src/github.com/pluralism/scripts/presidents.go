@@ -74,6 +74,9 @@ func insertListOnDatabase(session *mgo.Session, db string, collection string, da
 	return true
 }
 
+const dbName = "clagocerqueira"
+const presidentsCollection = "presidents"
+
 func main() {
 	session, err := mgo.Dial("mongodb://localhost")
 
@@ -85,7 +88,7 @@ func main() {
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
 
-	db := session.DB("clagocerqueira")
+	db := session.DB(dbName)
 	collections, err := db.CollectionNames()
 
 	if err != nil {
@@ -93,11 +96,11 @@ func main() {
 	}
 
 	// Check if the collection already exists in the database
-	presidentsExist := findElement(collections, "presidents")
+	presidentsExist := findElement(collections, presidentsCollection)
 
 	if presidentsExist {
 		// Drop the collection if it does not exist
-		err = db.C("presidents").DropCollection()
+		err = db.C(presidentsCollection).DropCollection()
 
 		if err != nil {
 			panic(err.Error())
@@ -130,7 +133,7 @@ func main() {
 		},
 	}
 
-	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidentList) {
+	if !insertListOnDatabase(session, dbName, presidentsCollection, presidentList) {
 		panic("[!] Presidents on date 1976-2013 could not be inserted!")
 	} else {
 		fmt.Println("[*] Presidents on date 1976-2013 inserted with success!")
@@ -139,7 +142,7 @@ func main() {
 	presidents := readPresidentsGeneralFile(session, "presidentes1836_1910.csv",
 		"/public/prod/images/monarquia.jpg", "1836-1910")
 
-	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidents) {
+	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
 		panic("[!] Presidents on date 1836-1910 could not be inserted!")
 	} else {
 		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
@@ -148,7 +151,7 @@ func main() {
 	presidents = readPresidentsGeneralFile(session, "presidentes1926_1974.csv",
 		"/public/prod/images/monarquia.jpg", "1926-1974")
 
-	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidents) {
+	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
 		panic("[!] Presidents on date 1926-1974 could not be inserted!")
 	} else {
 		fmt.Println("[*] Presidents on date 1926-1974 inserted with success!")
