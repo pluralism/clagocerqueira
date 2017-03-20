@@ -33,9 +33,9 @@ func findElement(list []string, value string) bool {
 	return false
 }
 
-func readPresidents18361910(session *mgo.Session) []President {
-	f, err := os.Open("presidentes1836_1910.csv")
-	var presidentList []President
+func readPresidentsGeneralFile(session *mgo.Session, filename string, image string, date string) PresidentList {
+	f, err := os.Open(filename)
+	var presidentNames []President
 
 	if err != nil {
 		panic(err.Error())
@@ -49,14 +49,29 @@ func readPresidents18361910(session *mgo.Session) []President {
 		}
 
 		// Append the president to the list of presidents
-		presidentList = append(presidentList, President{
+		presidentNames = append(presidentNames, President{
 			Name:        strings.TrimSpace(record[0]),
-			Image:       "/public/prod/images/monarquia.jpg",
+			Image:       image,
 			Description: "",
 		})
 	}
 
+	presidentList := PresidentList{
+		Date:    date,
+		Objects: presidentNames,
+	}
+
 	return presidentList
+}
+
+func insertListOnDatabase(session *mgo.Session, db string, collection string, data interface{}) bool {
+	err := session.DB(db).C(collection).Insert(data)
+
+	if err != nil {
+		// Show the error to the user
+		panic(err.Error())
+	}
+	return true
 }
 
 func main() {
@@ -115,13 +130,18 @@ func main() {
 		},
 	}
 
-	err = db.C("presidents").Insert(presidentList)
-
-	if err != nil {
-		panic(err.Error())
+	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidentList) {
+		panic("[*] Presidents on date 1976-2013 could not be inserted!")
 	} else {
-		fmt.Println("[*] Presidents created with success...")
+		fmt.Println("[*] Presidents on date 1976-2013 inserted with success!")
 	}
 
-	readPresidents18361910(session)
+	presidents1836_1910 := readPresidentsGeneralFile(session, "presidentes1836_1910.csv",
+		"/public/prod/images/monarquia.jpg", "1836-1910")
+
+	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidents1836_1910) {
+		panic("[*] Presidents on date 1836-1910 could not be inserted!")
+	} else {
+		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
+	}
 }
