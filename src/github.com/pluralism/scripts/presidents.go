@@ -139,7 +139,7 @@ func main() {
 		fmt.Println("[*] Presidents on date 1976-2013 inserted with success!")
 	}
 
-	presidents := readPresidentsGeneralFile(session, "presidentes1836_1910.csv",
+	presidents := readPresidentsGeneralFile(session, "presidents/presidentes1836_1910.csv",
 		"/public/prod/images/monarquia.jpg", "1836-1910")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -148,12 +148,21 @@ func main() {
 		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
 	}
 
-	presidents = readPresidentsGeneralFile(session, "presidentes1926_1974.csv",
+	presidents = readPresidentsGeneralFile(session, "presidents/presidentes1926_1974.csv",
 		"/public/prod/images/monarquia.jpg", "1926-1974")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
 		panic("[!] Presidents on date 1926-1974 could not be inserted!")
 	} else {
 		fmt.Println("[*] Presidents on date 1926-1974 inserted with success!")
+	}
+
+	presidents = readPresidentsGeneralFile(session, "presidents/presidents1974_1976.csv",
+		"/public/prod/images/monarquia.jpg", "1974-1976")
+
+	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
+		panic("[!] Presidents on date 1974-1976 could not be inserted!")
+	} else {
+		fmt.Println("[*] Presidents on date 1974-1976 inserted with success!")
 	}
 }
