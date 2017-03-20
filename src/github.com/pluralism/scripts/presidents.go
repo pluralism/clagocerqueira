@@ -131,17 +131,26 @@ func main() {
 	}
 
 	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidentList) {
-		panic("[*] Presidents on date 1976-2013 could not be inserted!")
+		panic("[!] Presidents on date 1976-2013 could not be inserted!")
 	} else {
 		fmt.Println("[*] Presidents on date 1976-2013 inserted with success!")
 	}
 
-	presidents1836_1910 := readPresidentsGeneralFile(session, "presidentes1836_1910.csv",
+	presidents := readPresidentsGeneralFile(session, "presidentes1836_1910.csv",
 		"/public/prod/images/monarquia.jpg", "1836-1910")
 
-	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidents1836_1910) {
-		panic("[*] Presidents on date 1836-1910 could not be inserted!")
+	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidents) {
+		panic("[!] Presidents on date 1836-1910 could not be inserted!")
 	} else {
 		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
+	}
+
+	presidents = readPresidentsGeneralFile(session, "presidentes1926_1974.csv",
+		"/public/prod/images/monarquia.jpg", "1926-1974")
+
+	if !insertListOnDatabase(session, "clagocerqueira", "presidents", presidents) {
+		panic("[!] Presidents on date 1926-1974 could not be inserted!")
+	} else {
+		fmt.Println("[*] Presidents on date 1926-1974 inserted with success!")
 	}
 }
