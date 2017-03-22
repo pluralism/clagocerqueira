@@ -2,7 +2,7 @@ import { IndexRedirect, Route, Redirect, IndexRoute } from 'react-router';
 import React from 'react';
 import MainLayout from '../layouts/main';
 import HomeIndexView from '../views/home';
-import PresidentesView from '../views/orgaos_autarquicos/presidentes';
+import PresidentesView from '../views/orgaos_autarquicos/presidents';
 
 
 export default function configRoutes(store) {

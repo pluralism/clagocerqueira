@@ -19,9 +19,17 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 				"date": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
+				"first": &graphql.ArgumentConfig{
+					Type: graphql.Int,
+				},
+				"offset": &graphql.ArgumentConfig{
+					Type: graphql.Int,
+				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 				date, ok := p.Args["date"].(string)
+				//first, firstOk := p.Args["first"].(int)
+				// offset, offsetOk := p.Args["offset"].(int)
 
 				if !ok {
 					// Return no object (nil) and the error to the user

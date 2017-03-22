@@ -11,6 +11,9 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
+const dbName = "clagocerqueira"
+const presidentsCollection = "presidents"
+
 // President is the basic struct to insert a president in the database
 type President struct {
 	Name        string
@@ -74,9 +77,6 @@ func insertListOnDatabase(session *mgo.Session, db string, collection string, da
 	return true
 }
 
-const dbName = "clagocerqueira"
-const presidentsCollection = "presidents"
-
 func main() {
 	session, err := mgo.Dial("mongodb://localhost")
 
@@ -99,9 +99,10 @@ func main() {
 	presidentsExist := findElement(collections, presidentsCollection)
 
 	if presidentsExist {
-		// Drop the collection if it does not exist
+		// Drop the collection if it does exists
 		err = db.C(presidentsCollection).DropCollection()
 
+		// Oh oh, something went wrong while dropping the collection
 		if err != nil {
 			panic(err.Error())
 		}
@@ -148,6 +149,15 @@ func main() {
 		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
 	}
 
+	presidents = readPresidentsGeneralFile(session, "presidents/presidentes1910_1926.csv",
+		"/public/prod/images/monarquia.jpg", "1910-1926")
+
+	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
+		panic("[!] Presidents on date 1910-1926 could not be inserted!")
+	} else {
+		fmt.Println("[*] Presidents on date 1910-1926 inserted with success!")
+	}
+
 	presidents = readPresidentsGeneralFile(session, "presidents/presidentes1926_1974.csv",
 		"/public/prod/images/monarquia.jpg", "1926-1974")
 
@@ -165,4 +175,6 @@ func main() {
 	} else {
 		fmt.Println("[*] Presidents on date 1974-1976 inserted with success!")
 	}
+
+	fmt.Println("[*] Completed!")
 }

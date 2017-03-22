@@ -46,7 +46,6 @@ class PresidentesView extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
-    console.log(this.currentDate);
     // Try to extract the presidents for the current date from the database
     dispatch(PresidentsActions.getDataByDate(this.currentDate));
   }
@@ -146,6 +145,8 @@ class PresidentesView extends React.Component {
 
 
   renderSecondTab(active) {
+    const { presidents } = this.props;
+
     return (
       <div id="second_tab" role="tabpanel" className={classNames({
           "tab-pane": true,
@@ -154,9 +155,13 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
-            subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
-            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
+          {presidents.data.map((president) => {
+            return <RenderItem key={president.name} imgURL={president.image}
+              subtitle={"Presidentes"} title={president.name}
+              text={president.description != null ?
+                president.description :
+                'Descrição indisponível'} />
+          })}
         </ul>
 
 
