@@ -41,27 +41,8 @@ class PresidentesView extends React.Component {
   constructor(props) {
     super(props);
 
-    this.currentDate = "1976-2013";
-    
-    this.president1836_1910 = {
-      page: 1,
-      objects: []
-    };
-
-    this.president1810_1926 = {
-      page: 1,
-      objects: []
-    };
-
-    this.president1926_1974 = {
-      page: 1,
-      objects: []
-    };
-
-    this.president1976_2013 = {
-      page: 1,
-      objects: []
-    };
+    this.currentDate = "1836-1910";
+    this.currentPage = 1;
   }
 
 
@@ -69,7 +50,7 @@ class PresidentesView extends React.Component {
     const { dispatch } = this.props;
 
     // Try to extract the presidents for the current date from the database
-    dispatch(PresidentsActions.getDataByDate(this.currentDate));
+    dispatch(PresidentsActions.getDataByDate(10, 0));
   }
 
 
@@ -148,13 +129,6 @@ class PresidentesView extends React.Component {
         })}>
 
         <ul className="listing-list">
-          {presidents.data.map((president) => {
-            return <RenderItem key={president.name} imgURL={president.image}
-              subtitle={"Presidentes"} title={president.name}
-              text={president.description != null ?
-                president.description :
-                'Descrição indisponível'} />
-          })}
         </ul>
 
         <div className="control-buttons">
@@ -177,13 +151,7 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-          {presidents.data.map((president) => {
-            return <RenderItem key={president.name} imgURL={president.image}
-              subtitle={"Presidentes"} title={president.name}
-              text={president.description != null ?
-                president.description :
-                'Descrição indisponível'} />
-          })}
+
         </ul>
 
 

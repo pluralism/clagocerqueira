@@ -7,7 +7,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetPresidentsByDate(s *mgo.Session, date string, limit int, offset int) *models.GenericList {
+func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GenericList {
 	session := s.Copy()
 	defer session.Close()
 
@@ -16,13 +16,19 @@ func GetPresidentsByDate(s *mgo.Session, date string, limit int, offset int) *mo
 	 * Find by the date field in the presidents collections
 	 * Limit the number of objects returned in the "objects" field
 	 */
+	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"date": date}).
-		Select(bson.M{"objects": bson.M{"$slice": []int{offset, limit}}})
+		Select(bson.M{"objects": bson.M{"$slice": []int{offset, 10}}})
 
 	var result []models.GenericList
 	err := query.All(&result)
 
 	if err != nil {
+		return nil
+	}
+
+	// There are no results after we've passed the limit of pages
+	if page > result[0].TotalPages {
 		return nil
 	}
 

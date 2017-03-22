@@ -5,6 +5,7 @@ import (
 	"encoding/csv"
 	"fmt"
 	"io"
+	"math"
 	"os"
 	"strings"
 
@@ -22,8 +23,9 @@ type President struct {
 }
 
 type PresidentList struct {
-	Date    string
-	Objects []President
+	Date       string      `bson:"date"`
+	Objects    []President `bson:"objects"`
+	TotalPages int         `bson:"total_pages"`
 }
 
 func findElement(list []string, value string) bool {
@@ -59,9 +61,12 @@ func readPresidentsGeneralFile(session *mgo.Session, filename string, image stri
 		})
 	}
 
+	totalPages := int(math.Ceil(float64(len(presidentNames)) / 10))
+
 	presidentList := PresidentList{
-		Date:    date,
-		Objects: presidentNames,
+		Date:       date,
+		Objects:    presidentNames,
+		TotalPages: totalPages,
 	}
 
 	return presidentList
@@ -133,6 +138,8 @@ func main() {
 				Description: ""},
 		},
 	}
+
+	presidentList.TotalPages = int(math.Ceil(float64(len(presidentList.Objects)) / 10))
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidentList) {
 		panic("[!] Presidents on date 1976-2013 could not be inserted!")

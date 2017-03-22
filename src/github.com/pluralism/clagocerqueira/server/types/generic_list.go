@@ -13,5 +13,8 @@ var GenericListType = graphql.NewObject(graphql.ObjectConfig{
 		"objects": &graphql.Field{
 			Type: graphql.NewList(GenericPersonType),
 		},
+		"total_pages": &graphql.Field{
+			Type: graphql.NewNonNull(graphql.Int),
+		},
 	},
 })
