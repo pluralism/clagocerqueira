@@ -28,15 +28,25 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 				date, ok := p.Args["date"].(string)
-				//first, firstOk := p.Args["first"].(int)
-				// offset, offsetOk := p.Args["offset"].(int)
+				limit, limitOk := p.Args["first"].(int)
+				offset, offsetOk := p.Args["offset"].(int)
 
 				if !ok {
 					// Return no object (nil) and the error to the user
 					return nil, errors.New("the date does not exist")
 				}
 
-				result := controllers.GetPresidentsByDate(refs.Session, date)
+				if !limitOk {
+					// Return no objects if the "first" field is not passed in the query
+					return nil, errors.New("the \"first\" field was not provided")
+				}
+
+				if !offsetOk {
+					// Return no objects if the "offset" field is not passed in the query
+					return nil, errors.New("the \"offset\" field was not provided")
+				}
+
+				result := controllers.GetPresidentsByDate(refs.Session, date, limit, offset)
 
 				if result != nil {
 					return result, nil
