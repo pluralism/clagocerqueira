@@ -13,31 +13,7 @@ PresidentsActions.getDataByDate = (date) => {
 
     // Query to send to the GraphQL server
     const graphQLData = `{
-      date18361910: presidents(date: "1836-1910") {
-        date
-	      objects {
-          name
-          image
-          description
-	      }
-      },
-      date19101926: presidents(date: "1910-1926") {
-        date
-	      objects {
-          name
-          image
-          description
-	      }
-      },
-      date19261974: presidents(date: "1926-1974") {
-        date
-	      objects {
-          name
-          image
-          description
-	      }
-      },
-      date19762013: presidents(date: "1976-2013") {
+      presidents(date: "1836-1910", first: 10, offset: 0) {
         date
 	      objects {
           name
@@ -50,7 +26,7 @@ PresidentsActions.getDataByDate = (date) => {
 
     httpPostGraphQL(graphQLData)
     .then((data) => {
-      if(data.data.presidents === null && data.hasOwnProperty('errors')) {
+      if(data.hasOwnProperty('errors')) {
         // Something went wrong, dispatch an error!
         dispatch({
           type: Constants.LOADING_DATA_ERROR
@@ -63,7 +39,7 @@ PresidentsActions.getDataByDate = (date) => {
           currentDate: data.data.presidents.date
         });
       }
-    });
+    })
   };
 };
 

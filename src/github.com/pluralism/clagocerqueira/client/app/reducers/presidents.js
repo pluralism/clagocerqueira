@@ -11,7 +11,7 @@ const initialState = {
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case Constants.LOADING_DATA:
-      return { loading: true, data: [], currentDate: action.currentDate };
+      return { loading: true, data: initialState.data, currentDate: action.currentDate };
 
     case Constants.LOADING_DATA_ERROR:
       return { initialState };

@@ -35,11 +35,33 @@ class RenderItem extends React.Component {
 }
 
 
+
+
 class PresidentesView extends React.Component {
   constructor(props) {
     super(props);
 
     this.currentDate = "1976-2013";
+    
+    this.president1836_1910 = {
+      page: 1,
+      objects: []
+    };
+
+    this.president1810_1926 = {
+      page: 1,
+      objects: []
+    };
+
+    this.president1926_1974 = {
+      page: 1,
+      objects: []
+    };
+
+    this.president1976_2013 = {
+      page: 1,
+      objects: []
+    };
   }
 
 
