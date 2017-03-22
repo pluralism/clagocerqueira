@@ -28,8 +28,8 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GenericL
 	}
 
 	// There are no results after we've passed the limit of pages
-	if page > result[0].TotalPages {
-		return nil
+	if page > result[0].TotalPages || page < 1 {
+		result[0].Objects = nil
 	}
 
 	// Make sure we're returning just one result!

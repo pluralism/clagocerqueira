@@ -5,7 +5,7 @@ import { httpPostGraphQL } from '../utils/index';
 const PresidentsActions = {};
 
 
-PresidentsActions.getDataByDate = (first, offset) => {
+PresidentsActions.getDataByDate = (page) => {
   return dispatch => {
     dispatch({
       type: Constants.LOADING_DATA
@@ -21,6 +21,7 @@ PresidentsActions.getDataByDate = (first, offset) => {
           image
           description
 	      }
+        total_pages
       },
       data1910_1926: presidents(date: "1910-1926", page: 1) {
         date
@@ -29,6 +30,7 @@ PresidentsActions.getDataByDate = (first, offset) => {
           image
           description
 	      }
+        total_pages
       },
       data1926_1974: presidents(date: "1926-1974", page: 1) {
         date
@@ -37,6 +39,7 @@ PresidentsActions.getDataByDate = (first, offset) => {
           image
           description
 	      }
+        total_pages
       },
       data1976_2013: presidents(date: "1976-2013", page: 1) {
         date
@@ -45,6 +48,7 @@ PresidentsActions.getDataByDate = (first, offset) => {
           image
           description
 	      }
+        total_pages
       }
     }`;
 

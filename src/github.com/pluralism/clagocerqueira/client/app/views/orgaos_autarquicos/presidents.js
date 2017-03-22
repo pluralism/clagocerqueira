@@ -50,7 +50,7 @@ class PresidentesView extends React.Component {
     const { dispatch } = this.props;
 
     // Try to extract the presidents for the current date from the database
-    dispatch(PresidentsActions.getDataByDate(10, 0));
+    dispatch(PresidentsActions.getDataByDate(1));
   }
 
 

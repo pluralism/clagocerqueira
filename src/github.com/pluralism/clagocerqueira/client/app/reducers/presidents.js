@@ -6,37 +6,27 @@ const initialState = {
   currentDate: "",
   data: {
     data1836_1910: {
-      page: 0,
       date: "",
-      objects: []
+      objects: [],
+      total_pages: 0
     },
     data1910_1926: {
-      page: 0,
       date: "",
-      objects: []
+      objects: [],
+      total_pages: 0
     },
     data1926_1974: {
-      page: 0,
       date: "",
-      objects: []
+      objects: [],
+      total_pages: 0
     },
     data1976_2013: {
-      page: 0,
       date: "",
-      objects: []
+      objects: [],
+      total_pages: 0
     }
   },
 };
-
-
-function updateDataOnReducer(presidentData) {
-  let newState =
-  let keys = Object.keys(presidentData);
-
-  keys.forEach((key) => {
-    console.log(presidentData[key]);
-  });
-}
 
 
 export default function reduce(state = initialState, action = {}) {
@@ -48,7 +38,7 @@ export default function reduce(state = initialState, action = {}) {
       return { initialState };
 
     case Constants.LOADING_DATA_SUCCESS:
-      return { ...state, loading: false, data: updateDataOnReducer(action.data), currentDate: action.currentDate };
+      return { ...state, loading: false, data: action.data, currentDate: action.currentDate };
 
     default:
       return state;
