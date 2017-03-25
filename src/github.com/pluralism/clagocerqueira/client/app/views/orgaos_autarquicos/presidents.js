@@ -141,11 +141,6 @@ class PresidentesView extends React.Component {
 
         <ul className="listing-list">
         </ul>
-
-        <div className="control-buttons">
-          <div className="prev-button"></div>
-          <div className="next-button"></div>
-        </div>
       </div>
     );
   }
@@ -161,14 +156,9 @@ class PresidentesView extends React.Component {
           "fade": true,
           "in": true
         })}>
+
         <ul className="listing-list">
         </ul>
-
-
-        <div className="control-buttons">
-          <div className="prev-button"></div>
-          <div className="next-button"></div>
-        </div>
       </div>
     );
   }
@@ -182,17 +172,13 @@ class PresidentesView extends React.Component {
           "fade": true,
           "in": true
         })}>
+
+
         <ul className="listing-list">
           <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
             subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
             text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
         </ul>
-
-
-        <div className="control-buttons">
-          <div className="prev-button"></div>
-          <div className="next-button"></div>
-        </div>
       </div>
     );
   }
@@ -212,12 +198,6 @@ class PresidentesView extends React.Component {
             subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
             text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
         </ul>
-
-
-        <div className="control-buttons">
-          <div className="prev-button"></div>
-          <div className="next-button"></div>
-        </div>
       </div>
     );
   }
@@ -291,8 +271,22 @@ class PresidentesView extends React.Component {
         {this.renderSecondTab(false)}
         {this.renderThirdTab(false)}
         {this.renderFourthTab(false)}
+        <div className="control-buttons">
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
+          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+        </div>
       </div>
     );
+  }
+
+
+  getPreviousPageContent() {
+    console.log('previous');
+  }
+
+
+  getNextPageContent() {
+    console.log('next');
   }
 
 
