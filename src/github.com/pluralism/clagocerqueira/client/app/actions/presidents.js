@@ -5,6 +5,49 @@ import { httpPostGraphQL } from '../utils/index';
 const PresidentsActions = {};
 
 
+PresidentsActions.getDataByPage = (date, mapping, page) => {
+  return dispatch => {
+    // Inform the user that the application is loading data
+    dispatch({
+      type: Constants.LOADING_DATA
+    });
+
+
+    // Query that will be sent to the GraphQL server
+    const graphQLData = `{
+      ${mapping}: presidents(date: "${date}", page: ${page}) {
+        date
+        objects {
+          name
+          image
+          description
+        }
+        total_pages
+      }
+    }`;
+
+
+    httpPostGraphQL(graphQLData)
+    .then((data) => {
+      // Something went wrong...
+      if(data.hasOwnProperty('errors')) {
+        // Dispatch an error
+        dispatch({
+          type: Constants.LOADING_DATA_ERROR
+        });
+      } else {
+        // Success, retrieve the data to the user
+        dispatch({
+          type: Constants.LOADING_DATA_SUCCESS,
+          data: data.data,
+          currentDate: date
+        });
+      }
+    });
+  };
+};
+
+
 PresidentsActions.getAllDataByPage = (page) => {
   return dispatch => {
     dispatch({
@@ -61,7 +104,7 @@ PresidentsActions.getAllDataByPage = (page) => {
         dispatch({
           type: Constants.LOADING_DATA_ERROR
         });
-      } else if(data.data.presidents !== null && !data.hasOwnProperty('errors')){
+      } else {
         // Success, retrieve the data!
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS,

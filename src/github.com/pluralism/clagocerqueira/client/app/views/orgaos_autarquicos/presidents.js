@@ -43,6 +43,14 @@ class PresidentesView extends React.Component {
 
     this.currentDate = "1836-1910";
     this.currentPage = 1;
+
+
+    this.dateMappings = {
+      "1836-1910": 'data1836_1910',
+      "1910-1926": 'data1910_1926',
+      "1926-1974": 'data1926_1974',
+      "1976-2013": 'data1976_2013'
+    };
   }
 
 
