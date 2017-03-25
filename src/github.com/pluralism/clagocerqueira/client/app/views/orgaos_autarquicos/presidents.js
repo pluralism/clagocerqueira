@@ -49,8 +49,12 @@ class PresidentesView extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
-    // Try to extract the presidents for the current date from the database
-    dispatch(PresidentsActions.getDataByDate(1));
+    /**
+     * Tries to extract the presidents of all dates from a
+     * given page.
+     * componentDidMount is always called with page 1
+    */
+    dispatch(PresidentsActions.getAllDataByPage(1));
   }
 
 
@@ -151,7 +155,6 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
         <ul className="listing-list">
-
         </ul>
 
 

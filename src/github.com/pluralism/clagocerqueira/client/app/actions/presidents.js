@@ -5,7 +5,7 @@ import { httpPostGraphQL } from '../utils/index';
 const PresidentsActions = {};
 
 
-PresidentsActions.getDataByDate = (page) => {
+PresidentsActions.getAllDataByPage = (page) => {
   return dispatch => {
     dispatch({
       type: Constants.LOADING_DATA
