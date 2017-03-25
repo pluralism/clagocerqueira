@@ -29,16 +29,33 @@ const initialState = {
 };
 
 
+/**
+ * Utility function to help us update the last state of the
+ * Redux store.
+ * By doing we can update a single entry in the array instead of
+ * the whole array, we ultimately can make the app faster
+*/
+const updateDataForDate = (data, state) => {
+  const stateData = state.data;
+  let keys = Object.keys(data);
+  keys.forEach((key) => {
+    stateData[key] = data[key];
+  });
+  return stateData;
+};
+
+
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case Constants.LOADING_DATA:
-      return { loading: true, currentDate: action.currentDate };
+      return { ...state, loading: true, currentDate: action.currentDate };
 
     case Constants.LOADING_DATA_ERROR:
       return { initialState };
 
     case Constants.LOADING_DATA_SUCCESS:
-      return { ...state, loading: false, data: action.data, currentDate: action.currentDate };
+      return { ...state, loading: false, data: updateDataForDate(action.data, state),
+        currentDate: action.currentDate };
 
     default:
       return state;

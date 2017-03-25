@@ -44,7 +44,6 @@ class PresidentesView extends React.Component {
     this.currentDate = "1836-1910";
     this.currentPage = 1;
 
-
     this.dateMappings = {
       "1836-1910": 'data1836_1910',
       "1910-1926": 'data1910_1926',
@@ -225,8 +224,13 @@ class PresidentesView extends React.Component {
 
 
   updateCurrentDate(value) {
+    const { dispatch } = this.props;
+
     // Update the currentDate variable
     this.currentDate = value;
+
+    // After updating the date we need to dispatch a new action
+    dispatch(PresidentsActions.getDataByPage(this.currentDate, this.dateMappings[this.currentDate], 1));
   }
 
 
