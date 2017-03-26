@@ -49,7 +49,7 @@ class PresidentsTab extends React.Component {
     const { data } = this.props;
 
     return (
-      <div id="first_tab" role="tabpanel" className={classNames({
+      <div id={this.props.tabID} role="tabpanel" className={classNames({
           "tab-pane": true,
           "active": this.props.active,
           "fade": true,
@@ -290,12 +290,14 @@ class PresidentesView extends React.Component {
     return (
       <div className="tab-content">
         <PresidentsTab
+          tabID={'#first_tab'}
           active={true}
           date={"1836-1910"}
           dateMapping={this.dateMappings['1836-1910']}
           data={presidents[this.dateMappings['1836-1910']]} />
 
         <PresidentsTab
+          tabID={'#second_tab'}
           active={false}
           date={"1910-1926"}
           dateMapping={this.dateMappings['1910-1926']}
@@ -303,10 +305,19 @@ class PresidentesView extends React.Component {
 
 
         <PresidentsTab
+          tabID={'#third_tab'}
           active={false}
           date={"1926-1974"}
           dateMapping={this.dateMappings['1926-1974']}
           data={presidents[this.dateMappings['1926-1974']]} />
+
+
+        <PresidentsTab
+          tabID={'#fourth_tab'}
+          active={false}
+          date={"1976-2013"}
+          dateMapping={this.dateMappings['1976-2013']}
+          data={presidents[this.dateMappings['1976-2013']]} />
 
 
         <div className="control-buttons">
