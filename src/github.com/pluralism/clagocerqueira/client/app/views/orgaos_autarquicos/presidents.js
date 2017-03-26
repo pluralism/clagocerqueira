@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import Constants from '../../constants/index';
 import PresidentsActions from '../../actions/presidents';
 
 
@@ -83,19 +84,19 @@ class PresidentesView extends React.Component {
     this.currentDate = "1836-1910";
 
     this.dateMappings = {
-      "1836-1910": {
+      [Constants.DATES.d1836_1910]: {
         mapping: 'data1836_1910',
         page: 1
       },
-      "1910-1926": {
+      [Constants.DATES.d1910_1926]: {
         mapping: 'data1910_1926',
         page: 1
       },
-      "1926-1974": {
+      [Constants.DATES.d1926_1974]: {
         mapping: 'data1926_1974',
         page: 1
       },
-      "1976-2013": {
+      [Constants.DATES.d1976_2013]: {
         mapping: 'data1976_2013',
         page: 1
       },
@@ -190,11 +191,14 @@ class PresidentesView extends React.Component {
   updateCurrentDate(value, activeTab) {
     const { dispatch } = this.props;
 
-    // Update the currentDate variable and the page back to one
+    /**
+     * Update the currentDate variable and the page
+     * with respect to that date back to one
+    */
     this.currentDate = value;
     this.dateMappings[this.currentDate].page = 1;
 
-    // Update the active tab
+    // Update the active tab!
     this.setState({
       activeTab: activeTab
     });
@@ -223,23 +227,23 @@ class PresidentesView extends React.Component {
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentDate("1836-1910", 1)}
-                  role="tab" data-toggle="tab">1836-1910</Link>
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1836_1910, 1)}
+                  role="tab" data-toggle="tab">{Constants.DATES.d1836_1910}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#second_tab"}
-                  onClick={() => this.updateCurrentDate("1910-1926", 2)}
-                  role="tab" data-toggle="tab">1910-1926</Link>
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1910_1926, 2)}
+                  role="tab" data-toggle="tab">{Constants.DATES.d1910_1926}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentDate("1926-1974", 3)}
-                  role="tab" data-toggle="tab">1926-1974</Link>
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1926_1974, 3)}
+                  role="tab" data-toggle="tab">{Constants.DATES.d1926_1974}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentDate("1976-2013", 4)}
-                  role="tab" data-toggle="tab">1976-2013</Link>
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013, 4)}
+                  role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
               </li>
             </ul>
 
@@ -260,30 +264,30 @@ class PresidentesView extends React.Component {
         <PresidentsTab
           tabID={'#first_tab'}
           active={this.state.activeTab == 1}
-          date={"1836-1910"}
-          dateMapping={this.dateMappings['1836-1910'].mapping}
-          data={presidents.data[this.dateMappings['1836-1910'].mapping]} />
+          date={Constants.DATES.d1836_1910}
+          dateMapping={this.dateMappings[Constants.DATES.d1836_1910].mapping}
+          data={presidents.data[this.dateMappings[Constants.DATES.d1836_1910].mapping]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
           active={this.state.activeTab == 2}
-          date={"1910-1926"}
-          dateMapping={this.dateMappings['1910-1926'].mapping}
-          data={presidents.data[this.dateMappings['1910-1926'].mapping]} />
+          date={Constants.DATES.d1910_1926}
+          dateMapping={this.dateMappings[Constants.DATES.d1910_1926].mapping}
+          data={presidents.data[this.dateMappings[Constants.DATES.d1910_1926].mapping]} />
 
         <PresidentsTab
           tabID={'#third_tab'}
           active={this.state.activeTab == 3}
-          date={"1926-1974"}
-          dateMapping={this.dateMappings['1926-1974'].mapping}
-          data={presidents.data[this.dateMappings['1926-1974'].mapping]} />
+          date={Constants.DATES.d1926_1974}
+          dateMapping={this.dateMappings[Constants.DATES.d1926_1974].mapping}
+          data={presidents.data[this.dateMappings[Constants.DATES.d1926_1974].mapping]} />
 
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
-          date={"1976-2013"}
-          dateMapping={this.dateMappings['1976-2013'].mapping}
-          data={presidents.data[this.dateMappings['1976-2013'].mapping]} />
+          date={Constants.DATES.d1976_2013}
+          dateMapping={this.dateMappings[Constants.DATES.d1976_2013].mapping}
+          data={presidents.data[this.dateMappings[Constants.DATES.d1976_2013].mapping]} />
 
 
         <div className="control-buttons">
