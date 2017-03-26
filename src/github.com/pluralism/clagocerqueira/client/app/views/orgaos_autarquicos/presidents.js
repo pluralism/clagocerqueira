@@ -85,6 +85,26 @@ class PresidentesView extends React.Component {
       "1926-1974": 'data1926_1974',
       "1976-2013": 'data1976_2013',
     };
+
+
+    this.state = {
+      activeTab: 1
+    };
+  }
+
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+
+    /**
+     * This function is invoked immediately after a component is mounted.
+     * This is a good place to load data from a remote endpoint and to perform
+     * network requests.
+     *
+     * On this function we try to extract the presidents from all possible dates
+     * on this page the component is always called with the first page
+    */
+    dispatch(PresidentsActions.getAllDataByPage(1));
   }
 
 
@@ -151,80 +171,19 @@ class PresidentesView extends React.Component {
   }
 
 
-  renderPresidentList(dateMapping) {
-    const { presidents } = this.props;
 
-    return (
-      <ul className="listing-list">
-        {presidents.data[dateMapping].objects.map((president) => {
-          return <RenderItem key={president.name} imgURL={president.image}
-            subtitle={"Presidentes"} title={president.name}
-            text={president.description != null ? president.description : 'Descrição indisponível'} />
-        })}
-      </ul>
-    );
-  }
-
-
-  renderSecondTab(active, date) {
-    const dateMapping = this.dateMappings[date];
-
-    return (
-      <div id="second_tab" role="tabpanel" className={classNames({
-          "tab-pane": true,
-          "active": active,
-          "fade": true,
-          "in": true
-        })}>
-
-        {this.renderPresidentList(dateMapping)}
-      </div>
-    );
-  }
-
-
-  renderThirdTab(active, date) {
-    const dateMapping = this.dateMappings[date];
-
-    return (
-      <div id="third_tab" role="tabpanel" className={classNames({
-          "tab-pane": true,
-          "active": active,
-          "fade": true,
-          "in": true
-        })}>
-
-        {this.renderPresidentList(dateMapping)}
-      </div>
-    );
-  }
-
-
-
-  renderFourthTab(active, date) {
-    const dateMapping = this.dateMappings[date];
-
-    return (
-      <div id="fourth_tab" role="tabpanel" className={classNames({
-          "tab-pane": true,
-          "active": active,
-          "fade": true,
-          "in": true
-        })}>
-
-        {this.renderPresidentList(dateMapping)}
-      </div>
-    );
-  }
-
-
-  updateCurrentDate(value) {
+  updateCurrentDate(value, activeTab) {
     const { dispatch } = this.props;
 
     // Update the currentDate variable
     this.currentDate = value;
     // Reset the current page
     this.currentPage = 1;
+
+    // Update the active tab
+    this.setState({
+      activeTab: activeTab
+    });
 
     // After updating the date we need to dispatch a new action
     dispatch(PresidentsActions.getDataByPage(this.currentDate,
@@ -254,22 +213,22 @@ class PresidentesView extends React.Component {
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentDate("1836-1910")}
+                  onClick={() => this.updateCurrentDate("1836-1910", 1)}
                   role="tab" data-toggle="tab">1836-1910</Link>
               </li>
               <li role="presentation">
                 <Link to={"#second_tab"}
-                  onClick={() => this.updateCurrentDate("1910-1926")}
+                  onClick={() => this.updateCurrentDate("1910-1926", 2)}
                   role="tab" data-toggle="tab">1910-1926</Link>
               </li>
               <li role="presentation">
                 <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentDate("1926-1974")}
+                  onClick={() => this.updateCurrentDate("1926-1974", 3)}
                   role="tab" data-toggle="tab">1926-1974</Link>
               </li>
               <li role="presentation">
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentDate("1976-2013")}
+                  onClick={() => this.updateCurrentDate("1976-2013", 4)}
                   role="tab" data-toggle="tab">1976-2013</Link>
               </li>
             </ul>
@@ -285,39 +244,38 @@ class PresidentesView extends React.Component {
 
   renderTabsContents() {
     const { presidents } = this.props;
-    console.log(presidents);
 
     return (
       <div className="tab-content">
         <PresidentsTab
           tabID={'#first_tab'}
-          active={true}
+          active={this.state.activeTab == 1}
           date={"1836-1910"}
           dateMapping={this.dateMappings['1836-1910']}
-          data={presidents[this.dateMappings['1836-1910']]} />
+          data={presidents.data[this.dateMappings['1836-1910']]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
-          active={false}
+          active={this.state.activeTab == 2}
           date={"1910-1926"}
           dateMapping={this.dateMappings['1910-1926']}
-          data={presidents[this.dateMappings['1910-1926']]} />
+          data={presidents.data[this.dateMappings['1910-1926']]} />
 
 
         <PresidentsTab
           tabID={'#third_tab'}
-          active={false}
+          active={this.state.activeTab == 3}
           date={"1926-1974"}
           dateMapping={this.dateMappings['1926-1974']}
-          data={presidents[this.dateMappings['1926-1974']]} />
+          data={presidents.data[this.dateMappings['1926-1974']]} />
 
 
         <PresidentsTab
           tabID={'#fourth_tab'}
-          active={false}
+          active={this.state.activeTab == 4}
           date={"1976-2013"}
           dateMapping={this.dateMappings['1976-2013']}
-          data={presidents[this.dateMappings['1976-2013']]} />
+          data={presidents.data[this.dateMappings['1976-2013']]} />
 
 
         <div className="control-buttons">
@@ -344,7 +302,7 @@ class PresidentesView extends React.Component {
   getNextPageContent() {
     const { presidents, dispatch } = this.props;
 
-    if(this.currentPage < presidents.data[this.dateMappings[this.currentDate]].total_pages) {
+    if(this.currentPage < presidents[this.dateMappings[this.currentDate]].total_pages) {
       this.currentPage += 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
