@@ -48,7 +48,7 @@ class PresidentesView extends React.Component {
       "1836-1910": 'data1836_1910',
       "1910-1926": 'data1910_1926',
       "1926-1974": 'data1926_1974',
-      "1976-2013": 'data1976_2013'
+      "1976-2013": 'data1976_2013',
     };
   }
 
@@ -128,8 +128,23 @@ class PresidentesView extends React.Component {
   }
 
 
-  renderFirstTab(active) {
+  renderPresidentList(dateMapping) {
     const { presidents } = this.props;
+
+    return (
+      <ul className="listing-list">
+        {presidents.data[dateMapping].objects.map((president) => {
+          return <RenderItem key={president.name} imgURL={president.image}
+            subtitle={"Presidentes"} title={president.name}
+            text={president.description != null ? president.description : 'Descrição indisponível'} />
+        })}
+      </ul>
+    );
+  }
+
+
+  renderFirstTab(active, date) {
+    const dateMapping = this.dateMappings[date];
 
     return (
       <div id="first_tab" role="tabpanel" className={classNames({
@@ -139,15 +154,14 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
 
-        <ul className="listing-list">
-        </ul>
+        {this.renderPresidentList(dateMapping)}
       </div>
     );
   }
 
 
-  renderSecondTab(active) {
-    const { presidents } = this.props;
+  renderSecondTab(active, date) {
+    const dateMapping = this.dateMappings[date];
 
     return (
       <div id="second_tab" role="tabpanel" className={classNames({
@@ -157,14 +171,15 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
 
-        <ul className="listing-list">
-        </ul>
+        {this.renderPresidentList(dateMapping)}
       </div>
     );
   }
 
 
-  renderThirdTab(active) {
+  renderThirdTab(active, date) {
+    const dateMapping = this.dateMappings[date];
+
     return (
       <div id="third_tab" role="tabpanel" className={classNames({
           "tab-pane": true,
@@ -173,31 +188,26 @@ class PresidentesView extends React.Component {
           "in": true
         })}>
 
-
-        <ul className="listing-list">
-          <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
-            subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
-            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
-        </ul>
+        {this.renderPresidentList(dateMapping)}
       </div>
     );
   }
 
 
 
-  renderFourthTab(active) {
+  renderFourthTab(active, date) {
+    const dateMapping = this.dateMappings[date];
+    console.log('a renderizar fourth tab');
+
     return (
-      <div id="fourth_date" role="tabpanel" className={classNames({
+      <div id="fourth_tab" role="tabpanel" className={classNames({
           "tab-pane": true,
           "active": active,
           "fade": true,
           "in": true
         })}>
-        <ul className="listing-list">
-          <RenderItem imgURL={"http://www.citador.pt/images/autorid01232.jpg"}
-            subtitle={"Presidentes"} title={"André Pedro Deus Pinheiro"}
-            text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut scelerisque odio, a viverra arcu. Nulla ut suscipit velit, non dictum quam. Proin hendrerit vulputate mauris a imperdiet"} />
-        </ul>
+
+        {this.renderPresidentList(dateMapping)}
       </div>
     );
   }
@@ -210,7 +220,8 @@ class PresidentesView extends React.Component {
     this.currentDate = value;
 
     // After updating the date we need to dispatch a new action
-    dispatch(PresidentsActions.getDataByPage(this.currentDate, this.dateMappings[this.currentDate], 1));
+    dispatch(PresidentsActions.getDataByPage(this.currentDate,
+      this.dateMappings[this.currentDate], 1));
   }
 
 
@@ -267,10 +278,12 @@ class PresidentesView extends React.Component {
   renderTabsContents() {
     return (
       <div className="tab-content">
-        {this.renderFirstTab(true)}
-        {this.renderSecondTab(false)}
-        {this.renderThirdTab(false)}
-        {this.renderFourthTab(false)}
+        {this.renderFirstTab(true, "1836-1910")}
+        {this.renderSecondTab(false, "1910-1926")}
+        {this.renderThirdTab(false, "1926-1974")}
+        {this.renderFourthTab(false, "1976-2013")}
+
+
         <div className="control-buttons">
           <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
           <div className="next-button" onClick={() => this.getNextPageContent()}></div>
