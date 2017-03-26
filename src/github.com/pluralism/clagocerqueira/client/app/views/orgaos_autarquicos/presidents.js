@@ -40,8 +40,6 @@ class RenderItem extends React.Component {
 class PresidentsTab extends React.Component {
   constructor(props) {
     super(props);
-
-    this.date = this.props.date;
   }
 
 
@@ -262,28 +260,24 @@ class PresidentesView extends React.Component {
         <PresidentsTab
           tabID={'#first_tab'}
           active={this.state.activeTab == 1}
-          date={Constants.DATES.d1836_1910}
           dateMapping={this.dateAndPageMappings[Constants.DATES.d1836_1910].mapping}
           data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1836_1910].mapping]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
           active={this.state.activeTab == 2}
-          date={Constants.DATES.d1910_1926}
           dateMapping={this.dateAndPageMappings[Constants.DATES.d1910_1926].mapping}
           data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1910_1926].mapping]} />
 
         <PresidentsTab
           tabID={'#third_tab'}
           active={this.state.activeTab == 3}
-          date={Constants.DATES.d1926_1974}
           dateMapping={this.dateAndPageMappings[Constants.DATES.d1926_1974].mapping}
           data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1926_1974].mapping]} />
 
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
-          date={Constants.DATES.d1976_2013}
           dateMapping={this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping}
           data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping]} />
 
@@ -319,7 +313,7 @@ class PresidentesView extends React.Component {
     let presidentMapping = presidents.data[obj.mapping];
 
     if(currentPage < presidentMapping.total_pages) {
-      this.dateAndPageMappings[this.currentDate].page += 1;
+      obj.page += 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
         obj.mapping, obj.page));
