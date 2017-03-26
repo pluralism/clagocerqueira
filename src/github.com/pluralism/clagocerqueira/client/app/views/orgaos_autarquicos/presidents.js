@@ -61,8 +61,6 @@ class PresidentsTab extends React.Component {
           "in": true
         })}>
 
-
-
         <ul className="listing-list">
           {data.objects.map((president) => {
             return <RenderItem key={president.name} imgURL={president.image}
@@ -83,7 +81,7 @@ class PresidentesView extends React.Component {
 
     this.currentDate = "1836-1910";
 
-    this.dateMappings = {
+    this.dateAndPageMappings = {
       [Constants.DATES.d1836_1910]: {
         mapping: 'data1836_1910',
         page: 1
@@ -196,7 +194,7 @@ class PresidentesView extends React.Component {
      * with respect to that date back to one
     */
     this.currentDate = value;
-    this.dateMappings[this.currentDate].page = 1;
+    this.dateAndPageMappings[this.currentDate].page = 1;
 
     // Update the active tab!
     this.setState({
@@ -265,29 +263,29 @@ class PresidentesView extends React.Component {
           tabID={'#first_tab'}
           active={this.state.activeTab == 1}
           date={Constants.DATES.d1836_1910}
-          dateMapping={this.dateMappings[Constants.DATES.d1836_1910].mapping}
-          data={presidents.data[this.dateMappings[Constants.DATES.d1836_1910].mapping]} />
+          dateMapping={this.dateAndPageMappings[Constants.DATES.d1836_1910].mapping}
+          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1836_1910].mapping]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
           active={this.state.activeTab == 2}
           date={Constants.DATES.d1910_1926}
-          dateMapping={this.dateMappings[Constants.DATES.d1910_1926].mapping}
-          data={presidents.data[this.dateMappings[Constants.DATES.d1910_1926].mapping]} />
+          dateMapping={this.dateAndPageMappings[Constants.DATES.d1910_1926].mapping}
+          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1910_1926].mapping]} />
 
         <PresidentsTab
           tabID={'#third_tab'}
           active={this.state.activeTab == 3}
           date={Constants.DATES.d1926_1974}
-          dateMapping={this.dateMappings[Constants.DATES.d1926_1974].mapping}
-          data={presidents.data[this.dateMappings[Constants.DATES.d1926_1974].mapping]} />
+          dateMapping={this.dateAndPageMappings[Constants.DATES.d1926_1974].mapping}
+          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1926_1974].mapping]} />
 
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
           date={Constants.DATES.d1976_2013}
-          dateMapping={this.dateMappings[Constants.DATES.d1976_2013].mapping}
-          data={presidents.data[this.dateMappings[Constants.DATES.d1976_2013].mapping]} />
+          dateMapping={this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping}
+          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping]} />
 
 
         <div className="control-buttons">
@@ -301,28 +299,30 @@ class PresidentesView extends React.Component {
 
   getPreviousPageContent() {
     const { presidents, dispatch } = this.props;
-    let currentPage = this.dateMappings[this.currentDate].page;
-    let presidentMapping = presidents.data[this.dateMappings[this.currentDate].mapping];
+    let obj = this.dateAndPageMappings[this.currentDate];
+    let currentPage = obj.page;
+    let presidentMapping = presidents.data[obj.mapping];
 
     if(currentPage > 1) {
-      this.dateMappings[this.currentDate].page -= 1;
+      obj.page -= 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
-        this.dateMappings[this.currentDate].mapping, this.dateMappings[this.currentDate].page));
+        obj.mapping, obj.page));
     }
   }
 
 
   getNextPageContent() {
     const { presidents, dispatch } = this.props;
-    let currentPage = this.dateMappings[this.currentDate].page;
-    let presidentMapping = presidents.data[this.dateMappings[this.currentDate].mapping];
+    let obj = this.dateAndPageMappings[this.currentDate];
+    let currentPage = obj.page;
+    let presidentMapping = presidents.data[obj.mapping];
 
     if(currentPage < presidentMapping.total_pages) {
-      this.dateMappings[this.currentDate].page += 1;
+      this.dateAndPageMappings[this.currentDate].page += 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
-        this.dateMappings[this.currentDate].mapping, this.dateMappings[this.currentDate].page));
+        obj.mapping, obj.page));
     }
   }
 

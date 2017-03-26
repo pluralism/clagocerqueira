@@ -33,7 +33,7 @@ const initialState = {
  * Utility function to help us update the last state of the
  * Redux store.
  * By doing we can update a single entry in the array instead of
- * the whole array, we ultimately can make the app faster
+ * the whole array, and ultimately make the app faster
 */
 const updateDataForDate = (data, state) => {
   const stateData = state.data;
