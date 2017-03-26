@@ -41,7 +41,11 @@ class PresidentsTab extends React.Component {
     super(props);
 
     this.date = this.props.date;
-    this.currentPage = 1;
+  }
+
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.active || nextProps.active == !this.props.active;
   }
 
 
@@ -77,13 +81,24 @@ class PresidentesView extends React.Component {
     super(props);
 
     this.currentDate = "1836-1910";
-    this.currentPage = 1;
 
     this.dateMappings = {
-      "1836-1910": 'data1836_1910',
-      "1910-1926": 'data1910_1926',
-      "1926-1974": 'data1926_1974',
-      "1976-2013": 'data1976_2013',
+      "1836-1910": {
+        mapping: 'data1836_1910',
+        page: 1
+      },
+      "1910-1926": {
+        mapping: 'data1910_1926',
+        page: 1
+      },
+      "1926-1974": {
+        mapping: 'data1926_1974',
+        page: 1
+      },
+      "1976-2013": {
+        mapping: 'data1976_2013',
+        page: 1
+      },
     };
 
 
@@ -175,19 +190,14 @@ class PresidentesView extends React.Component {
   updateCurrentDate(value, activeTab) {
     const { dispatch } = this.props;
 
-    // Update the currentDate variable
+    // Update the currentDate variable and the page back to one
     this.currentDate = value;
-    // Reset the current page
-    this.currentPage = 1;
+    this.dateMappings[this.currentDate].page = 1;
 
     // Update the active tab
     this.setState({
       activeTab: activeTab
     });
-
-    // After updating the date we need to dispatch a new action
-    dispatch(PresidentsActions.getDataByPage(this.currentDate,
-      this.dateMappings[this.currentDate], this.currentPage));
   }
 
 
@@ -251,31 +261,29 @@ class PresidentesView extends React.Component {
           tabID={'#first_tab'}
           active={this.state.activeTab == 1}
           date={"1836-1910"}
-          dateMapping={this.dateMappings['1836-1910']}
-          data={presidents.data[this.dateMappings['1836-1910']]} />
+          dateMapping={this.dateMappings['1836-1910'].mapping}
+          data={presidents.data[this.dateMappings['1836-1910'].mapping]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
           active={this.state.activeTab == 2}
           date={"1910-1926"}
-          dateMapping={this.dateMappings['1910-1926']}
-          data={presidents.data[this.dateMappings['1910-1926']]} />
-
+          dateMapping={this.dateMappings['1910-1926'].mapping}
+          data={presidents.data[this.dateMappings['1910-1926'].mapping]} />
 
         <PresidentsTab
           tabID={'#third_tab'}
           active={this.state.activeTab == 3}
           date={"1926-1974"}
-          dateMapping={this.dateMappings['1926-1974']}
-          data={presidents.data[this.dateMappings['1926-1974']]} />
-
+          dateMapping={this.dateMappings['1926-1974'].mapping}
+          data={presidents.data[this.dateMappings['1926-1974'].mapping]} />
 
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
           date={"1976-2013"}
-          dateMapping={this.dateMappings['1976-2013']}
-          data={presidents.data[this.dateMappings['1976-2013']]} />
+          dateMapping={this.dateMappings['1976-2013'].mapping}
+          data={presidents.data[this.dateMappings['1976-2013'].mapping]} />
 
 
         <div className="control-buttons">
@@ -289,24 +297,28 @@ class PresidentesView extends React.Component {
 
   getPreviousPageContent() {
     const { presidents, dispatch } = this.props;
+    let currentPage = this.dateMappings[this.currentDate].page;
+    let presidentMapping = presidents.data[this.dateMappings[this.currentDate].mapping];
 
-    if(this.currentPage > 1) {
-      this.currentPage -= 1;
+    if(currentPage > 1) {
+      this.dateMappings[this.currentDate].page -= 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
-        this.dateMappings[this.currentDate], this.currentPage));
+        this.dateMappings[this.currentDate].mapping, this.dateMappings[this.currentDate].page));
     }
   }
 
 
   getNextPageContent() {
     const { presidents, dispatch } = this.props;
+    let currentPage = this.dateMappings[this.currentDate].page;
+    let presidentMapping = presidents.data[this.dateMappings[this.currentDate].mapping];
 
-    if(this.currentPage < presidents[this.dateMappings[this.currentDate]].total_pages) {
-      this.currentPage += 1;
+    if(currentPage < presidentMapping.total_pages) {
+      this.dateMappings[this.currentDate].page += 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
-        this.dateMappings[this.currentDate], this.currentPage));
+        this.dateMappings[this.currentDate].mapping, this.dateMappings[this.currentDate].page));
     }
   }
 
