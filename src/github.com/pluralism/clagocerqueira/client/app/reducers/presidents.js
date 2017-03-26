@@ -4,28 +4,26 @@ import Constants from '../constants/index';
 const initialState = {
   loading: false,
   currentDate: "",
-  data: {
-    data1836_1910: {
-      date: "",
-      objects: [],
-      total_pages: 0
-    },
-    data1910_1926: {
-      date: "",
-      objects: [],
-      total_pages: 0
-    },
-    data1926_1974: {
-      date: "",
-      objects: [],
-      total_pages: 0
-    },
-    data1976_2013: {
-      date: "",
-      objects: [],
-      total_pages: 0
-    }
+  data1836_1910: {
+    date: "",
+    objects: [],
+    total_pages: 0
   },
+  data1910_1926: {
+    date: "",
+    objects: [],
+    total_pages: 0
+  },
+  data1926_1974: {
+    date: "",
+    objects: [],
+    total_pages: 0
+  },
+  data1976_2013: {
+    date: "",
+    objects: [],
+    total_pages: 0
+  }
 };
 
 

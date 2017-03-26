@@ -36,6 +36,41 @@ class RenderItem extends React.Component {
 
 
 
+class PresidentsTab extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.date = this.props.date;
+    this.currentPage = 1;
+  }
+
+
+  render() {
+    const { data } = this.props;
+
+    return (
+      <div id="first_tab" role="tabpanel" className={classNames({
+          "tab-pane": true,
+          "active": this.props.active,
+          "fade": true,
+          "in": true
+        })}>
+
+
+
+        <ul className="listing-list">
+          {data.objects.map((president) => {
+            return <RenderItem key={president.name} imgURL={president.image}
+              subtitle={"Presidentes"} title={president.name}
+              text={president.description != null ? president.description : 'Descrição indisponível'} />
+          })}
+        </ul>
+      </div>
+    );
+  }
+}
+
+
 
 class PresidentesView extends React.Component {
   constructor(props) {
@@ -50,18 +85,6 @@ class PresidentesView extends React.Component {
       "1926-1974": 'data1926_1974',
       "1976-2013": 'data1976_2013',
     };
-  }
-
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-
-    /**
-     * Tries to extract the presidents of all dates from a
-     * given page.
-     * componentDidMount is always called with page 1
-    */
-    dispatch(PresidentsActions.getAllDataByPage(1));
   }
 
 
@@ -139,23 +162,6 @@ class PresidentesView extends React.Component {
             text={president.description != null ? president.description : 'Descrição indisponível'} />
         })}
       </ul>
-    );
-  }
-
-
-  renderFirstTab(active, date) {
-    const dateMapping = this.dateMappings[date];
-
-    return (
-      <div id="first_tab" role="tabpanel" className={classNames({
-          "tab-pane": true,
-          "active": active,
-          "fade": true,
-          "in": true
-        })}>
-
-        {this.renderPresidentList(dateMapping)}
-      </div>
     );
   }
 
@@ -278,12 +284,29 @@ class PresidentesView extends React.Component {
 
 
   renderTabsContents() {
+    const { presidents } = this.props;
+    console.log(presidents);
+
     return (
       <div className="tab-content">
-        {this.renderFirstTab(true, "1836-1910")}
-        {this.renderSecondTab(false, "1910-1926")}
-        {this.renderThirdTab(false, "1926-1974")}
-        {this.renderFourthTab(false, "1976-2013")}
+        <PresidentsTab
+          active={true}
+          date={"1836-1910"}
+          dateMapping={this.dateMappings['1836-1910']}
+          data={presidents[this.dateMappings['1836-1910']]} />
+
+        <PresidentsTab
+          active={false}
+          date={"1910-1926"}
+          dateMapping={this.dateMappings['1910-1926']}
+          data={presidents[this.dateMappings['1910-1926']]} />
+
+
+        <PresidentsTab
+          active={false}
+          date={"1926-1974"}
+          dateMapping={this.dateMappings['1926-1974']}
+          data={presidents[this.dateMappings['1926-1974']]} />
 
 
         <div className="control-buttons">
@@ -354,5 +377,6 @@ class PresidentesView extends React.Component {
 const mapStateToProps = (state) => ({
   presidents: state.presidents
 });
+
 
 export default connect(mapStateToProps)(PresidentesView);
