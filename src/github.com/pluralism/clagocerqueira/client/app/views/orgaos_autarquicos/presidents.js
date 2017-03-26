@@ -197,7 +197,6 @@ class PresidentesView extends React.Component {
 
   renderFourthTab(active, date) {
     const dateMapping = this.dateMappings[date];
-    console.log('a renderizar fourth tab');
 
     return (
       <div id="fourth_tab" role="tabpanel" className={classNames({
@@ -218,10 +217,12 @@ class PresidentesView extends React.Component {
 
     // Update the currentDate variable
     this.currentDate = value;
+    // Reset the current page
+    this.currentPage = 1;
 
     // After updating the date we need to dispatch a new action
     dispatch(PresidentsActions.getDataByPage(this.currentDate,
-      this.dateMappings[this.currentDate], 1));
+      this.dateMappings[this.currentDate], this.currentPage));
   }
 
 
@@ -233,7 +234,8 @@ class PresidentesView extends React.Component {
             <div className="g-mb-30">
               <h2><span className="g-color-default">Presidentes</span></h2>
             </div>
-            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo. Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
+              Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
           </div>
 
 
@@ -294,12 +296,26 @@ class PresidentesView extends React.Component {
 
 
   getPreviousPageContent() {
-    console.log('previous');
+    const { presidents, dispatch } = this.props;
+
+    if(this.currentPage > 1) {
+      this.currentPage -= 1;
+
+      dispatch(PresidentsActions.getDataByPage(this.currentDate,
+        this.dateMappings[this.currentDate], this.currentPage));
+    }
   }
 
 
   getNextPageContent() {
-    console.log('next');
+    const { presidents, dispatch } = this.props;
+
+    if(this.currentPage < presidents.data[this.dateMappings[this.currentDate]].total_pages) {
+      this.currentPage += 1;
+
+      dispatch(PresidentsActions.getDataByPage(this.currentDate,
+        this.dateMappings[this.currentDate], this.currentPage));
+    }
   }
 
 
