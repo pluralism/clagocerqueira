@@ -102,6 +102,20 @@ class PresidentesView extends React.Component {
     this.state = {
       activeTab: 1
     };
+
+
+    document.addEventListener("keydown", ::this.handleKeyDownEvent);
+  }
+
+
+  handleKeyDownEvent(e) {
+    if(e.keyCode == 37) {
+      // Left arrow was pressed
+      this.getPreviousPageContent();
+    } else if(e.keyCode == 39) {
+      // Right arrow was pressed
+      this.getNextPageContent();
+    }
   }
 
 
