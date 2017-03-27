@@ -202,11 +202,11 @@ class PresidentesView extends React.Component {
     const { dispatch } = this.props;
 
     /**
-     * Update the currentDate variable and the page
-     * with respect to that date back to one
+     * Update the currentDate variable and keep the page
+     * as the old one. This allow us to mantain consistency
+     * with the lists of presidents
     */
     this.currentDate = value;
-    this.dateAndPageMappings[this.currentDate].page = 1;
 
     // Update the active tab!
     this.setState({
