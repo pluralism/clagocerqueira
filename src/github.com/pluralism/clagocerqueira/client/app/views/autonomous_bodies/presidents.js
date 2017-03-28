@@ -17,23 +17,23 @@ class PresidentesView extends React.Component {
     this.dateAndPageMappings = {
       [Constants.DATES.d1836_1910]: {
         mapping: 'data1836_1910',
-        page: 1
+        page: 1,
       },
       [Constants.DATES.d1910_1926]: {
         mapping: 'data1910_1926',
-        page: 1
+        page: 1,
       },
       [Constants.DATES.d1926_1974]: {
         mapping: 'data1926_1974',
-        page: 1
+        page: 1,
       },
       [Constants.DATES.d1974_1976]: {
         mapping: 'data1974_1976',
-        page: 1
+        page: 1,
       },
       [Constants.DATES.d1976_2013]: {
         mapping: 'data1976_2013',
-        page: 1
+        page: 1,
       },
     };
 
@@ -220,35 +220,35 @@ class PresidentesView extends React.Component {
           subtitle={"Presidentes"}
           active={this.state.activeTab == 1}
           dateMapping={Constants.MAPPINGS.d1836_1910}
-          data={presidents.data[Constants.MAPPINGS.d1836_1910]} />
+          data={presidents.data[Constants.MAPPINGS.d1836_1910].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab == 2}
           dateMapping={Constants.MAPPINGS.d1910_1926}
-          data={presidents.data[Constants.MAPPINGS.d1910_1926]} />
+          data={presidents.data[Constants.MAPPINGS.d1910_1926].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab == 3}
           dateMapping={Constants.MAPPINGS.d1926_1974}
-          data={presidents.data[Constants.MAPPINGS.d1926_1974]} />
+          data={presidents.data[Constants.MAPPINGS.d1926_1974].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab == 4}
           dateMapping={Constants.MAPPINGS.d1974_1976}
-          data={presidents.data[Constants.MAPPINGS.d1974_1976]} />
+          data={presidents.data[Constants.MAPPINGS.d1974_1976].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab == 5}
           dateMapping={Constants.MAPPINGS.d1976_2013}
-          data={presidents.data[Constants.MAPPINGS.d1976_2013]} />
+          data={presidents.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
 
 
         <div className="control-buttons">
@@ -280,13 +280,14 @@ class PresidentesView extends React.Component {
     let currentPage = obj.page;
     let presidentMapping = presidents.data[obj.mapping];
 
-    if(currentPage < presidentMapping.total_pages) {
+    if(currentPage < presidentMapping.objects.max_pages) {
       obj.page += 1;
 
       dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
         obj.mapping, obj.page, Constants.PRESIDENTS));
     }
   }
+
 
 
   render() {

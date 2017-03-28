@@ -18,11 +18,14 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
       ${mapping}: ${type}(date: "${date}", page: ${page}) {
         date
         objects {
-          name
-          image
-          description
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
         }
-        total_pages
       }
     }`;
 
@@ -59,48 +62,63 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
     const graphQLData = `{
       ${Constants.MAPPINGS.d1836_1910}: ${type}(date: "${Constants.DATES.d1836_1910}", page: 1) {
         date
-	      objects {
-          name
-          image
-          description
-	      }
-        total_pages
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
       },
       ${Constants.MAPPINGS.d1910_1926}: ${type}(date: "${Constants.DATES.d1910_1926}", page: 1) {
         date
-	      objects {
-          name
-          image
-          description
-	      }
-        total_pages
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
       },
       ${Constants.MAPPINGS.d1926_1974}: ${type}(date: "${Constants.DATES.d1926_1974}", page: 1) {
         date
-	      objects {
-          name
-          image
-          description
-	      }
-        total_pages
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
       },
       ${Constants.MAPPINGS.d1974_1976}: ${type}(date: "${Constants.DATES.d1974_1976}", page: 1) {
         date
         objects {
-          name
-          image
-          description
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
         }
-        total_pages
       },
       ${Constants.MAPPINGS.d1976_2013}: ${type}(date: "${Constants.DATES.d1976_2013}", page: 1) {
         date
-	      objects {
-          name
-          image
-          description
-	      }
-        total_pages
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
       }
     }`;
 
