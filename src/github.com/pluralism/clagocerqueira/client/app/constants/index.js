@@ -22,6 +22,9 @@ const Constants = {
     d1974_1976: "data1974_1976",
     d1976_2013: "data1976_2013",
   },
+
+  PRESIDENTS: 'presidents',
+  COUNCILMEN: 'councilmen'
 };
 
 export default Constants;

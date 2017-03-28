@@ -2,16 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
-import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import classNames from 'classnames';
 import Constants from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
 
-class PresidentesView extends React.Component {
+class CouncilmenView extends React.Component {
   constructor(props) {
     super(props);
-
 
     this.currentDate = Constants.DATES.d1836_1910;
     this.dateAndPageMappings = {
@@ -41,20 +39,6 @@ class PresidentesView extends React.Component {
     this.state = {
       activeTab: 1
     };
-
-
-    document.addEventListener("keydown", ::this.handleKeyDownEvent);
-  }
-
-
-  handleKeyDownEvent(e) {
-    if(e.keyCode == 37) {
-      // Left arrow was pressed
-      this.getPreviousPageContent();
-    } else if(e.keyCode == 39) {
-      // Right arrow was pressed
-      this.getNextPageContent();
-    }
   }
 
 
@@ -66,11 +50,12 @@ class PresidentesView extends React.Component {
      * This is a good place to load data from a remote endpoint and to perform
      * network requests.
      *
-     * On this function we try to extract the presidents from all possible dates
+     * On this function we try to extract the councilmen from all possible dates
      * on this page the component is always called with the first page
     */
-    dispatch(GeneralObjectsActions.getAllDataByPage(1, 'presidents'));
+    dispatch(GeneralObjectsActions.getAllDataByPage(1, Constants.COUNCILMEN));
   }
+
 
 
   renderHeader() {
@@ -136,14 +121,13 @@ class PresidentesView extends React.Component {
   }
 
 
-
   updateCurrentDate(value, activeTab) {
     const { dispatch } = this.props;
 
     /**
      * Update the currentDate variable and keep the page
      * as the old one. This allow us to mantain consistency
-     * with the lists of presidents
+     * with the lists of councilmen
     */
     this.currentDate = value;
 
@@ -156,11 +140,11 @@ class PresidentesView extends React.Component {
 
   renderUpperSection() {
     return (
-      <section id="presidentes_data">
+      <section id="vereadores_data">
         <div className="g-pt-40">
           <div className="text-center g-mb-30">
             <div className="g-mb-30">
-              <h2><span className="g-color-default">Presidentes</span></h2>
+              <h2><span className="g-color-default">Vereadores</span></h2>
             </div>
             <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
               Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
@@ -168,7 +152,7 @@ class PresidentesView extends React.Component {
 
 
           <div className="search_on_list g-mb-30 text-center font-main">
-            <input type="text" placeholder="Pesquisar presidentes&#8230;" />
+            <input type="text" placeholder="Pesquisar vereadores&#8230;" />
           </div>
 
 
@@ -210,92 +194,11 @@ class PresidentesView extends React.Component {
   }
 
 
-  renderTabsContents() {
-    const { presidents } = this.props;
-
-    return (
-      <div className="tab-content">
-        <GeneralObjectTab
-          tabID={'#first_tab'}
-          subtitle={"Presidentes"}
-          active={this.state.activeTab == 1}
-          dateMapping={Constants.MAPPINGS.d1836_1910}
-          data={presidents.data[Constants.MAPPINGS.d1836_1910]} />
-
-        <GeneralObjectTab
-          tabID={'#second_tab'}
-          subtitle={"Presidentes"}
-          active={this.state.activeTab == 2}
-          dateMapping={Constants.MAPPINGS.d1910_1926}
-          data={presidents.data[Constants.MAPPINGS.d1910_1926]} />
-
-        <GeneralObjectTab
-          tabID={'#third_tab'}
-          subtitle={"Presidentes"}
-          active={this.state.activeTab == 3}
-          dateMapping={Constants.MAPPINGS.d1926_1974}
-          data={presidents.data[Constants.MAPPINGS.d1926_1974]} />
-
-        <GeneralObjectTab
-          tabID={'#fourth_tab'}
-          subtitle={"Presidentes"}
-          active={this.state.activeTab == 4}
-          dateMapping={Constants.MAPPINGS.d1974_1976}
-          data={presidents.data[Constants.MAPPINGS.d1974_1976]} />
-
-        <GeneralObjectTab
-          tabID={'#fifth_tab'}
-          subtitle={"Presidentes"}
-          active={this.state.activeTab == 5}
-          dateMapping={Constants.MAPPINGS.d1976_2013}
-          data={presidents.data[Constants.MAPPINGS.d1976_2013]} />
-
-
-        <div className="control-buttons">
-          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
-          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
-        </div>
-      </div>
-    );
-  }
-
-
-  getPreviousPageContent() {
-    const { presidents, dispatch } = this.props;
-    let obj = this.dateAndPageMappings[this.currentDate];
-    let currentPage = obj.page;
-
-    if(currentPage > 1) {
-      obj.page -= 1;
-
-      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, 'presidents'));
-    }
-  }
-
-
-  getNextPageContent() {
-    const { presidents, dispatch } = this.props;
-    let obj = this.dateAndPageMappings[this.currentDate];
-    let currentPage = obj.page;
-    let presidentMapping = presidents.data[obj.mapping];
-
-    if(currentPage < presidentMapping.total_pages) {
-      obj.page += 1;
-
-      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, 'presidents'));
-    }
-  }
-
-
   render() {
     return (
       <div>
         <main className="container-fluid">
           {this.renderHeader()}
-          {this.renderUpperSection()}
-
           <Footer />
         </main>
       </div>
@@ -305,8 +208,8 @@ class PresidentesView extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  presidents: state.generalObjects
+  councilmen: state.generalObjects
 });
 
 
-export default connect(mapStateToProps)(PresidentesView);
+export default connect(mapStateToProps)(CouncilmenView);
