@@ -24,7 +24,9 @@ const Constants = {
   },
 
   PRESIDENTS: 'presidents',
-  COUNCILMEN: 'councilmen'
+  COUNCILMEN: 'councilmen',
+
+  MINIMUM_WAIT_TIME: 500,
 };
 
 export default Constants;
