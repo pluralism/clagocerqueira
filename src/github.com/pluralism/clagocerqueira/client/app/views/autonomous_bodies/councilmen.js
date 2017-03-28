@@ -12,6 +12,7 @@ class CouncilmenView extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.currentDate = Constants.DATES.d1836_1910;
     this.dateAndPageMappings = {
       [Constants.DATES.d1836_1910]: {
@@ -38,7 +39,8 @@ class CouncilmenView extends React.Component {
 
 
     this.state = {
-      activeTab: 1
+      activeTab: 1,
+      canSwitchPage: true,
     };
 
 
@@ -46,13 +48,30 @@ class CouncilmenView extends React.Component {
   }
 
 
+  canUseSwitchPage() {
+    this.setState({
+      canSwitchPage: false
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          canSwitchPage: true
+        });
+      }, Constants.MINIMUM_WAIT_TIME);
+    });
+  }
+
+
   handleKeyDownEvent(e) {
-    if(e.keyCode == 37) {
+    if(e.keyCode == 37 && this.state.canSwitchPage) {
       // Left arrow was pressed
       this.getPreviousPageContent();
-    } else if(e.keyCode == 39) {
+      // Prevent the user from pressing the button too fast (wait 0.5s)
+      this.canUseSwitchPage();
+    } else if(e.keyCode == 39 && this.state.canSwitchPage) {
       // Right arrow was pressed
       this.getNextPageContent();
+      // Prevent the user from pressing the button too fast (wait 0.5s)
+      this.canUseSwitchPage();
     }
   }
 
@@ -219,35 +238,35 @@ class CouncilmenView extends React.Component {
           subtitle={"Vereadores"}
           active={this.state.activeTab == 1}
           dateMapping={Constants.MAPPINGS.d1836_1910}
-          data={councilmen.data[Constants.MAPPINGS.d1836_1910]} />
+          data={councilmen.data[Constants.MAPPINGS.d1836_1910].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 2}
           dateMapping={Constants.MAPPINGS.d1910_1926}
-          data={councilmen.data[Constants.MAPPINGS.d1910_1926]} />
+          data={councilmen.data[Constants.MAPPINGS.d1910_1926].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 3}
           dateMapping={Constants.MAPPINGS.d1926_1974}
-          data={councilmen.data[Constants.MAPPINGS.d1926_1974]} />
+          data={councilmen.data[Constants.MAPPINGS.d1926_1974].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 4}
           dateMapping={Constants.MAPPINGS.d1974_1976}
-          data={councilmen.data[Constants.MAPPINGS.d1974_1976]} />
+          data={councilmen.data[Constants.MAPPINGS.d1974_1976].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 5}
           dateMapping={Constants.MAPPINGS.d1976_2013}
-          data={councilmen.data[Constants.MAPPINGS.d1976_2013]} />
+          data={councilmen.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
 
 
         <div className="control-buttons">
@@ -279,7 +298,7 @@ class CouncilmenView extends React.Component {
     let currentPage = obj.page;
     let presidentMapping = councilmen.data[obj.mapping];
 
-    if(currentPage < presidentMapping.total_pages) {
+    if(currentPage < presidentMapping.objects.max_pages) {
       obj.page += 1;
 
       dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,

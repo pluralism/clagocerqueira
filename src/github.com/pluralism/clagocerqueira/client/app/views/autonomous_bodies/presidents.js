@@ -48,7 +48,7 @@ class PresidentesView extends React.Component {
   }
 
 
-  updateSwitchPage() {
+  canUseSwitchPage() {
     this.setState({
       canSwitchPage: false
     }, () => {
@@ -66,12 +66,12 @@ class PresidentesView extends React.Component {
       // Left arrow was pressed
       this.getPreviousPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
-      this.updateSwitchPage();
+      this.canUseSwitchPage();
     } else if(e.keyCode == 39 && this.state.canSwitchPage) {
       // Right arrow was pressed
       this.getNextPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
-      this.updateSwitchPage();
+      this.canUseSwitchPage();
     }
   }
 

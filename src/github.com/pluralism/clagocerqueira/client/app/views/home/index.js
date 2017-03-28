@@ -412,7 +412,7 @@ class HomeIndexView extends React.Component {
             <div className="orgaos_autarquicos_wrapper">
               <div className="orgaos_autarquicos_list">
                 {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante', '/presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/vereadores')}
                 {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
                 {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
                 {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
