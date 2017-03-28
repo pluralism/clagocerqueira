@@ -57,7 +57,7 @@ PresidentsActions.getAllDataByPage = (page) => {
 
     // Query to send to the GraphQL server
     const graphQLData = `{
-      data1836_1910: presidents(date: "1836-1910", page: 1) {
+      ${Constants.MAPPINGS.d1836_1910}: presidents(date: "${Constants.DATES.d1836_1910}", page: 1) {
         date
 	      objects {
           name
@@ -66,7 +66,7 @@ PresidentsActions.getAllDataByPage = (page) => {
 	      }
         total_pages
       },
-      data1910_1926: presidents(date: "1910-1926", page: 1) {
+      ${Constants.MAPPINGS.d1910_1926}: presidents(date: "${Constants.DATES.d1910_1926}", page: 1) {
         date
 	      objects {
           name
@@ -75,7 +75,7 @@ PresidentsActions.getAllDataByPage = (page) => {
 	      }
         total_pages
       },
-      data1926_1974: presidents(date: "1926-1974", page: 1) {
+      ${Constants.MAPPINGS.d1926_1974}: presidents(date: "${Constants.DATES.d1926_1974}", page: 1) {
         date
 	      objects {
           name
@@ -84,7 +84,7 @@ PresidentsActions.getAllDataByPage = (page) => {
 	      }
         total_pages
       },
-      data1974_1976: presidents(date: "1974-1976", page: 1) {
+      ${Constants.MAPPINGS.d1974_1976}: presidents(date: "${Constants.DATES.d1974_1976}", page: 1) {
         date
         objects {
           name
@@ -93,7 +93,7 @@ PresidentsActions.getAllDataByPage = (page) => {
         }
         total_pages
       },
-      data1976_2013: presidents(date: "1976-2013", page: 1) {
+      ${Constants.MAPPINGS.d1976_2013}: presidents(date: "${Constants.DATES.d1976_2013}", page: 1) {
         date
 	      objects {
           name
@@ -118,7 +118,7 @@ PresidentsActions.getAllDataByPage = (page) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS,
           data: data.data,
-          currentDate: "1836-1910"
+          currentDate: Constants.DATES.d1836_1910
         });
       }
     })

@@ -5,27 +5,27 @@ const initialState = {
   loading: false,
   currentDate: "",
   data: {
-    data1836_1910: {
+    [Constants.MAPPINGS.d1836_1910]: {
       date: "",
       objects: [],
       total_pages: 0
     },
-    data1910_1926: {
+    [Constants.MAPPINGS.d1910_1926]: {
       date: "",
       objects: [],
       total_pages: 0
     },
-    data1926_1974: {
+    [Constants.MAPPINGS.d1926_1974]: {
       date: "",
       objects: [],
       total_pages: 0
     },
-    data1974_1976: {
+    [Constants.MAPPINGS.d1974_1976]: {
       date: "",
       objects: [],
       total_pages: 0
     },
-    data1976_2013: {
+    [Constants.MAPPINGS.d1976_2013]: {
       date: "",
       objects: [],
       total_pages: 0

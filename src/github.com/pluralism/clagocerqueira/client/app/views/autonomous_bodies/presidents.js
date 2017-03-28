@@ -78,7 +78,7 @@ class PresidentesView extends React.Component {
     super(props);
 
 
-    this.currentDate = "1836-1910";
+    this.currentDate = Constants.DATES.d1836_1910;
     this.dateAndPageMappings = {
       [Constants.DATES.d1836_1910]: {
         mapping: 'data1836_1910',
@@ -283,32 +283,32 @@ class PresidentesView extends React.Component {
         <PresidentsTab
           tabID={'#first_tab'}
           active={this.state.activeTab == 1}
-          dateMapping={this.dateAndPageMappings[Constants.DATES.d1836_1910].mapping}
-          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1836_1910].mapping]} />
+          dateMapping={Constants.MAPPINGS.d1836_1910}
+          data={presidents.data[Constants.MAPPINGS.d1836_1910]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
           active={this.state.activeTab == 2}
-          dateMapping={this.dateAndPageMappings[Constants.DATES.d1910_1926].mapping}
-          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1910_1926].mapping]} />
+          dateMapping={Constants.MAPPINGS.d1910_1926}
+          data={presidents.data[Constants.MAPPINGS.d1910_1926]} />
 
         <PresidentsTab
           tabID={'#third_tab'}
           active={this.state.activeTab == 3}
-          dateMapping={this.dateAndPageMappings[Constants.DATES.d1926_1974].mapping}
-          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1926_1974].mapping]} />
+          dateMapping={Constants.MAPPINGS.d1926_1974}
+          data={presidents.data[Constants.MAPPINGS.d1926_1974]} />
 
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
-          dateMapping={this.dateAndPageMappings[Constants.DATES.d1974_1976].mapping}
-          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1974_1976].mapping]} />
+          dateMapping={Constants.MAPPINGS.d1974_1976}
+          data={presidents.data[Constants.MAPPINGS.d1974_1976]} />
 
         <PresidentsTab
           tabID={'#fifth_tab'}
           active={this.state.activeTab == 5}
-          dateMapping={this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping}
-          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping]} />
+          dateMapping={Constants.MAPPINGS.d1976_2013}
+          data={presidents.data[Constants.MAPPINGS.d1976_2013]} />
 
 
         <div className="control-buttons">
