@@ -2,7 +2,7 @@ package types
 
 import "github.com/graphql-go/graphql"
 
-var GenericPersonType = graphql.NewObject(graphql.ObjectConfig{
+var GeneralPersonType = graphql.NewObject(graphql.ObjectConfig{
 	Name: "GenericPerson",
 	Fields: graphql.Fields{
 		"name": &graphql.Field{

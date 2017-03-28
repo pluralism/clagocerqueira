@@ -1,13 +1,15 @@
 package controllers
 
 import (
+	"math"
+
 	"github.com/pluralism/clagocerqueira/server/models"
 
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GenericList {
+func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralObject {
 	session := s.Copy()
 	defer session.Close()
 
@@ -18,25 +20,23 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GenericL
 	 */
 	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"date": date}).
-		Select(bson.M{"objects": bson.M{"$slice": []int{offset, 10}}})
+		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
 
-	var result []models.GenericList
+	var result models.GeneralObject
 	err := query.All(&result)
 
 	if err != nil {
 		return nil
 	}
 
-	// Make sure we're returning just one result!
-	if len(result) > 1 {
+	// The maximum page an user can query for!
+	maxPage := int(math.Ceil(float64(result.Objects.TotalItems) / 10))
+
+	// There are no results after we've passed the limit of pages
+	if page > maxPage || page < 1 {
 		return nil
 	}
 
-	// There are no results after we've passed the limit of pages
-	if page > result[0].TotalPages || page < 1 {
-		result[0].Objects = nil
-	}
-
 	// Return a reference to the first result
-	return &result[0]
+	return &result
 }
