@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import Constants from '../../constants/index';
-import PresidentsActions from '../../actions/presidents';
+import GeneralObjectsActions from '../../actions/generalObjects';
 
 
 class RenderItem extends React.Component {
@@ -134,7 +134,7 @@ class PresidentesView extends React.Component {
      * On this function we try to extract the presidents from all possible dates
      * on this page the component is always called with the first page
     */
-    dispatch(PresidentsActions.getAllDataByPage(1));
+    dispatch(GeneralObjectsActions.getAllDataByPage(1, 'presidents'));
   }
 
 
@@ -328,8 +328,8 @@ class PresidentesView extends React.Component {
     if(currentPage > 1) {
       obj.page -= 1;
 
-      dispatch(PresidentsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page));
+      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
+        obj.mapping, obj.page, 'presidents'));
     }
   }
 
@@ -343,8 +343,8 @@ class PresidentesView extends React.Component {
     if(currentPage < presidentMapping.total_pages) {
       obj.page += 1;
 
-      dispatch(PresidentsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page));
+      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
+        obj.mapping, obj.page, 'presidents'));
     }
   }
 
@@ -382,7 +382,7 @@ class PresidentesView extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  presidents: state.presidents
+  presidents: state.generalObjects
 });
 
 

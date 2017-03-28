@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import contactMessage from './contactMessage';
-import presidents from './presidents';
+import generalObjects from './generalObjects';
 
 
 export default combineReducers({
   // This reducer must be added if we want the syncing to work with the store!
   routing: routerReducer,
   contactMessage: contactMessage,
-  presidents: presidents
+  generalObjects: generalObjects
 });
