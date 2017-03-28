@@ -3,77 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import Constants from '../../constants/index';
-import PresidentsActions from '../../actions/presidents';
 
 
-class RenderItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-
-  render() {
-    return (
-      <li className="clearfix g-pb-50">
-        <Link to={"#"} className="listing-list-item">
-          <div className="listing-list-center-wrap">
-            <div className="listing-list-media-wrap listing-list-center">
-              <div className="listing-list-media">
-                <img className="listing-list-media-img" src={this.props.imgURL} alt={this.props.altText !== undefined ? altText : "Presidente"} />
-              </div>
-            </div>
-
-            <div className="listing-list-body listing-list-center">
-              <span className="listing-list-media-subtitle">{this.props.subtitle}</span>
-              <h3 className="listing-list-media-title">{this.props.title}</h3>
-              <p className="listing-list-item-text">{this.props.text}</p>
-            </div>
-          </div>
-        </Link>
-      </li>
-    );
-  }
-}
-
-
-
-class PresidentsTab extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.active || nextProps.active == !this.props.active;
-  }
-
-
-  render() {
-    const { data } = this.props;
-
-    return (
-      <div id={this.props.tabID} role="tabpanel" className={classNames({
-          "tab-pane": true,
-          "active": this.props.active,
-          "fade": true,
-          "in": true
-        })}>
-
-        <ul className="listing-list">
-          {data.objects.map((president) => {
-            return <RenderItem key={president.name} imgURL={president.image}
-              subtitle={"Presidentes"} title={president.name}
-              text={president.description != null ? president.description : 'Descrição indisponível'} />
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
-
-
-
-class PresidentesView extends React.Component {
+class CouncilmenView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -102,24 +34,9 @@ class PresidentesView extends React.Component {
       },
     };
 
-
     this.state = {
       activeTab: 1
     };
-
-
-    document.addEventListener("keydown", ::this.handleKeyDownEvent);
-  }
-
-
-  handleKeyDownEvent(e) {
-    if(e.keyCode == 37) {
-      // Left arrow was pressed
-      this.getPreviousPageContent();
-    } else if(e.keyCode == 39) {
-      // Right arrow was pressed
-      this.getNextPageContent();
-    }
   }
 
 
@@ -131,7 +48,7 @@ class PresidentesView extends React.Component {
      * This is a good place to load data from a remote endpoint and to perform
      * network requests.
      *
-     * On this function we try to extract the presidents from all possible dates
+     * On this function we try to extract the councilmen from all possible dates
      * on this page the component is always called with the first page
     */
     dispatch(PresidentsActions.getAllDataByPage(1));
@@ -201,31 +118,13 @@ class PresidentesView extends React.Component {
   }
 
 
-
-  updateCurrentDate(value, activeTab) {
-    const { dispatch } = this.props;
-
-    /**
-     * Update the currentDate variable and keep the page
-     * as the old one. This allow us to mantain consistency
-     * with the lists of presidents
-    */
-    this.currentDate = value;
-
-    // Update the active tab!
-    this.setState({
-      activeTab: activeTab
-    });
-  }
-
-
   renderUpperSection() {
     return (
-      <section id="presidentes_data">
+      <section id="vereadores_data">
         <div className="g-pt-40">
           <div className="text-center g-mb-30">
             <div className="g-mb-30">
-              <h2><span className="g-color-default">Presidentes</span></h2>
+              <h2><span className="g-color-default">Vereadores</span></h2>
             </div>
             <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
               Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
@@ -233,7 +132,7 @@ class PresidentesView extends React.Component {
 
 
           <div className="search_on_list g-mb-30 text-center font-main">
-            <input type="text" placeholder="Pesquisar presidentes&#8230;" />
+            <input type="text" placeholder="Pesquisar vereadores&#8230;" />
           </div>
 
 
@@ -276,7 +175,7 @@ class PresidentesView extends React.Component {
 
 
   renderTabsContents() {
-    const { presidents } = this.props;
+    const { councilmen } = this.props;
 
     return (
       <div className="tab-content">
@@ -284,31 +183,31 @@ class PresidentesView extends React.Component {
           tabID={'#first_tab'}
           active={this.state.activeTab == 1}
           dateMapping={Constants.MAPPINGS.d1836_1910}
-          data={presidents.data[Constants.MAPPINGS.d1836_1910]} />
+          data={councilmen.data[Constants.MAPPINGS.d1836_1910]} />
 
         <PresidentsTab
           tabID={'#second_tab'}
           active={this.state.activeTab == 2}
           dateMapping={Constants.MAPPINGS.d1910_1926}
-          data={presidents.data[Constants.MAPPINGS.d1910_1926]} />
+          data={councilmen.data[Constants.MAPPINGS.d1910_1926]} />
 
         <PresidentsTab
           tabID={'#third_tab'}
           active={this.state.activeTab == 3}
           dateMapping={Constants.MAPPINGS.d1926_1974}
-          data={presidents.data[Constants.MAPPINGS.d1926_1974]} />
+          data={councilmen.data[Constants.MAPPINGS.d1926_1974]} />
 
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
           dateMapping={Constants.MAPPINGS.d1974_1976}
-          data={presidents.data[Constants.MAPPINGS.d1974_1976]} />
+          data={councilmen.data[Constants.MAPPINGS.d1974_1976]} />
 
         <PresidentsTab
           tabID={'#fifth_tab'}
           active={this.state.activeTab == 5}
           dateMapping={Constants.MAPPINGS.d1976_2013}
-          data={presidents.data[Constants.MAPPINGS.d1976_2013]} />
+          data={councilmen.data[Constants.MAPPINGS.d1976_2013]} />
 
 
         <div className="control-buttons">
@@ -320,8 +219,20 @@ class PresidentesView extends React.Component {
   }
 
 
+  updateCurrentDate(value, activeTab) {
+    const { dispatch } = this.props;
+
+    this.currentDate = value;
+
+    // Update the active tab!
+    this.setState({
+      activeTab: activeTab
+    });
+  }
+
+
   getPreviousPageContent() {
-    const { presidents, dispatch } = this.props;
+    const { councilmen, dispatch } = this.props;
     let obj = this.dateAndPageMappings[this.currentDate];
     let currentPage = obj.page;
 
@@ -335,12 +246,12 @@ class PresidentesView extends React.Component {
 
 
   getNextPageContent() {
-    const { presidents, dispatch } = this.props;
+    const { councilmen, dispatch } = this.props;
     let obj = this.dateAndPageMappings[this.currentDate];
     let currentPage = obj.page;
-    let presidentMapping = presidents.data[obj.mapping];
+    let councilmenMapping = councilmen.data[obj.mapping];
 
-    if(currentPage < presidentMapping.total_pages) {
+    if(currentPage < councilmenMapping.total_pages) {
       obj.page += 1;
 
       dispatch(PresidentsActions.getDataByPage(this.currentDate,
@@ -380,10 +291,8 @@ class PresidentesView extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => ({
-  presidents: state.presidents
+  councilmen: state.councilmen
 });
 
-
-export default connect(mapStateToProps)(PresidentesView);
+export default connect(mapStateToProps)(CouncilmenView);
