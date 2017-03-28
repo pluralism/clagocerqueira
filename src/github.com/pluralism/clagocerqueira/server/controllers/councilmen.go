@@ -17,7 +17,7 @@ func GetCouncilmenByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	query := c.Find(bson.M{"date": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
 
-	var result models.GeneralObject
+	var result *models.GeneralObject
 	err := query.All(&result)
 
 	if err != nil {
@@ -33,5 +33,5 @@ func GetCouncilmenByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	}
 
 	// Return a reference to the result
-	return &result
+	return result
 }

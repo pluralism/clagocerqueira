@@ -22,8 +22,8 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	query := c.Find(bson.M{"date": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
 
-	var result models.GeneralObject
-	err := query.All(&result)
+	result := models.GeneralObject{}
+	err := query.One(&result)
 
 	if err != nil {
 		return nil

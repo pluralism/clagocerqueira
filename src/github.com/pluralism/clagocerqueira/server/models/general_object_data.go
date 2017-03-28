@@ -1,6 +1,6 @@
 package models
 
 type GeneralObjectData struct {
-	Objects    []GeneralPersonElem `bson:"objects_data"`
-	TotalItems int                 `bson:"total_items"`
+	Objects    []GeneralPersonElem `json:"objects_data" bson:"objects_data"`
+	TotalItems int                 `json:"total_items" bson:"total_items"`
 }

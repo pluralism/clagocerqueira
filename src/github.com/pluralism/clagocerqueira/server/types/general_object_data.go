@@ -9,7 +9,7 @@ var GeneralObjectDataType = graphql.NewObject(graphql.ObjectConfig{
 			Type: graphql.NewList(GeneralPersonType),
 		},
 		"total_items": &graphql.Field{
-			Type: graphql.Int,
+			Type: graphql.NewNonNull(graphql.Int),
 		},
 	},
 })

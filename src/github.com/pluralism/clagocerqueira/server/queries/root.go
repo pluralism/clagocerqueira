@@ -13,14 +13,14 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 	Name: "CLagoCerqueiraRootQuery",
 	Fields: graphql.Fields{
 		"presidents": &graphql.Field{
-			Type:        types.GenericListType,
+			Type:        types.GeneralListType,
 			Description: "Extract presidents that are defined in a given date and page",
 			Args: graphql.FieldConfigArgument{
 				"date": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
 				"page": &graphql.ArgumentConfig{
-					Type: graphql.Int,
+					Type: graphql.NewNonNull(graphql.Int),
 				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
@@ -47,14 +47,14 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			},
 		},
 		"councilmen": &graphql.Field{
-			Type:        types.GenericListType,
+			Type:        types.GeneralListType,
 			Description: "Extract councilmen that are defined in a given date and page",
 			Args: graphql.FieldConfigArgument{
 				"date": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
 				"page": &graphql.ArgumentConfig{
-					Type: graphql.Int,
+					Type: graphql.NewNonNull(graphql.Int),
 				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
