@@ -38,7 +38,7 @@ func findElement(list []string, value string) bool {
 	return false
 }
 
-func readPresidentsGeneralFile(session *mgo.Session, filename string, image string, date string) GeneralList {
+func readGeneralFile(session *mgo.Session, filename string, image string, date string) GeneralList {
 	f, err := os.Open(filename)
 	var presidentNames []GeneralObject
 
@@ -102,6 +102,58 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 			panic(err.Error())
 		}
 	}
+
+	var currentDate = "1836-1910"
+	councilmen := readGeneralFile(session, "councilmen/vereadores1836_1910.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Councilmen on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Councilmen on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1910-1926"
+	councilmen = readGeneralFile(session, "councilmen/vereadores1910_1926.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Councilmen on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Councilmen on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1926-1974"
+	councilmen = readGeneralFile(session, "councilmen/vereadores1926_1974.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Councilmen on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Councilmen on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1974-1976"
+	councilmen = readGeneralFile(session, "councilmen/vereadores1974_1976.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Councilmen on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Councilmen on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1976-2013"
+	councilmen = readGeneralFile(session, "councilmen/vereadores1976_2013.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Councilmen on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Councilmen on date %s inserted with success!", currentDate))
+	}
+
+	fmt.Println("[*] All councilmen were inserted with success!")
 }
 
 func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
@@ -156,7 +208,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1976-2013 inserted with success!")
 	}
 
-	presidents := readPresidentsGeneralFile(session, "presidents/presidentes1836_1910.csv",
+	presidents := readGeneralFile(session, "presidents/presidentes1836_1910.csv",
 		"/public/prod/images/monarquia.jpg", "1836-1910")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -165,7 +217,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
 	}
 
-	presidents = readPresidentsGeneralFile(session, "presidents/presidentes1910_1926.csv",
+	presidents = readGeneralFile(session, "presidents/presidentes1910_1926.csv",
 		"/public/prod/images/monarquia.jpg", "1910-1926")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -174,7 +226,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1910-1926 inserted with success!")
 	}
 
-	presidents = readPresidentsGeneralFile(session, "presidents/presidentes1926_1974.csv",
+	presidents = readGeneralFile(session, "presidents/presidentes1926_1974.csv",
 		"/public/prod/images/monarquia.jpg", "1926-1974")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -183,7 +235,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1926-1974 inserted with success!")
 	}
 
-	presidents = readPresidentsGeneralFile(session, "presidents/presidents1974_1976.csv",
+	presidents = readGeneralFile(session, "presidents/presidents1974_1976.csv",
 		"/public/prod/images/monarquia.jpg", "1974-1976")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -191,6 +243,8 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 	} else {
 		fmt.Println("[*] Presidents on date 1974-1976 inserted with success!")
 	}
+
+	fmt.Println("[*] All presidents were inserted with success!")
 }
 
 func main() {
@@ -202,6 +256,7 @@ func main() {
 		panic(err.Error())
 	}
 	session.SetMode(mgo.Monotonic, true)
+	collectionNames, _ := session.DB(dbName).CollectionNames()
 
 	/**
 	 * Define the flags allowed in the command line here
@@ -213,8 +268,13 @@ func main() {
 	// Parse the flags
 	flag.Parse()
 
-	fmt.Printf("[*] Insert presidents: %t\n", *presidentsFlag)
-	fmt.Printf("[*] Insert councilmen: %t\n", *councilmenFlag)
+	if *presidentsFlag {
+		insertPresidentsOnDatabase(collectionNames, session)
+	}
+
+	if *councilmenFlag {
+		insertCouncilmenOnDatabase(collectionNames, session)
+	}
 
 	fmt.Println("[*] Completed!")
 }
