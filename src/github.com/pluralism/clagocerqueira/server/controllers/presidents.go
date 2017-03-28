@@ -3,6 +3,7 @@ package controllers
 import (
 	"math"
 
+	"github.com/pluralism/clagocerqueira/server/constants"
 	"github.com/pluralism/clagocerqueira/server/models"
 
 	mgo "gopkg.in/mgo.v2"
@@ -13,7 +14,7 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB("clagocerqueira").C("presidents")
+	c := session.DB(constants.DB_NAME).C(constants.PRESIDENTS_COLLECTION)
 	/**
 	 * Find by the date field in the presidents collections
 	 * Limit the number of objects returned in the "objects" field
@@ -40,6 +41,6 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	// Update the maxPage result
 	result.Objects.MaxPages = maxPage
 
-	// Return a reference to the first result
+	// Return a reference to the result
 	return &result
 }

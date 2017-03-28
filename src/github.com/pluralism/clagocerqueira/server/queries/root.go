@@ -29,12 +29,12 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 
 				if !dateOK {
 					// Return no object (nil) and the error to the user
-					return nil, errors.New("the \"date\" param was not provided")
+					return nil, errors.New("the \"date\" argument was not provided")
 				}
 
 				if !pageOk {
 					// Return no objects if the "page" field is not passed in the query
-					return nil, errors.New("the \"page\" field was not provided")
+					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
 				result := controllers.GetPresidentsByDate(refs.Session, date, page)
@@ -43,6 +43,8 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return result, nil
 				}
 
+				// Something went wrong, return nil and an error informing that
+				// the presidents could not be extracted from the database
 				return nil, errors.New("the presidents could not be extracted")
 			},
 		},
@@ -63,12 +65,12 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 
 				if !dateOK {
 					// Return no object (nil) and the error to the user
-					return nil, errors.New("the \"date\" field was not provided")
+					return nil, errors.New("the \"date\" argument was not provided")
 				}
 
 				if !pageOK {
 					// Return no object (nil) and the error to the user
-					return nil, errors.New("the \"page\" field was not provided")
+					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
 				result := controllers.GetCouncilmenByDate(refs.Session, date, page)
@@ -79,8 +81,36 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 				}
 
 				// Something went wrong, return nil and an error informing that
-				// the councilmen could not be extracted
+				// the councilmen could not be extracted from the database
 				return nil, errors.New("the councilmen could not be extracted")
+			},
+		},
+		"personalities": &graphql.Field{
+			Type:        types.GeneralObjectDataType,
+			Description: "Extract personalities that are defined in a given page",
+			Args: graphql.FieldConfigArgument{
+				"page": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.Int),
+				},
+			},
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				page, pageOK := p.Args["page"].(int)
+
+				if !pageOK {
+					// Return no objects if the "page" field is not passed in the query
+					return nil, errors.New("the \"page\" arugment was not provided")
+				}
+
+				result := controllers.GetPersonalities(refs.Session, page)
+
+				if result != nil {
+					// Everything went fine, return the list of personalities
+					return result, nil
+				}
+
+				// Something went wrong, return nil and an error information that
+				// the personalities could not be extracted from the database
+				return nil, errors.New("the personalities could not be extracted")
 			},
 		},
 	},

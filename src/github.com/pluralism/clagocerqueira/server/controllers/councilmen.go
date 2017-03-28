@@ -3,6 +3,7 @@ package controllers
 import (
 	"math"
 
+	"github.com/pluralism/clagocerqueira/server/constants"
 	"github.com/pluralism/clagocerqueira/server/models"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -12,7 +13,7 @@ func GetCouncilmenByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB("clagocerqueira").C("councilmen")
+	c := session.DB(constants.DB_NAME).C(constants.COUNCILMEN_COLLECTION)
 	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"date": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
