@@ -7,27 +7,47 @@ const initialState = {
   data: {
     [Constants.MAPPINGS.d1836_1910]: {
       date: "",
-      objects: [],
+      objects: {
+        objects_data: [],
+        total_items: 0,
+        max_pages: 0,
+      },
       total_pages: 0
     },
     [Constants.MAPPINGS.d1910_1926]: {
       date: "",
-      objects: [],
+      objects: {
+        objects_data: [],
+        total_items: 0,
+        max_pages: 0,
+      },
       total_pages: 0
     },
     [Constants.MAPPINGS.d1926_1974]: {
       date: "",
-      objects: [],
+      objects: {
+        objects_data: [],
+        total_items: 0,
+        max_pages: 0,
+      },
       total_pages: 0
     },
     [Constants.MAPPINGS.d1974_1976]: {
       date: "",
-      objects: [],
+      objects: {
+        objects_data: [],
+        total_items: 0,
+        max_pages: 0,
+      },
       total_pages: 0
     },
     [Constants.MAPPINGS.d1976_2013]: {
       date: "",
-      objects: [],
+      objects: {
+        objects_data: [],
+        total_items: 0,
+        max_pages: 0,
+      },
       total_pages: 0
     }
   }
