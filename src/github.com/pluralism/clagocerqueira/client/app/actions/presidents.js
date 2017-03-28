@@ -84,6 +84,15 @@ PresidentsActions.getAllDataByPage = (page) => {
 	      }
         total_pages
       },
+      data1974_1976: presidents(date: "1974-1976", page: 1) {
+        date
+        objects {
+          name
+          image
+          description
+        }
+        total_pages
+      },
       data1976_2013: presidents(date: "1976-2013", page: 1) {
         date
 	      objects {

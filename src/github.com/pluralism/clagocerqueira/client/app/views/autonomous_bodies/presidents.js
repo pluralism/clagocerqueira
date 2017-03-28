@@ -77,8 +77,8 @@ class PresidentesView extends React.Component {
   constructor(props) {
     super(props);
 
-    this.currentDate = "1836-1910";
 
+    this.currentDate = "1836-1910";
     this.dateAndPageMappings = {
       [Constants.DATES.d1836_1910]: {
         mapping: 'data1836_1910',
@@ -90,6 +90,10 @@ class PresidentesView extends React.Component {
       },
       [Constants.DATES.d1926_1974]: {
         mapping: 'data1926_1974',
+        page: 1
+      },
+      [Constants.DATES.d1974_1976]: {
+        mapping: 'data1974_1976',
         page: 1
       },
       [Constants.DATES.d1976_2013]: {
@@ -252,7 +256,12 @@ class PresidentesView extends React.Component {
               </li>
               <li role="presentation">
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013, 4)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1974_1976, 4)}
+                  role="tab" data-toggle="tab">{Constants.DATES.d1974_1976}</Link>
+              </li>
+              <li role="presentation">
+                <Link to={"#fifth_tab"}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013, 5)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
               </li>
             </ul>
@@ -292,6 +301,12 @@ class PresidentesView extends React.Component {
         <PresidentsTab
           tabID={'#fourth_tab'}
           active={this.state.activeTab == 4}
+          dateMapping={this.dateAndPageMappings[Constants.DATES.d1974_1976].mapping}
+          data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1974_1976].mapping]} />
+
+        <PresidentsTab
+          tabID={'#fifth_tab'}
+          active={this.state.activeTab == 5}
           dateMapping={this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping}
           data={presidents.data[this.dateAndPageMappings[Constants.DATES.d1976_2013].mapping]} />
 

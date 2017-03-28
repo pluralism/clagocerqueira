@@ -20,6 +20,11 @@ const initialState = {
       objects: [],
       total_pages: 0
     },
+    data1974_1976: {
+      date: "",
+      objects: [],
+      total_pages: 0
+    },
     data1976_2013: {
       date: "",
       objects: [],
