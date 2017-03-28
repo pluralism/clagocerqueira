@@ -69,7 +69,7 @@ class PresidentesView extends React.Component {
      * On this function we try to extract the presidents from all possible dates
      * on this page the component is always called with the first page
     */
-    dispatch(GeneralObjectsActions.getAllDataByPage(1, 'presidents'));
+    dispatch(GeneralObjectsActions.getAllDataByPage(1, Constants.PRESIDENTS));
   }
 
 
@@ -269,7 +269,7 @@ class PresidentesView extends React.Component {
       obj.page -= 1;
 
       dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, 'presidents'));
+        obj.mapping, obj.page, Constants.PRESIDENTS));
     }
   }
 
@@ -284,7 +284,7 @@ class PresidentesView extends React.Component {
       obj.page += 1;
 
       dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, 'presidents'));
+        obj.mapping, obj.page, Constants.PRESIDENTS));
     }
   }
 
@@ -295,7 +295,6 @@ class PresidentesView extends React.Component {
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderUpperSection()}
-
           <Footer />
         </main>
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
+import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import classNames from 'classnames';
 import Constants from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
@@ -39,6 +40,20 @@ class CouncilmenView extends React.Component {
     this.state = {
       activeTab: 1
     };
+
+
+    document.addEventListener("keydown", ::this.handleKeyDownEvent);
+  }
+
+
+  handleKeyDownEvent(e) {
+    if(e.keyCode == 37) {
+      // Left arrow was pressed
+      this.getPreviousPageContent();
+    } else if(e.keyCode == 39) {
+      // Right arrow was pressed
+      this.getNextPageContent();
+    }
   }
 
 
@@ -194,11 +209,91 @@ class CouncilmenView extends React.Component {
   }
 
 
+  renderTabsContents() {
+    const { councilmen } = this.props;
+
+    return (
+      <div className="tab-content">
+        <GeneralObjectTab
+          tabID={'#first_tab'}
+          subtitle={"Vereadores"}
+          active={this.state.activeTab == 1}
+          dateMapping={Constants.MAPPINGS.d1836_1910}
+          data={councilmen.data[Constants.MAPPINGS.d1836_1910]} />
+
+        <GeneralObjectTab
+          tabID={'#second_tab'}
+          subtitle={"Vereadores"}
+          active={this.state.activeTab == 2}
+          dateMapping={Constants.MAPPINGS.d1910_1926}
+          data={councilmen.data[Constants.MAPPINGS.d1910_1926]} />
+
+        <GeneralObjectTab
+          tabID={'#third_tab'}
+          subtitle={"Vereadores"}
+          active={this.state.activeTab == 3}
+          dateMapping={Constants.MAPPINGS.d1926_1974}
+          data={councilmen.data[Constants.MAPPINGS.d1926_1974]} />
+
+        <GeneralObjectTab
+          tabID={'#fourth_tab'}
+          subtitle={"Vereadores"}
+          active={this.state.activeTab == 4}
+          dateMapping={Constants.MAPPINGS.d1974_1976}
+          data={councilmen.data[Constants.MAPPINGS.d1974_1976]} />
+
+        <GeneralObjectTab
+          tabID={'#fifth_tab'}
+          subtitle={"Vereadores"}
+          active={this.state.activeTab == 5}
+          dateMapping={Constants.MAPPINGS.d1976_2013}
+          data={councilmen.data[Constants.MAPPINGS.d1976_2013]} />
+
+
+        <div className="control-buttons">
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
+          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+        </div>
+      </div>
+    );
+  }
+
+
+  getPreviousPageContent() {
+    const { councilmen, dispatch } = this.props;
+    let obj = this.dateAndPageMappings[this.currentDate];
+    let currentPage = obj.page;
+
+    if(currentPage > 1) {
+      obj.page -= 1;
+
+      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
+        obj.mapping, obj.page, Constants.COUNCILMEN));
+    }
+  }
+
+
+  getNextPageContent() {
+    const { councilmen, dispatch } = this.props;
+    let obj = this.dateAndPageMappings[this.currentDate];
+    let currentPage = obj.page;
+    let presidentMapping = councilmen.data[obj.mapping];
+
+    if(currentPage < presidentMapping.total_pages) {
+      obj.page += 1;
+
+      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
+        obj.mapping, obj.page, Constants.COUNCILMEN));
+    }
+  }
+
+
   render() {
     return (
       <div>
         <main className="container-fluid">
           {this.renderHeader()}
+          {this.renderUpperSection()}
           <Footer />
         </main>
       </div>
