@@ -42,9 +42,9 @@ func findElement(list []string, value string) bool {
 	return false
 }
 
-func readGeneralFileToObject(session *mgo.Session, filename, image string) []GeneralObject {
+func readGeneralFileToObject(session *mgo.Session, filename, image string) GeneralObjectData {
 	f, err := os.Open(filename)
-	var generalObjects []GeneralObject
+	var generalObjectData GeneralObjectData
 
 	if err != nil {
 		panic(err.Error())
@@ -57,14 +57,15 @@ func readGeneralFileToObject(session *mgo.Session, filename, image string) []Gen
 			break
 		}
 
-		generalObjects = append(generalObjects, GeneralObject{
+		generalObjectData.ObjectsData = append(generalObjectData.ObjectsData, GeneralObject{
 			Name:        strings.TrimSpace(record[0]),
 			Image:       image,
 			Description: "",
 		})
 	}
+	generalObjectData.TotalItems = len(generalObjectData.ObjectsData)
 
-	return generalObjects
+	return generalObjectData
 }
 
 func readGeneralFile(session *mgo.Session, filename, image, date string) GeneralList {
@@ -202,8 +203,8 @@ func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	personalities := readGeneralFile(session, "personalities/personalities.csv",
-		"/public/prod/images/monarquia.jpg", "0000-9999")
+	personalities := readGeneralFileToObject(session, "personalities/personalities.csv",
+		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, personalitiesCollection, personalities) {
 		panic("[!] Personalities could not be inserted in the database!")
