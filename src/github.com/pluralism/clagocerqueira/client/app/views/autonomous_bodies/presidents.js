@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import Footer from '../../components/common/footer';
 import classNames from 'classnames';
 import Constants from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
@@ -349,31 +350,14 @@ class PresidentesView extends React.Component {
   }
 
 
-  renderFooter() {
-    return (
-      <section id="footer" className="row">
-        <div className="informations container-fluid page-scroll">
-          <div className="vertical-center">
-            <ul className="list-inline footer-list">
-              <li><Link to={'#'}><i className="fa fa-twitter"></i></Link></li>
-              <li><Link to={'#'}><i className="fa fa-facebook"></i></Link></li>
-              <li><Link to={'#'}><i className="fa fa-instagram"></i></Link></li>
-              <li><Link to={'#'}><i className="fa fa-youtube"></i></Link></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-
   render() {
     return (
       <div>
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderUpperSection()}
-          {this.renderFooter()}
+          
+          <Footer />
         </main>
       </div>
     );
