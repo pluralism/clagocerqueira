@@ -11,5 +11,8 @@ var GeneralObjectDataType = graphql.NewObject(graphql.ObjectConfig{
 		"total_items": &graphql.Field{
 			Type: graphql.NewNonNull(graphql.Int),
 		},
+		"max_pages": &graphql.Field{
+			Type: graphql.NewNonNull(graphql.Int),
+		},
 	},
 })

@@ -37,6 +37,9 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralO
 		return nil
 	}
 
+	// Update the maxPage result
+	result.Objects.MaxPages = maxPage
+
 	// Return a reference to the first result
 	return &result
 }
