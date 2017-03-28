@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"math"
 	"os"
 	"strings"
 
@@ -16,17 +15,22 @@ import (
 const dbName = "clagocerqueira"
 const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
+const personalitiesCollection = "personalities"
 
 type GeneralObject struct {
-	Name        string
-	Image       string
-	Description string
+	Name        string `bson:"name"`
+	Image       string `bson:"image"`
+	Description string `bson:"description"`
+}
+
+type GeneralObjectData struct {
+	ObjectsData []GeneralObject `bson:"objects_data"`
+	TotalItems  int             `bson:"total_items"`
 }
 
 type GeneralList struct {
-	Date       string          `bson:"date"`
-	Objects    []GeneralObject `bson:"objects"`
-	TotalPages int             `bson:"total_pages"`
+	Date    string            `bson:"date"`
+	Objects GeneralObjectData `bson:"objects"`
 }
 
 func findElement(list []string, value string) bool {
@@ -38,9 +42,34 @@ func findElement(list []string, value string) bool {
 	return false
 }
 
-func readGeneralFile(session *mgo.Session, filename string, image string, date string) GeneralList {
+func readGeneralFileToObject(session *mgo.Session, filename, image string) []GeneralObject {
 	f, err := os.Open(filename)
-	var presidentNames []GeneralObject
+	var generalObjects []GeneralObject
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	reader := csv.NewReader(bufio.NewReader(f))
+	for {
+		record, err := reader.Read()
+		if err == io.EOF {
+			break
+		}
+
+		generalObjects = append(generalObjects, GeneralObject{
+			Name:        strings.TrimSpace(record[0]),
+			Image:       image,
+			Description: "",
+		})
+	}
+
+	return generalObjects
+}
+
+func readGeneralFile(session *mgo.Session, filename, image, date string) GeneralList {
+	f, err := os.Open(filename)
+	var generalData GeneralObjectData
 
 	if err != nil {
 		panic(err.Error())
@@ -54,19 +83,18 @@ func readGeneralFile(session *mgo.Session, filename string, image string, date s
 		}
 
 		// Append the president to the list of presidents
-		presidentNames = append(presidentNames, GeneralObject{
+		generalData.ObjectsData = append(generalData.ObjectsData, GeneralObject{
 			Name:        strings.TrimSpace(record[0]),
 			Image:       image,
 			Description: "",
 		})
 	}
 
-	totalPages := int(math.Ceil(float64(len(presidentNames)) / 10))
+	generalData.TotalItems = len(generalData.ObjectsData)
 
 	presidentList := GeneralList{
-		Date:       date,
-		Objects:    presidentNames,
-		TotalPages: totalPages,
+		Date:    date,
+		Objects: generalData,
 	}
 
 	return presidentList
@@ -156,12 +184,40 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	fmt.Println("[*] All councilmen were inserted with success!")
 }
 
+func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	// Check if the collection already exists on the database
+	personalitiesExist := findElement(collectionNames, personalitiesCollection)
+
+	if personalitiesExist {
+		// Drop the collection if it does exists
+		err := db.C(personalitiesCollection).DropCollection()
+
+		// Something went wrong while dropping the collection
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	personalities := readGeneralFile(session, "personalities/personalities.csv",
+		"/public/prod/images/monarquia.jpg", "0000-9999")
+
+	if !insertListOnDatabase(session, dbName, personalitiesCollection, personalities) {
+		panic("[!] Personalities could not be inserted in the database!")
+	} else {
+		fmt.Println("[*] Personalities inserted with success!")
+	}
+}
+
 func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
 
 	db := session.DB(dbName)
-	// Check if the collection already exists in the database
+	// Check if the collection already exists on the database
 	presidentsExist := findElement(collectionNames, presidentsCollection)
 
 	if presidentsExist {
@@ -176,31 +232,32 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 
 	presidentList := GeneralList{
 		Date: "1976-2013",
-		Objects: []GeneralObject{
-			GeneralObject{
-				Name:        "Amadeu Cerqueira da Silva",
-				Image:       "/public/prod/images/amadeu_cerqueira_silva.jpg",
-				Description: ""},
-			GeneralObject{
-				Name:        "Joaquim José Macedo Teixeira",
-				Image:       "/public/prod/images/joaquim_teixeira.jpg",
-				Description: ""},
-			GeneralObject{
-				Name:        "Francisco José Pereira de Assis Miranda",
-				Image:       "/public/prod/images/francisco_assis.jpg",
-				Description: ""},
-			GeneralObject{
-				Name:        "Armindo José da Cunha Abreu",
-				Image:       "/public/prod/images/armindo_abreu.jpg",
-				Description: ""},
-			GeneralObject{
-				Name:        "José Luís Gaspar Jorge",
-				Image:       "/public/prod/images/jose_jorge.jpg",
-				Description: ""},
+		Objects: GeneralObjectData{
+			ObjectsData: []GeneralObject{
+				GeneralObject{
+					Name:        "Amadeu Cerqueira da Silva",
+					Image:       "/public/prod/images/amadeu_cerqueira_silva.jpg",
+					Description: ""},
+				GeneralObject{
+					Name:        "Joaquim José Macedo Teixeira",
+					Image:       "/public/prod/images/joaquim_teixeira.jpg",
+					Description: ""},
+				GeneralObject{
+					Name:        "Francisco José Pereira de Assis Miranda",
+					Image:       "/public/prod/images/francisco_assis.jpg",
+					Description: ""},
+				GeneralObject{
+					Name:        "Armindo José da Cunha Abreu",
+					Image:       "/public/prod/images/armindo_abreu.jpg",
+					Description: ""},
+				GeneralObject{
+					Name:        "José Luís Gaspar Jorge",
+					Image:       "/public/prod/images/jose_jorge.jpg",
+					Description: ""},
+			},
+			TotalItems: 5,
 		},
 	}
-
-	presidentList.TotalPages = int(math.Ceil(float64(len(presidentList.Objects)) / 10))
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidentList) {
 		panic("[!] Presidents on date 1976-2013 could not be inserted!")
@@ -265,6 +322,7 @@ func main() {
 	 */
 	var presidentsFlag = flag.Bool("presidents", false, "inserts presidents on the database")
 	var councilmenFlag = flag.Bool("councilmen", false, "inserts councilmen on the database")
+	var personalitiesFlag = flag.Bool("personalities", false, "inserts personalities on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -274,6 +332,10 @@ func main() {
 
 	if *councilmenFlag {
 		insertCouncilmenOnDatabase(collectionNames, session)
+	}
+
+	if *personalitiesFlag {
+		insertPersonalitiesOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
