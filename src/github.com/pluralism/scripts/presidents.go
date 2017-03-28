@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
+	"flag"
 	"fmt"
 	"io"
 	"math"
@@ -14,18 +15,18 @@ import (
 
 const dbName = "clagocerqueira"
 const presidentsCollection = "presidents"
+const councilmenCollection = "councilmen"
 
-// President is the basic struct to insert a president in the database
-type President struct {
+type GeneralObject struct {
 	Name        string
 	Image       string
 	Description string
 }
 
-type PresidentList struct {
-	Date       string      `bson:"date"`
-	Objects    []President `bson:"objects"`
-	TotalPages int         `bson:"total_pages"`
+type GeneralList struct {
+	Date       string          `bson:"date"`
+	Objects    []GeneralObject `bson:"objects"`
+	TotalPages int             `bson:"total_pages"`
 }
 
 func findElement(list []string, value string) bool {
@@ -34,13 +35,12 @@ func findElement(list []string, value string) bool {
 			return true
 		}
 	}
-
 	return false
 }
 
-func readPresidentsGeneralFile(session *mgo.Session, filename string, image string, date string) PresidentList {
+func readPresidentsGeneralFile(session *mgo.Session, filename string, image string, date string) GeneralList {
 	f, err := os.Open(filename)
-	var presidentNames []President
+	var presidentNames []GeneralObject
 
 	if err != nil {
 		panic(err.Error())
@@ -54,7 +54,7 @@ func readPresidentsGeneralFile(session *mgo.Session, filename string, image stri
 		}
 
 		// Append the president to the list of presidents
-		presidentNames = append(presidentNames, President{
+		presidentNames = append(presidentNames, GeneralObject{
 			Name:        strings.TrimSpace(record[0]),
 			Image:       image,
 			Description: "",
@@ -63,7 +63,7 @@ func readPresidentsGeneralFile(session *mgo.Session, filename string, image stri
 
 	totalPages := int(math.Ceil(float64(len(presidentNames)) / 10))
 
-	presidentList := PresidentList{
+	presidentList := GeneralList{
 		Date:       date,
 		Objects:    presidentNames,
 		TotalPages: totalPages,
@@ -72,7 +72,10 @@ func readPresidentsGeneralFile(session *mgo.Session, filename string, image stri
 	return presidentList
 }
 
-func insertListOnDatabase(session *mgo.Session, db string, collection string, data interface{}) bool {
+func insertListOnDatabase(s *mgo.Session, db string, collection string, data interface{}) bool {
+	session := s.Copy()
+	defer session.Close()
+
 	err := session.DB(db).C(collection).Insert(data)
 
 	if err != nil {
@@ -82,30 +85,36 @@ func insertListOnDatabase(session *mgo.Session, db string, collection string, da
 	return true
 }
 
-func main() {
-	session, err := mgo.Dial("mongodb://localhost")
-
-	if err != nil {
-		panic(err.Error())
-	}
-
-	// Make sure that the connection is closed at the end
+func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
 	defer session.Close()
-	session.SetMode(mgo.Monotonic, true)
 
 	db := session.DB(dbName)
-	collections, err := db.CollectionNames()
+	// Check if the councilmen collection already exists in the database
+	councilmenExists := findElement(collectionNames, councilmenCollection)
 
-	if err != nil {
-		panic(err.Error())
+	if councilmenExists {
+		// Drop the collection if it does exists
+		err := db.C(councilmenCollection).DropCollection()
+
+		// Something went wrong while dropping the collection
+		if err != nil {
+			panic(err.Error())
+		}
 	}
+}
 
+func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
 	// Check if the collection already exists in the database
-	presidentsExist := findElement(collections, presidentsCollection)
+	presidentsExist := findElement(collectionNames, presidentsCollection)
 
 	if presidentsExist {
 		// Drop the collection if it does exists
-		err = db.C(presidentsCollection).DropCollection()
+		err := db.C(presidentsCollection).DropCollection()
 
 		// Oh oh, something went wrong while dropping the collection
 		if err != nil {
@@ -113,26 +122,26 @@ func main() {
 		}
 	}
 
-	presidentList := PresidentList{
+	presidentList := GeneralList{
 		Date: "1976-2013",
-		Objects: []President{
-			President{
+		Objects: []GeneralObject{
+			GeneralObject{
 				Name:        "Amadeu Cerqueira da Silva",
 				Image:       "/public/prod/images/amadeu_cerqueira_silva.jpg",
 				Description: ""},
-			President{
+			GeneralObject{
 				Name:        "Joaquim José Macedo Teixeira",
 				Image:       "/public/prod/images/joaquim_teixeira.jpg",
 				Description: ""},
-			President{
+			GeneralObject{
 				Name:        "Francisco José Pereira de Assis Miranda",
 				Image:       "/public/prod/images/francisco_assis.jpg",
 				Description: ""},
-			President{
+			GeneralObject{
 				Name:        "Armindo José da Cunha Abreu",
 				Image:       "/public/prod/images/armindo_abreu.jpg",
 				Description: ""},
-			President{
+			GeneralObject{
 				Name:        "José Luís Gaspar Jorge",
 				Image:       "/public/prod/images/jose_jorge.jpg",
 				Description: ""},
@@ -182,6 +191,30 @@ func main() {
 	} else {
 		fmt.Println("[*] Presidents on date 1974-1976 inserted with success!")
 	}
+}
+
+func main() {
+	session, err := mgo.Dial("mongodb://localhost")
+	// Make sure that the connection is closed at the end
+	defer session.Close()
+
+	if err != nil {
+		panic(err.Error())
+	}
+	session.SetMode(mgo.Monotonic, true)
+
+	/**
+	 * Define the flags allowed in the command line here
+	 * Each flag returns a pointer of type T, so we can access the value
+	 * in the flag by doing *variable
+	 */
+	var presidentsFlag = flag.Bool("presidents", false, "inserts presidents on the database")
+	var councilmenFlag = flag.Bool("councilmen", false, "inserts councilmen on the database")
+	// Parse the flags
+	flag.Parse()
+
+	fmt.Printf("[*] Insert presidents: %t\n", *presidentsFlag)
+	fmt.Printf("[*] Insert councilmen: %t\n", *councilmenFlag)
 
 	fmt.Println("[*] Completed!")
 }
