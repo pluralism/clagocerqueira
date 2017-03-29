@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import Footer from '../../components/common/footer';
 import classNames from 'classnames';
 import PersonalitiesActions from '../../actions/personalities';
@@ -53,7 +54,7 @@ class PersonalitiesView extends React.Component {
 
 
           <div className="search_on_list g-mb-30 text-center font-main">
-            <input type="text" placeholder="Pesquisar presidentes&#8230;" />
+            <input type="text" placeholder="Pesquisar personalidades&#8230;" />
           </div>
 
 
@@ -61,7 +62,7 @@ class PersonalitiesView extends React.Component {
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
-                  role="tab" data-toggle="tab">{Personalidades}</Link>
+                  role="tab" data-toggle="tab">Personalidades</Link>
               </li>
             </ul>
 
@@ -74,10 +75,39 @@ class PersonalitiesView extends React.Component {
   }
 
 
+  getNextPageContent() {
+    const { personalities, dispatch } = this.props;
+    let currentPage = this.state.page;
+
+
+    if(currentPage < personalities.max_pages) {
+      this.setState({
+        page: this.state.page + 1
+      }, () => {
+        dispatch(PersonalitiesActions.getDataByPage(this.state.page));
+      });
+    }
+  }
+
+
   renderTabContents() {
     const { personalities } = this.props;
 
-    console.log(personalities);
+    return (
+      <div className="tab-content">
+        <GeneralObjectTab
+          tabID={'#first_tab'}
+          subtitle={"Personalidades"}
+          active={true}
+          data={personalities.objects_data} />
+
+
+        <div className="control-buttons">
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
+          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+        </div>
+      </div>
+    );
   }
 
 
@@ -149,6 +179,7 @@ class PersonalitiesView extends React.Component {
       <div>
         <main className="container-fluid">
           {this.renderHeader()}
+          {this.renderUpperSection()}
           <Footer />
         </main>
       </div>
