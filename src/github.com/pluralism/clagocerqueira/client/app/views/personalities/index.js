@@ -26,6 +26,14 @@ class PersonalitiesView extends React.Component {
   }
 
 
+  componentDidMount() {
+    const { dispatch } = this.props;
+
+    // Retrieve the initial data to the user (we always select page 1 in the first render)
+    dispatch(PersonalitiesActions.getDataByPage(1));
+  }
+
+
   handleKeyDownEvent(e) {
     if(e.keyCode == 37 && this.state.canSwitchPage) {
       // Left arrow was pressed
@@ -38,14 +46,6 @@ class PersonalitiesView extends React.Component {
       // Prevent the user from pressing the button too fast (wait 0.5s)
       this.canUseSwitchPage();
     }
-  }
-
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-
-    // Retrieve the initial data to the user (we always select page 1 in the first render)
-    dispatch(PersonalitiesActions.getDataByPage(1));
   }
 
 
@@ -68,7 +68,7 @@ class PersonalitiesView extends React.Component {
         <div className="g-pt-40">
           <div className="text-center g-mb-30">
             <div className="g-mb-30">
-              <h2><span className="g-color-default">Personalidades</span></h2>
+              <h2><span className="g-color-default">{Constants.PERSONALITIES_STRING}</span></h2>
             </div>
             <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
               Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
@@ -84,7 +84,7 @@ class PersonalitiesView extends React.Component {
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
-                  role="tab" data-toggle="tab">Personalidades</Link>
+                  role="tab" data-toggle="tab">{Constants.PERSONALITIES_STRING}</Link>
               </li>
             </ul>
 
@@ -133,7 +133,7 @@ class PersonalitiesView extends React.Component {
       <div className="tab-content">
         <GeneralObjectTab
           tabID={'#first_tab'}
-          subtitle={"Personalidades"}
+          subtitle={Constants.PERSONALITIES_STRING}
           active={true}
           data={personalities.objects_data} />
 
@@ -193,7 +193,7 @@ class PersonalitiesView extends React.Component {
             </li>
 
             <li className="page-scroll">
-              <a href="#personalidades">Personalidades</a>
+              <a href="#personalidades">{Constants.PERSONALITIES_STRING}</a>
             </li>
 
             <li className="page-scroll">

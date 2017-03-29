@@ -30,6 +30,10 @@ const Constants = {
   PRESIDENTS: 'presidents',
   COUNCILMEN: 'councilmen',
 
+  PERSONALITIES_STRING: 'Personalidades',
+
+  
+
   MINIMUM_WAIT_TIME: 500,
 };
 
