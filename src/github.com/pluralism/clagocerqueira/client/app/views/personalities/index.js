@@ -85,6 +85,20 @@ class PersonalitiesView extends React.Component {
 
 
   render() {
-    return ();
+    return (
+      <div>
+        <main className="container-fluid">
+          {this.renderHeader()}
+          <Footer />
+        </main>
+      </div>
+    );
   }
 }
+
+
+const mapStateToProps = (state) => ({
+  personalities: state.generalObjects
+});
+
+export default connect(mapStateToProps)(PersonalitiesView);
