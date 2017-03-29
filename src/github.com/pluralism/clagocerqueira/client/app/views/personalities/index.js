@@ -16,6 +16,28 @@ class PersonalitiesView extends React.Component {
       page: 1,
       canSwitchPage: true
     };
+
+
+    /**
+     * Add an event listener that is triggered whenever the user
+     * presses a key in the keyboard
+    */
+    document.addEventListener("keydown", ::this.handleKeyDownEvent);
+  }
+
+
+  handleKeyDownEvent(e) {
+    if(e.keyCode == 37 && this.state.canSwitchPage) {
+      // Left arrow was pressed
+      this.getPreviousPageContent();
+      // Prevent the user from pressing the button too fast (wait 0.5s)
+      this.canUseSwitchPage();
+    } else if(e.keyCode == 39 && this.state.canSwitchPage) {
+      // Right arrow was pressed
+      this.getNextPageContent();
+      // Prevent the user from pressing the button too fast (wait 0.5s)
+      this.canUseSwitchPage();
+    }
   }
 
 
@@ -83,6 +105,20 @@ class PersonalitiesView extends React.Component {
     if(currentPage < personalities.max_pages) {
       this.setState({
         page: this.state.page + 1
+      }, () => {
+        dispatch(PersonalitiesActions.getDataByPage(this.state.page));
+      });
+    }
+  }
+
+
+  getPreviousPageContent() {
+    const { personalities, dispatch } = this.props;
+    let currentPage = this.state.page;
+
+    if(currentPage > 1) {
+      this.setState({
+        page: this.state.page - 1
       }, () => {
         dispatch(PersonalitiesActions.getDataByPage(this.state.page));
       });
