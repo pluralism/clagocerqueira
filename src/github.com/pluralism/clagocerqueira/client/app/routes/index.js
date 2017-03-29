@@ -4,6 +4,7 @@ import MainLayout from '../layouts/main';
 import HomeIndexView from '../views/home';
 import PresidentesView from '../views/autonomous_bodies/presidents';
 import CouncilmenView from '../views/autonomous_bodies/councilmen';
+import PersonalitiesView from '../views/personalities/index';
 
 
 export default function configRoutes(store) {
@@ -13,6 +14,7 @@ export default function configRoutes(store) {
         <IndexRoute component={HomeIndexView} />
         <Route path="/presidentes" component={PresidentesView} />
         <Route path="/vereadores" component={CouncilmenView} />
+        <Route path="/personalidades" component={PersonalitiesView} />
       </Route>
     </Route>
   );

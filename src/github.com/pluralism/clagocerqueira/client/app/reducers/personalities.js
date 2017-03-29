@@ -11,13 +11,13 @@ const initialState = {
 
 export default function reduce(state = initialState, action = {}) {
   switch(action.type) {
-    case Constants.LOADING_DATA:
+    case Constants.LOADING_PERSONALITIES_DATA:
       return { ...state, loading: true };
 
-    case Constants.LOADING_DATA_ERROR:
+    case Constants.LOADING_PERSONALITIES_ERROR:
       return { initialState };
 
-    case Constants.LOADING_DATA_SUCCESS:
+    case Constants.LOADING_PERSONALITIES_SUCCESS:
       return { ...state,
         loading: false,
         objects_data: action.objects_data,

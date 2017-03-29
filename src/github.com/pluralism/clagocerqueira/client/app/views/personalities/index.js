@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import classNames from 'classnames';
+import PersonalitiesActions from '../../actions/personalities';
 import Constants from '../../constants/index';
 
 
@@ -11,6 +12,7 @@ class PersonalitiesView extends React.Component {
     super(props);
 
     this.state = {
+      page: 1,
       canSwitchPage: true
     };
   }
@@ -18,6 +20,64 @@ class PersonalitiesView extends React.Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
+
+    // Retrieve the initial data to the user (we always select page 1 in the first render)
+    dispatch(PersonalitiesActions.getDataByPage(1));
+  }
+
+
+  canUseSwitchPage() {
+    this.setState({
+      canSwitchPage: false
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          canSwitchPage: true
+        });
+      }, Constants.MINIMUM_WAIT_TIME);
+    });
+  }
+
+
+  renderUpperSection() {
+    return (
+      <section id="personalidades_data">
+        <div className="g-pt-40">
+          <div className="text-center g-mb-30">
+            <div className="g-mb-30">
+              <h2><span className="g-color-default">Personalidades</span></h2>
+            </div>
+            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
+              Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+          </div>
+
+
+          <div className="search_on_list g-mb-30 text-center font-main">
+            <input type="text" placeholder="Pesquisar presidentes&#8230;" />
+          </div>
+
+
+          <div className="tab-v7">
+            <ul className="tab-v7-nav" role="tablist">
+              <li role="presentation" className="active">
+                <Link to={"#first_tab"}
+                  role="tab" data-toggle="tab">{Personalidades}</Link>
+              </li>
+            </ul>
+
+
+            {this.renderTabContents()}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
+  renderTabContents() {
+    const { personalities } = this.props;
+
+    console.log(personalities);
   }
 
 
@@ -98,7 +158,8 @@ class PersonalitiesView extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  personalities: state.generalObjects
+  personalities: state.personalities,
 });
+
 
 export default connect(mapStateToProps)(PersonalitiesView);
