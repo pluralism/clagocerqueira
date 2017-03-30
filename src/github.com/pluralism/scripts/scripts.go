@@ -16,6 +16,7 @@ const dbName = "clagocerqueira"
 const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
 const personalitiesCollection = "personalities"
+const authorsCollection = "authors"
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -185,6 +186,80 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	fmt.Println("[*] All councilmen were inserted with success!")
 }
 
+func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	// Check if the collection already exists on the database
+	authorsExist := findElement(collectionNames, authorsCollection)
+
+	if authorsExist {
+		// Drop the collection if it does exists
+		err := db.C(authorsCollection).DropCollection()
+
+		// Something went wrong while dropping the collection
+		if err != nil {
+			// Run all defer functions, return to the caller, wait for all goroutines
+			// to finish, and exit the application
+			panic(err.Error())
+		}
+	}
+
+	var currentDate = "1400-1500"
+	councilmen := readGeneralFile(session, "authors/autores1400_1500.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1501-1600"
+	councilmen = readGeneralFile(session, "authors/autores1501_1600.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1601-1700"
+	councilmen = readGeneralFile(session, "authors/autores1601_1700.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1701-1800"
+	councilmen = readGeneralFile(session, "authors/autores1701_1800.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+	}
+
+	currentDate = "1901-2000"
+	councilmen = readGeneralFile(session, "authors/autores1901_2000.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+	}
+
+	// Inform the user that all data was inserted with success!
+	fmt.Println("[*] All authors were inserted with success!")
+}
+
 func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -324,6 +399,7 @@ func main() {
 	var presidentsFlag = flag.Bool("presidents", false, "inserts presidents on the database")
 	var councilmenFlag = flag.Bool("councilmen", false, "inserts councilmen on the database")
 	var personalitiesFlag = flag.Bool("personalities", false, "inserts personalities on the database")
+	var authorsFlag = flag.Bool("authors", false, "inserts authors on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -337,6 +413,10 @@ func main() {
 
 	if *personalitiesFlag {
 		insertPersonalitiesOnDatabase(collectionNames, session)
+	}
+
+	if *authorsFlag {
+		insertAuthorsOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
