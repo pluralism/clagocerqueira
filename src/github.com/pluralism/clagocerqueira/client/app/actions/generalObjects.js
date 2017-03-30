@@ -73,18 +73,46 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 };
 
 
+/**
+ * This function extracts all authors from the database
+ * This is the function that should be called in the initial rendering,
+ * when the page number is 1
+*/
 GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
   return dispatch => {
     dispatch({
       type: Constants.LOADING_DATA_AUTHORS
     });
 
-    let dataToSend = ``;
+    let graphQLData = ``;
+    /**
+     * Iterate over all the elements in the array and build the query dinamically
+     * To build the query we use a template that is shared by most of the elements
+     * of the application.
+    */
     mappings.forEach((mapping) => {
-      dataToSend += GeneralObjectsActions.buildQueryForDate(mapping, Constants.AUTHORS, 1);
+      graphQLData += GeneralObjectsActions.buildQueryForDate(mapping, Constants.AUTHORS, 1);
     });
 
-    console.log(dataToSend);
+
+
+    httpPostGraphQL(graphQLData)
+    .then((data) => {
+      // Something went wrong...
+      if(data.hasOwnProperty('errors')) {
+        // Dispatch an error
+        dispatch({
+          type: Constants.LOADING_DATA_ERROR_AUTHORS
+        });
+      } else {
+        // Success, retrieve the data!
+        dispatch({
+          type: Constants.LOADING_DATA_ERROR_AUTHORS,
+          data: data.data,
+          currentDate: Constants.DATES.d1400_1500
+        });
+      }
+    });
   };
 };
 
@@ -177,7 +205,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
           currentDate: Constants.DATES.d1836_1910
         });
       }
-    })
+    });
   };
 };
 

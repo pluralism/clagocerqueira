@@ -85,6 +85,43 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 				return nil, errors.New("the councilmen could not be extracted")
 			},
 		},
+		"authors": &graphql.Field{
+			Type:        types.GeneralListType,
+			Description: "Extract authors that are defined in a given date and page",
+			Args: graphql.FieldConfigArgument{
+				"date": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
+				"page": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.Int),
+				},
+			},
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				date, dateOK := p.Args["date"].(string)
+				page, pageOK := p.Args["page"].(int)
+
+				if !dateOK {
+					// Return no object (nil) and the error to the user
+					return nil, errors.New("the \"date\" argument was not provided")
+				}
+
+				if !pageOK {
+					// Return no object (nil) and the error to the user
+					return nil, errors.New("the \"page\" argument was not provided")
+				}
+
+				result := controllers.GetAuthorsByDate(refs.Session, date, page)
+
+				if result != nil {
+					// Everything went fine, return the list of councilmen
+					return result, nil
+				}
+
+				// Something went wrong, return nil and an error informing that
+				// the authors could not be extracted from the database
+				return nil, errors.New("the authors could not be extracted")
+			},
+		},
 		"personalities": &graphql.Field{
 			Type:        types.GeneralObjectDataType,
 			Description: "Extract personalities that are defined in a given page",
