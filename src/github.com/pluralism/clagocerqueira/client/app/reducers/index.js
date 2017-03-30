@@ -3,6 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import contactMessage from './contactMessage';
 import generalObjects from './generalObjects';
 import personalities from './personalities';
+import authors from './authors';
 
 
 export default combineReducers({
@@ -11,4 +12,5 @@ export default combineReducers({
   contactMessage: contactMessage,
   generalObjects: generalObjects,
   personalities: personalities,
+  authors: authors,
 });

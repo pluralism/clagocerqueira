@@ -51,6 +51,44 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
 };
 
 
+GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
+  const fields = `
+  date
+  objects {
+    objects_data {
+      name
+      image
+      description
+    }
+    total_items
+    max_pages
+  }`;
+
+  const query = `
+    ${mapping[0]}: ${type}(date: "${mapping[1]}", page: ${page}) {
+      ${fields}
+    }`;
+
+  return query;
+};
+
+
+GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
+  return dispatch => {
+    dispatch({
+      type: Constants.LOADING_DATA_AUTHORS
+    });
+
+    let dataToSend = ``;
+    mappings.forEach((mapping) => {
+      dataToSend += GeneralObjectsActions.buildQueryForDate(mapping, Constants.AUTHORS, 1);
+    });
+
+    console.log(dataToSend);
+  };
+};
+
+
 GeneralObjectsActions.getAllDataByPage = (page, type) => {
   return dispatch => {
     dispatch({

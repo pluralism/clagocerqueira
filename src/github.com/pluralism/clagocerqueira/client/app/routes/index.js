@@ -5,6 +5,7 @@ import HomeIndexView from '../views/home';
 import PresidentesView from '../views/autonomous_bodies/presidents';
 import CouncilmenView from '../views/autonomous_bodies/councilmen';
 import PersonalitiesView from '../views/personalities/index';
+import AuthorsView from '../views/authors/index';
 
 
 export default function configRoutes(store) {
@@ -15,6 +16,7 @@ export default function configRoutes(store) {
         <Route path="/presidentes" component={PresidentesView} />
         <Route path="/vereadores" component={CouncilmenView} />
         <Route path="/personalidades" component={PersonalitiesView} />
+        <Route path="/autores" component={AuthorsView} />
       </Route>
     </Route>
   );
