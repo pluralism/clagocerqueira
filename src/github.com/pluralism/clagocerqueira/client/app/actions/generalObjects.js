@@ -73,6 +73,54 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 };
 
 
+
+GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
+  return dispatch => {
+    // Inform the user that the application is loading data
+    dispatch({
+      type: Constants.LOADING_DATA_AUTHORS
+    });
+
+
+    // Query that will be sent to the GraphQL server
+    const graphQLData = `{
+      ${mapping}: ${type}(date: "${date}", page: ${page}) {
+        date
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
+      }
+    }`;
+
+
+
+    httpPostGraphQL(graphQLData)
+    .then((data) => {
+      // Something went wrong...
+      if(data.hasOwnProperty('errors')) {
+        // Dispatch an error
+        dispatch({
+          type: Constants.LOADING_DATA_ERROR_AUTHORS
+        });
+      } else {
+        // Success, retrieve the data to the user
+        dispatch({
+          type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
+          data: data.data,
+          currentDate: date
+        });
+      }
+    });
+  };
+};
+
+
 /**
  * This function extracts all authors from the database
  * This is the function that should be called in the initial rendering,
