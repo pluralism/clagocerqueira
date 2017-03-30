@@ -246,6 +246,16 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
 	}
 
+	currentDate = "1801-1900"
+	councilmen = readGeneralFile(session, "authors/autores1701_1800.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+		panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+	}
+
 	currentDate = "1901-2000"
 	councilmen = readGeneralFile(session, "authors/autores1901_2000.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)

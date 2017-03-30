@@ -13,7 +13,7 @@ func GetAuthorsByDate(s *mgo.Session, date string, page int) *models.GeneralObje
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB(constants.DB_NAME).C(constants.COUNCILMEN_COLLECTION)
+	c := session.DB(constants.DB_NAME).C(constants.AUTHORS_COLLECTION)
 	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"date": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})

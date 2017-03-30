@@ -84,7 +84,7 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
       type: Constants.LOADING_DATA_AUTHORS
     });
 
-    let graphQLData = ``;
+    let graphQLData = `{`;
     /**
      * Iterate over all the elements in the array and build the query dinamically
      * To build the query we use a template that is shared by most of the elements
@@ -94,7 +94,7 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
       graphQLData += GeneralObjectsActions.buildQueryForDate(mapping, Constants.AUTHORS, 1);
     });
 
-
+    graphQLData += `}`;
 
     httpPostGraphQL(graphQLData)
     .then((data) => {
@@ -107,7 +107,7 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
       } else {
         // Success, retrieve the data!
         dispatch({
-          type: Constants.LOADING_DATA_ERROR_AUTHORS,
+          type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
           data: data.data,
           currentDate: Constants.DATES.d1400_1500
         });
