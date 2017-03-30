@@ -82,6 +82,8 @@ class AuthorsView extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
+
+
     const mappings = [
       [Constants.MAPPINGS.d1400_1500, Constants.DATES.d1400_1500],
       [Constants.MAPPINGS.d1501_1600, Constants.DATES.d1501_1600],

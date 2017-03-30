@@ -79,6 +79,14 @@ class CouncilmenView extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
+
+    const mappings = [
+      [Constants.MAPPINGS.d1836_1910, Constants.DATES.d1836_1910],
+      [Constants.MAPPINGS.d1910_1926, Constants.DATES.d1910_1926],
+      [Constants.MAPPINGS.d1926_1974, Constants.DATES.d1926_1974],
+      [Constants.MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
+      [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
+
     /**
      * This function is invoked immediately after a component is mounted.
      * This is a good place to load data from a remote endpoint and to perform
@@ -87,7 +95,7 @@ class CouncilmenView extends React.Component {
      * On this function we try to extract the councilmen from all possible dates
      * on this page the component is always called with the first page
     */
-    dispatch(GeneralObjectsActions.getAllDataByPage(1, Constants.COUNCILMEN));
+    dispatch(GeneralObjectsActions.getAllDataFromCouncilmen(mappings));
   }
 
 

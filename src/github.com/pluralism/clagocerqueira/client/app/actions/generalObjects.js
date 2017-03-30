@@ -135,15 +135,15 @@ GeneralObjectsActions.buildGraphQLDataFromMappings = (mappings, constant, page) 
 
 
 
-GeneralObjectsActions.loadDataFromServer = (loadingAction, errorAction, successAction, page,
-  mappings) => {
+GeneralObjectsActions.loadDataFromServer =
+  (loadingAction, errorAction, successAction, page, mappings, type) => {
   return dispatch => {
     dispatch({
       type: loadingAction
     });
 
     let graphQLData = GeneralObjectsActions.buildGraphQLDataFromMappings(mappings,
-      Constants.AUTHORS, page);
+      type, page);
 
     httpPostGraphQL(graphQLData)
     .then((data) => {
@@ -176,8 +176,42 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
     Constants.LOADING_DATA_ERROR_AUTHORS,
     Constants.LOADING_DATA_SUCCESS_AUTHORS,
     1,
-    mappings);
+    mappings,
+    Constants.AUTHORS);
 };
+
+
+
+/**
+ * This function extracts all presidents from the database
+ * This is the function that should be called in the initial rendering,
+ * when the page number is 1
+*/
+GeneralObjectsActions.getAllDataFromPresidents = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA,
+    Constants.LOADING_DATA_ERROR,
+    Constants.LOADING_DATA_SUCCESS,
+    1,
+    mappings,
+    Constants.PRESIDENTS);
+};
+
+
+
+/**
+ * This function extracts all councilmen from the database
+ * This is the function that should be called in the initial rendering,
+ * when the page number is 1
+*/
+GeneralObjectsActions.getAllDataFromCouncilmen = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA,
+    Constants.LOADING_DATA_ERROR,
+    Constants.LOADING_DATA_SUCCESS,
+    1,
+    mappings,
+    Constants.COUNCILMEN);
+};
+
 
 
 GeneralObjectsActions.getAllDataByPage = (page, type) => {
