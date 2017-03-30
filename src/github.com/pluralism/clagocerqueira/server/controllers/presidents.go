@@ -15,6 +15,7 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	defer session.Close()
 
 	c := session.DB(constants.DB_NAME).C(constants.PRESIDENTS_COLLECTION)
+
 	/**
 	 * Find by the date field in the presidents collections
 	 * Limit the number of objects returned in the "objects" field

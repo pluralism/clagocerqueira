@@ -109,7 +109,7 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
           data: data.data,
-          currentDate: Constants.DATES.d1400_1500
+          currentDate: mappings[0][1]
         });
       }
     });
