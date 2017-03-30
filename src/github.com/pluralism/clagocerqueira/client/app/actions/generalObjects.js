@@ -121,28 +121,29 @@ GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
 };
 
 
-/**
- * This function extracts all authors from the database
- * This is the function that should be called in the initial rendering,
- * when the page number is 1
-*/
-GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
+
+GeneralObjectsActions.buildGraphQLDataFromMappings = (mappings, constant, page) => {
+  let graphQLData = `{`;
+
+  mappings.forEach((mapping) => {
+    graphQLData += GeneralObjectsActions.buildQueryForDate(mapping, constant, page);
+  });
+  graphQLData += `}`;
+
+  return graphQLData;
+};
+
+
+
+GeneralObjectsActions.loadDataFromServer = (loadingAction, errorAction, successAction, page,
+  mappings) => {
   return dispatch => {
     dispatch({
-      type: Constants.LOADING_DATA_AUTHORS
+      type: loadingAction
     });
 
-    let graphQLData = `{`;
-    /**
-     * Iterate over all the elements in the array and build the query dinamically
-     * To build the query we use a template that is shared by most of the elements
-     * of the application.
-    */
-    mappings.forEach((mapping) => {
-      graphQLData += GeneralObjectsActions.buildQueryForDate(mapping, Constants.AUTHORS, 1);
-    });
-
-    graphQLData += `}`;
+    let graphQLData = GeneralObjectsActions.buildGraphQLDataFromMappings(mappings,
+      Constants.AUTHORS, page);
 
     httpPostGraphQL(graphQLData)
     .then((data) => {
@@ -150,18 +151,32 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
       if(data.hasOwnProperty('errors')) {
         // Dispatch an error
         dispatch({
-          type: Constants.LOADING_DATA_ERROR_AUTHORS
+          type: errorAction
         });
       } else {
         // Success, retrieve the data!
         dispatch({
-          type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
+          type: successAction,
           data: data.data,
           currentDate: mappings[0][1]
         });
       }
     });
   };
+};
+
+
+/**
+ * This function extracts all authors from the database
+ * This is the function that should be called in the initial rendering,
+ * when the page number is 1
+*/
+GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_AUTHORS,
+    Constants.LOADING_DATA_ERROR_AUTHORS,
+    Constants.LOADING_DATA_SUCCESS_AUTHORS,
+    1,
+    mappings);
 };
 
 
