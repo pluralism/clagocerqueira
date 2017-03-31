@@ -7,6 +7,7 @@ import CouncilmenView from '../views/autonomous_bodies/councilmen';
 import PersonalitiesView from '../views/personalities/index';
 import AuthorsView from '../views/authors/index';
 import AssociationsView from '../views/associations/index';
+import PressView from '../views/press/index';
 
 
 
@@ -20,6 +21,7 @@ export default function configRoutes(store) {
         <Route path="/personalidades" component={PersonalitiesView} />
         <Route path="/autores" component={AuthorsView} />
         <Route path="/associacoes" component={AssociationsView} />
+        <Route path="/imprensa" component={PressView} />
       </Route>
     </Route>
   );

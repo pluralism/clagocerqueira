@@ -51,7 +51,7 @@ func getAssociations() *graphql.Field {
 func getPress() *graphql.Field {
 	return &graphql.Field{
 		Type:        types.GeneralListType,
-		Description: "Extract associations that match a given name",
+		Description: "Extract press that match a given name",
 		Args: graphql.FieldConfigArgument{
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),

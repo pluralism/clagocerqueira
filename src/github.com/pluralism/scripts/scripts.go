@@ -150,7 +150,7 @@ func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
 		"/public/prod/images/monarquia.jpg", session)
 	readFileAndInsertOnDatabase("online_radios", pressCollection, "press/radios_online.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("televions", pressCollection, "press/televisao.csv",
+	readFileAndInsertOnDatabase("televisions", pressCollection, "press/televisao.csv",
 		"/public/prod/images/monarquia.jpg", session)
 	readFileAndInsertOnDatabase("magazines", pressCollection, "press/revistas.csv",
 		"/public/prod/images/monarquia.jpg", session)

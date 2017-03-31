@@ -74,6 +74,54 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 
 
 
+GeneralObjectsActions.getDataByPagePress = (name, mapping, page, type) => {
+  return dispatch => {
+    // Inform the user that the application is loading data
+    dispatch({
+      type: Constants.LOADING_DATA_PRESS
+    });
+
+
+    // Query that will be sent to the GraphQL server
+    const graphQLData = `{
+      ${mapping}: ${type}(name: "${name}", page: ${page}) {
+        name
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
+      }
+    }`;
+
+
+
+    httpPostGraphQL(graphQLData)
+    .then((data) => {
+      // Something went wrong...
+      if(data.hasOwnProperty('errors')) {
+        // Dispatch an error
+        dispatch({
+          type: Constants.LOADING_DATA_ERROR_PRESS
+        });
+      } else {
+        // Success, retrieve the data to the user
+        dispatch({
+          type: Constants.LOADING_DATA_SUCCESS_PRESS,
+          data: data.data,
+          currentName: name
+        });
+      }
+    });
+  };
+};
+
+
+
 GeneralObjectsActions.getDataByPageAuthors = (name, mapping, page, type) => {
   return dispatch => {
     // Inform the user that the application is loading data
@@ -191,6 +239,7 @@ GeneralObjectsActions.loadDataFromServer =
     let graphQLData = GeneralObjectsActions.buildGraphQLDataFromMappings(mappings,
       type, page);
 
+
     httpPostGraphQL(graphQLData)
     .then((data) => {
       // Something went wrong...
@@ -237,6 +286,15 @@ GeneralObjectsActions.getAllDataFromAssociations = (mappings) => {
     Constants.ASSOCIATIONS_TABLE);
 };
 
+
+GeneralObjectsActions.getAllDataFromPress = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_PRESS,
+    Constants.LOADING_DATA_ERROR_PRESS,
+    Constants.LOADING_DATA_SUCCESS_PRESS,
+    1,
+    mappings,
+    Constants.PRESS_TABLE);
+};
 
 
 /**

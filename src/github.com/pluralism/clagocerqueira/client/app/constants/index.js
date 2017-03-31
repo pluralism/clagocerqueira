@@ -19,6 +19,10 @@ const Constants = {
   LOADING_DATA_ERROR_ASSOCIATIONS: 'LOADING_DATA_ERROR_ASSOCIATIONS',
   LOADING_DATA_SUCCESS_ASSOCIATIONS: 'LOADING_DATA_SUCCESS_ASSOCIATIONS',
 
+  LOADING_DATA_PRESS: 'LOADING_DATA_PRESS',
+  LOADING_DATA_ERROR_PRESS: 'LOADING_DATA_ERROR_PRESS',
+  LOADING_DATA_SUCCESS_PRESS: 'LOADING_DATA_SUCCESS_PRESS',
+
 
   DATES: {
     d1836_1910: "1836-1910",
@@ -60,6 +64,26 @@ const Constants = {
   },
 
 
+  PRESS: {
+    MAGAZINES: 'magazines',
+    JOURNALS: 'journals',
+    ONLINE_JOURNALS: 'online_journals',
+    RADIOS: 'radios',
+    ONLINE_RADIOS: 'online_radios',
+    TELEVISIONS: 'televisions',
+  },
+
+
+  PRESS_TEXT: {
+    MAGAZINES: 'Revistas',
+    JOURNALS: 'Jornais',
+    ONLINE_JOURNALS: 'Jornais Online',
+    RADIOS: 'Rádios',
+    ONLINE_RADIOS: 'Rádios Online',
+    TELEVISIONS: 'Televisões',
+  },
+
+
   ASSOCIATIONS_TEXT: {
     CULTURAL: 'Culturais',
     CIVIC: 'Cívicas',
@@ -74,6 +98,7 @@ const Constants = {
   COUNCILMEN: 'councilmen',
   AUTHORS: 'authors',
   ASSOCIATIONS_TABLE: 'associations',
+  PRESS_TABLE: 'press',
 
   PERSONALITIES_STRING: 'Personalidades',
 
