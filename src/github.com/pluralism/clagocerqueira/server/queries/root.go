@@ -48,6 +48,45 @@ func getAssociations() *graphql.Field {
 	}
 }
 
+func getPress() *graphql.Field {
+	return &graphql.Field{
+		Type:        types.GeneralListType,
+		Description: "Extract associations that match a given name",
+		Args: graphql.FieldConfigArgument{
+			"name": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			name, nameOK := p.Args["name"].(string)
+			page, pageOk := p.Args["page"].(int)
+
+			if !nameOK {
+				// Return no object (nil) and the error to the user
+				return nil, errors.New("the \"name\" argument was not provided")
+			}
+
+			if !pageOk {
+				// Return no objects if the "page" field is not passed in the query
+				return nil, errors.New("the \"page\" argument was not provided")
+			}
+
+			result := controllers.GetPressByNameId(refs.Session, name, page)
+
+			if result != nil {
+				return result, nil
+			}
+
+			// Something went wrong, return nil and an error informing that
+			// the press data could not be extracted from the database
+			return nil, errors.New("the press data could not be extracted")
+		},
+	}
+}
+
 var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 	Name: "CLagoCerqueiraRootQuery",
 	Fields: graphql.Fields{
@@ -125,6 +164,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			},
 		},
 		"associations": getAssociations(),
+		"press":        getPress(),
 		"authors": &graphql.Field{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",

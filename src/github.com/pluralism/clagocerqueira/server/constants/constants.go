@@ -8,4 +8,5 @@ const (
 	PERSONALITIES_COLLECTION = "personalities"
 	AUTHORS_COLLECTION       = "authors"
 	ASSOCIATIONS_COLLECTION  = "associations"
+	PRESS_COLLECTION         = "press"
 )
