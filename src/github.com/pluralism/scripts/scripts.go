@@ -17,6 +17,7 @@ const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
 const personalitiesCollection = "personalities"
 const authorsCollection = "authors"
+const associationsCollection = "assocations"
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -84,7 +85,7 @@ func readGeneralFile(session *mgo.Session, filename, image, date string) General
 			break
 		}
 
-		// Append the president to the list of presidents
+		// Append the president to the general list
 		generalData.ObjectsData = append(generalData.ObjectsData, GeneralObject{
 			Name:        strings.TrimSpace(record[0]),
 			Image:       image,
@@ -115,12 +116,31 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 	return true
 }
 
+func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	// Check if the assocations collection already exists on the database
+	associationsExists := findElement(collectionsNames, associationsCollection)
+
+	if associationsExists {
+		// Drop the collection if the collection already exists
+		err := db.C(associationsCollection).DropCollection()
+
+		// Something went wrong while dropping the collection
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+}
+
 func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
 
 	db := session.DB(dbName)
-	// Check if the councilmen collection already exists in the database
+	// Check if the councilmen collection already exists on the database
 	councilmenExists := findElement(collectionNames, councilmenCollection)
 
 	if councilmenExists {
@@ -410,6 +430,7 @@ func main() {
 	var councilmenFlag = flag.Bool("councilmen", false, "inserts councilmen on the database")
 	var personalitiesFlag = flag.Bool("personalities", false, "inserts personalities on the database")
 	var authorsFlag = flag.Bool("authors", false, "inserts authors on the database")
+	var associationsFlag = flag.Bool("associations", false, "inserts associations on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -427,6 +448,10 @@ func main() {
 
 	if *authorsFlag {
 		insertAuthorsOnDatabase(collectionNames, session)
+	}
+
+	if *associationsFlag {
+		insertAssociationsOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
