@@ -5,51 +5,6 @@ import { httpPostGraphQL } from '../utils/index';
 const GeneralObjectsActions = {};
 
 
-GeneralObjectsActions.getDataByPage = (name, mapping, page, type) => {
-  return dispatch => {
-    // Inform the user that the application is loading data
-    dispatch({
-      type: Constants.LOADING_DATA
-    });
-
-
-    // Query that will be sent to the GraphQL server
-    const graphQLData = `{
-      ${mapping}: ${type}(name: "${name}", page: ${page}) {
-        name
-        objects {
-          objects_data {
-            name
-            image
-            description
-          }
-          total_items
-          max_pages
-        }
-      }
-    }`;
-
-
-    httpPostGraphQL(graphQLData)
-    .then((data) => {
-      // Something went wrong...
-      if(data.hasOwnProperty('errors')) {
-        // Dispatch an error
-        dispatch({
-          type: Constants.LOADING_DATA_ERROR
-        });
-      } else {
-        // Success, retrieve the data to the user
-        dispatch({
-          type: Constants.LOADING_DATA_SUCCESS,
-          data: data.data,
-          currentName: name
-        });
-      }
-    });
-  };
-};
-
 
 GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
   const fields = `
@@ -130,6 +85,30 @@ GeneralObjectsActions.getDataByPagePress = (name, mapping, page) => {
     Constants.LOADING_DATA_PRESS,
     Constants.LOADING_DATA_ERROR_PRESS,
     Constants.LOADING_DATA_SUCCESS_PRESS);
+};
+
+
+GeneralObjectsActions.getDataByPageCouncilmen = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPage(
+    name,
+    mapping,
+    page,
+    Constants.COUNCILMEN,
+    Constants.LOADING_DATA,
+    Constants.LOADING_DATA_ERROR,
+    Constants.LOADING_DATA_SUCCESS);
+};
+
+
+GeneralObjectsActions.getDataByPagePresidents = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPage(
+    name,
+    mapping,
+    page,
+    Constants.PRESIDENTS,
+    Constants.LOADING_DATA,
+    Constants.LOADING_DATA_ERROR,
+    Constants.LOADING_DATA_SUCCESS);
 };
 
 

@@ -288,8 +288,8 @@ class PresidentesView extends React.Component {
     if(currentPage > 1) {
       obj.page -= 1;
 
-      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, Constants.PRESIDENTS));
+      dispatch(GeneralObjectsActions.getDataByPagePresidents(this.currentDate,
+        obj.mapping, obj.page));
     }
   }
 
@@ -303,8 +303,8 @@ class PresidentesView extends React.Component {
     if(currentPage < presidentMapping.objects.max_pages) {
       obj.page += 1;
 
-      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, Constants.PRESIDENTS));
+      dispatch(GeneralObjectsActions.getDataByPagePresidents(this.currentDate,
+        obj.mapping, obj.page));
     }
   }
 

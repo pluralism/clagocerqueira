@@ -290,8 +290,8 @@ class CouncilmenView extends React.Component {
     if(currentPage > 1) {
       obj.page -= 1;
 
-      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, Constants.COUNCILMEN));
+      dispatch(GeneralObjectsActions.getDataByPageCouncilmen(this.currentDate,
+        obj.mapping, obj.page));
     }
   }
 
@@ -305,8 +305,8 @@ class CouncilmenView extends React.Component {
     if(currentPage < presidentMapping.objects.max_pages) {
       obj.page += 1;
 
-      dispatch(GeneralObjectsActions.getDataByPage(this.currentDate,
-        obj.mapping, obj.page, Constants.COUNCILMEN));
+      dispatch(GeneralObjectsActions.getDataByPageCouncilmen(this.currentDate,
+        obj.mapping, obj.page));
     }
   }
 
