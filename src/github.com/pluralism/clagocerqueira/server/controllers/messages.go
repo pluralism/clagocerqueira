@@ -4,6 +4,7 @@ import (
 	"errors"
 	"sync"
 
+	"github.com/pluralism/clagocerqueira/server/constants"
 	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/refs"
 	"github.com/pluralism/clagocerqueira/server/types"
@@ -15,7 +16,7 @@ func AddMessage(s *mgo.Session, message *models.Message, wg *sync.WaitGroup) {
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB("clagocerqueira").C("messages")
+	c := session.DB(constants.DB_NAME).C(constants.MESSAGES_COLLECTION)
 
 	// Assign an ID to the message
 	message.ID = bson.NewObjectId()

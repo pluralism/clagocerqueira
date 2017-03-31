@@ -7,7 +7,7 @@ import (
 var GeneralListType = graphql.NewObject(graphql.ObjectConfig{
 	Name: "GeneralList",
 	Fields: graphql.Fields{
-		"date": &graphql.Field{
+		"name": &graphql.Field{
 			Type: graphql.String,
 		},
 		"objects": &graphql.Field{

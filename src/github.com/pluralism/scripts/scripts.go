@@ -30,7 +30,7 @@ type GeneralObjectData struct {
 }
 
 type GeneralList struct {
-	Date    string            `bson:"date"`
+	Name    string            `bson:"name"`
 	Objects GeneralObjectData `bson:"objects"`
 }
 
@@ -95,7 +95,7 @@ func readGeneralFile(session *mgo.Session, filename, image, date string) General
 	generalData.TotalItems = len(generalData.ObjectsData)
 
 	presidentList := GeneralList{
-		Date:    date,
+		Name:    date,
 		Objects: generalData,
 	}
 
@@ -317,7 +317,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	presidentList := GeneralList{
-		Date: "1976-2013",
+		Name: "1976-2013",
 		Objects: GeneralObjectData{
 			ObjectsData: []GeneralObject{
 				GeneralObject{

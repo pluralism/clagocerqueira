@@ -21,7 +21,7 @@ func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralO
 	 * Limit the number of objects returned in the "objects" field
 	 */
 	offset := 10 * (page - 1)
-	query := c.Find(bson.M{"date": date}).
+	query := c.Find(bson.M{"name": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
 
 	result := models.GeneralObject{}

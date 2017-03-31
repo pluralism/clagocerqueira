@@ -4,6 +4,6 @@ import "gopkg.in/mgo.v2/bson"
 
 type GeneralObject struct {
 	ID      bson.ObjectId     `json:"id" bson:"_id"`
-	Date    string            `json:"date" bson:"date"`
+	Name    string            `json:"name" bson:"name"`
 	Objects GeneralObjectData `json:"objects" bson:"objects"`
 }

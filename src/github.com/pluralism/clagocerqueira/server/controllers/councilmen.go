@@ -15,7 +15,7 @@ func GetCouncilmenByDate(s *mgo.Session, date string, page int) *models.GeneralO
 
 	c := session.DB(constants.DB_NAME).C(constants.COUNCILMEN_COLLECTION)
 	offset := 10 * (page - 1)
-	query := c.Find(bson.M{"date": date}).
+	query := c.Find(bson.M{"name": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
 
 	result := models.GeneralObject{}
