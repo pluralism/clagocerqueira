@@ -18,6 +18,7 @@ const councilmenCollection = "councilmen"
 const personalitiesCollection = "personalities"
 const authorsCollection = "authors"
 const associationsCollection = "associations"
+const pressCollection = "press"
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -116,14 +117,43 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 	return true
 }
 
-func readFileAndInsertOnDatabase(currentName, fileName, image string, session *mgo.Session) {
+func readFileAndInsertOnDatabase(currentName, collection, fileName, image string, session *mgo.Session) {
 	data := readGeneralFile(session, fileName, image, currentName)
 
-	if !insertListOnDatabase(session, dbName, associationsCollection, data) {
+	if !insertListOnDatabase(session, dbName, collection, data) {
 		panic(fmt.Sprintf("[!] Data with name %s could not be inserted!", currentName))
 	} else {
 		fmt.Println(fmt.Sprintf("[*] Data with name %s inserted with success!", currentName))
 	}
+}
+
+func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	pressExists := findElement(collectionNames, pressCollection)
+
+	if pressExists {
+		err := db.C(pressCollection).DropCollection()
+
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	readFileAndInsertOnDatabase("journals", pressCollection, "press/jornais.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("online_journals", pressCollection, "press/jornais_online.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("radios", pressCollection, "press/radios.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("online_radios", pressCollection, "press/radios_online.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("televions", pressCollection, "press/televisao.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("magazines", pressCollection, "press/revistas.csv",
+		"/public/prod/images/monarquia.jpg", session)
 }
 
 func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
@@ -144,17 +174,17 @@ func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 		}
 	}
 
-	readFileAndInsertOnDatabase("sports", "associations/assocDesportivas.csv",
+	readFileAndInsertOnDatabase("sports", associationsCollection, "associations/assocDesportivas.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("cultural", "associations/assocCulturais.csv",
+	readFileAndInsertOnDatabase("cultural", associationsCollection, "associations/assocCulturais.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("religious", "associations/assocReligiosas.csv",
+	readFileAndInsertOnDatabase("religious", associationsCollection, "associations/assocReligiosas.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("social", "associations/assocSociais.csv",
+	readFileAndInsertOnDatabase("social", associationsCollection, "associations/assocSociais.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("civic", "associations/assocCivicas.csv",
+	readFileAndInsertOnDatabase("civic", associationsCollection, "associations/assocCivicas.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("recreational", "associations/assocRecreativas.csv",
+	readFileAndInsertOnDatabase("recreational", associationsCollection, "associations/assocRecreativas.csv",
 		"/public/prod/images/monarquia.jpg", session)
 }
 
@@ -454,6 +484,7 @@ func main() {
 	var personalitiesFlag = flag.Bool("personalities", false, "inserts personalities on the database")
 	var authorsFlag = flag.Bool("authors", false, "inserts authors on the database")
 	var associationsFlag = flag.Bool("associations", false, "inserts associations on the database")
+	var pressFlag = flag.Bool("press", false, "inserts press on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -475,6 +506,10 @@ func main() {
 
 	if *associationsFlag {
 		insertAssociationsOnDatabase(collectionNames, session)
+	}
+
+	if *pressFlag {
+		insertPressOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
