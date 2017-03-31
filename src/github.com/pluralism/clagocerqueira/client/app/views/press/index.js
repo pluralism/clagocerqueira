@@ -13,7 +13,7 @@ class PressView extends React.Component {
     super(props);
 
 
-    this.currentName = Constants.ASSOCIATIONS.CULTURAL;
+    this.currentName = Constants.PRESS.MAGAZINES;
     this.nameAndPageMappings = {
       [Constants.PRESS.JOURNALS]: {
         mapping: Constants.PRESS.JOURNALS,
@@ -46,6 +46,9 @@ class PressView extends React.Component {
       activeTab: 1,
       canSwitchPage: true,
     };
+
+
+    document.addEventListener("keydown", (event) => this.handleKeyDownEvent(event));
   }
 
 
