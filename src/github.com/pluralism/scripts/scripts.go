@@ -17,7 +17,7 @@ const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
 const personalitiesCollection = "personalities"
 const authorsCollection = "authors"
-const associationsCollection = "assocations"
+const associationsCollection = "associations"
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -116,6 +116,16 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 	return true
 }
 
+func readFileAndInsertOnDatabase(currentName, fileName, image string, session *mgo.Session) {
+	data := readGeneralFile(session, fileName, image, currentName)
+
+	if !insertListOnDatabase(session, dbName, associationsCollection, data) {
+		panic(fmt.Sprintf("[!] Data with name %s could not be inserted!", currentName))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] Data with name %s inserted with success!", currentName))
+	}
+}
+
 func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -133,6 +143,19 @@ func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 			panic(err.Error())
 		}
 	}
+
+	readFileAndInsertOnDatabase("sports", "associations/assocDesportivas.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("cultural", "associations/assocCulturais.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("religious", "associations/assocReligiosas.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("social", "associations/assocSociais.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("civic", "associations/assocCivicas.csv",
+		"/public/prod/images/monarquia.jpg", session)
+	readFileAndInsertOnDatabase("recreational", "associations/assocRecreativas.csv",
+		"/public/prod/images/monarquia.jpg", session)
 }
 
 func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
