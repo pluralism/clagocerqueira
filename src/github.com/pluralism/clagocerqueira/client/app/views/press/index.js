@@ -307,7 +307,7 @@ class PressView extends React.Component {
       obj.page -= 1;
 
       dispatch(GeneralObjectsActions.getDataByPagePress(this.currentName,
-        obj.mapping, obj.page, Constants.PRESS_TABLE));
+        obj.mapping, obj.page));
     }
   }
 
@@ -322,7 +322,7 @@ class PressView extends React.Component {
       obj.page += 1;
 
       dispatch(GeneralObjectsActions.getDataByPagePress(this.currentName,
-        obj.mapping, obj.page, Constants.PRESS_TABLE));
+        obj.mapping, obj.page));
     }
   }
 

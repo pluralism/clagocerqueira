@@ -312,7 +312,7 @@ class AuthorsView extends React.Component {
       obj.page -= 1;
 
       dispatch(GeneralObjectsActions.getDataByPageAuthors(this.currentDate,
-        obj.mapping, obj.page, Constants.AUTHORS));
+        obj.mapping, obj.page));
     }
   }
 
@@ -327,7 +327,7 @@ class AuthorsView extends React.Component {
       obj.page += 1;
 
       dispatch(GeneralObjectsActions.getDataByPageAuthors(this.currentDate,
-        obj.mapping, obj.page, Constants.AUTHORS));
+        obj.mapping, obj.page));
     }
   }
 

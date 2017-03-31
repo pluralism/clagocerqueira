@@ -73,12 +73,12 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 };
 
 
-
-GeneralObjectsActions.getDataByPagePress = (name, mapping, page, type) => {
+GeneralObjectsActions.getDataByPage =
+    (name, mapping, page, type, loadingAction, actionError, actionSuccess) => {
   return dispatch => {
     // Inform the user that the application is loading data
     dispatch({
-      type: Constants.LOADING_DATA_PRESS
+      type: loadingAction
     });
 
 
@@ -106,12 +106,12 @@ GeneralObjectsActions.getDataByPagePress = (name, mapping, page, type) => {
       if(data.hasOwnProperty('errors')) {
         // Dispatch an error
         dispatch({
-          type: Constants.LOADING_DATA_ERROR_PRESS
+          type: actionError
         });
       } else {
         // Success, retrieve the data to the user
         dispatch({
-          type: Constants.LOADING_DATA_SUCCESS_PRESS,
+          type: actionSuccess,
           data: data.data,
           currentName: name
         });
@@ -121,98 +121,40 @@ GeneralObjectsActions.getDataByPagePress = (name, mapping, page, type) => {
 };
 
 
-
-GeneralObjectsActions.getDataByPageAuthors = (name, mapping, page, type) => {
-  return dispatch => {
-    // Inform the user that the application is loading data
-    dispatch({
-      type: Constants.LOADING_DATA_AUTHORS
-    });
-
-
-    // Query that will be sent to the GraphQL server
-    const graphQLData = `{
-      ${mapping}: ${type}(name: "${name}", page: ${page}) {
-        name
-        objects {
-          objects_data {
-            name
-            image
-            description
-          }
-          total_items
-          max_pages
-        }
-      }
-    }`;
-
-
-
-    httpPostGraphQL(graphQLData)
-    .then((data) => {
-      // Something went wrong...
-      if(data.hasOwnProperty('errors')) {
-        // Dispatch an error
-        dispatch({
-          type: Constants.LOADING_DATA_ERROR_AUTHORS
-        });
-      } else {
-        // Success, retrieve the data to the user
-        dispatch({
-          type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
-          data: data.data,
-          currentName: name
-        });
-      }
-    });
-  };
+GeneralObjectsActions.getDataByPagePress = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPage(
+    name,
+    mapping,
+    page,
+    Constants.PRESS_TABLE,
+    Constants.LOADING_DATA_PRESS,
+    Constants.LOADING_DATA_ERROR_PRESS,
+    Constants.LOADING_DATA_SUCCESS_PRESS);
 };
 
 
-GeneralObjectsActions.getDataByPageAssociations = (name, mapping, page, type) => {
-  return dispatch => {
-    // Inform the user that the application is loading data
-    dispatch({
-      type: Constants.LOADING_DATA_ASSOCIATIONS
-    });
+
+GeneralObjectsActions.getDataByPageAuthors = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPage(
+    name,
+    mapping,
+    page,
+    Constants.AUTHORS,
+    Constants.LOADING_DATA_AUTHORS,
+    Constants.LOADING_DATA_ERROR_AUTHORS,
+    Constants.LOADING_DATA_SUCCESS_AUTHORS);
+};
 
 
-    // Query that will be sent to the GraphQL server
-    const graphQLData = `{
-      ${mapping}: ${type}(name: "${name}", page: ${page}) {
-        name
-        objects {
-          objects_data {
-            name
-            image
-            description
-          }
-          total_items
-          max_pages
-        }
-      }
-    }`;
-
-
-
-    httpPostGraphQL(graphQLData)
-    .then((data) => {
-      // Something went wrong...
-      if(data.hasOwnProperty('errors')) {
-        // Dispatch an error
-        dispatch({
-          type: Constants.LOADING_DATA_ERROR_ASSOCIATIONS
-        });
-      } else {
-        // Success, retrieve the data to the user
-        dispatch({
-          type: Constants.LOADING_DATA_SUCCESS_ASSOCIATIONS,
-          data: data.data,
-          currentName: name
-        });
-      }
-    });
-  };
+GeneralObjectsActions.getDataByPageAssociations = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPage(
+    name,
+    mapping,
+    page,
+    Constants.ASSOCIATIONS_TABLE,
+    Constants.LOADING_DATA_ASSOCIATIONS,
+    Constants.LOADING_DATA_ERROR_ASSOCIATIONS,
+    Constants.LOADING_DATA_SUCCESS_ASSOCIATIONS);
 };
 
 

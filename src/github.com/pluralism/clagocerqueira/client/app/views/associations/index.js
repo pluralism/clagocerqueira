@@ -254,7 +254,7 @@ class AssociationsView extends React.Component {
       obj.page -= 1;
 
       dispatch(GeneralObjectsActions.getDataByPageAssociations(this.currentName,
-        obj.mapping, obj.page, Constants.ASSOCIATIONS_TABLE));
+        obj.mapping, obj.page));
     }
   }
 
@@ -269,7 +269,7 @@ class AssociationsView extends React.Component {
       obj.page += 1;
 
       dispatch(GeneralObjectsActions.getDataByPageAssociations(this.currentName,
-        obj.mapping, obj.page, Constants.ASSOCIATIONS_TABLE));
+        obj.mapping, obj.page));
     }
   }
 
