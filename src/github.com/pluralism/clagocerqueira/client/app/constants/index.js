@@ -60,6 +60,16 @@ const Constants = {
   },
 
 
+  ASSOCIATIONS_TEXT: {
+    CULTURAL: 'Culturais',
+    CIVIC: 'Cívicas',
+    SPORTS: 'Desportivas',
+    RELIGIOUS: 'Religiosas',
+    SOCIAL: 'Sociais',
+    RECREATIONAL: 'Recreacionais',
+  },
+
+
   PRESIDENTS: 'presidents',
   COUNCILMEN: 'councilmen',
   AUTHORS: 'authors',

@@ -207,32 +207,32 @@ class AssociationsView extends React.Component {
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
                   onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.CULTURAL, 1)}
-                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS.CULTURAL}</Link>
+                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.CULTURAL}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#second_tab"}
                   onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.CIVIC, 2)}
-                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS.CIVIC}</Link>
+                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.CIVIC}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#third_tab"}
                   onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.SPORTS, 3)}
-                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS.SPORTS}</Link>
+                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.SPORTS}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#fourth_tab"}
                   onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.RELIGIOUS, 4)}
-                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS.RELIGIOUS}</Link>
+                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.RELIGIOUS}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#fifth_tab"}
                   onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.SOCIAL, 5)}
-                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS.SOCIAL}</Link>
+                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.SOCIAL}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#sixth_tab"}
                   onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.RECREATIONAL, 6)}
-                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS.RECREATIONAL}</Link>
+                  role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.RECREATIONAL}</Link>
               </li>
             </ul>
 
