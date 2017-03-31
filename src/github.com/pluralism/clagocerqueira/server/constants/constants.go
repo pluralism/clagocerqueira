@@ -7,4 +7,5 @@ const (
 	COUNCILMEN_COLLECTION    = "councilmen"
 	PERSONALITIES_COLLECTION = "personalities"
 	AUTHORS_COLLECTION       = "authors"
+	ASSOCIATIONS_COLLECTION  = "associations"
 )

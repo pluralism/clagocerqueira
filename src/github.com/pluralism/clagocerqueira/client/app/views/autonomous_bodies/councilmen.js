@@ -87,6 +87,7 @@ class CouncilmenView extends React.Component {
       [Constants.MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
       [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
 
+
     /**
      * This function is invoked immediately after a component is mounted.
      * This is a good place to load data from a remote endpoint and to perform

@@ -5,7 +5,7 @@ import { httpPostGraphQL } from '../utils/index';
 const GeneralObjectsActions = {};
 
 
-GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
+GeneralObjectsActions.getDataByPage = (name, mapping, page, type) => {
   return dispatch => {
     // Inform the user that the application is loading data
     dispatch({
@@ -15,7 +15,7 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
 
     // Query that will be sent to the GraphQL server
     const graphQLData = `{
-      ${mapping}: ${type}(date: "${date}", page: ${page}) {
+      ${mapping}: ${type}(name: "${name}", page: ${page}) {
         name
         objects {
           objects_data {
@@ -43,7 +43,7 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS,
           data: data.data,
-          currentName: date
+          currentName: name
         });
       }
     });
@@ -65,7 +65,7 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
   }`;
 
   const query = `
-    ${mapping[0]}: ${type}(date: "${mapping[1]}", page: ${page}) {
+    ${mapping[0]}: ${type}(name: "${mapping[1]}", page: ${page}) {
       ${fields}
     }`;
 
@@ -74,7 +74,7 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 
 
 
-GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
+GeneralObjectsActions.getDataByPageAuthors = (name, mapping, page, type) => {
   return dispatch => {
     // Inform the user that the application is loading data
     dispatch({
@@ -84,7 +84,7 @@ GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
 
     // Query that will be sent to the GraphQL server
     const graphQLData = `{
-      ${mapping}: ${type}(date: "${date}", page: ${page}) {
+      ${mapping}: ${type}(name: "${name}", page: ${page}) {
         name
         objects {
           objects_data {
@@ -113,13 +113,59 @@ GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
           data: data.data,
-          currentName: date
+          currentName: name
         });
       }
     });
   };
 };
 
+
+GeneralObjectsActions.getDataByPageAssociations = (name, mapping, page, type) => {
+  return dispatch => {
+    // Inform the user that the application is loading data
+    dispatch({
+      type: Constants.LOADING_DATA_ASSOCIATIONS
+    });
+
+
+    // Query that will be sent to the GraphQL server
+    const graphQLData = `{
+      ${mapping}: ${type}(name: "${name}", page: ${page}) {
+        name
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
+      }
+    }`;
+
+
+
+    httpPostGraphQL(graphQLData)
+    .then((data) => {
+      // Something went wrong...
+      if(data.hasOwnProperty('errors')) {
+        // Dispatch an error
+        dispatch({
+          type: Constants.LOADING_DATA_ERROR_ASSOCIATIONS
+        });
+      } else {
+        // Success, retrieve the data to the user
+        dispatch({
+          type: Constants.LOADING_DATA_SUCCESS_ASSOCIATIONS,
+          data: data.data,
+          currentName: name
+        });
+      }
+    });
+  };
+};
 
 
 GeneralObjectsActions.buildGraphQLDataFromMappings = (mappings, constant, page) => {
@@ -182,6 +228,17 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
 
 
 
+GeneralObjectsActions.getAllDataFromAssociations = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_ASSOCIATIONS,
+    Constants.LOADING_DATA_ERROR_ASSOCIATIONS,
+    Constants.LOADING_DATA_SUCCESS_ASSOCIATIONS,
+    1,
+    mappings,
+    Constants.ASSOCIATIONS_TABLE);
+};
+
+
+
 /**
  * This function extracts all presidents from the database
  * This is the function that should be called in the initial rendering,
@@ -223,7 +280,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
 
     // Query to send to the GraphQL server
     const graphQLData = `{
-      ${Constants.MAPPINGS.d1836_1910}: ${type}(date: "${Constants.DATES.d1836_1910}", page: 1) {
+      ${Constants.MAPPINGS.d1836_1910}: ${type}(name: "${Constants.DATES.d1836_1910}", page: 1) {
         name
         objects {
           objects_data {
@@ -235,7 +292,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
           max_pages
         }
       },
-      ${Constants.MAPPINGS.d1910_1926}: ${type}(date: "${Constants.DATES.d1910_1926}", page: 1) {
+      ${Constants.MAPPINGS.d1910_1926}: ${type}(name: "${Constants.DATES.d1910_1926}", page: 1) {
         name
         objects {
           objects_data {
@@ -247,7 +304,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
           max_pages
         }
       },
-      ${Constants.MAPPINGS.d1926_1974}: ${type}(date: "${Constants.DATES.d1926_1974}", page: 1) {
+      ${Constants.MAPPINGS.d1926_1974}: ${type}(name: "${Constants.DATES.d1926_1974}", page: 1) {
         name
         objects {
           objects_data {
@@ -259,7 +316,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
           max_pages
         }
       },
-      ${Constants.MAPPINGS.d1974_1976}: ${type}(date: "${Constants.DATES.d1974_1976}", page: 1) {
+      ${Constants.MAPPINGS.d1974_1976}: ${type}(name: "${Constants.DATES.d1974_1976}", page: 1) {
         name
         objects {
           objects_data {
@@ -271,7 +328,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
           max_pages
         }
       },
-      ${Constants.MAPPINGS.d1976_2013}: ${type}(date: "${Constants.DATES.d1976_2013}", page: 1) {
+      ${Constants.MAPPINGS.d1976_2013}: ${type}(name: "${Constants.DATES.d1976_2013}", page: 1) {
         name
         objects {
           objects_data {

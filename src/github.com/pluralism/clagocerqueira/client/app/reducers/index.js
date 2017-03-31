@@ -4,6 +4,7 @@ import contactMessage from './contactMessage';
 import generalObjects from './generalObjects';
 import personalities from './personalities';
 import authors from './authors';
+import associations from './associations';
 
 
 export default combineReducers({
@@ -13,4 +14,5 @@ export default combineReducers({
   generalObjects: generalObjects,
   personalities: personalities,
   authors: authors,
+  associations: associations,
 });

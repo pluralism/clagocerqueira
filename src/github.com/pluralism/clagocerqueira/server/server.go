@@ -48,6 +48,7 @@ func main() {
 	app.Get("/vereadores", homePageHandler)
 	app.Get("/personalidades", homePageHandler)
 	app.Get("/autores", homePageHandler)
+	app.Get("/associacoes", homePageHandler)
 	app.Post("/graphql", graphqlAPIHandler)
 
 	// Start the server on port 8080

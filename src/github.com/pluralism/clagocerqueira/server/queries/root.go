@@ -35,7 +35,7 @@ func getAssociations() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			//result := controllers.GetPresidentsByDate(refs.Session, date, page)
+			result := controllers.GetAssociatonsByNameId(refs.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -55,7 +55,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			Type:        types.GeneralListType,
 			Description: "Extract presidents that are defined in a given date and page",
 			Args: graphql.FieldConfigArgument{
-				"date": &graphql.ArgumentConfig{
+				"name": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
 				"page": &graphql.ArgumentConfig{
@@ -63,7 +63,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-				date, dateOK := p.Args["date"].(string)
+				date, dateOK := p.Args["name"].(string)
 				page, pageOk := p.Args["page"].(int)
 
 				if !dateOK {
@@ -91,7 +91,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			Type:        types.GeneralListType,
 			Description: "Extract councilmen that are defined in a given date and page",
 			Args: graphql.FieldConfigArgument{
-				"date": &graphql.ArgumentConfig{
+				"name": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
 				"page": &graphql.ArgumentConfig{
@@ -99,7 +99,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-				date, dateOK := p.Args["date"].(string)
+				date, dateOK := p.Args["name"].(string)
 				page, pageOK := p.Args["page"].(int)
 
 				if !dateOK {
@@ -129,7 +129,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",
 			Args: graphql.FieldConfigArgument{
-				"date": &graphql.ArgumentConfig{
+				"name": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.String),
 				},
 				"page": &graphql.ArgumentConfig{
@@ -137,7 +137,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-				date, dateOK := p.Args["date"].(string)
+				date, dateOK := p.Args["name"].(string)
 				page, pageOK := p.Args["page"].(int)
 
 				if !dateOK {
