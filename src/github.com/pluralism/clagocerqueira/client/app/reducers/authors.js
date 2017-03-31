@@ -3,10 +3,10 @@ import Constants from '../constants/index';
 
 const initialState = {
   loading: false,
-  currentDate: "",
+  currentName: "",
   data: {
     [Constants.MAPPINGS.d1400_1500]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -15,7 +15,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1501_1600]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -24,7 +24,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1601_1700]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -33,7 +33,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1701_1800]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -42,7 +42,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1801_1900]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -51,7 +51,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1901_2000]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -69,7 +69,7 @@ const initialState = {
  * By doing we can update a single entry in the array instead of
  * the whole array, and ultimately make the app faster
 */
-const updateDataForDate = (data, state) => {
+const updateDataForName = (data, state) => {
   const stateData = state.data;
   let keys = Object.keys(data);
   keys.forEach((key) => {
@@ -84,7 +84,7 @@ export default function reduce(state = initialState, action = {}) {
     case Constants.LOADING_DATA_AUTHORS:
       return { ...state,
         loading: true,
-        currentDate: action.currentDate };
+        currentName: action.currentName };
 
     case Constants.LOADING_DATA_ERROR_AUTHORS:
       return { initialState };
@@ -92,8 +92,8 @@ export default function reduce(state = initialState, action = {}) {
     case Constants.LOADING_DATA_SUCCESS_AUTHORS:
       return { ...state,
         loading: false,
-        data: updateDataForDate(action.data, state),
-        currentDate: action.currentDate };
+        data: updateDataForName(action.data, state),
+        currentName: action.currentName };
 
     default:
       return state;

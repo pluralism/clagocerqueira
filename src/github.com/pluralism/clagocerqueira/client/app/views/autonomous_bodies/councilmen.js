@@ -245,35 +245,30 @@ class CouncilmenView extends React.Component {
           tabID={'#first_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 1}
-          dateMapping={Constants.MAPPINGS.d1836_1910}
           data={councilmen.data[Constants.MAPPINGS.d1836_1910].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 2}
-          dateMapping={Constants.MAPPINGS.d1910_1926}
           data={councilmen.data[Constants.MAPPINGS.d1910_1926].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 3}
-          dateMapping={Constants.MAPPINGS.d1926_1974}
           data={councilmen.data[Constants.MAPPINGS.d1926_1974].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 4}
-          dateMapping={Constants.MAPPINGS.d1974_1976}
           data={councilmen.data[Constants.MAPPINGS.d1974_1976].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab == 5}
-          dateMapping={Constants.MAPPINGS.d1976_2013}
           data={councilmen.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
 
 

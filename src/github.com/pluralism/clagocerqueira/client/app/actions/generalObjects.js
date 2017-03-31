@@ -16,7 +16,7 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
     // Query that will be sent to the GraphQL server
     const graphQLData = `{
       ${mapping}: ${type}(date: "${date}", page: ${page}) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -43,7 +43,7 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS,
           data: data.data,
-          currentDate: date
+          currentName: date
         });
       }
     });
@@ -53,7 +53,7 @@ GeneralObjectsActions.getDataByPage = (date, mapping, page, type) => {
 
 GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
   const fields = `
-  date
+  name
   objects {
     objects_data {
       name
@@ -85,7 +85,7 @@ GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
     // Query that will be sent to the GraphQL server
     const graphQLData = `{
       ${mapping}: ${type}(date: "${date}", page: ${page}) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -113,7 +113,7 @@ GeneralObjectsActions.getDataByPageAuthors = (date, mapping, page, type) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS_AUTHORS,
           data: data.data,
-          currentDate: date
+          currentName: date
         });
       }
     });
@@ -158,7 +158,7 @@ GeneralObjectsActions.loadDataFromServer =
         dispatch({
           type: successAction,
           data: data.data,
-          currentDate: mappings[0][1]
+          currentName: mappings[0][1]
         });
       }
     });
@@ -224,7 +224,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
     // Query to send to the GraphQL server
     const graphQLData = `{
       ${Constants.MAPPINGS.d1836_1910}: ${type}(date: "${Constants.DATES.d1836_1910}", page: 1) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -236,7 +236,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
         }
       },
       ${Constants.MAPPINGS.d1910_1926}: ${type}(date: "${Constants.DATES.d1910_1926}", page: 1) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -248,7 +248,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
         }
       },
       ${Constants.MAPPINGS.d1926_1974}: ${type}(date: "${Constants.DATES.d1926_1974}", page: 1) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -260,7 +260,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
         }
       },
       ${Constants.MAPPINGS.d1974_1976}: ${type}(date: "${Constants.DATES.d1974_1976}", page: 1) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -272,7 +272,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
         }
       },
       ${Constants.MAPPINGS.d1976_2013}: ${type}(date: "${Constants.DATES.d1976_2013}", page: 1) {
-        date
+        name
         objects {
           objects_data {
             name
@@ -299,7 +299,7 @@ GeneralObjectsActions.getAllDataByPage = (page, type) => {
         dispatch({
           type: Constants.LOADING_DATA_SUCCESS,
           data: data.data,
-          currentDate: Constants.DATES.d1836_1910
+          currentName: Constants.DATES.d1836_1910
         });
       }
     });

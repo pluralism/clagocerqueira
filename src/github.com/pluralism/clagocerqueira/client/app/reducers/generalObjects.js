@@ -3,10 +3,10 @@ import Constants from '../constants/index';
 
 const initialState = {
   loading: false,
-  currentDate: "",
+  currentName: "",
   data: {
     [Constants.MAPPINGS.d1836_1910]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -15,7 +15,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1910_1926]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -24,7 +24,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1926_1974]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -33,7 +33,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1974_1976]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -42,7 +42,7 @@ const initialState = {
       total_pages: 0
     },
     [Constants.MAPPINGS.d1976_2013]: {
-      date: "",
+      name: "",
       objects: {
         objects_data: [],
         total_items: 0,
@@ -60,7 +60,7 @@ const initialState = {
  * By doing we can update a single entry in the array instead of
  * the whole array, and ultimately make the app faster
 */
-const updateDataForDate = (data, state) => {
+const updateDataForName = (data, state) => {
   const stateData = state.data;
   let keys = Object.keys(data);
   keys.forEach((key) => {
@@ -75,7 +75,7 @@ export default function reduce(state = initialState, action = {}) {
     case Constants.LOADING_DATA:
       return { ...state,
         loading: true,
-        currentDate: action.currentDate };
+        currentName: action.currentName };
 
     case Constants.LOADING_DATA_ERROR:
       return { initialState };
@@ -83,8 +83,8 @@ export default function reduce(state = initialState, action = {}) {
     case Constants.LOADING_DATA_SUCCESS:
       return { ...state,
         loading: false,
-        data: updateDataForDate(action.data, state),
-        currentDate: action.currentDate };
+        data: updateDataForName(action.data, state),
+        currentName: action.currentName };
 
     default:
       return state;
