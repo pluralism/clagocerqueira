@@ -32,7 +32,7 @@ func main() {
 	app.Adapt(
 		// Prints all errors to the os.Stdout
 		iris.DevLogger(),
-		// Router from adaptors/httprouter
+		// Router from HTTP router (apparently it has the best performance among all routers)
 		httprouter.New(),
 		// HTML standard engine for all files inside "../client/app/views" folder with extension ".html"
 		view.HTML("../client/app/views", ".html"),
@@ -43,13 +43,8 @@ func main() {
 	app.StaticServe("../server/static", "/public")
 
 	// Match all GET routes to homePageHandler
-	app.Get("/", homePageHandler)
-	app.Get("/presidentes", homePageHandler)
-	app.Get("/vereadores", homePageHandler)
-	app.Get("/personalidades", homePageHandler)
-	app.Get("/autores", homePageHandler)
-	app.Get("/associacoes", homePageHandler)
-	app.Get("/imprensa", homePageHandler)
+	app.Get("/pt/*path", homePageHandler)
+	// Route used to handle API requests
 	app.Post("/graphql", graphqlAPIHandler)
 
 	// Start the server on port 8080
