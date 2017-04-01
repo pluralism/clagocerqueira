@@ -100,7 +100,11 @@ class HomeIndexView extends React.Component {
         gapHorizontal: 50,
         gapVertical: 50,
         gridAdjustment: 'responsive',
-        mediaQueries: [{ width: 1440, cols: 5 }, { width: 1024, cols: 2 }, { width: 768, cols: 2 }, { width: 480, cols: 2 }, { width: 320, cols: 1 }],
+        mediaQueries: [{ width: 1440, cols: 4 },
+            { width: 1024, cols: 3 },
+            { width: 768, cols: 2 },
+            { width: 480, cols: 2 },
+            { width: 320, cols: 1 }],
         caption: 'fadeIn',
         displayType: 'lazyLoading',
         displayTypeSpeed: 100
@@ -244,7 +248,7 @@ class HomeIndexView extends React.Component {
             <div className="bounce-icon page-scroll">
               <a href={'#autores_amarantinos'} title="Autores Amarantinos">
                 <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
-                  <i className="fa fa-angle-down down-arrow"></i>
+                  <i className="fa fa-angle-down down-arrow"/>
                 </div>
               </a>
             </div>
@@ -263,9 +267,9 @@ class HomeIndexView extends React.Component {
             <button type="button" className="navbar-toggle" data-toggle="collapse"
               data-target=".clc-collapse">
               <span className="sr-only">Toggle Navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
             </button>
 
             <a href="#body" className="navbar-brand main-font">
@@ -320,13 +324,13 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderAutoresAmarantinosItem(year, sec) {
+  renderAutoresAmarantinosItem(year, sec, image) {
     return (
       <div className="cbp-item">
-        <a href="http://scriptpie.com/cubeportfolio/live-preview/img/480x250/13.jpg"
+        <a href={image}
           className="cbp-caption">
           <div className="cbp-caption-defaultWrap">
-            <img src="http://scriptpie.com/cubeportfolio/live-preview/img/480x250/13.jpg" />
+            <img src={image} />
           </div>
           <div className="cbp-caption-activeWrap">
             <div className="cbp-l-caption-alignCenter">
@@ -357,12 +361,18 @@ class HomeIndexView extends React.Component {
 
             <div className="cube-portfolio">
               <div id="grid-container" className="cbp-l-grid-gallery">
-                {this.renderAutoresAmarantinosItem('1401-1500', 'XV')}
-                {this.renderAutoresAmarantinosItem('1501-1600', 'XVI')}
-                {this.renderAutoresAmarantinosItem('1601-1700', 'XVII')}
-                {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII')}
-                {this.renderAutoresAmarantinosItem('1801-1900', 'XIX')}
-                {this.renderAutoresAmarantinosItem('1901-2000', 'XX')}
+                {this.renderAutoresAmarantinosItem('1401-1500', 'XV',
+                    '/public/prod/images/1600.jpg')}
+                {this.renderAutoresAmarantinosItem('1501-1600', 'XVI',
+                    '/public/prod/images/1600.jpg')}
+                {this.renderAutoresAmarantinosItem('1601-1700', 'XVII',
+                    '/public/prod/images/1600.jpg')}
+                {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII',
+                    '/public/prod/images/1700.jpg')}
+                {this.renderAutoresAmarantinosItem('1801-1900', 'XIX',
+                    '/public/prod/images/1600.jpg')}
+                {this.renderAutoresAmarantinosItem('1901-2000', 'XX',
+                    '/public/prod/images/1600.jpg')}
               </div>
             </div>
           </div>
@@ -699,7 +709,7 @@ class HomeIndexView extends React.Component {
          * We just analyzed the last element and we didn't find any invalid element,
          * which means we can now submit the form
         */
-        if(field == lastElement && !foundInvalidField) {
+        if(field === lastElement && !foundInvalidField) {
           this.submitContactForm();
         }
       });
@@ -736,15 +746,15 @@ class HomeIndexView extends React.Component {
 
   isInvalidContactFormField(name, value) {
     // For these fields we just check if the fields are not empty
-    if(name == "name" || name == "subject" || name == "message") {
-      return value.length == 0;
-    } else if(name == "phone") {
+    if(name === "name" || name === "subject" || name === "message") {
+      return value.length === 0;
+    } else if(name === "phone") {
       // Check if the phone matches a certain regex
       const nameRegex = /^\+?(\d{9,})$/;
-      return nameRegex.test(value) != true;
-    } else if(name == "email") {
+      return nameRegex.test(value) !== true;
+    } else if(name === "email") {
       const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return emailRegex.test(value) != true;
+      return emailRegex.test(value) !== true;
     }
     return true;
   }
@@ -825,7 +835,7 @@ class HomeIndexView extends React.Component {
                               "invalid": this.state.contactFormFields.message.invalid
                             })}
                             placeholder="Mensagem&#8230;"
-                            onChange={::this.handleContactInputChange}></textarea>
+                            onChange={::this.handleContactInputChange} />
                         </div>
                       </div>
 
@@ -843,19 +853,19 @@ class HomeIndexView extends React.Component {
 
                 <div className="col-md-3 col-sm-6 contact-list">
                   <ul className="list-unstyled margin-bottom-30">
-                    <li><span aria-hidden="true" className="icon-directions icon"></span></li>
+                    <li><span aria-hidden="true" className="icon-directions icon"/></li>
                     <li className="first-item">Morada</li>
                     <li className="second-item">Apartado 35, Amarante</li>
                   </ul>
 
                   <ul className="list-unstyled margin-bottom-30">
-                    <li><span aria-hidden="true" className="icon-call-in icon"></span></li>
+                    <li><span aria-hidden="true" className="icon-call-in icon"/></li>
                     <li className="first-item">Telemóvel</li>
                     <li className="second-item">+351 918 601 719</li>
                   </ul>
 
                   <ul className="list-unstyled margin-bottom-30">
-                    <li><span aria-hidden="true" className="icon-envelope-open icon"></span></li>
+                    <li><span aria-hidden="true" className="icon-envelope-open icon"/></li>
                     <li className="first-item">Email</li>
                     <li className="second-item">info@clagocerqueira.com</li>
                   </ul>
@@ -944,7 +954,6 @@ class HomeIndexView extends React.Component {
           {this.renderImprensa()}
           {this.renderPersonalidades()}
           {this.renderContacto()}
-
           <Footer />
         </main>
       </div>
@@ -956,5 +965,6 @@ class HomeIndexView extends React.Component {
 const mapStateToProps = (state) => ({
   contactMessage: state.contactMessage
 });
+
 
 export default connect(mapStateToProps)(HomeIndexView);

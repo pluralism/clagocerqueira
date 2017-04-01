@@ -157,10 +157,15 @@ body {
     margin-top: 40px;
 }
 
+#grid-container {
+    .cbp-l-caption-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
 
-#grid-container .cbp-l-caption-title {
-    font-size: 26px;
-    margin-bottom: 20px;
+    .cbp-item {
+        height: 315px;
+    }
 }
 
 

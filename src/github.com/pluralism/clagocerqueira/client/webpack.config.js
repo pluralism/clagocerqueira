@@ -65,8 +65,9 @@ module.exports = {
     ],
 
     images: [].concat.apply([], [extractImages('static/img/site/presidents/1976_2013/'),
-            extractImages('static/img/site/')])
+            extractImages('static/img/site/'), extractImages('static/img/site/authors/')])
   },
+
 
   output: {
     path: join('../server/static/prod'),
@@ -111,7 +112,7 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         exclude: /node_modules/,
-        loaders: ['file-loader?digest=hex&name=images/[name].[ext]', {
+        loaders: ['file-loader?name=images/[name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             mozjpeg: {
