@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import Footer from '../../components/common/footer';
-import classNames from 'classnames';
 import PersonalitiesActions from '../../actions/personalities';
 import Constants from '../../constants/index';
+
 
 
 class PersonalitiesView extends React.Component {
@@ -35,12 +35,12 @@ class PersonalitiesView extends React.Component {
 
 
   handleKeyDownEvent(e) {
-    if(e.keyCode == 37 && this.state.canSwitchPage) {
+    if(e.keyCode === 37 && this.state.canSwitchPage) {
       // Left arrow was pressed
       this.getPreviousPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
       this.canUseSwitchPage();
-    } else if(e.keyCode == 39 && this.state.canSwitchPage) {
+    } else if(e.keyCode === 39 && this.state.canSwitchPage) {
       // Right arrow was pressed
       this.getNextPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
@@ -113,7 +113,7 @@ class PersonalitiesView extends React.Component {
 
 
   getPreviousPageContent() {
-    const { personalities, dispatch } = this.props;
+    const { dispatch } = this.props;
     let currentPage = this.state.page;
 
     if(currentPage > 1) {
@@ -139,8 +139,8 @@ class PersonalitiesView extends React.Component {
 
 
         <div className="control-buttons">
-          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
-          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+          <div className="next-button" onClick={() => this.getNextPageContent()}/>
         </div>
       </div>
     );
@@ -155,9 +155,9 @@ class PersonalitiesView extends React.Component {
             <button type="button" className="navbar-toggle" data-toggle="collapse"
               data-target=".clc-collapse">
               <span className="sr-only">Toggle Navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
             </button>
 
             <a href="#body" className="navbar-brand main-font">
