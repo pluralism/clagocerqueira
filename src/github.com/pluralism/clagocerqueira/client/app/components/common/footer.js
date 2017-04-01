@@ -13,10 +13,10 @@ class Footer extends React.Component {
         <div className="informations container-fluid page-scroll">
           <div className="vertical-center">
             <ul className="list-inline footer-list">
-              <li><Link to={'#'}><i className="fa fa-twitter"></i></Link></li>
-              <li><Link to={'#'}><i className="fa fa-facebook"></i></Link></li>
-              <li><Link to={'#'}><i className="fa fa-instagram"></i></Link></li>
-              <li><Link to={'#'}><i className="fa fa-youtube"></i></Link></li>
+              <li><Link to={'#'}><i className="fa fa-twitter" /></Link></li>
+              <li><Link to={'#'}><i className="fa fa-facebook" /></Link></li>
+              <li><Link to={'#'}><i className="fa fa-instagram" /></Link></li>
+              <li><Link to={'#'}><i className="fa fa-youtube" /></Link></li>
             </ul>
           </div>
         </div>
