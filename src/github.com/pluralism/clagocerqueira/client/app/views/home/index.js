@@ -57,7 +57,7 @@ class HomeIndexView extends React.Component {
 
     $(function() {
       // Init backstretch with the image we want
-      $('.fullscreen-static-image').backstretch(require('../../static/img/cover1.jpg'));
+      $('.fullscreen-static-image').backstretch(require('../../static/img/cover.jpg'));
 
 
       let gridContainer = $('#grid-container');
@@ -81,7 +81,6 @@ class HomeIndexView extends React.Component {
           cols: 1
         }],
         defaultFilter: '*',
-        animationType: 'rotateSides',
         gapHorizontal: 0,
         gapVertical: 0,
         gridAdjustment: 'responsive',
