@@ -90,7 +90,7 @@ const Constants = {
     SPORTS: 'Desportivas',
     RELIGIOUS: 'Religiosas',
     SOCIAL: 'Sociais',
-    RECREATIONAL: 'Recreacionais',
+    RECREATIONAL: 'Recreativas',
   },
 
 

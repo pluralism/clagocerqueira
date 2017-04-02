@@ -42,13 +42,18 @@ func main() {
 	// Serve static files from "static/prod" to the GET route http://IP:Port/public
 	app.StaticServe("../server/static", "/public")
 
-	// Match all GET routes to homePageHandler
+	app.Get("/", homePageRedirectHandler)
+	// Match all GET routes under /pt/ to homePageHandler
 	app.Get("/pt/*path", homePageHandler)
 	// Route used to handle API requests
 	app.Post("/graphql", graphqlAPIHandler)
 
 	// Start the server on port 8080
 	app.Listen(":8080")
+}
+
+func homePageRedirectHandler(context *iris.Context) {
+	context.Redirect("/pt/", iris.StatusTemporaryRedirect)
 }
 
 func homePageHandler(context *iris.Context) {
