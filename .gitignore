@@ -1,5 +1,5 @@
 /bin
 /pkg
 /src/github.com/pluralism/clagocerqueira/client/node_modules
-/src/github.com/pluralism/clagocerqueira/client/app/static/prod
+/src/github.com/pluralism/clagocerqueira/client/app/static/
 /src/github.com/pluralism/clagocerqueira/server/static
