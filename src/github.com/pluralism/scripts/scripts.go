@@ -486,7 +486,7 @@ func insertRiversOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	rivers := readGeneralFileToObject("natual_patrimony/rios.csv",
+	rivers := readGeneralFileToObject("natural_patrimony/rios.csv",
 		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, riversCollection, rivers) {
@@ -512,7 +512,7 @@ func insertBrooksOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	brooks := readGeneralFileToObject("natual_patrimony/ribeiros.csv",
+	brooks := readGeneralFileToObject("natural_patrimony/ribeiros.csv",
 		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, brooksCollection, brooks) {
