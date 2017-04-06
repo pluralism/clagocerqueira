@@ -21,6 +21,7 @@ const associationsCollection = "associations"
 const pressCollection = "press"
 const riversCollection = "rivers"
 const brooksCollection = "brooks"
+const mountainsCollection = "mountains"
 
 
 type GeneralObject struct {
@@ -368,7 +369,7 @@ func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, personalitiesCollection, personalities) {
-		panic("[!] Personalities could not be inserted in the database!")
+		panic("[!] Personalities could not be inserted on the database!")
 	} else {
 		fmt.Println("[*] Personalities inserted with success!")
 	}
@@ -489,7 +490,7 @@ func insertRiversOnDatabase(collectionNames []string, s *mgo.Session) {
 		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, riversCollection, rivers) {
-		panic("[!] Rivers could not be inserted in the database!")
+		panic("[!] Rivers could not be inserted on the database!")
 	} else {
 		fmt.Println("[*] Rivers inserted with success!")
 	}
@@ -515,9 +516,34 @@ func insertBrooksOnDatabase(collectionNames []string, s *mgo.Session) {
 		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, brooksCollection, brooks) {
-		panic("[!] Brooks could not inserted in the database!")
+		panic("[!] Brooks could not be inserted on the database!")
 	} else {
 		fmt.Println("[*] Brooks inserted with success!")
+	}
+}
+
+func insertMountainsOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	mountainsExist := findElement(collectionNames, mountainsCollection)
+
+	if mountainsExist {
+		err := db.C(mountainsCollection).DropCollection()
+
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	mountains := readGeneralFileToObject("natural_patrimony/serras.csv",
+	"/public/prod/images/monarquia.jpg")
+
+	if !insertListOnDatabase(session, dbName, mountainsCollection, mountains) {
+		panic("[!] Mountains could not be inserted on the database!")
+	} else {
+		fmt.Println("[*] Mountains inserted with success!")
 	}
 }
 
@@ -547,6 +573,7 @@ func main() {
 	var pressFlag = flag.Bool("press", false, "inserts press on the database")
 	var riversFlag = flag.Bool("rivers", false, "inserts the rivers on the database")
 	var brooksFlag = flag.Bool("brooks", false, "inserts brooks on the database")
+	var mountainsFlag = flag.Bool("mountains", false, "inserts mountains on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -580,6 +607,10 @@ func main() {
 
 	if *brooksFlag {
 		insertBrooksOnDatabase(collectionNames, session)
+	}
+
+	if *mountainsFlag {
+		insertMountainsOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
