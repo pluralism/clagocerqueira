@@ -19,6 +19,8 @@ const personalitiesCollection = "personalities"
 const authorsCollection = "authors"
 const associationsCollection = "associations"
 const pressCollection = "press"
+const riversCollection = "rivers"
+
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -463,6 +465,36 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 	fmt.Println("[*] All presidents were inserted with success!")
 }
 
+
+func insertRiversOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	// Check if the collection already exists on the database
+	riversExist := findElement(collectionNames, riversCollection)
+
+	if riversExist {
+		// Drop the collection if it already exists on the database
+		err := db.C(riversCollection).DropCollection()
+
+		// Something went wrong while dropping the collection
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	rivers := readGeneralFileToObject(session, "natual_patrimony/rios.csv",
+		"/public/prod/images/monarquia.jpg")
+
+	if !insertListOnDatabase(session, dbName, personalitiesCollection, rivers) {
+		panic("[!] Rivers could not be inserted in the database!")
+	} else {
+		fmt.Println("[*] Rivers inserted with success!")
+	}
+}
+
+
 func main() {
 	session, err := mgo.Dial("mongodb://localhost")
 	// Make sure that the connection is closed at the end
@@ -485,6 +517,7 @@ func main() {
 	var authorsFlag = flag.Bool("authors", false, "inserts authors on the database")
 	var associationsFlag = flag.Bool("associations", false, "inserts associations on the database")
 	var pressFlag = flag.Bool("press", false, "inserts press on the database")
+	var riversFlag = flag.Bool("rivers", false, "inserts the rivers in the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -510,6 +543,10 @@ func main() {
 
 	if *pressFlag {
 		insertPressOnDatabase(collectionNames, session)
+	}
+
+	if *riversFlag {
+		insertRiversOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
