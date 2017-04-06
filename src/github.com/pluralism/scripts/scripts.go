@@ -20,6 +20,7 @@ const authorsCollection = "authors"
 const associationsCollection = "associations"
 const pressCollection = "press"
 const riversCollection = "rivers"
+const brooksCollection = "brooks"
 
 
 type GeneralObject struct {
@@ -47,7 +48,7 @@ func findElement(list []string, value string) bool {
 	return false
 }
 
-func readGeneralFileToObject(session *mgo.Session, filename, image string) GeneralObjectData {
+func readGeneralFileToObject(filename, image string) GeneralObjectData {
 	f, err := os.Open(filename)
 	var generalObjectData GeneralObjectData
 
@@ -73,7 +74,7 @@ func readGeneralFileToObject(session *mgo.Session, filename, image string) Gener
 	return generalObjectData
 }
 
-func readGeneralFile(session *mgo.Session, filename, image, date string) GeneralList {
+func readGeneralFile(filename, image, date string) GeneralList {
 	f, err := os.Open(filename)
 	var generalData GeneralObjectData
 
@@ -120,7 +121,7 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 }
 
 func readFileAndInsertOnDatabase(currentName, collection, fileName, image string, session *mgo.Session) {
-	data := readGeneralFile(session, fileName, image, currentName)
+	data := readGeneralFile(fileName, image, currentName)
 
 	if !insertListOnDatabase(session, dbName, collection, data) {
 		panic(fmt.Sprintf("[!] Data with name %s could not be inserted!", currentName))
@@ -209,7 +210,7 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	var currentDate = "1836-1910"
-	councilmen := readGeneralFile(session, "councilmen/vereadores1836_1910.csv",
+	councilmen := readGeneralFile("councilmen/vereadores1836_1910.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
@@ -219,7 +220,7 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1910-1926"
-	councilmen = readGeneralFile(session, "councilmen/vereadores1910_1926.csv",
+	councilmen = readGeneralFile("councilmen/vereadores1910_1926.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
@@ -229,7 +230,7 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1926-1974"
-	councilmen = readGeneralFile(session, "councilmen/vereadores1926_1974.csv",
+	councilmen = readGeneralFile("councilmen/vereadores1926_1974.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
@@ -239,7 +240,7 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1974-1976"
-	councilmen = readGeneralFile(session, "councilmen/vereadores1974_1976.csv",
+	councilmen = readGeneralFile("councilmen/vereadores1974_1976.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
@@ -249,7 +250,7 @@ func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1976-2013"
-	councilmen = readGeneralFile(session, "councilmen/vereadores1976_2013.csv",
+	councilmen = readGeneralFile("councilmen/vereadores1976_2013.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, councilmenCollection, councilmen) {
@@ -282,7 +283,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	var currentDate = "1400-1500"
-	councilmen := readGeneralFile(session, "authors/autores1400_1500.csv",
+	councilmen := readGeneralFile("authors/autores1400_1500.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -292,7 +293,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1501-1600"
-	councilmen = readGeneralFile(session, "authors/autores1501_1600.csv",
+	councilmen = readGeneralFile("authors/autores1501_1600.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -302,7 +303,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1601-1700"
-	councilmen = readGeneralFile(session, "authors/autores1601_1700.csv",
+	councilmen = readGeneralFile("authors/autores1601_1700.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -312,7 +313,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1701-1800"
-	councilmen = readGeneralFile(session, "authors/autores1701_1800.csv",
+	councilmen = readGeneralFile("authors/autores1701_1800.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -322,7 +323,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1801-1900"
-	councilmen = readGeneralFile(session, "authors/autores1701_1800.csv",
+	councilmen = readGeneralFile("authors/autores1701_1800.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -332,7 +333,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1901-2000"
-	councilmen = readGeneralFile(session, "authors/autores1901_2000.csv",
+	councilmen = readGeneralFile("authors/autores1901_2000.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -363,7 +364,7 @@ func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	personalities := readGeneralFileToObject(session, "personalities/personalities.csv",
+	personalities := readGeneralFileToObject("personalities/personalities.csv",
 		"/public/prod/images/monarquia.jpg")
 
 	if !insertListOnDatabase(session, dbName, personalitiesCollection, personalities) {
@@ -395,23 +396,23 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		Name: "1976-2013",
 		Objects: GeneralObjectData{
 			ObjectsData: []GeneralObject{
-				GeneralObject{
+				{
 					Name:        "Amadeu Cerqueira da Silva",
 					Image:       "/public/prod/images/amadeu_cerqueira_silva.jpg",
 					Description: ""},
-				GeneralObject{
+				{
 					Name:        "Joaquim José Macedo Teixeira",
 					Image:       "/public/prod/images/joaquim_teixeira.jpg",
 					Description: ""},
-				GeneralObject{
+				{
 					Name:        "Francisco José Pereira de Assis Miranda",
 					Image:       "/public/prod/images/francisco_assis.jpg",
 					Description: ""},
-				GeneralObject{
+				{
 					Name:        "Armindo José da Cunha Abreu",
 					Image:       "/public/prod/images/armindo_abreu.jpg",
 					Description: ""},
-				GeneralObject{
+				{
 					Name:        "José Luís Gaspar Jorge",
 					Image:       "/public/prod/images/jose_jorge.jpg",
 					Description: ""},
@@ -426,7 +427,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1976-2013 inserted with success!")
 	}
 
-	presidents := readGeneralFile(session, "presidents/presidentes1836_1910.csv",
+	presidents := readGeneralFile("presidents/presidentes1836_1910.csv",
 		"/public/prod/images/monarquia.jpg", "1836-1910")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -435,7 +436,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1836-1910 inserted with success!")
 	}
 
-	presidents = readGeneralFile(session, "presidents/presidentes1910_1926.csv",
+	presidents = readGeneralFile("presidents/presidentes1910_1926.csv",
 		"/public/prod/images/monarquia.jpg", "1910-1926")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -444,7 +445,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1910-1926 inserted with success!")
 	}
 
-	presidents = readGeneralFile(session, "presidents/presidentes1926_1974.csv",
+	presidents = readGeneralFile("presidents/presidentes1926_1974.csv",
 		"/public/prod/images/monarquia.jpg", "1926-1974")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -453,7 +454,7 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println("[*] Presidents on date 1926-1974 inserted with success!")
 	}
 
-	presidents = readGeneralFile(session, "presidents/presidents1974_1976.csv",
+	presidents = readGeneralFile("presidents/presidents1974_1976.csv",
 		"/public/prod/images/monarquia.jpg", "1974-1976")
 
 	if !insertListOnDatabase(session, dbName, presidentsCollection, presidents) {
@@ -484,15 +485,42 @@ func insertRiversOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	rivers := readGeneralFileToObject(session, "natual_patrimony/rios.csv",
+	rivers := readGeneralFileToObject("natual_patrimony/rios.csv",
 		"/public/prod/images/monarquia.jpg")
 
-	if !insertListOnDatabase(session, dbName, personalitiesCollection, rivers) {
+	if !insertListOnDatabase(session, dbName, riversCollection, rivers) {
 		panic("[!] Rivers could not be inserted in the database!")
 	} else {
 		fmt.Println("[*] Rivers inserted with success!")
 	}
 }
+
+
+func insertBrooksOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	brooksExist := findElement(collectionNames, brooksCollection)
+
+	if brooksExist {
+		err := db.C(brooksCollection).DropCollection()
+
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	brooks := readGeneralFileToObject("natual_patrimony/ribeiros.csv",
+		"/public/prod/images/monarquia.jpg")
+
+	if !insertListOnDatabase(session, dbName, brooksCollection, brooks) {
+		panic("[!] Brooks could not inserted in the database!")
+	} else {
+		fmt.Println("[*] Brooks inserted with success!")
+	}
+}
+
 
 
 func main() {
@@ -517,7 +545,8 @@ func main() {
 	var authorsFlag = flag.Bool("authors", false, "inserts authors on the database")
 	var associationsFlag = flag.Bool("associations", false, "inserts associations on the database")
 	var pressFlag = flag.Bool("press", false, "inserts press on the database")
-	var riversFlag = flag.Bool("rivers", false, "inserts the rivers in the database")
+	var riversFlag = flag.Bool("rivers", false, "inserts the rivers on the database")
+	var brooksFlag = flag.Bool("brooks", false, "inserts brooks on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -547,6 +576,10 @@ func main() {
 
 	if *riversFlag {
 		insertRiversOnDatabase(collectionNames, session)
+	}
+
+	if *brooksFlag {
+		insertBrooksOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
