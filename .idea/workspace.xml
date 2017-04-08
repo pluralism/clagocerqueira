@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/associations/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/associations/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/associations/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="101" column="30" lean-forward="false" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+            <state relative-caret-position="120">
+              <caret line="198" column="39" lean-forward="false" selection-start-line="198" selection-start-column="39" selection-end-line="198" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -34,8 +35,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#grid-container</find>
-      <find>id=&quot;grid-container</find>
       <find>cube-portfolio</find>
       <find>grid-container</find>
       <find>border-ra</find>
@@ -52,7 +51,6 @@
       <find>listing-list-item</find>
       <find>200px</find>
       <find>listing-list-media-i</find>
-      <find>componentdidm</find>
       <find>react-router</find>
       <find>import Constants</find>
       <find>Constants</find>
@@ -64,6 +62,9 @@
       <find>import Cons</find>
       <find>activetab</find>
       <find>updateCurrentName</find>
+      <find>tabscont</find>
+      <find>tabsco</find>
+      <find>componentdidm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,7 +88,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/reducers/authors.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/actions/contactMessage.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/personalities/index.js" />
@@ -102,6 +102,7 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/authors/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/press/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/reducers/personalities.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/associations/index.js" />
       </list>
     </option>
@@ -798,12 +799,12 @@
       <workItem from="1491510841652" duration="2289000" />
       <workItem from="1491515601483" duration="240000" />
       <workItem from="1491655955515" duration="2187000" />
-      <workItem from="1491665070978" duration="6678000" />
+      <workItem from="1491665070978" duration="7239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20474000" />
+    <option name="totallyTimeSpent" value="21035000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1193,15 +1194,15 @@
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
-          <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <caret line="56" column="2" lean-forward="false" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/associations/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="101" column="30" lean-forward="false" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+        <state relative-caret-position="120">
+          <caret line="198" column="39" lean-forward="false" selection-start-line="198" selection-start-column="39" selection-end-line="198" selection-end-column="39" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

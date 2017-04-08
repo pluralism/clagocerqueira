@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
-import { Constants, TabsConstants } from '../../constants/index';
+import { Constants } from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
 
@@ -42,7 +42,7 @@ class AssociationsView extends React.Component {
 
 
     this.state = {
-      activeTab: 1,
+      activeTab: Constants.ASSOCIATIONS.CULTURAL,
       canSwitchPage: true,
     };
 
@@ -178,23 +178,25 @@ class AssociationsView extends React.Component {
     );
   }
 
+
   updateCurrentName(value) {
     /**
      * Update the currentName variable and keep the page
-     * as the old one. This allow us to mantain consistency
+     * as the old one. This allow us to keep consistency
      * with the lists of associations
     */
     this.currentName = value;
+    console.log(this.currentName);
 
     // Update the active tab!
     this.setState({
-      activeTab: TabsConstants.ASSOCIATIONS_TABS[value]
+      activeTab: this.currentName
     });
   }
 
 
   isActiveTab(tab) {
-    return this.state.activeTab === TabsConstants.ASSOCIATIONS_TABS[tab];
+    return this.state.activeTab === tab
   }
 
 
@@ -309,37 +311,37 @@ class AssociationsView extends React.Component {
         <GeneralObjectTab
           tabID={'#first_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab === 1}
+          active={this.state.activeTab === Constants.ASSOCIATIONS.CULTURAL}
           data={associations.data[Constants.ASSOCIATIONS.CULTURAL].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab === 2}
+          active={this.state.activeTab === Constants.ASSOCIATIONS.CIVIC}
           data={associations.data[Constants.ASSOCIATIONS.CIVIC].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab === 3}
+          active={this.state.activeTab === Constants.ASSOCIATIONS.SPORTS}
           data={associations.data[Constants.ASSOCIATIONS.SPORTS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab === 4}
+          active={this.state.activeTab === Constants.ASSOCIATIONS.RELIGIOUS}
           data={associations.data[Constants.ASSOCIATIONS.RELIGIOUS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab === 5}
+          active={this.state.activeTab === Constants.ASSOCIATIONS.SOCIAL}
           data={associations.data[Constants.ASSOCIATIONS.SOCIAL].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab === 6}
+          active={this.state.activeTab === Constants.ASSOCIATIONS.RECREATIONAL}
           data={associations.data[Constants.ASSOCIATIONS.RECREATIONAL].objects.objects_data} />
 
 
