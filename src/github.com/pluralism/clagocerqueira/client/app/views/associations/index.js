@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
-import { Constants } from '../../constants/index';
+import { Constants, TabsConstants } from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
 
@@ -99,9 +99,7 @@ class AssociationsView extends React.Component {
           params.type === Constants.ASSOCIATIONS.RELIGIOUS ||
           params.type === Constants.ASSOCIATIONS.SOCIAL ||
           params.type === Constants.ASSOCIATIONS.SPORTS) {
-        this.setState({
-            activeTab: Constants.ASSOCIATIONS_TABS[params.type]
-        });
+        this.updateCurrentName(params.type, TabsConstants.ASSOCIATIONS_TABS[params.type]);
       }
     }
 
@@ -217,32 +215,38 @@ class AssociationsView extends React.Component {
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation" className="active">
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.CULTURAL, 1)}
+                  onClick={() =>
+                      this.updateCurrentName(Constants.ASSOCIATIONS.CULTURAL, 1)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.CULTURAL}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#second_tab"}
-                  onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.CIVIC, 2)}
+                  onClick={() =>
+                      this.updateCurrentName(Constants.ASSOCIATIONS.CIVIC, 2)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.CIVIC}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.SPORTS, 3)}
+                  onClick={() =>
+                      this.updateCurrentName(Constants.ASSOCIATIONS.SPORTS, 3)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.SPORTS}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.RELIGIOUS, 4)}
+                  onClick={() =>
+                      this.updateCurrentName(Constants.ASSOCIATIONS.RELIGIOUS, 4)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.RELIGIOUS}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#fifth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.SOCIAL, 5)}
+                  onClick={() =>
+                      this.updateCurrentName(Constants.ASSOCIATIONS.SOCIAL, 5)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.SOCIAL}</Link>
               </li>
               <li role="presentation">
                 <Link to={"#sixth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.ASSOCIATIONS.RECREATIONAL, 6)}
+                  onClick={() =>
+                      this.updateCurrentName(Constants.ASSOCIATIONS.RECREATIONAL, 6)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.RECREATIONAL}</Link>
               </li>
             </ul>
