@@ -20,7 +20,7 @@ export default function configRoutes(store) {
         <Route path="vereadores" component={CouncilmenView} />
         <Route path="personalidades" component={PersonalitiesView} />
         <Route path="autores" component={AuthorsView} />
-        <Route path="associacoes" component={AssociationsView} />
+        <Route path="associacoes(/:type)" component={AssociationsView} />
         <Route path="imprensa" component={PressView} />
       </Route>
     </Route>

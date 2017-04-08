@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
-import Constants from '../../constants/index';
+import { Constants } from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
 
@@ -80,7 +80,7 @@ class AssociationsView extends React.Component {
 
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, params } = this.props;
 
 
     const mappings = [
@@ -90,6 +90,20 @@ class AssociationsView extends React.Component {
       [Constants.ASSOCIATIONS.RELIGIOUS, Constants.ASSOCIATIONS.RELIGIOUS],
       [Constants.ASSOCIATIONS.SOCIAL, Constants.ASSOCIATIONS.SOCIAL],
       [Constants.ASSOCIATIONS.SPORTS, Constants.ASSOCIATIONS.SPORTS]];
+
+
+    if(params.type !== undefined) {
+      if(params.type === Constants.ASSOCIATIONS.CIVIC ||
+          params.type === Constants.ASSOCIATIONS.CULTURAL ||
+          params.type === Constants.ASSOCIATIONS.RECREATIONAL ||
+          params.type === Constants.ASSOCIATIONS.RELIGIOUS ||
+          params.type === Constants.ASSOCIATIONS.SOCIAL ||
+          params.type === Constants.ASSOCIATIONS.SPORTS) {
+        this.setState({
+            activeTab: Constants.ASSOCIATIONS_TABS[params.type]
+        });
+      }
+    }
 
 
     /**

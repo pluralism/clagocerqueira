@@ -106,4 +106,18 @@ const Constants = {
   MINIMUM_WAIT_TIME: 500,
 };
 
-export default Constants;
+
+
+const TabsConstants = {
+    ASSOCIATIONS_TABS: {
+        [Constants.ASSOCIATIONS.CULTURAL]: 1,
+        [Constants.ASSOCIATIONS.CIVIC]: 2,
+        [Constants.ASSOCIATIONS.SPORTS]: 3,
+        [Constants.ASSOCIATIONS.RELIGIOUS]: 4,
+        [Constants.ASSOCIATIONS.SOCIAL]: 5,
+        [Constants.ASSOCIATIONS.RECREATIONAL]: 6,
+    },
+};
+
+
+export { Constants, TabsConstants };

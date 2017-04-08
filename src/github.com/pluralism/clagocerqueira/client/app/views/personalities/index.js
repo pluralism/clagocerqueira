@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import Footer from '../../components/common/footer';
 import PersonalitiesActions from '../../actions/personalities';
-import Constants from '../../constants/index';
+import { Constants } from '../../constants/index';
 
 
 
