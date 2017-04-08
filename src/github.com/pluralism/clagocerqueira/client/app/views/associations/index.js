@@ -99,7 +99,7 @@ class AssociationsView extends React.Component {
           params.type === Constants.ASSOCIATIONS.RELIGIOUS ||
           params.type === Constants.ASSOCIATIONS.SOCIAL ||
           params.type === Constants.ASSOCIATIONS.SPORTS) {
-        this.updateCurrentName(params.type, TabsConstants.ASSOCIATIONS_TABS[params.type]);
+        this.updateCurrentName(params.type);
       }
     }
 
@@ -178,7 +178,7 @@ class AssociationsView extends React.Component {
     );
   }
 
-  updateCurrentName(value, activeTab) {
+  updateCurrentName(value) {
     /**
      * Update the currentName variable and keep the page
      * as the old one. This allow us to mantain consistency
@@ -188,8 +188,13 @@ class AssociationsView extends React.Component {
 
     // Update the active tab!
     this.setState({
-      activeTab: activeTab
+      activeTab: TabsConstants.ASSOCIATIONS_TABS[value]
     });
+  }
+
+
+  isActiveTab(tab) {
+    return this.state.activeTab === TabsConstants.ASSOCIATIONS_TABS[tab];
   }
 
 
@@ -213,40 +218,46 @@ class AssociationsView extends React.Component {
 
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
-              <li role="presentation" className="active">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.ASSOCIATIONS.CULTURAL) ? "active" : ""}>
                 <Link to={"#first_tab"}
                   onClick={() =>
-                      this.updateCurrentName(Constants.ASSOCIATIONS.CULTURAL, 1)}
+                      this.updateCurrentName(Constants.ASSOCIATIONS.CULTURAL)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.CULTURAL}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.ASSOCIATIONS.CIVIC) ? "active" : ""}>
                 <Link to={"#second_tab"}
                   onClick={() =>
-                      this.updateCurrentName(Constants.ASSOCIATIONS.CIVIC, 2)}
+                      this.updateCurrentName(Constants.ASSOCIATIONS.CIVIC)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.CIVIC}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.ASSOCIATIONS.SPORTS) ? "active" : ""}>
                 <Link to={"#third_tab"}
                   onClick={() =>
-                      this.updateCurrentName(Constants.ASSOCIATIONS.SPORTS, 3)}
+                      this.updateCurrentName(Constants.ASSOCIATIONS.SPORTS)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.SPORTS}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.ASSOCIATIONS.RELIGIOUS) ? "active" : ""}>
                 <Link to={"#fourth_tab"}
                   onClick={() =>
-                      this.updateCurrentName(Constants.ASSOCIATIONS.RELIGIOUS, 4)}
+                      this.updateCurrentName(Constants.ASSOCIATIONS.RELIGIOUS)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.RELIGIOUS}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.ASSOCIATIONS.SOCIAL) ? "active" : ""}>
                 <Link to={"#fifth_tab"}
                   onClick={() =>
-                      this.updateCurrentName(Constants.ASSOCIATIONS.SOCIAL, 5)}
+                      this.updateCurrentName(Constants.ASSOCIATIONS.SOCIAL)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.SOCIAL}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.ASSOCIATIONS.RECREATIONAL) ? "active" : ""}>
                 <Link to={"#sixth_tab"}
                   onClick={() =>
-                      this.updateCurrentName(Constants.ASSOCIATIONS.RECREATIONAL, 6)}
+                      this.updateCurrentName(Constants.ASSOCIATIONS.RECREATIONAL)}
                   role="tab" data-toggle="tab">{Constants.ASSOCIATIONS_TEXT.RECREATIONAL}</Link>
               </li>
             </ul>
