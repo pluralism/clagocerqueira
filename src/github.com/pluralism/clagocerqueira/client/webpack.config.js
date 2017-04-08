@@ -70,6 +70,7 @@ module.exports = {
             extractImages('static/img/site/personalities/'),
             extractImages('static/img/site/associations/civic/'),
             extractImages('static/img/site/associations/cultural/'),
+            extractImages('static/img/site/associations/recreational/'),
             extractImages('static/img/site/associations/sports/'),
             extractImages('static/img/site/associations/social/'),
             extractImages('static/img/site/press/')])
