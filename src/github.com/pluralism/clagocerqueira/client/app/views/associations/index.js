@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
-import classNames from 'classnames';
 import Constants from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
@@ -66,12 +65,12 @@ class AssociationsView extends React.Component {
 
 
   handleKeyDownEvent(e) {
-    if(e.keyCode == 37 && this.state.canSwitchPage) {
+    if(e.keyCode === 37 && this.state.canSwitchPage) {
       // Left arrow was pressed
       this.getPreviousPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
       this.canUseSwitchPage();
-    } else if(e.keyCode == 39 && this.state.canSwitchPage) {
+    } else if(e.keyCode === 39 && this.state.canSwitchPage) {
       // Right arrow was pressed
       this.getNextPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
@@ -113,9 +112,9 @@ class AssociationsView extends React.Component {
             <button type="button" className="navbar-toggle" data-toggle="collapse"
               data-target=".clc-collapse">
               <span className="sr-only">Toggle Navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
             </button>
 
             <a href="#body" className="navbar-brand main-font">
@@ -168,8 +167,6 @@ class AssociationsView extends React.Component {
   }
 
   updateCurrentName(value, activeTab) {
-    const { dispatch } = this.props;
-
     /**
      * Update the currentName variable and keep the page
      * as the old one. This allow us to mantain consistency
@@ -283,43 +280,43 @@ class AssociationsView extends React.Component {
         <GeneralObjectTab
           tabID={'#first_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab == 1}
+          active={this.state.activeTab === 1}
           data={associations.data[Constants.ASSOCIATIONS.CULTURAL].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab == 2}
+          active={this.state.activeTab === 2}
           data={associations.data[Constants.ASSOCIATIONS.CIVIC].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab == 3}
+          active={this.state.activeTab === 3}
           data={associations.data[Constants.ASSOCIATIONS.SPORTS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab == 4}
+          active={this.state.activeTab === 4}
           data={associations.data[Constants.ASSOCIATIONS.RELIGIOUS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab == 5}
+          active={this.state.activeTab === 5}
           data={associations.data[Constants.ASSOCIATIONS.SOCIAL].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Associações"}
-          active={this.state.activeTab == 6}
+          active={this.state.activeTab === 6}
           data={associations.data[Constants.ASSOCIATIONS.RECREATIONAL].objects.objects_data} />
 
 
         <div className="control-buttons">
-          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
-          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+          <div className="next-button" onClick={() => this.getNextPageContent()}/>
         </div>
       </div>
     );

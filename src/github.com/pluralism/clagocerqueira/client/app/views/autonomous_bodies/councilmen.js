@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
-import classNames from 'classnames';
 import Constants from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
