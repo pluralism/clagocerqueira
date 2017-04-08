@@ -42,7 +42,7 @@ class PressView extends React.Component {
 
 
     this.state = {
-      activeTab: 1,
+      activeTab: Constants.PRESS.MAGAZINES,
       canSwitchPage: true,
     };
 
@@ -65,12 +65,12 @@ class PressView extends React.Component {
 
 
   handleKeyDownEvent(e) {
-    if(e.keyCode == 37 && this.state.canSwitchPage) {
+    if(e.keyCode === 37 && this.state.canSwitchPage) {
       // Left arrow was pressed
       this.getPreviousPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
       this.canUseSwitchPage();
-    } else if(e.keyCode == 39 && this.state.canSwitchPage) {
+    } else if(e.keyCode === 39 && this.state.canSwitchPage) {
       // Right arrow was pressed
       this.getNextPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
@@ -80,7 +80,7 @@ class PressView extends React.Component {
 
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, params } = this.props;
 
 
     const mappings = [
@@ -90,6 +90,18 @@ class PressView extends React.Component {
       [Constants.PRESS.ONLINE_RADIOS, Constants.PRESS.ONLINE_RADIOS],
       [Constants.PRESS.RADIOS, Constants.PRESS.RADIOS],
       [Constants.PRESS.TELEVISIONS, Constants.PRESS.TELEVISIONS]];
+
+
+    if(params.type !== undefined) {
+      if(params.type === Constants.PRESS.JOURNALS ||
+          params.type === Constants.PRESS.MAGAZINES ||
+          params.type === Constants.PRESS.ONLINE_JOURNALS ||
+          params.type === Constants.PRESS.ONLINE_RADIOS ||
+          params.type === Constants.PRESS.RADIOS ||
+          params.type === Constants.PRESS.TELEVISIONS) {
+        this.updateCurrentName(params.type);
+      }
+    }
 
 
     /**
@@ -112,9 +124,9 @@ class PressView extends React.Component {
             <button type="button" className="navbar-toggle" data-toggle="collapse"
               data-target=".clc-collapse">
               <span className="sr-only">Toggle Navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
             </button>
 
             <a href="#body" className="navbar-brand main-font">
@@ -167,9 +179,7 @@ class PressView extends React.Component {
   }
 
 
-  updateCurrentName(value, activeTab) {
-    const { dispatch } = this.props;
-
+  updateCurrentName(value) {
     /**
      * Update the currentName variable and keep the page
      * as the old one. This allow us to mantain consistency
@@ -179,8 +189,14 @@ class PressView extends React.Component {
 
     // Update the active tab!
     this.setState({
-      activeTab: activeTab
+      activeTab: this.currentName
     });
+  }
+
+
+
+  isActiveTab(tab) {
+    return this.state.activeTab === tab
   }
 
 
@@ -204,34 +220,40 @@ class PressView extends React.Component {
 
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
-              <li role="presentation" className="active">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.MAGAZINES) ? "active" : ""}>
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.MAGAZINES, 1)}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.MAGAZINES)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.MAGAZINES}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.JOURNALS) ? "active" : ""}>
                 <Link to={"#second_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.JOURNALS, 2)}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.JOURNALS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.JOURNALS}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.ONLINE_JOURNALS) ? "active" : ""}>
                 <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE_JOURNALS, 3)}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE_JOURNALS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.ONLINE_JOURNALS}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.RADIOS) ? "active" : ""}>
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.RADIOS, 4)}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.RADIOS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.RADIOS}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.ONLINE_RADIOS) ? "active" : ""}>
                 <Link to={"#fifth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE_RADIOS, 5)}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE_RADIOS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.ONLINE_RADIOS}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.TELEVISIONS) ? "active" : ""}>
                 <Link to={"#sixth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.TELEVISIONS, 6)}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.TELEVISIONS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.TELEVISIONS}</Link>
               </li>
             </ul>
@@ -254,43 +276,43 @@ class PressView extends React.Component {
         <GeneralObjectTab
           tabID={'#first_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab == 1}
+          active={this.state.activeTab === Constants.PRESS.MAGAZINES}
           data={press.data[Constants.PRESS.MAGAZINES].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab == 2}
+          active={this.state.activeTab === Constants.PRESS.JOURNALS}
           data={press.data[Constants.PRESS.JOURNALS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab == 3}
+          active={this.state.activeTab === Constants.PRESS.ONLINE_JOURNALS}
           data={press.data[Constants.PRESS.ONLINE_JOURNALS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab == 4}
+          active={this.state.activeTab === Constants.PRESS.RADIOS}
           data={press.data[Constants.PRESS.RADIOS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab == 5}
+          active={this.state.activeTab === Constants.PRESS.ONLINE_RADIOS}
           data={press.data[Constants.PRESS.ONLINE_RADIOS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab == 6}
+          active={this.state.activeTab === Constants.PRESS.TELEVISIONS}
           data={press.data[Constants.PRESS.TELEVISIONS].objects.objects_data} />
 
 
         <div className="control-buttons">
-          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
-          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+          <div className="next-button" onClick={() => this.getNextPageContent()}/>
         </div>
       </div>
     );

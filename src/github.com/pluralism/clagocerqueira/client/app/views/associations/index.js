@@ -186,7 +186,7 @@ class AssociationsView extends React.Component {
      * with the lists of associations
     */
     this.currentName = value;
-    console.log(this.currentName);
+
 
     // Update the active tab!
     this.setState({
