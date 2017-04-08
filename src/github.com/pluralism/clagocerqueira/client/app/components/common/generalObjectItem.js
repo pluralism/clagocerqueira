@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import classNames from 'classnames';
 
 
 export class GeneralObjectItem extends React.Component {
