@@ -260,7 +260,7 @@ class HomeIndexView extends React.Component {
 
   renderHeader() {
     return (
-      <nav className="clc-header one-page-header navbar navbar-default navbar-fixed-top navbar-toggleable-sm" data-role="navigation">
+      <nav className="clc-header one-page-header navbar navbar-default navbar-fixed-top navbar-toggleable-sm">
         <div className="navbar-header">
           <div className="menu-container page-scroll">
             <button type="button" className="navbar-toggle" data-toggle="collapse"
@@ -323,10 +323,10 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderAutoresAmarantinosItem(year, sec, image) {
+  renderAutoresAmarantinosItem(year, sec, image, link) {
     return (
       <div className="cbp-item">
-        <a href={image}
+        <Link to={link} target="_blank"
           className="cbp-caption">
           <div className="cbp-caption-defaultWrap">
             <img src={image} />
@@ -339,7 +339,7 @@ class HomeIndexView extends React.Component {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
       </div>
     );
   }
@@ -360,18 +360,18 @@ class HomeIndexView extends React.Component {
 
             <div className="cube-portfolio">
               <div id="grid-container" className="cbp-l-grid-gallery">
-                {this.renderAutoresAmarantinosItem('1401-1500', 'XV',
-                    '/public/prod/images/1600.jpg')}
+                {this.renderAutoresAmarantinosItem('1400-1500', 'XV',
+                    '/public/prod/images/1600.jpg', 'autores/1400-1500')}
                 {this.renderAutoresAmarantinosItem('1501-1600', 'XVI',
-                    '/public/prod/images/1600.jpg')}
+                    '/public/prod/images/1600.jpg', 'autores/1501-1600')}
                 {this.renderAutoresAmarantinosItem('1601-1700', 'XVII',
-                    '/public/prod/images/1600.jpg')}
+                    '/public/prod/images/1600.jpg', 'autores/1601-1700')}
                 {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII',
-                    '/public/prod/images/1700.jpg')}
+                    '/public/prod/images/1700.jpg', 'autores/1701-1800')}
                 {this.renderAutoresAmarantinosItem('1801-1900', 'XIX',
-                    '/public/prod/images/1600.jpg')}
+                    '/public/prod/images/1600.jpg', 'autores/1801-1900')}
                 {this.renderAutoresAmarantinosItem('1901-2000', 'XX',
-                    '/public/prod/images/1600.jpg')}
+                    '/public/prod/images/1600.jpg', 'autores/1901-2000')}
               </div>
             </div>
           </div>
@@ -900,7 +900,7 @@ class HomeIndexView extends React.Component {
           keys.forEach((val) => {
             const item = this.state.contactFormFields[val];
             item.value = "";
-            item.invalid = false
+            item.invalid = false;
 
             this.setState({
               [this.state.contactFormFields[val]]: item
