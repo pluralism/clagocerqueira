@@ -42,7 +42,7 @@ class AuthorsView extends React.Component {
 
 
     this.state = {
-      activeTab: 1,
+      activeTab: Constants.DATES.d1400_1500,
       canSwitchPage: true,
     };
 
@@ -65,12 +65,12 @@ class AuthorsView extends React.Component {
 
 
   handleKeyDownEvent(e) {
-    if(e.keyCode == 37 && this.state.canSwitchPage) {
+    if(e.keyCode === 37 && this.state.canSwitchPage) {
       // Left arrow was pressed
       this.getPreviousPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
       this.canUseSwitchPage();
-    } else if(e.keyCode == 39 && this.state.canSwitchPage) {
+    } else if(e.keyCode === 39 && this.state.canSwitchPage) {
       // Right arrow was pressed
       this.getNextPageContent();
       // Prevent the user from pressing the button too fast (wait 0.5s)
@@ -80,7 +80,7 @@ class AuthorsView extends React.Component {
 
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, params } = this.props;
 
 
 
@@ -91,6 +91,18 @@ class AuthorsView extends React.Component {
       [Constants.MAPPINGS.d1701_1800, Constants.DATES.d1701_1800],
       [Constants.MAPPINGS.d1801_1900, Constants.DATES.d1801_1900],
       [Constants.MAPPINGS.d1901_2000, Constants.DATES.d1901_2000]];
+
+
+    if(params.type !== undefined) {
+      if(params.type === Constants.DATES.d1400_1500 ||
+          params.type === Constants.DATES.d1501_1600 ||
+          params.type === Constants.DATES.d1601_1700 ||
+          params.type === Constants.DATES.d1701_1800 ||
+          params.type === Constants.DATES.d1801_1900 ||
+          params.type === Constants.DATES.d1901_2000) {
+        this.updateCurrentDate(params.type);
+      }
+    }
 
 
     /**
@@ -168,9 +180,7 @@ class AuthorsView extends React.Component {
   }
 
 
-  updateCurrentDate(value, activeTab) {
-    const { dispatch } = this.props;
-
+  updateCurrentDate(value) {
     /**
      * Update the currentDate variable and keep the page
      * as the old one. This allow us to mantain consistency
@@ -180,8 +190,16 @@ class AuthorsView extends React.Component {
 
     // Update the active tab!
     this.setState({
-      activeTab: activeTab
+      activeTab: this.currentDate
     });
+  }
+
+
+
+  isActiveTab(tab) {
+    if(this.state.activeTab === tab)
+      return "active";
+    return "";
   }
 
 
@@ -205,34 +223,40 @@ class AuthorsView extends React.Component {
 
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
-              <li role="presentation" className="active">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.DATES.d1400_1500)}>
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1400_1500, 1)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1400_1500)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1400_1500}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.DATES.d1501_1600)}>
                 <Link to={"#second_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1501_1600, 2)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1501_1600)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1501_1600}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.DATES.d1601_1700)}>
                 <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1601_1700, 3)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1601_1700)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1601_1700}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.DATES.d1701_1800)}>
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1701_1800, 4)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1701_1800)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1701_1800}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.DATES.d1801_1900)}>
                 <Link to={"#fifth_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1801_1900, 5)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1801_1900)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1801_1900}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.DATES.d1901_2000)}>
                 <Link to={"#sixth_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1901_2000, 6)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1901_2000)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1901_2000}</Link>
               </li>
             </ul>
@@ -254,49 +278,49 @@ class AuthorsView extends React.Component {
         <GeneralObjectTab
           tabID={'#first_tab'}
           subtitle={"Autores"}
-          active={this.state.activeTab == 1}
+          active={this.state.activeTab === Constants.DATES.d1400_1500}
           dateMapping={Constants.MAPPINGS.d1400_1500}
           data={authors.data[Constants.MAPPINGS.d1400_1500].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Autores"}
-          active={this.state.activeTab == 2}
+          active={this.state.activeTab === Constants.DATES.d1501_1600}
           dateMapping={Constants.MAPPINGS.d1501_1600}
           data={authors.data[Constants.MAPPINGS.d1501_1600].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Autores"}
-          active={this.state.activeTab == 3}
+          active={this.state.activeTab === Constants.DATES.d1601_1700}
           dateMapping={Constants.MAPPINGS.d1601_1700}
           data={authors.data[Constants.MAPPINGS.d1601_1700].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Autores"}
-          active={this.state.activeTab == 4}
+          active={this.state.activeTab === Constants.DATES.d1701_1800}
           dateMapping={Constants.MAPPINGS.d1701_1800}
           data={authors.data[Constants.MAPPINGS.d1701_1800].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Autores"}
-          active={this.state.activeTab == 5}
+          active={this.state.activeTab === Constants.DATES.d1801_1900}
           dateMapping={Constants.MAPPINGS.d1801_1900}
           data={authors.data[Constants.MAPPINGS.d1801_1900].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Autores"}
-          active={this.state.activeTab == 6}
+          active={this.state.activeTab === Constants.DATES.d1901_2000}
           dateMapping={Constants.MAPPINGS.d1901_2000}
           data={authors.data[Constants.MAPPINGS.d1901_2000].objects.objects_data} />
 
 
         <div className="control-buttons">
-          <div className="prev-button" onClick={() => this.getPreviousPageContent()}></div>
-          <div className="next-button" onClick={() => this.getNextPageContent()}></div>
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+          <div className="next-button" onClick={() => this.getNextPageContent()}/>
         </div>
       </div>
     );

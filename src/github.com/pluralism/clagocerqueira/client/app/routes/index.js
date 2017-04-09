@@ -19,7 +19,7 @@ export default function configRoutes(store) {
         <Route path="presidentes" component={PresidentsView} />
         <Route path="vereadores" component={CouncilmenView} />
         <Route path="personalidades" component={PersonalitiesView} />
-        <Route path="autores" component={AuthorsView} />
+        <Route path="autores(/:type)" component={AuthorsView} />
         <Route path="associacoes(/:type)" component={AssociationsView} />
         <Route path="imprensa(/:type)" component={PressView} />
       </Route>
