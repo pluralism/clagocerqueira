@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
+import { isActiveTab } from '../../utils/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
 
@@ -38,7 +39,7 @@ class CouncilmenView extends React.Component {
 
 
     this.state = {
-      activeTab: 1,
+      activeTab: Constants.DATES.d1836_1910,
       canSwitchPage: true,
     };
 
@@ -76,7 +77,7 @@ class CouncilmenView extends React.Component {
 
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, params } = this.props;
 
 
     const mappings = [
@@ -85,6 +86,17 @@ class CouncilmenView extends React.Component {
       [Constants.MAPPINGS.d1926_1974, Constants.DATES.d1926_1974],
       [Constants.MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
       [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
+
+
+    if(params.type !== undefined) {
+      if(params.type === Constants.DATES.d1836_1910 ||
+          params.type === Constants.DATES.d1910_1926 ||
+          params.type === Constants.DATES.d1926_1974 ||
+          params.type === Constants.DATES.d1974_1976 ||
+          params.type === Constants.DATES.d1976_2013) {
+        this.updateCurrentDate(params.type);
+      }
+    }
 
 
     /**
@@ -163,7 +175,7 @@ class CouncilmenView extends React.Component {
   }
 
 
-  updateCurrentDate(value, activeTab) {
+  updateCurrentDate(value) {
     /**
      * Update the currentDate variable and keep the page
      * as the old one. This allow us to mantain consistency
@@ -173,7 +185,7 @@ class CouncilmenView extends React.Component {
 
     // Update the active tab!
     this.setState({
-      activeTab: activeTab
+      activeTab: this.currentDate
     });
   }
 
@@ -198,27 +210,32 @@ class CouncilmenView extends React.Component {
 
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
-              <li role="presentation" className="active">
+              <li role="presentation"
+                  className={isActiveTab(Constants.DATES.d1836_1910, this.state)}>
                 <Link to={"#first_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1836_1910, 1)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1836_1910}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={isActiveTab(Constants.DATES.d1910_1926, this.state)}>
                 <Link to={"#second_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1910_1926, 2)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1910_1926}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={isActiveTab(Constants.DATES.d1926_1974, this.state)}>
                 <Link to={"#third_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1926_1974, 3)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1926_1974}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={isActiveTab(Constants.DATES.d1974_1976, this.state)}>
                 <Link to={"#fourth_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1974_1976, 4)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1974_1976}</Link>
               </li>
-              <li role="presentation">
+              <li role="presentation"
+                  className={isActiveTab(Constants.DATES.d1976_2013, this.state)}>
                 <Link to={"#fifth_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013, 5)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
@@ -242,31 +259,31 @@ class CouncilmenView extends React.Component {
         <GeneralObjectTab
           tabID={'#first_tab'}
           subtitle={"Vereadores"}
-          active={this.state.activeTab === 1}
+          active={this.state.activeTab === Constants.DATES.d1836_1910}
           data={councilmen.data[Constants.MAPPINGS.d1836_1910].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Vereadores"}
-          active={this.state.activeTab === 2}
+          active={this.state.activeTab === Constants.DATES.d1910_1926}
           data={councilmen.data[Constants.MAPPINGS.d1910_1926].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Vereadores"}
-          active={this.state.activeTab === 3}
+          active={this.state.activeTab === Constants.DATES.d1926_1974}
           data={councilmen.data[Constants.MAPPINGS.d1926_1974].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Vereadores"}
-          active={this.state.activeTab === 4}
+          active={this.state.activeTab === Constants.DATES.d1974_1976}
           data={councilmen.data[Constants.MAPPINGS.d1974_1976].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Vereadores"}
-          active={this.state.activeTab === 5}
+          active={this.state.activeTab === Constants.DATES.d1976_2013}
           data={councilmen.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
 
 
