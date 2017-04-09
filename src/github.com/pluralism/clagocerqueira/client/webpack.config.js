@@ -64,7 +64,9 @@ module.exports = {
       web('application.js')
     ],
 
-    images: [].concat.apply([], [extractImages('static/img/site/presidents/1976_2013/'),
+    images: [].concat.apply([], [
+            extractImages('static/img/site/presidents/1976_2013/'),
+            extractImages('static/img/site/councilmen/1976_2013/'),
             extractImages('static/img/site/'),
             extractImages('static/img/site/authors/'),
             extractImages('static/img/site/personalities/'),
