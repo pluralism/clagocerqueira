@@ -196,8 +196,8 @@ class AuthorsView extends React.Component {
 
 
 
-  isActiveTab(tab) {
-    if(this.state.activeTab === tab)
+  isActiveTab(state, tab) {
+    if(state.activeTab === tab)
       return "active";
     return "";
   }

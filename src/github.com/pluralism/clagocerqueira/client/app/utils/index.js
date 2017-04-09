@@ -47,3 +47,10 @@ export function httpPost(url, data) {
 export function httpPostGraphQL(data) {
   return httpPost('/graphql', data);
 }
+
+
+export function isActiveTab(tab, state) {
+  if(state.activeTab === tab)
+    return "active";
+  return "";
+}
