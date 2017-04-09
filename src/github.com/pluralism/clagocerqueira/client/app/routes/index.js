@@ -17,7 +17,7 @@ export default function configRoutes(store) {
       <Route path="/pt/" component={MainLayout}>
         <IndexRoute component={HomeIndexView} />
         <Route path="presidentes(/:type)" component={PresidentsView} />
-        <Route path="vereadores" component={CouncilmenView} />
+        <Route path="vereadores(/:type)" component={CouncilmenView} />
         <Route path="personalidades" component={PersonalitiesView} />
         <Route path="autores(/:type)" component={AuthorsView} />
         <Route path="associacoes(/:type)" component={AssociationsView} />
