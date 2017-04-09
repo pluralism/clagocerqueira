@@ -551,14 +551,14 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderImprensaItem(title, description) {
+  renderImprensaItem(title, description, link) {
     return (
       <div className="item text-left">
         <div className="item-info">
           <div className="item-info__block">
             <img className="item-info__img" src={require('../../static/img/orgaos_1.jpg')} />
             <h2 className="item-info__title font-main">
-              <Link to={'#'} className="item-info__link">
+              <Link to={link} className="item-info__link" target="_blank">
                 {title}
               </Link>
             </h2>
@@ -592,11 +592,18 @@ class HomeIndexView extends React.Component {
             </div>
 
             <div className="imprensa-grid imprensa-theme">
-              {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina')}
-              {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina')}
-              {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina')}
-              {this.renderImprensaItem('Rádios Online', 'Rádios online de Amarante')}
-              {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante')}
+              {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina',
+                  'imprensa/journals/')}
+              {this.renderImprensaItem('Jornais Online', 'Jornais com origem Amarantina',
+                  'imprensa/online_journals/')}
+              {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina',
+                  'imprensa/magazines/')}
+              {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina',
+                  'imprensa/radios/')}
+              {this.renderImprensaItem('Rádios Online', 'Rádios online de Amarante',
+                  'imprensa/online_radios/')}
+              {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
+                  'imprensa/televisions/')}
             </div>
           </div>
         </div>
