@@ -21,8 +21,8 @@
       <file leaf-file-name="scripts.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+            <state relative-caret-position="-1492">
+              <caret line="592" column="0" lean-forward="true" selection-start-line="592" selection-start-column="0" selection-end-line="592" selection-end-column="0" />
               <folding>
                 <element signature="e#14#124#0" expanded="true" />
               </folding>
@@ -34,13 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>listing-list-media-i</find>
-      <find>react-router</find>
-      <find>import Constants</find>
-      <find>Constants</find>
-      <find>im</find>
-      <find>import</find>
-      <find>import Co</find>
       <find>import Constn</find>
       <find>import Const</find>
       <find>import Cons</find>
@@ -64,6 +57,13 @@
       <find>imprensa</find>
       <find>renderImprensaItem</find>
       <find>carneiro</find>
+      <find>GeneralList</find>
+      <find>readGeneralFile</find>
+      <find>func readgenera</find>
+      <find>readGeneralFile(</find>
+      <find>strings.</find>
+      <find>sprintf</find>
+      <find>readFileAndInsertOnDatabase</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -738,12 +738,12 @@
       <workItem from="1491942089426" duration="37000" />
       <workItem from="1491942191998" duration="37000" />
       <workItem from="1491942307162" duration="24000" />
-      <workItem from="1491942381418" duration="3520000" />
+      <workItem from="1491942381418" duration="4309000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31427000" />
+    <option name="totallyTimeSpent" value="32216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1001,8 +1001,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+        <state relative-caret-position="-1492">
+          <caret line="592" column="0" lean-forward="true" selection-start-line="592" selection-start-column="0" selection-end-line="592" selection-end-column="0" />
           <folding>
             <element signature="e#14#124#0" expanded="true" />
           </folding>

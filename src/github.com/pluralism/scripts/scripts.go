@@ -159,6 +159,7 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 	return true
 }
 
+
 func readFileAndInsertOnDatabase(currentName, collection, fileName, image string, session *mgo.Session) {
 	data := readGeneralFile(fileName, image, currentName)
 
@@ -605,10 +606,16 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 	populateMap()
 	files, _ := ioutil.ReadDir("parishes/")
 	for _, f := range files {
+		// Make sure it isn't a directory...
 		if !f.IsDir() {
 			index := strings.Index(f.Name(), ".")
 			filename := f.Name()[0:index]
-			fmt.Println(parishesMap[filename])
+
+			readFileAndInsertOnDatabase(filename,
+				parishesCollection,
+				fmt.Sprintf("parishes/%s", f.Name()),
+				"/public/prod/images/monarquia.jpg",
+				session)
 		}
 	}
 }
