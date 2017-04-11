@@ -10,6 +10,8 @@ import (
 	"strings"
 
 	mgo "gopkg.in/mgo.v2"
+	"path/filepath"
+	"io/ioutil"
 )
 
 const dbName = "clagocerqueira"
@@ -22,6 +24,7 @@ const pressCollection = "press"
 const riversCollection = "rivers"
 const brooksCollection = "brooks"
 const mountainsCollection = "mountains"
+const parishesCollection = "parishes"
 
 
 type GeneralObject struct {
@@ -548,6 +551,28 @@ func insertMountainsOnDatabase(collectionNames []string, s *mgo.Session) {
 }
 
 
+func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	parishesExist := findElement(collectionNames, parishesCollection)
+
+	if parishesExist {
+		err := db.C(parishesCollection).DropCollection()
+
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	files, _ := ioutil.ReadDir("parishes/")
+	for _, f := range files {
+		fmt.Println(f.IsDir())
+	}
+}
+
+
 
 func main() {
 	session, err := mgo.Dial("mongodb://localhost")
@@ -574,6 +599,7 @@ func main() {
 	var riversFlag = flag.Bool("rivers", false, "inserts the rivers on the database")
 	var brooksFlag = flag.Bool("brooks", false, "inserts brooks on the database")
 	var mountainsFlag = flag.Bool("mountains", false, "inserts mountains on the database")
+	var parishesFlag = flag.Bool("parishes", false, "inserts parishes on the database")
 	// Parse the flags
 	flag.Parse()
 
@@ -611,6 +637,10 @@ func main() {
 
 	if *mountainsFlag {
 		insertMountainsOnDatabase(collectionNames, session)
+	}
+
+	if *parishesFlag {
+		insertParishesOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
