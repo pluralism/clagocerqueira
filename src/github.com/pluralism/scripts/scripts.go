@@ -6,12 +6,11 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
 	"strings"
 
 	mgo "gopkg.in/mgo.v2"
-	"path/filepath"
-	"io/ioutil"
 )
 
 
@@ -569,7 +568,9 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 
 	files, _ := ioutil.ReadDir("parishes/")
 	for _, f := range files {
-		fmt.Println(f.IsDir())
+		if !f.IsDir() {
+			fmt.Println(f.Name())
+		}
 	}
 }
 
