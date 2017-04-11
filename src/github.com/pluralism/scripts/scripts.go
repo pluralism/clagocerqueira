@@ -26,6 +26,10 @@ const brooksCollection = "brooks"
 const mountainsCollection = "mountains"
 const parishesCollection = "parishes"
 
+// Maps are reference types, which means they must be initialized, like
+// pointers and slices
+var parishesMap map[string]string = make(map[string]string)
+
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -41,6 +45,37 @@ type GeneralObjectData struct {
 type GeneralList struct {
 	Name    string            `bson:"name"`
 	Objects GeneralObjectData `bson:"objects"`
+}
+
+func populateMap() {
+	parishesMap["aboadela_sanche"] = "Aboadela, Sanche"
+	parishesMap["aboim_vila_garcia"] = "Aboim e Vila Garcia"
+	parishesMap["ansiaes"] = "Ansiães"
+	parishesMap["bustelo_vila_garcia"] = "Bustelo e Vila Garcia"
+	parishesMap["canadelo_olo"] = "Canadelo e Ôlo"
+	parishesMap["candemil"] = "Candemil"
+	parishesMap["cepelos_gatao_sao_goncalo"] = "Cepelos, Gatão e São Gonçalo"
+	parishesMap["figueiro_santa_cristina_santiago"] = "Figueiró, Santiago e Santa Cristina"
+	parishesMap["fregim"] = "Fregim"
+	parishesMap["freixo_baixo_cima"] = "Freido de Baixo e de Cima"
+	parishesMap["fridao"] = "Fridão"
+	parishesMap["gondar"] = "Gondar"
+	parishesMap["gouveia"] = "Gouveia"
+	parishesMap["jazente"] = "Jazente"
+	parishesMap["lomba"] = "Lomba"
+	parishesMap["louredo"] = "Louredo"
+	parishesMap["lufrei"] = "Lufrei"
+	parishesMap["mancelos"] = "Mancelos"
+	parishesMap["oliveira"] = "Oliveira"
+	parishesMap["padronelo"] = "Padronelo"
+	parishesMap["real"] = "Real"
+	parishesMap["rebordelo"] = "Rebordelo"
+	parishesMap["salvador"] = "Salvador do Monte"
+	parishesMap["teloes"] = "Telões"
+	parishesMap["travanca"] = "Travanca"
+	parishesMap["vila_caiz"] = "Vila Caíz"
+	parishesMap["vila_cha_marao"] = "Vila Chã do Marão"
+	parishesMap["vila_mea"] = "Vila Meã"
 }
 
 func findElement(list []string, value string) bool {
@@ -566,6 +601,8 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
+	// Populate the map of parishes
+	populateMap()
 	files, _ := ioutil.ReadDir("parishes/")
 	for _, f := range files {
 		if !f.IsDir() {

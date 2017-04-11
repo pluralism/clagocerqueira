@@ -2,51 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/aboadela_sanche.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/aboim_vila_garcia.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/bustelo_carvalho_rei.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/canadelo_olo.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/figueiro_santa_cristina_santiago.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/freixo_baixo_cima.csv" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/aboadela.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/aboim.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/bustelo.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/canadelo.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/carvalho_rei.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/figueiro_santa_cristina.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/figueiro_santiago.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/freixo_baixo.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/freixo_cima.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/gatao.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/olo.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/sanche.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_garcia.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/sao_goncalo.csv" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/ataide.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_mea.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao_sao_goncalo.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/ansiaes.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/ansiaes.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/ataide.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/ataide.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/candemil.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/candemil.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/fregim.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/fregim.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/fridao.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/fridao.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/gondar.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/gondar.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/gouveia.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/gouveia.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/jazente.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/jazente.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/lomba.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/lomba.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/louredo.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/louredo.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/lufrei.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/lufrei.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/mancelos.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/mancelos.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/oliveira.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/oliveira.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/padronelo.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/padronelo.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/real.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/real.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/rebordelo.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/rebordelo.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/salvador.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/salvador.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/sao_goncalo.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/sao_goncalo.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/teloes.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/teloes.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/travanca.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/travanca.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_caiz.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_caiz.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_cha_marao.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_cha_marao.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,24 +22,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="scripts.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scripts.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+            <state relative-caret-position="334">
+              <caret line="603" column="39" lean-forward="false" selection-start-line="603" selection-start-column="39" selection-end-line="603" selection-end-column="39" />
               <folding>
                 <element signature="e#14#124#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="real.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/real.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -157,6 +107,7 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao_sao_goncalo.csv" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" />
       </list>
     </option>
@@ -791,12 +742,12 @@
       <workItem from="1491942089426" duration="37000" />
       <workItem from="1491942191998" duration="37000" />
       <workItem from="1491942307162" duration="24000" />
-      <workItem from="1491942381418" duration="2176000" />
+      <workItem from="1491942381418" duration="3193000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30083000" />
+    <option name="totallyTimeSpent" value="31100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1028,21 +979,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding>
-            <element signature="e#14#124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/real.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/sao_goncalo.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao_sao_goncalo.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="60" lean-forward="false" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="603" column="39" lean-forward="false" selection-start-line="603" selection-start-column="39" selection-end-line="603" selection-end-column="39" />
+          <folding>
+            <element signature="e#14#124#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
