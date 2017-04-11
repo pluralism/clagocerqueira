@@ -14,6 +14,7 @@ import (
 	"io/ioutil"
 )
 
+
 const dbName = "clagocerqueira"
 const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
