@@ -12,6 +12,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
+
 const dbName = "clagocerqueira"
 const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
