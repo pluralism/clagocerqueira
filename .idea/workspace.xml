@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/sao_goncalo.csv" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/ataide.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/vila_mea.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao.csv" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/parishes/cepelos_gatao_sao_goncalo.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +21,8 @@
       <file leaf-file-name="scripts.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="603" column="39" lean-forward="false" selection-start-line="603" selection-start-column="39" selection-end-line="603" selection-end-column="39" />
+            <state relative-caret-position="353">
+              <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
               <folding>
                 <element signature="e#14#124#0" expanded="true" />
               </folding>
@@ -38,7 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>200px</find>
       <find>listing-list-media-i</find>
       <find>react-router</find>
       <find>import Constants</find>
@@ -68,6 +63,7 @@
       <find>type</find>
       <find>imprensa</find>
       <find>renderImprensaItem</find>
+      <find>carneiro</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -742,12 +738,12 @@
       <workItem from="1491942089426" duration="37000" />
       <workItem from="1491942191998" duration="37000" />
       <workItem from="1491942307162" duration="24000" />
-      <workItem from="1491942381418" duration="3193000" />
+      <workItem from="1491942381418" duration="3520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31100000" />
+    <option name="totallyTimeSpent" value="31427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1005,8 +1001,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="603" column="39" lean-forward="false" selection-start-line="603" selection-start-column="39" selection-end-line="603" selection-end-column="39" />
+        <state relative-caret-position="353">
+          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
           <folding>
             <element signature="e#14#124#0" expanded="true" />
           </folding>

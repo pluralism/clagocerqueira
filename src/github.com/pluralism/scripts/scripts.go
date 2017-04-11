@@ -51,7 +51,7 @@ func populateMap() {
 	parishesMap["aboadela_sanche"] = "Aboadela, Sanche"
 	parishesMap["aboim_vila_garcia"] = "Aboim e Vila Garcia"
 	parishesMap["ansiaes"] = "Ansiães"
-	parishesMap["bustelo_vila_garcia"] = "Bustelo e Vila Garcia"
+	parishesMap["bustelo_carvalho_rei"] = "Bustelo e Carvalho de Rei"
 	parishesMap["canadelo_olo"] = "Canadelo e Ôlo"
 	parishesMap["candemil"] = "Candemil"
 	parishesMap["cepelos_gatao_sao_goncalo"] = "Cepelos, Gatão e São Gonçalo"
@@ -606,7 +606,9 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 	files, _ := ioutil.ReadDir("parishes/")
 	for _, f := range files {
 		if !f.IsDir() {
-			fmt.Println(f.Name())
+			index := strings.Index(f.Name(), ".")
+			filename := f.Name()[0:index]
+			fmt.Println(parishesMap[filename])
 		}
 	}
 }
