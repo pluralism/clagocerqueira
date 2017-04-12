@@ -13,8 +13,9 @@ class FestivitiesView extends React.Component {
         };
     }
 
-    componentDidMount() {
 
+    componentDidMount() {
+        const { dispatch } = this.props;
     }
 
 

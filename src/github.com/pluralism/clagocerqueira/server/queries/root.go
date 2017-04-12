@@ -35,7 +35,7 @@ func getAssociations() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetAssociatonsByNameId(refs.Session, name, page)
+			result := controllers.GetAssociationsByNameId(refs.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -44,6 +44,45 @@ func getAssociations() *graphql.Field {
 			// Something went wrong, return nil and an error informing that
 			// the associations could not be extracted from the database
 			return nil, errors.New("the associations could not be extracted")
+		},
+	}
+}
+
+func getFestivitiesForParish() *graphql.Field {
+	return &graphql.Field{
+		Type: types.GeneralListType,
+		Description: "Extracts festivities for a given parish",
+		Args: graphql.FieldConfigArgument{
+			"name": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			name, nameOK := p.Args["name"].(string)
+			page, pageOK := p.Args["page"].(int)
+
+			if !nameOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"name\" argument was not provided")
+			}
+
+			if !pageOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"page\" argument was not provided")
+			}
+
+			result := controllers.GetFestivitiesForParish(refs.Session, name, page)
+
+			if result != nil {
+				return result, nil
+			}
+
+			// Something went wrong, return nil and an error informing that
+			// the parish data could not be extracted from the database
+			return nil, errors.New("the parish data could not be extracted")
 		},
 	}
 }
@@ -165,6 +204,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 		},
 		"associations": getAssociations(),
 		"press":        getPress(),
+		"festivities": 	getFestivitiesForParish(),
 		"authors": &graphql.Field{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",

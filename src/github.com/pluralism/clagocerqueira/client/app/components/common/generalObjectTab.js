@@ -29,7 +29,8 @@ export class GeneralObjectTab extends React.Component {
           {data.map((object) => {
             return <GeneralObjectItem key={object.name} imgURL={object.image}
               subtitle={this.props.subtitle} title={object.name}
-              text={object.description !== null ? object.description : 'Descrição indisponível'} />
+              text={object.description !== null ?
+                  object.description : 'Descrição indisponível'} />
           })}
         </ul>
       </div>

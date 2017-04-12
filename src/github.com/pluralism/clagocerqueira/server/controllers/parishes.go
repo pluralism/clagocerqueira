@@ -5,18 +5,19 @@ import (
 
 	"github.com/pluralism/clagocerqueira/server/constants"
 	"github.com/pluralism/clagocerqueira/server/models"
-	mgo "gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetAssociationsByNameId(s *mgo.Session, name string, page int) *models.GeneralObject {
+func GetFestivitiesForParish(s *mgo.Session, name string, page int) *models.GeneralObject {
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB(constants.DB_NAME).C(constants.ASSOCIATIONS_COLLECTION)
+	c := session.DB(constants.DB_NAME).C(constants.PARISHES_COLLECTION)
 	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"name": name}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
+
 
 	result := models.GeneralObject{}
 	// Return only one result
