@@ -139,6 +139,48 @@ class FestivitiesView extends React.Component {
     }
 
 
+    refreshListContent() {
+        const { dispatch } = this.props;
+
+        let obj = {
+            mapping: this.state.currentParish,
+            page: this.state.currentPage
+        };
+
+        dispatch(GeneralObjectsActions.
+        getDataByPageParishes(this.state.currentParish,
+            obj.mapping,
+            obj.page));
+    }
+
+
+    getPreviousPageContent() {
+        let currentPage = this.state.currentPage;
+
+        if(currentPage > 1) {
+            this.setState({
+                currentPage: currentPage - 1
+            }, () => {
+                this.refreshListContent();
+            });
+        }
+    }
+
+
+    getNextPageContent() {
+        const { parishes } = this.props;
+        let currentPage = this.state.currentPage;
+
+        if(currentPage < parishes.max_pages) {
+            this.setState({
+                currentPage: currentPage + 1
+            }, () => {
+                this.refreshListContent();
+            });
+        }
+    }
+
+
     renderTabContents() {
         const { parishes } = this.props;
 
@@ -152,6 +194,8 @@ class FestivitiesView extends React.Component {
 
 
                 <div className="control-buttons">
+                    <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+                    <div className="next-button" onClick={() => this.getNextPageContent()}/>
                 </div>
             </div>
         );

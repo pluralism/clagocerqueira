@@ -104,7 +104,7 @@ class PersonalitiesView extends React.Component {
 
     if(currentPage < personalities.max_pages) {
       this.setState({
-        page: this.state.page + 1
+        page: currentPage + 1
       }, () => {
         dispatch(PersonalitiesActions.getDataByPage(this.state.page));
       });
@@ -118,7 +118,7 @@ class PersonalitiesView extends React.Component {
 
     if(currentPage > 1) {
       this.setState({
-        page: this.state.page - 1
+        page: currentPage - 1
       }, () => {
         dispatch(PersonalitiesActions.getDataByPage(this.state.page));
       });
