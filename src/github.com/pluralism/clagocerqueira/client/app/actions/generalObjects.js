@@ -27,6 +27,49 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 };
 
 
+GeneralObjectsActions.getDataByPageSimple =
+    (name, mapping, page, type, loadingAction, actionError, actionSuccess) => {
+  return dispatch => {
+    dispatch({
+        type: loadingAction
+    });
+
+
+    const graphQLData = `{
+    ${mapping}: ${type}(name: "${name}", page: ${page}) {
+      name
+        objects {
+          objects_data {
+            name
+            image
+            description
+          }
+          total_items
+          max_pages
+        }
+      }
+    }`;
+
+    httpPostGraphQL(graphQLData)
+        .then((data) => {
+      if (data.hasOwnProperty('errors')) {
+        dispatch({
+            type: actionError
+        });
+      } else {
+        dispatch({
+            type: actionSuccess,
+            max_pages: data.data[mapping].objects.max_pages,
+            objects_data: data.data[mapping].objects.objects_data,
+            total_items: data.data[mapping].objects.total_items,
+        });
+      }
+    });
+  };
+};
+
+
+
 GeneralObjectsActions.getDataByPage =
     (name, mapping, page, type, loadingAction, actionError, actionSuccess) => {
   return dispatch => {
@@ -87,6 +130,7 @@ GeneralObjectsActions.getDataByPagePress = (name, mapping, page) => {
 };
 
 
+
 GeneralObjectsActions.getDataByPageCouncilmen = (name, mapping, page) => {
   return GeneralObjectsActions.getDataByPage(
     name,
@@ -133,6 +177,18 @@ GeneralObjectsActions.getDataByPageAssociations = (name, mapping, page) => {
     Constants.LOADING_DATA_ASSOCIATIONS,
     Constants.LOADING_DATA_ERROR_ASSOCIATIONS,
     Constants.LOADING_DATA_SUCCESS_ASSOCIATIONS);
+};
+
+
+GeneralObjectsActions.getDataByPageParishes = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPageSimple(
+      name,
+      mapping,
+      page,
+      Constants.FESTIVITIES_TABLE,
+      Constants.LOADING_DATA_PARISH,
+      Constants.LOADING_DATA_ERROR_PARISH,
+      Constants.LOADING_DATA_SUCCESS_PARISH);
 };
 
 
@@ -217,18 +273,6 @@ GeneralObjectsActions.getAllDataFromPress = (mappings) => {
     Constants.PRESS_TABLE);
 };
 
-
-
-GeneralObjectsActions.getAllDataFromParish = (mappings) => {
-  return GeneralObjectsActions.loadDataFromServer(
-      Constants.LOADING_DATA_PARISH,
-      Constants.LOADING_DATA_ERROR_PARISH,
-      Constants.LOADING_DATA_SUCCESS_PARISH,
-      1,
-      mappings,
-      Constants.PARISHES_TABLE
-  );
-};
 
 
 /**

@@ -6,6 +6,7 @@ import personalities from './personalities';
 import authors from './authors';
 import associations from './associations';
 import press from './press';
+import parishes from './parishes';
 
 
 export default combineReducers({
@@ -17,4 +18,5 @@ export default combineReducers({
   authors: authors,
   associations: associations,
   press: press,
+  parishes: parishes,
 });

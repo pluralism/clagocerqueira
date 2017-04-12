@@ -103,7 +103,7 @@ const Constants = {
   AUTHORS: 'authors',
   ASSOCIATIONS_TABLE: 'associations',
   PRESS_TABLE: 'press',
-  PARISHES_TABLE: 'parishes',
+  FESTIVITIES_TABLE: 'festivities',
 
 
   PERSONALITIES_STRING: 'Personalidades',

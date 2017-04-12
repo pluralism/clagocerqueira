@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Footer from '../../components/common/footer';
 import { Constants } from '../../constants/index';
+import GeneralObjectsActions from '../../actions/generalObjects';
 
 
 class FestivitiesView extends React.Component {
@@ -9,7 +10,8 @@ class FestivitiesView extends React.Component {
         super(props);
 
         this.state = {
-            currentParish: 'aboadela_sanche'
+            currentParish: 'aboadela_sanche',
+            currentPage: 1
         };
 
         this.mappings = [];
@@ -21,8 +23,16 @@ class FestivitiesView extends React.Component {
 
     componentDidMount() {
         const { dispatch } = this.props;
+        let obj = {
+            mapping: this.state.currentParish,
+            page: this.state.currentPage
+        };
 
-        console.log(this.mappings);
+
+        dispatch(GeneralObjectsActions.
+        getDataByPageParishes(this.state.currentParish,
+            obj.mapping,
+            obj.page));
     }
 
 
@@ -155,6 +165,8 @@ class FestivitiesView extends React.Component {
 }
 
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    parishes: state.parishes
+});
 
 export default connect(mapStateToProps)(FestivitiesView)
