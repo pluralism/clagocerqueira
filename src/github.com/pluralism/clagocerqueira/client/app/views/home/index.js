@@ -689,13 +689,13 @@ class HomeIndexView extends React.Component {
 
             <div className="orgaos_autarquicos_wrapper">
               <div className="orgaos_autarquicos_list">
-                {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante', '/presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/vereadores')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', '/presidentes')}
+                {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante', 'presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'vereadores')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
+                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
               </div>
             </div>
           </div>
@@ -705,7 +705,7 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderAssociacoesItem(title, description, altText = undefined) {
+  renderAssociacoesItem(title, description, link, altText = undefined) {
     return (
       <div className="item associacoes-list-item">
         <div className="img-wrapper img-wrapper--shadow">
@@ -714,7 +714,7 @@ class HomeIndexView extends React.Component {
         </div>
         <h3>{title}</h3>
         <p>{description}</p>
-        <Link to={'#'} className="btn-u btn-u-lg btn-u-upper">Ver Mais</Link>
+        <Link to={link} target="_blank" className="btn-u btn-u-lg btn-u-upper">Ver Mais</Link>
       </div>
     );
   }
@@ -739,26 +739,32 @@ class HomeIndexView extends React.Component {
                 <div className="associacoes-list">
                   {this.renderAssociacoesItem('Associações Sociais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'associacoes/social',
                     'Associações Sociais')}
 
                   {this.renderAssociacoesItem('Associações Cívicas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'associacoes/civic',
                     'Associações Cívicas')}
 
                   {this.renderAssociacoesItem('Associações Desportivas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'associacoes/sports',
                     'Associações Desportivas')}
 
                   {this.renderAssociacoesItem('Associações Recreativas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'associacoes/recreative',
                     'Associações Recreativas')}
 
                   {this.renderAssociacoesItem('Associações Culturais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'associacoes/cultural',
                     'Associações Culturais')}
 
                   {this.renderAssociacoesItem('Associações Religiosas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                    'associacoes/religious',
                     'Associações Religiosas')}
                 </div>
               </div>
