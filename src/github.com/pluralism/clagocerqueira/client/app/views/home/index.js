@@ -959,7 +959,7 @@ class HomeIndexView extends React.Component {
     // Update the object with key "name"
     const item = this.state.contactFormFields[name];
     item.value = value;
-    item.invalid = this.isInvalidContactFormField(name, value)
+    item.invalid = this.isInvalidContactFormField(name, value);
 
     this.setState({
       [this.state.contactFormFields[name]]: item
