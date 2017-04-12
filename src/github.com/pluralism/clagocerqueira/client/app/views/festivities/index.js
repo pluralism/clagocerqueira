@@ -11,11 +11,18 @@ class FestivitiesView extends React.Component {
         this.state = {
             currentParish: 'aboadela_sanche'
         };
+
+        this.mappings = [];
+        Object.keys(Constants.PARISHES).forEach((item) => {
+            this.mappings.push(["parishes", item]);
+        });
     }
 
 
     componentDidMount() {
         const { dispatch } = this.props;
+
+        console.log(this.mappings);
     }
 
 
@@ -124,8 +131,8 @@ class FestivitiesView extends React.Component {
                     <select value={this.state.currentParish}
                             onChange={::this.handleParishChange}
                             className="rounded font-main">
-                        {Object.keys(Constants.PARISHES).map((item) => {
-                            return<option key={item} value={item}>{Constants.PARISHES[item]}</option>
+                        {this.mappings.map((item) => {
+                            return <option key={item[1]} value={item[1]}>{Constants.PARISHES[item[1]]}</option>
                         })}
                     </select>
                 </label>

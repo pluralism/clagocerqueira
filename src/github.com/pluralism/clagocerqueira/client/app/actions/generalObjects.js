@@ -19,12 +19,11 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
     max_pages
   }`;
 
-  const query = `
+
+  return `
     ${mapping[0]}: ${type}(name: "${mapping[1]}", page: ${page}) {
       ${fields}
     }`;
-
-  return query;
 };
 
 
