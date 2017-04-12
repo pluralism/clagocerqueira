@@ -52,6 +52,7 @@ module.exports = {
       web('static/messenger/messenger.css'),
       web('static/messenger/messenger-spinner.css'),
       web('static/messenger/messenger-theme-flat.css'),
+      '../client/node_modules/jvectormap-next/jquery-jvectormap.css',
 
 
       web('static/bootstrap/js/bootstrap.min.js'),
@@ -62,11 +63,6 @@ module.exports = {
       web('static/messenger/messenger.min.js'),
       web('static/messenger/messenger-theme-flat.js'),
       web('application.js')
-    ],
-
-    map: [
-        web('static/jquery-jvectormap/jquery-jvectormap-2.0.3.css'),
-        web('static/jquery-jvectormap/jquery-jvectormap-2.0.3.min.js'),
     ],
 
     images: [].concat.apply([], [
@@ -117,7 +113,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         loader: extractText.extract({
           use: [{
             loader: "css-loader"
@@ -164,7 +159,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      "window.jQuery": "jquery"
+      "window.jQuery": "jquery",
     }),
     extractText
   ]

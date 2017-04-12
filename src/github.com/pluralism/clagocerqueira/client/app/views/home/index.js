@@ -6,6 +6,10 @@ import classNames                           from 'classnames';
 import ContactMessageActions                from '../../actions/contactMessage';
 
 
+require('jvectormap-next');
+require('../../static/jquery-jvectormap/amarante');
+
+
 class HomeIndexView extends React.Component {
   constructor(props) {
     super(props);
@@ -66,6 +70,162 @@ class HomeIndexView extends React.Component {
       let festividadesGrid = $('#festividades-grid');
       let imprensaGrid = $('.imprensa-grid');
       let personalidadesGrid = $('#personalidades-grid');
+
+      let mapHash = {}, colors = {};
+
+      for (let i = 194; i <= 227; i++) {
+        mapHash['svg_' + i] = 'Amarante, Madalena, Cepelos e Gatão';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 133; i <= 138; i++) {
+        mapHash['svg_' + i] = 'Lufrei';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 116; i <= 124; i++) {
+        mapHash['svg_' + i] = 'Padronelo';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 126; i <= 131; i++) {
+        mapHash['svg_' + i] = 'Gondar';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 260; i <= 265; i++) {
+        mapHash['svg_' + i] = 'Fregim';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 251; i <= 258; i++) {
+        mapHash['svg_' + i] = 'Mancelos';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 276; i <= 282; i++) {
+        mapHash['svg_' + i] = 'Vila Meã';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 267; i <= 274; i++) {
+        mapHash['svg_' + i] = 'Travanca';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 292; i <= 324; i++) {
+        mapHash['svg_' + i] = 'Figueiró, Santiago e Santa Cristina';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 229; i <= 249; i++) {
+        mapHash['svg_' + i] = 'Freixo de Cima e de Baixo';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 187; i <= 192; i++) {
+        mapHash['svg_' + i] = 'Telões';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 163; i <= 185; i++) {
+        mapHash['svg_' + i] = 'Vila Garcia, Aboim e Chapa';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 156; i <= 161; i++) {
+        mapHash['svg_' + i] = 'Fridão';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 28; i <= 36; i++) {
+        mapHash['svg_' + i] = 'Rebordelo';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 38; i <= 49; i++) {
+        mapHash['svg_' + i] = 'Ôlo e Canadelo';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 140; i <= 154; i++) {
+        mapHash['svg_' + i] = 'Vila Chã do Marão';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 358; i <= 380; i++) {
+        mapHash['svg_' + i] = 'Aboadela, Sanche e Várzea';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 51; i <= 57; i++) {
+        mapHash['svg_' + i] = 'Ansiães';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 59; i <= 66; i++) {
+        mapHash['svg_' + i] = 'Candemil';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 68; i <= 98; i++) {
+        mapHash['svg_' + i] = 'Bustelo, Carneiro e Carvalho de Rei';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 100; i <= 106; i++) {
+        mapHash['svg_' + i] = 'Gouveia';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 108; i <= 114; i++) {
+        mapHash['svg_' + i] = 'Jazente';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 326; i <= 330; i++) {
+        mapHash['svg_' + i] = 'Lomba';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 284; i <= 290; i++) {
+        mapHash['svg_' + i] = 'Louredo';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 332; i <= 347; i++) {
+        mapHash['svg_' + i] = 'Salvador do Monte';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+      for (let i = 349; i <= 356; i++) {
+        mapHash['svg_' + i] = 'Vila Caíz';
+        colors['svg_' + i] = '#5D2F30';
+      }
+
+
+      $('#map_amarante').vectorMap({
+          map: 'amarante',
+          selectedRegion: null,
+          showTooltip: true,
+          hoverOpacity: null,
+          enableZoom: false,
+          zoomStep: 1.6,
+          borderOpacity: 0.25,
+          borderWidth: 1,
+          series: {
+              regions: [{
+                  values: colors
+              }]
+          },
+          backgroundColor: '#5D2F30',
+          onRegionTipShow: function (e, el, code) {
+              if (code in mapHash)
+                  el.html(mapHash[code]);
+              else
+                  el.html(el.html());
+          }
+      });
 
 
       personalidadesGrid.cubeportfolio({
@@ -544,6 +704,11 @@ class HomeIndexView extends React.Component {
                 {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
               </div>
             </div>
+
+
+            <div id="map_amarante"
+                 className="col-md-6 col-sm-12 col-sm-offset-0 col-md-offset-3"
+                 style={{height: '400px'}} />
           </div>
         </div>
       </section>

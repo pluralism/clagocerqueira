@@ -43,9 +43,8 @@ func main() {
 	app.StaticServe("../server/static", "/public")
 
 	app.Get("/", homePageRedirectHandler)
-	app.Get("/pt/", homePageWithMapHandler)
 	// Match all GET routes under /pt/ to homePageHandler
-	app.Get("/pt/:params", homePageHandler)
+	app.Get("/pt/*path", homePageHandler)
 	// Route used to handle API requests
 	app.Post("/graphql", graphqlAPIHandler)
 
@@ -54,11 +53,7 @@ func main() {
 }
 
 func homePageRedirectHandler(context *iris.Context) {
-	context.Redirect("/pt", iris.StatusTemporaryRedirect)
-}
-
-func homePageWithMapHandler(context *iris.Context) {
-	context.Render("index_with_map.html", iris.RenderOptions{"gzip": true})
+	context.Redirect("/pt/", iris.StatusTemporaryRedirect)
 }
 
 func homePageHandler(context *iris.Context) {
