@@ -14,7 +14,7 @@ class FestivitiesView extends React.Component {
 
         this.mappings = [];
         Object.keys(Constants.PARISHES).forEach((item) => {
-            this.mappings.push(["parishes", item]);
+            this.mappings.push([item, item]);
         });
     }
 

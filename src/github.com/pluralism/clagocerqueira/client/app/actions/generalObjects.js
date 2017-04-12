@@ -207,6 +207,7 @@ GeneralObjectsActions.getAllDataFromAssociations = (mappings) => {
 };
 
 
+
 GeneralObjectsActions.getAllDataFromPress = (mappings) => {
   return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_PRESS,
     Constants.LOADING_DATA_ERROR_PRESS,
@@ -214,6 +215,19 @@ GeneralObjectsActions.getAllDataFromPress = (mappings) => {
     1,
     mappings,
     Constants.PRESS_TABLE);
+};
+
+
+
+GeneralObjectsActions.getAllDataFromParish = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(
+      Constants.LOADING_DATA_PARISH,
+      Constants.LOADING_DATA_ERROR_PARISH,
+      Constants.LOADING_DATA_SUCCESS_PARISH,
+      1,
+      mappings,
+      Constants.PARISHES_TABLE
+  );
 };
 
 
