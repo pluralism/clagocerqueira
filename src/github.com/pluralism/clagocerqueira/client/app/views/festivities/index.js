@@ -7,6 +7,10 @@ import { Constants } from '../../constants/index';
 class FestivitiesView extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            currentParish: 'aboadela_sanche'
+        };
     }
 
     componentDidMount() {
@@ -102,17 +106,26 @@ class FestivitiesView extends React.Component {
     }
 
 
+    handleParishChange(e) {
+        this.setState({
+            currentParish: e.target.value
+        }, () => {
+            console.log("Parish is now " + this.state.currentParish);
+        });
+    }
+
+
 
     renderParishesSelect() {
         return (
             <div className="parishes_select">
                 <label className="select">
-                    <select className="rounded font-main">
-                        <option value="0" selected>Selecionar freguesia&#8230;</option>
-                        <option value="1">Service 1 Service 1 Service 1 Service 1</option>
-                        <option value="2">Service 2</option>
-                        <option value="3">Service 3</option>
-                        <option value="4">Service 4</option>
+                    <select value={this.state.currentParish}
+                            onChange={::this.handleParishChange}
+                            className="rounded font-main">
+                        {Object.keys(Constants.PARISHES).map((item) => {
+                            return<option key={item} value={item}>{Constants.PARISHES[item]}</option>
+                        })}
                     </select>
                 </label>
             </div>
