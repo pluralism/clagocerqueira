@@ -73,6 +73,8 @@ class HomeIndexView extends React.Component {
 
       let mapHash = {}, colors = {}, mappings = {};
 
+
+
       mapHash['svg_8'] = 'Amarante, Madalena, Cepelos e Gatão';
       mappings['svg_8'] = 'cepelos_gatao_sao_goncalo';
 
@@ -330,8 +332,8 @@ class HomeIndexView extends React.Component {
                 el.html(el.html());
           },
           onRegionClick: function (e, code) {
-              console.log(code);
               console.log(mappings[code]);
+              window.open('/pt/festividades/' + mappings[code], '_blank');
           }
       });
 

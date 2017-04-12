@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,22 +21,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
+        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="124" column="41" lean-forward="true" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="140">
+              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js">
+        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="100">
+              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -52,7 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GetAssociatonsByNameId</find>
       <find>festiviti</find>
       <find>the press data could not</find>
       <find>getPress</find>
@@ -82,6 +80,7 @@
       <find>teloes</find>
       <find>candemil</find>
       <find>fregim</find>
+      <find>aboadela</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -125,8 +124,6 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/associations/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/actions/generalObjects.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/personalities/index.js" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/index_with_map.html" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/server.go" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
@@ -135,6 +132,8 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/jquery-jvectormap/amarante.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js" />
       </list>
     </option>
   </component>
@@ -334,86 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery-jvectormap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -880,12 +799,12 @@
       <workItem from="1491942307162" duration="24000" />
       <workItem from="1491942381418" duration="4391000" />
       <workItem from="1491983638501" duration="11980000" />
-      <workItem from="1492012311091" duration="8546000" />
+      <workItem from="1492012311091" duration="10291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52824000" />
+    <option name="totallyTimeSpent" value="54569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1150,16 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1272,22 +1181,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="141" column="31" lean-forward="true" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/jquery-jvectormap/amarante.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -1298,11 +1191,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="124" column="41" lean-forward="true" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
+        <state relative-caret-position="473">
+          <caret line="335" column="62" lean-forward="false" selection-start-line="335" selection-start-column="62" selection-end-line="335" selection-end-column="62" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#57#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/constants/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="116" column="43" lean-forward="false" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/festivities/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -11,10 +11,18 @@ class FestivitiesView extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            currentParish: 'aboadela_sanche',
-            currentPage: 1
-        };
+        const { params } = this.props;
+        if(Object.keys(Constants.PARISHES).indexOf(params.type) > -1) {
+            this.state = {
+                currentParish: params.type,
+                currentPage: 1
+            };
+        } else {
+            this.state = {
+                currentParish: 'aboadela_sanche',
+                currentPage: 1
+            };
+        }
 
         this.mappings = [];
         Object.keys(Constants.PARISHES).forEach((item) => {
