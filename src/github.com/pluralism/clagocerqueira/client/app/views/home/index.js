@@ -935,7 +935,7 @@ class HomeIndexView extends React.Component {
 
 
             <div className="view_all_personalidades">
-              <button type="button" className="btn-u btn-u-lg btn-u-upper">Ver Todos</button>
+              <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'personalidades'}>Ver Todos</Link>
             </div>
           </div>
         </div>
