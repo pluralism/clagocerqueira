@@ -504,8 +504,8 @@ class HomeIndexView extends React.Component {
   renderFestividadesItem(title, subTitle) {
     return (
       <div className="cbp-item">
-        <Link to={require('../../static/img/orgaos_1.jpg')} className="cbp-caption"
-          data-title="Sed feugiat porttitor nunc<br>by Vivamus">
+        <Link to={'festividades/'} target="_blank" className="cbp-caption"
+          data-title="Festividades">
           <div className="cbp-caption-defaultWrap">
             <img src={require('../../static/img/orgaos_1.jpg')} />
           </div>

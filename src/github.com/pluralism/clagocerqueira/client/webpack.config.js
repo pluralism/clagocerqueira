@@ -64,6 +64,11 @@ module.exports = {
       web('application.js')
     ],
 
+    map: [
+        web('static/jquery-jvectormap/jquery-jvectormap-2.0.3.css'),
+        web('static/jquery-jvectormap/jquery-jvectormap-2.0.3.min.js'),
+    ],
+
     images: [].concat.apply([], [
             extractImages('static/img/site/presidents/1976_2013/'),
             extractImages('static/img/site/councilmen/1976_2013/'),
