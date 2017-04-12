@@ -106,7 +106,7 @@ const Constants = {
   MINIMUM_WAIT_TIME: 500,
 
 
-  
+
   PARISHES: {
       'aboadela_sanche': 'Aboadela e Sanche',
       'aboim_vila_garcia': 'Aboim e Vila Garcia',
@@ -117,7 +117,7 @@ const Constants = {
       'cepelos_gatao_sao_goncalo': 'Cepelos, São Gonçalo e Gatão',
       'figueiro_santa_cristina_santiago': 'Figueiró, Santa Cristina e Santiago',
       'fregim': 'Fregim',
-      'freixo_baixo_cima': 'Freixo de Baixo e Freixo de Cima'
+      'freixo_baixo_cima': 'Freixo de Baixo e Freixo de Cima',
       'fridao': 'Fridão',
       'gondar': 'Gondar',
       'gouveia': 'Gouveia',
