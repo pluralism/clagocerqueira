@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { Constants } from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
@@ -99,7 +100,7 @@ class FestivitiesView extends React.Component {
     }
 
 
-    renderUpperSection() {
+    renderContent() {
         return (
             <section id="festividades_data">
                 <div className="g-pt-40">
@@ -116,9 +117,20 @@ class FestivitiesView extends React.Component {
                     <div className="search_on_list g-mb-30 text-center font-main">
                         <input type="text" placeholder="Pesquisar festividades&#8230;" />
                     </div>
-                </div>
 
-                {this.renderParishesSelect()}
+                    {this.renderParishesSelect()}
+
+                    <div className="tab-v7 g-mt-30">
+                        <ul className="tab-v7-nav" role="tablist">
+                            <li role="presentation" className="active">
+                                <Link to={"#first_tab"}
+                                      role="tab"
+                                      data-toggle="tab">{Constants.PARISHES[this.state.currentParish]}
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         );
     }
@@ -167,7 +179,7 @@ class FestivitiesView extends React.Component {
             <div>
                 <main className="container-fluid">
                     {this.renderHeader()}
-                    {this.renderUpperSection()}
+                    {this.renderContent()}
                     <Footer />
                 </main>
             </div>
