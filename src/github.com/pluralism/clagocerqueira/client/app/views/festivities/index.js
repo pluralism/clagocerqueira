@@ -126,9 +126,20 @@ class FestivitiesView extends React.Component {
 
     handleParishChange(e) {
         this.setState({
-            currentParish: e.target.value
+            currentParish: e.target.value,
+            page: 1
         }, () => {
-            console.log("Parish is now " + this.state.currentParish);
+            const { dispatch } = this.props;
+            let obj = {
+                mapping: this.state.currentParish,
+                page: this.state.currentPage
+            };
+
+
+            dispatch(GeneralObjectsActions.
+            getDataByPageParishes(this.state.currentParish,
+                obj.mapping,
+                obj.page));
         });
     }
 
