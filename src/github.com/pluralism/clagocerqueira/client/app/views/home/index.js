@@ -71,136 +71,240 @@ class HomeIndexView extends React.Component {
       let imprensaGrid = $('.imprensa-grid');
       let personalidadesGrid = $('#personalidades-grid');
 
-      let mapHash = {}, colors = {};
+      let mapHash = {}, colors = {}, mappings = {};
+
+      mapHash['svg_8'] = 'Amarante, Madalena, Cepelos e Gatão';
+      mappings['svg_8'] = 'cepelos_gatao_sao_goncalo';
 
       for (let i = 194; i <= 227; i++) {
         mapHash['svg_' + i] = 'Amarante, Madalena, Cepelos e Gatão';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'cepelos_gatao_sao_goncalo';
       }
+
+      mapHash['svg_12'] = 'Lufrei';
+      mappings['svg_12'] = 'lufrei';
 
       for (let i = 133; i <= 138; i++) {
         mapHash['svg_' + i] = 'Lufrei';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'lufrei';
       }
+
+      mapHash['svg_17'] = 'Padronelo';
+      mappings['svg_17'] = 'padronelo';
 
       for (let i = 116; i <= 124; i++) {
         mapHash['svg_' + i] = 'Padronelo';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'padronelo';
       }
+
+      mapHash['svg_16'] = 'Gondar';
+      mappings['svg_16'] = 'gondar';
 
       for (let i = 126; i <= 131; i++) {
         mapHash['svg_' + i] = 'Gondar';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'gondar';
       }
+
+      mapHash['svg_13'] = 'Fregim';
+      mappings['svg_13'] = 'fregim';
 
       for (let i = 260; i <= 265; i++) {
         mapHash['svg_' + i] = 'Fregim';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'fregim';
       }
+
+      mapHash['svg_11'] = 'Mancelos';
+      mappings['svg_11'] = 'mancelos';
 
       for (let i = 251; i <= 258; i++) {
         mapHash['svg_' + i] = 'Mancelos';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'mancelos';
       }
+
+      mapHash['svg_18'] = 'Vila Meã';
+      mappings['svg_18'] = 'vila_mea';
 
       for (let i = 276; i <= 282; i++) {
         mapHash['svg_' + i] = 'Vila Meã';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'vila_mea';
       }
+
+      mapHash['svg_14'] = 'Travanca';
+      mappings['svg_14'] = 'travanca';
 
       for (let i = 267; i <= 274; i++) {
         mapHash['svg_' + i] = 'Travanca';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'travanca';
       }
+
+      mapHash['svg_7'] = 'Figueiró, Santiago e Santa Cristina';
+      mappings['svg_7'] = 'figueiro_santa_cristina_santiago';
 
       for (let i = 292; i <= 324; i++) {
         mapHash['svg_' + i] = 'Figueiró, Santiago e Santa Cristina';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'figueiro_santa_cristina_santiago';
       }
+
+      mapHash['svg_6'] = 'Freixo de Cima e de Baixo';
+      mappings['svg_6'] = 'freixo_baixo_cima';
 
       for (let i = 229; i <= 249; i++) {
         mapHash['svg_' + i] = 'Freixo de Cima e de Baixo';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'freixo_baixo_cima';
       }
+
+      mapHash['svg_2'] = 'Telões';
+      mappings['svg_2'] = 'teloes';
 
       for (let i = 187; i <= 192; i++) {
         mapHash['svg_' + i] = 'Telões';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'teloes';
       }
+
+      mapHash['svg_3'] = 'Vila Garcia, Aboim e Chapa';
+      mappings['svg_3'] = 'aboim_vila_garcia';
 
       for (let i = 163; i <= 185; i++) {
         mapHash['svg_' + i] = 'Vila Garcia, Aboim e Chapa';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'aboim_vila_garcia';
       }
+
+      mapHash['svg_5'] = 'Fridão';
+      mappings['svg_5'] = 'fridao';
 
       for (let i = 156; i <= 161; i++) {
         mapHash['svg_' + i] = 'Fridão';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'fridao';
       }
+
+      mapHash['svg_1'] = 'Rebordelo';
+      mappings['svg_1'] = 'rebordelo';
 
       for (let i = 28; i <= 36; i++) {
         mapHash['svg_' + i] = 'Rebordelo';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'rebordelo';
       }
+
+      mapHash['svg_4'] = 'Ôlo e Canadelo';
+      mappings['svg_4'] = 'canadelo_olo';
 
       for (let i = 38; i <= 49; i++) {
         mapHash['svg_' + i] = 'Ôlo e Canadelo';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'canadelo_olo';
       }
+
+      mapHash['svg_9'] = 'Vila Chã do Marão';
+      mappings['svg_9'] = 'vila_cha_marao';
 
       for (let i = 140; i <= 154; i++) {
         mapHash['svg_' + i] = 'Vila Chã do Marão';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'vila_cha_marao';
       }
+
+      mapHash['svg_10'] = 'Aboadela, Sanche e Várzea';
+      mappings['svg_10'] = 'aboadela_sanche';
 
       for (let i = 358; i <= 380; i++) {
         mapHash['svg_' + i] = 'Aboadela, Sanche e Várzea';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'aboadela_sanche';
       }
+
+      mapHash['svg_15'] = 'Ansiães';
+      mappings['svg_15'] = 'ansiaes';
 
       for (let i = 51; i <= 57; i++) {
         mapHash['svg_' + i] = 'Ansiães';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'ansiaes';
       }
+
+      mapHash['svg_20'] = 'Candemil';
+      mappings['svg_20'] = 'candemil';
 
       for (let i = 59; i <= 66; i++) {
         mapHash['svg_' + i] = 'Candemil';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'candemil';
       }
+
+      mapHash['svg_25'] = 'Bustelo, Carneiro e Carvalho de Rei';
+      mappings['svg_25'] = 'bustelo_carvalho_rei';
 
       for (let i = 68; i <= 98; i++) {
         mapHash['svg_' + i] = 'Bustelo, Carneiro e Carvalho de Rei';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'bustelo_carvalho_rei';
       }
+
+      mapHash['svg_26'] = 'Gouveia';
+      mappings['svg_26'] = 'gouveia';
 
       for (let i = 100; i <= 106; i++) {
         mapHash['svg_' + i] = 'Gouveia';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'Gouveia';
       }
+
+      mapHash['svg_23'] = 'Jazente';
+      mappings['svg_23'] = 'jazente';
 
       for (let i = 108; i <= 114; i++) {
         mapHash['svg_' + i] = 'Jazente';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'jazente';
       }
+
+      mapHash['svg_21'] = 'Lomba';
+      mappings['svg_21'] = 'lomba';
 
       for (let i = 326; i <= 330; i++) {
         mapHash['svg_' + i] = 'Lomba';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'lomba';
       }
+
+      mapHash['svg_19'] = 'Louredo';
+      mappings['svg_19'] = 'louredo';
 
       for (let i = 284; i <= 290; i++) {
         mapHash['svg_' + i] = 'Louredo';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'louredo';
       }
+
+      mapHash['svg_22'] = 'Salvador do Monte';
+      mappings['svg_22'] = 'salvador';
 
       for (let i = 332; i <= 347; i++) {
         mapHash['svg_' + i] = 'Salvador do Monte';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'salvador';
       }
+
+      mapHash['svg_24'] = 'Vila Caíz';
+      mappings['svg_24'] = 'vila_caiz';
 
       for (let i = 349; i <= 356; i++) {
         mapHash['svg_' + i] = 'Vila Caíz';
         colors['svg_' + i] = '#5D2F30';
+        mappings['svg_' + i] = 'vila_caiz';
       }
 
 
@@ -221,9 +325,13 @@ class HomeIndexView extends React.Component {
           backgroundColor: '#5D2F30',
           onRegionTipShow: function (e, el, code) {
               if (code in mapHash)
-                  el.html(mapHash[code]);
+                el.html(mapHash[code]);
               else
-                  el.html(el.html());
+                el.html(el.html());
+          },
+          onRegionClick: function (e, code) {
+              console.log(code);
+              console.log(mappings[code]);
           }
       });
 

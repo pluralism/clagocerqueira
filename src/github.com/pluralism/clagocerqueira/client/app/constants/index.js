@@ -133,7 +133,15 @@ const Constants = {
       'lufrei': 'Lufrei',
       'mancelos': 'Mancelos',
       'oliveira': 'Oliveira',
-      'padronelo': 'Padronelo'
+      'padronelo': 'Padronelo',
+      'real': 'Real',
+      'rebordelo': 'Rebordelo',
+      'salvador': 'Salvador do Monte',
+      'teloes': 'Telões',
+      'travanca': 'Travanca',
+      'vila_caiz': 'Vila Caíz',
+      'vila_cha_marao': 'Vila Chã do Marão',
+      'vila_mea': 'Vila Meã'
   },
 };
 
