@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
+import {GeneralObjectTab} from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
 import GeneralObjectsActions from '../../actions/generalObjects';
 
@@ -129,9 +130,30 @@ class FestivitiesView extends React.Component {
                                 </Link>
                             </li>
                         </ul>
+
+                        {this.renderTabContents()}
                     </div>
                 </div>
             </section>
+        );
+    }
+
+
+    renderTabContents() {
+        const { parishes } = this.props;
+
+        return (
+            <div className="tab-content">
+                <GeneralObjectTab
+                    tabID={'#first_tab'}
+                    subtitle={Constants.PARISHES[this.state.currentParish]}
+                    active={true}
+                    data={parishes.objects_data} />
+
+
+                <div className="control-buttons">
+                </div>
+            </div>
         );
     }
 
