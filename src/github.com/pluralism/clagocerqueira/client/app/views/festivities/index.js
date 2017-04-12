@@ -95,7 +95,27 @@ class FestivitiesView extends React.Component {
                         <input type="text" placeholder="Pesquisar festividades&#8230;" />
                     </div>
                 </div>
+
+                {this.renderParishesSelect()}
             </section>
+        );
+    }
+
+
+
+    renderParishesSelect() {
+        return (
+            <div className="parishes_select">
+                <label className="select">
+                    <select className="rounded font-main">
+                        <option value="0" selected>Selecionar freguesia&#8230;</option>
+                        <option value="1">Service 1 Service 1 Service 1 Service 1</option>
+                        <option value="2">Service 2</option>
+                        <option value="3">Service 3</option>
+                        <option value="4">Service 4</option>
+                    </select>
+                </label>
+            </div>
         );
     }
 

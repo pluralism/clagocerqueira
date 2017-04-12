@@ -1294,3 +1294,19 @@ body {
 .bounce-icon {
   margin-right: 20px;
 }
+
+
+.parishes_select {
+    display: flex;
+    justify-content: center;
+}
+
+
+.select select {
+    background: #FFF;
+    box-shadow: none;
+    padding: 10px 15px;
+    color: #333;
+    font-weight: 400;
+    font-size: 16px;
+}

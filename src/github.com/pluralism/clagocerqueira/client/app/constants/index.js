@@ -104,6 +104,31 @@ const Constants = {
 
 
   MINIMUM_WAIT_TIME: 500,
+
+
+  
+  PARISHES: {
+      'aboadela_sanche': 'Aboadela e Sanche',
+      'aboim_vila_garcia': 'Aboim e Vila Garcia',
+      'ansiaes': 'Ansiães',
+      'bustelo_carvalho_rei': 'Bustelo e Carvalho de Rei',
+      'canadelo_olo': 'Canadelo e Ôlo',
+      'candemil': 'Candemil',
+      'cepelos_gatao_sao_goncalo': 'Cepelos, São Gonçalo e Gatão',
+      'figueiro_santa_cristina_santiago': 'Figueiró, Santa Cristina e Santiago',
+      'fregim': 'Fregim',
+      'freixo_baixo_cima': 'Freixo de Baixo e Freixo de Cima'
+      'fridao': 'Fridão',
+      'gondar': 'Gondar',
+      'gouveia': 'Gouveia',
+      'jazente': 'Jazente',
+      'lomba': 'Lomba',
+      'louredo': 'Louredo',
+      'lufrei': 'Lufrei',
+      'mancelos': 'Mancelos',
+      'oliveira': 'Oliveira',
+      'padronelo': 'Padronelo'
+  },
 };
 
 
