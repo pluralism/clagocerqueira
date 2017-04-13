@@ -73,11 +73,32 @@ class StatutesView extends React.Component {
     }
 
 
+    renderContent() {
+        return (
+            <section id="estatutos_data">
+                <div className="g-pt-40">
+                    <div className="text-center g-mb-30">
+                        <div className="g-mb-30">
+                            <h2><span className="g-color-default">Estatutos da Associação</span></h2>
+                        </div>
+                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
+                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.
+                        </p>
+                    </div>
+
+                    <hr />
+                </div>
+            </section>
+        );
+    }
+
+
     render() {
         return (
             <div>
                 <main className="container-fluid">
                     {this.renderHeader()}
+                    {this.renderContent()}
                     <Footer />
                 </main>
             </div>
