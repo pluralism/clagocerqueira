@@ -24,6 +24,7 @@ class Footer extends React.Component {
             <ul className="list-inline">
               <li><Link to={'estatutos'} target="_blank">Estatutos da Associação</Link></li>
               <li><Link to={'lago_cerqueira'} target="_blank">António Lago Cerqueira</Link></li>
+              <li><Link to={'orgaos_sociais'} target="_blank">Órgãos Sociais</Link></li>
             </ul>
           </div>
         </div>

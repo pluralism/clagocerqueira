@@ -71,6 +71,8 @@ class LagoCerqueiraView extends React.Component {
         );
     }
 
+
+
     renderTitle() {
         return (
             <div className="text-center g-mb-30">
