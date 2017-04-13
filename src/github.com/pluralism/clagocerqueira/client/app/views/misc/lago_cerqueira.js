@@ -86,6 +86,10 @@ class LagoCerqueiraView extends React.Component {
         return (
             <div className="misc-content g-mb-50">
                 <div className="g-pt-10">
+                    <img width={'300px'} height={'300px'}
+                        src={require('../../static/img/site/lago_cerqueira.jpg')}
+                        className="img-responsive pull-right" />
+
                     <p className="article">
                         António Joaquim Machado do Lago Cerqueira nasceu na casa da Calçada,
                         freguesia de Cepelos, a 11 de outubro de 1880, em Amarante. Era filho de Francisco
