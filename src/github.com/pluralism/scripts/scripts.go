@@ -25,6 +25,7 @@ const riversCollection = "rivers"
 const brooksCollection = "brooks"
 const mountainsCollection = "mountains"
 const parishesCollection = "parishes"
+const cityCouncilCollection = "city_council"
 
 // Maps are reference types, which means they must be initialized, like
 // pointers and slices
@@ -561,6 +562,33 @@ func insertBrooksOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 }
 
+
+func insertCityCouncilOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	cityCouncilExist := findElement(collectionNames, cityCouncilCollection)
+
+	if cityCouncilExist {
+		err := db.C(cityCouncilCollection).DropCollection()
+
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+	var currentDate = "1976_2013"
+	cityCouncilData := readGeneralFile("city_council/assembleiaMunicipal1976_2013.csv",
+		"/public/prod/images/monarquia.jpg", currentDate)
+
+	if !insertListOnDatabase(session, dbName, cityCouncilCollection, cityCouncilData) {
+		panic(fmt.Sprintf("[!] City council on date %s could not be inserted!", currentDate))
+	} else {
+		fmt.Println(fmt.Sprintf("[*] City council on date %s inserted with success!", currentDate))
+	}
+}
+
 func insertMountainsOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -633,6 +661,7 @@ func main() {
 	session.SetMode(mgo.Monotonic, true)
 	collectionNames, _ := session.DB(dbName).CollectionNames()
 
+
 	/**
 	 * Define the flags allowed in the command line here
 	 * Each flag returns a pointer of type T, so we can access the value
@@ -648,6 +677,8 @@ func main() {
 	var brooksFlag = flag.Bool("brooks", false, "inserts brooks on the database")
 	var mountainsFlag = flag.Bool("mountains", false, "inserts mountains on the database")
 	var parishesFlag = flag.Bool("parishes", false, "inserts parishes on the database")
+	var cityCouncilFlag = flag.Bool("cityCouncil", false, "inserts city council data on the database")
+
 	// Parse the flags
 	flag.Parse()
 
@@ -689,6 +720,10 @@ func main() {
 
 	if *parishesFlag {
 		insertParishesOnDatabase(collectionNames, session)
+	}
+
+	if *cityCouncilFlag {
+		insertCityCouncilOnDatabase(collectionNames, session)
 	}
 
 	fmt.Println("[*] Completed!")
