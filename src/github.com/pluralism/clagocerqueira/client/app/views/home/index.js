@@ -756,7 +756,7 @@ class HomeIndexView extends React.Component {
 
                   {this.renderAssociacoesItem('Associações Recreativas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/recreative',
+                    'associacoes/recreational',
                     'Associações Recreativas')}
 
                   {this.renderAssociacoesItem('Associações Culturais',
