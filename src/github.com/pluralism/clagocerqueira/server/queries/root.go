@@ -48,6 +48,46 @@ func getAssociations() *graphql.Field {
 	}
 }
 
+
+func getCityCouncil() *graphql.Field {
+	return &graphql.Field{
+		Type: types.GeneralListType,
+		Description: "Extracts the city counci for a given date",
+		Args: graphql.FieldConfigArgument{
+			"name": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			name, nameOK := p.Args["name"].(string)
+			page, pageOK := p.Args["page"].(int)
+
+			if !nameOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"name\" argument was not provided")
+			}
+
+			if !pageOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"page\" argument was not provided")
+			}
+
+			result := controllers.GetcityCouncilByDate(refs.Session, name, page)
+
+			if result != nil {
+				return result, nil
+			}
+
+			// Something went wrong, return nil and an error informing that
+			// the city council data could not be extracted from the database
+			return nil, errors.New("the city council data could not be extracted")
+		},
+	}
+}
+
 func getFestivitiesForParish() *graphql.Field {
 	return &graphql.Field{
 		Type: types.GeneralListType,
@@ -205,6 +245,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 		"associations": getAssociations(),
 		"press":        getPress(),
 		"festivities": 	getFestivitiesForParish(),
+		"city_council": getCityCouncil(),
 		"authors": &graphql.Field{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",

@@ -9,5 +9,6 @@ const (
 	AUTHORS_COLLECTION       = "authors"
 	ASSOCIATIONS_COLLECTION  = "associations"
 	PRESS_COLLECTION         = "press"
-	PARISHES_COLLECTION = "parishes"
+	PARISHES_COLLECTION 	 = "parishes"
+	CITY_COUNCIL_COLLECTION  = "city_council"
 )

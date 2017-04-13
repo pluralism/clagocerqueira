@@ -5,21 +5,21 @@ import (
 
 	"github.com/pluralism/clagocerqueira/server/constants"
 	"github.com/pluralism/clagocerqueira/server/models"
-
-	mgo "gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetPresidentsByDate(s *mgo.Session, date string, page int) *models.GeneralObject {
+
+func GetcityCouncilByDate(s *mgo.Session, date string, page int) *models.GeneralObject {
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB(constants.DB_NAME).C(constants.PRESIDENTS_COLLECTION)
+	c := session.DB(constants.DB_NAME).C(constants.CITY_COUNCIL_COLLECTION)
 
 	/**
-	 * Find by the date field in the presidents collection
+	 * Find by the date field in the city council collection
 	 * Limit the number of objects returned in the "objects" field
-	 */
+	*/
 	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"name": date}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
