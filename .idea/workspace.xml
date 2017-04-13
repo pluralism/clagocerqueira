@@ -339,6 +339,7 @@
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="7.7.1" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/node_modules/react-router/es/Route.js&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/node_modules/jvectormap-next/jquery-jvectormap.css&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/jquery-jvectormap/amarante.js&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/associations/sports/assoc_freixo_cima.png&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/static/prod/map.css" />
+    <property name="GO_FMT" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -787,12 +788,20 @@
       <workItem from="1491942381418" duration="4391000" />
       <workItem from="1491983638501" duration="11980000" />
       <workItem from="1492012311091" duration="11962000" />
-      <workItem from="1492072215627" duration="10349000" />
+      <workItem from="1492072215627" duration="10364000" />
     </task>
+    <task id="LOCAL-00001" summary="Updating via IntelliJ">
+      <created>1492090611190</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1492090611190</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66589000" />
+    <option name="totallyTimeSpent" value="66604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -826,6 +835,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updating via IntelliJ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating via IntelliJ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
