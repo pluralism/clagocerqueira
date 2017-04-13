@@ -19,6 +19,13 @@ class Footer extends React.Component {
               <li><Link to={'#'}><i className="fa fa-youtube" /></Link></li>
             </ul>
           </div>
+
+          <div className="vertical-center links">
+            <ul className="list-inline">
+              <li><Link to={'#'} target="_blank">Estatutos da Associação</Link></li>
+              <li><Link to={'#'} target="_blank">Estatutos da Associação</Link></li>
+            </ul>
+          </div>
         </div>
       </section>
     );

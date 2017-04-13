@@ -12,6 +12,12 @@ class FestivitiesView extends React.Component {
         super(props);
 
         const { params } = this.props;
+
+        /**
+         * Select the parish that the user wants if it is a valid entry
+         * All the valids entries are registered in the PARISHES object, in the
+         * Constants file
+         */
         if(Object.keys(Constants.PARISHES).indexOf(params.type) > -1) {
             this.state = {
                 currentParish: params.type,
