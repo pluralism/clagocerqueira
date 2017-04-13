@@ -4,6 +4,7 @@ import MainLayout from '../layouts/main';
 import HomeIndexView from '../views/home';
 import PresidentsView from '../views/autonomous_bodies/presidents';
 import CouncilmenView from '../views/autonomous_bodies/councilmen';
+import CityCouncilView from '../views/autonomous_bodies/city_council';
 import PersonalitiesView from '../views/personalities/index';
 import AuthorsView from '../views/authors/index';
 import AssociationsView from '../views/associations/index';
@@ -22,6 +23,7 @@ export default function configRoutes(store) {
         <IndexRoute component={HomeIndexView} />
         <Route path="presidentes(/:type)" component={PresidentsView} />
         <Route path="vereadores(/:type)" component={CouncilmenView} />
+        <Route path="assembleia" component={CityCouncilView} />
         <Route path="personalidades" component={PersonalitiesView} />
         <Route path="autores(/:type)" component={AuthorsView} />
         <Route path="associacoes(/:type)" component={AssociationsView} />

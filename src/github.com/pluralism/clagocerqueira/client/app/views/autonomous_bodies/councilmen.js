@@ -213,31 +213,31 @@ class CouncilmenView extends React.Component {
               <li role="presentation"
                   className={isActiveTab(Constants.DATES.d1836_1910, this.state)}>
                 <Link to={"#first_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1836_1910, 1)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1836_1910)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1836_1910}</Link>
               </li>
               <li role="presentation"
                   className={isActiveTab(Constants.DATES.d1910_1926, this.state)}>
                 <Link to={"#second_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1910_1926, 2)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1910_1926)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1910_1926}</Link>
               </li>
               <li role="presentation"
                   className={isActiveTab(Constants.DATES.d1926_1974, this.state)}>
                 <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1926_1974, 3)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1926_1974)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1926_1974}</Link>
               </li>
               <li role="presentation"
                   className={isActiveTab(Constants.DATES.d1974_1976, this.state)}>
                 <Link to={"#fourth_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1974_1976, 4)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1974_1976)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1974_1976}</Link>
               </li>
               <li role="presentation"
                   className={isActiveTab(Constants.DATES.d1976_2013, this.state)}>
                 <Link to={"#fifth_tab"}
-                  onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013, 5)}
+                  onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
               </li>
             </ul>
