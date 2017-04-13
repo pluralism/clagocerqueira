@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 import { isActiveTab } from '../../utils/index';
 import { Constants } from '../../constants/index';
+import { GeneralObjectTab } from '../../components/common/generalObjectTab';
+import GeneralObjectsActions from '../../actions/generalObjects';
 
 
 
@@ -90,6 +92,29 @@ class CityCouncilView extends React.Component {
     }
 
 
+    componentDidMount() {
+        const { dispatch, params } = this.props;
+
+        const mappings = [
+            [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
+        ];
+
+
+        if(params.type !== undefined) {
+            if(params.type === Constants.DATES.d1976_2013) {
+                this.updateCurrentDate(params.type);
+            }
+        }
+
+        /**
+         * This function is invoked immediately after a component is mounted.
+         * This is a good place to load data from a remote endpoint and to perform
+         * network requests.
+         */
+        dispatch(GeneralObjectsActions.getAlLDataFromCityCouncil(mappings));
+    }
+
+
     updateCurrentDate(value) {
         /**
          * Update the currentDate variable and keep the page
@@ -102,6 +127,28 @@ class CityCouncilView extends React.Component {
         this.setState({
             activeTab: this.currentDate
         });
+    }
+
+
+    renderTabsContents() {
+        const { cityCouncil } = this.props;
+
+        return (
+            <div className="tab-content">
+                <GeneralObjectTab
+                    tabID={'#first_tab'}
+                    subtitle={"Assembleia Municipal"}
+                    active={this.state.activeTab === Constants.DATES.d1976_2013}
+                    dateMapping={Constants.MAPPINGS.d1976_2013}
+                    data={cityCouncil.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
+
+
+                <div className="control-buttons">
+                    <div className="prev-button" />
+                    <div className="next-button" />
+                </div>
+            </div>
+        );
     }
 
 
@@ -132,6 +179,9 @@ class CityCouncilView extends React.Component {
                                       role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
                             </li>
                         </ul>
+
+
+                        {this.renderTabsContents()}
                     </div>
                 </div>
             </section>
