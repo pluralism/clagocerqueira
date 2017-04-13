@@ -9,6 +9,7 @@ import AuthorsView from '../views/authors/index';
 import AssociationsView from '../views/associations/index';
 import PressView from '../views/press/index';
 import FestivitiesView from '../views/festivities/index';
+import StatutesView from '../views/misc/statutes';
 
 
 
@@ -24,6 +25,7 @@ export default function configRoutes(store) {
         <Route path="associacoes(/:type)" component={AssociationsView} />
         <Route path="imprensa(/:type)" component={PressView} />
         <Route path="festividades(/:type)" component={FestivitiesView} />
+        <Route path="estatutos" component={StatutesView} />
       </Route>
     </Route>
   );
