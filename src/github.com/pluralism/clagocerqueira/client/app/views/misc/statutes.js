@@ -72,21 +72,75 @@ class StatutesView extends React.Component {
         );
     }
 
+    renderTitle() {
+        return (
+            <div className="text-center g-mb-30">
+                <div className="g-mb-30">
+                    <h2><span className="g-color-default">Estatutos da Associação</span></h2>
+                </div>
+                <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
+                    Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.
+                </p>
+            </div>
+        );
+    }
 
-    renderContent() {
+
+    renderPageContent() {
+        return (
+            <div className="statutes-content">
+                <div className="text-center">
+                    <h1>CAPÍTULO I</h1>
+                    <h2>CONSTITUIÇÃO, SEDE, ÁREA E ATRIBUIÇÕES</h2>
+                    <h3>ARTIGOS</h3>
+                    <h3 className="title_light">1º</h3>
+                </div>
+
+                <div className="g-pt-20">
+                    <p className="article">
+                        A Associação denomina-se “CÍRCULO LAGO CERQUEIRA”, e vai ter a sua sede na rua Carvalhas
+                        de Sá, freguesia de São Gonçalo, concelho de Amarante, é criada por tempo indeterminada.
+                    </p>
+                </div>
+
+
+                <div className="text-center">
+                    <h3 className="title_light">2º</h3>
+                </div>
+
+
+                <div className="g-pt-20">
+                    <p className="article">
+                        A Associação “CÍRCULO LAGO CERQUEIRA”, desenvolve a sua atividade em
+                        Portugal e no Mundo, com toda a independência em relação a Autarquias,
+                        Partidos Políticos, Confissões Religiosas e Entidades Privadas.
+                    </p>
+                </div>
+
+
+                <div className="text-center">
+                    <h3 className="title_light">3º</h3>
+                </div>
+
+
+                <div className="g-pt-20">
+                    <p className="article">
+                        A Associação tem por objeto divulgações, conferências, exposições, promoção de
+                        atividades e eventos, projetos e programas culturais.
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
+
+    renderTitleAndContent() {
         return (
             <section id="estatutos_data">
                 <div className="g-pt-40">
-                    <div className="text-center g-mb-30">
-                        <div className="g-mb-30">
-                            <h2><span className="g-color-default">Estatutos da Associação</span></h2>
-                        </div>
-                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.
-                        </p>
-                    </div>
-
+                    {this.renderTitle()}
                     <hr />
+                    {this.renderPageContent()}
                 </div>
             </section>
         );
@@ -98,7 +152,7 @@ class StatutesView extends React.Component {
             <div>
                 <main className="container-fluid">
                     {this.renderHeader()}
-                    {this.renderContent()}
+                    {this.renderTitleAndContent()}
                     <Footer />
                 </main>
             </div>
