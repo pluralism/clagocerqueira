@@ -1333,17 +1333,26 @@ body {
 }
 
 
-.statutes-content {
+.misc-content {
     .title_light {
         font-weight: 300;
     }
 
-    .statutes_date {
+    .date {
         margin-left: 20px;
 
         p {
             font-size: 16px;
             font-weight: 300;
+        }
+    }
+
+    .author {
+        margin-left: 20px;
+
+        p {
+            font-size: 16px;
+            font-weight: 700;
         }
     }
 

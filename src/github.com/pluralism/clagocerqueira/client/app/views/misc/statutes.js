@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import Footer from '../../components/common/footer';
 
 
@@ -88,7 +87,7 @@ class StatutesView extends React.Component {
 
     renderPageContent() {
         return (
-            <div className="statutes-content g-mb-50">
+            <div className="misc-content g-mb-50">
                 <div className="text-center g-pt-20">
                     <h1>CAPÍTULO I</h1>
                     <h2>CONSTITUIÇÃO, SEDE, ÁREA E ATRIBUIÇÕES</h2>
@@ -389,7 +388,7 @@ class StatutesView extends React.Component {
 
                 <hr />
 
-                <div className="statutes_date">
+                <div className="date">
                     <p>Amarante, 02 de março de 2005</p>
                 </div>
             </div>

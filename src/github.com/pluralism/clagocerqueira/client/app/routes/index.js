@@ -10,6 +10,7 @@ import AssociationsView from '../views/associations/index';
 import PressView from '../views/press/index';
 import FestivitiesView from '../views/festivities/index';
 import StatutesView from '../views/misc/statutes';
+import LagoCerqueiraView from '../views/misc/lago_cerqueira';
 
 
 
@@ -26,6 +27,7 @@ export default function configRoutes(store) {
         <Route path="imprensa(/:type)" component={PressView} />
         <Route path="festividades(/:type)" component={FestivitiesView} />
         <Route path="estatutos" component={StatutesView} />
+        <Route path="lago_cerqueira" component={LagoCerqueiraView} />
       </Route>
     </Route>
   );
