@@ -127,6 +127,24 @@ class SocialEntitiesView extends React.Component {
                         <strong>Vogal</strong> – Carlos Machado Teixeira
                     </p>
                 </div>
+
+
+                <div className="text-center g-pt-40">
+                    <h2>CONSELHO FISCAL</h2>
+                </div>
+
+
+                <div className="text-center g-pt-20">
+                    <p className="social_entities_text">
+                        <strong>Presidente</strong> – António José Moura Ferreira
+                    </p>
+                    <p className="social_entities_text">
+                        <strong>Vice-presidente</strong> – André Pinto da Silva Clemente Teixeira
+                    </p>
+                    <p className="social_entities_text">
+                        <strong>Vogal</strong> – Sérgio Martins Vieira da Cunha
+                    </p>
+                </div>
             </div>
         );
     }
