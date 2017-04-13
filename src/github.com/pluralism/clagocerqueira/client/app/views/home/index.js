@@ -50,29 +50,6 @@ class HomeIndexView extends React.Component {
 
     this.showedMessage = false;
     this.isButtonDisabled = true;
-
-
-    this.socialImages = [
-        '/public/prod/images/bem_estar.jpg',
-        '/public/prod/images/cruz_vermelha.jpg',
-        '/public/prod/images/sentido_unico.jpg',
-        '/public/prod/images/terra_dos_homens.jpg',
-        '/public/prod/images/centro_social_compartes.jpg',
-    ];
-
-    this.sportsImages = [
-        '/public/prod/images/academico_amarante.png',
-        '/public/prod/images/ada.png',
-        '/public/prod/images/aguas_bravas_clube.jpg',
-        '/public/prod/images/moto_clube_amarante.jpg',
-    ];
-
-    this.culturalImages = [
-        '/public/prod/images/abade_jazente.jpg',
-        '/public/prod/images/cca.jpg',
-        '/public/prod/images/gatilho.jpg',
-        '/public/prod/images/camerata_artes.png',
-    ];
   }
 
 
@@ -93,27 +70,8 @@ class HomeIndexView extends React.Component {
       let festividadesGrid = $('#festividades-grid');
       let imprensaGrid = $('.imprensa-grid');
       let personalidadesGrid = $('#personalidades-grid');
-      let associacoesCbpGrid = $('.associacoes-cbp-grid');
 
       let mapHash = {}, colors = {}, mappings = {};
-
-
-        associacoesCbpGrid.cubeportfolio({
-          layoutMode: 'grid',
-          sortToPreventGaps: true,
-          defaultFilter: '*',
-          animationType: 'fadeOutTop',
-          gapHorizontal: 0,
-          gapVertical: 0,
-          mediaQueries: [{
-              width: 320,
-              cols: 2
-          }],
-          gridAdjustment: 'responsive',
-          caption: 'minimal',
-          displayType: 'lazyLoading',
-          displayTypeSpeed: 100
-      });
 
       mapHash['svg_8'] = 'Amarante, Madalena, Cepelos e Gatão';
       mappings['svg_8'] = 'cepelos_gatao_sao_goncalo';
@@ -747,23 +705,13 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderAssociacoesItem(title, description, link, images, altText = undefined) {
+  renderAssociacoesItem(title, description, link, altText = undefined) {
     return (
       <div className="item associacoes-list-item">
-        <div className="cbp associacoes-cbp-grid">
-            {images.map((image) => {
-              return <div className="cbp-item">
-                <Link to={image}
-                      className="cbp-caption cbp-lightbox">
-                  <div className="cbp-caption-defaultWrap img-wrapper--shadow">
-                    <img src={image}
-                         alt={altText === undefined ? "Órgãos 1" : altText} />
-                  </div>
-                </Link>
-              </div>
-            })}
+        <div className="img-wrapper img-wrapper--shadow">
+          <img src={require('../../static/img/orgaos_1.jpg')} className="img-responsive"
+               alt={altText === undefined ? "Órgãos 1" : altText} />
         </div>
-
         <h3>{title}</h3>
         <p>{description}</p>
         <Link to={link} target="_blank" className="btn-u btn-u-lg btn-u-upper">Ver Mais</Link>
@@ -792,37 +740,31 @@ class HomeIndexView extends React.Component {
                   {this.renderAssociacoesItem('Associações Sociais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/social',
-                    this.socialImages,
                     'Associações Sociais')}
 
                   {this.renderAssociacoesItem('Associações Cívicas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/civic',
-                      this.socialImages,
                     'Associações Cívicas')}
 
                   {this.renderAssociacoesItem('Associações Desportivas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/sports',
-                      this.sportsImages,
                     'Associações Desportivas')}
 
                   {this.renderAssociacoesItem('Associações Recreativas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/recreational',
-                      this.socialImages,
                     'Associações Recreativas')}
 
                   {this.renderAssociacoesItem('Associações Culturais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/cultural',
-                      this.culturalImages,
                     'Associações Culturais')}
 
                   {this.renderAssociacoesItem('Associações Religiosas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/religious',
-                      this.socialImages,
                     'Associações Religiosas')}
                 </div>
               </div>
