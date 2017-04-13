@@ -66,7 +66,7 @@ class HomeIndexView extends React.Component {
 
       let gridContainer = $('#grid-container');
       let associacoesList = $('.associacoes-list');
-      let orgaosAutarquicosList = $('.orgaos_autarquicos_list');
+      let orgaosAutarquicosList = $('#orgaos_autarquicos_list');
       let festividadesGrid = $('#festividades-grid');
       let imprensaGrid = $('.imprensa-grid');
       let personalidadesGrid = $('#personalidades-grid');
@@ -469,14 +469,8 @@ class HomeIndexView extends React.Component {
           650: {
             items: 3
           },
-          850: {
-            items: 4
-          },
-          1024: {
-            items: 5
-          },
           1270: {
-            items: 6
+            items: 4
           }
         },
         navText: [, ],
@@ -688,14 +682,22 @@ class HomeIndexView extends React.Component {
             </div>
 
             <div className="orgaos_autarquicos_wrapper">
-              <div className="orgaos_autarquicos_list">
-                {this.renderOrgaosAutarquicosCard('Presidentes', 'Presidentes de Amarante', 'presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'vereadores')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
-                {this.renderOrgaosAutarquicosCard('Vereadores', 'Vereadores de Amarante', 'presidentes')}
+              <div id="orgaos_autarquicos_list">
+                {this.renderOrgaosAutarquicosCard('Presidentes',
+                    'Presidentes da câmara de Amarante',
+                    'presidentes')}
+
+                {this.renderOrgaosAutarquicosCard('Vereadores',
+                    'Vereadores da câmara de Amarante',
+                    'vereadores')}
+
+                {this.renderOrgaosAutarquicosCard('Presidentes',
+                    'Presidentes da Assembleia Municipal',
+                    'assembleia')}
+
+                {this.renderOrgaosAutarquicosCard('Presidentes',
+                    'Presidentes das juntas de freguesia',
+                    'assembleia')}
               </div>
             </div>
           </div>
@@ -870,6 +872,7 @@ class HomeIndexView extends React.Component {
                 justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
               </p>
             </div>
+
 
             <div className="imprensa-grid imprensa-theme">
               {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina',
