@@ -66,6 +66,7 @@ const updateDataForName = (data, state) => {
   keys.forEach((key) => {
     stateData[key] = data[key];
   });
+
   return stateData;
 };
 

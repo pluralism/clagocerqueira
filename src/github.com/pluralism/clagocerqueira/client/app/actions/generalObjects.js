@@ -143,6 +143,18 @@ GeneralObjectsActions.getDataByPageCouncilmen = (name, mapping, page) => {
 };
 
 
+GeneralObjectsActions.getDataByPageCityCouncil = (name, mapping, page) => {
+    return GeneralObjectsActions.getDataByPage(
+        name,
+        mapping,
+        page,
+        Constants.CITY_COUNCIL_TABLE,
+        Constants.LOADING_DATA,
+        Constants.LOADING_DATA_ERROR,
+        Constants.LOADING_DATA_SUCCESS);
+};
+
+
 GeneralObjectsActions.getDataByPagePresidents = (name, mapping, page) => {
   return GeneralObjectsActions.getDataByPage(
     name,
@@ -254,9 +266,9 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
 
 
 GeneralObjectsActions.getAlLDataFromCityCouncil = (mappings) => {
-  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_CITY_COUNCIL,
-    Constants.LOADING_DATA_ERROR_CITY_COUNCIL,
-    Constants.LOADING_DATA_SUCCESS_CITY_COUNCIL,
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA,
+    Constants.LOADING_DATA_ERROR,
+    Constants.LOADING_DATA_SUCCESS,
     1,
     mappings,
     Constants.CITY_COUNCIL_TABLE);

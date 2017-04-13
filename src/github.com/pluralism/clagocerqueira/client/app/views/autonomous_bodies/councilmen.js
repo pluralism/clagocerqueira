@@ -288,8 +288,8 @@ class CouncilmenView extends React.Component {
 
 
         <div className="control-buttons">
-          <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
-          <div className="next-button" onClick={() => this.getNextPageContent()}/>
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()} />
+          <div className="next-button" onClick={() => this.getNextPageContent()} />
         </div>
       </div>
     );

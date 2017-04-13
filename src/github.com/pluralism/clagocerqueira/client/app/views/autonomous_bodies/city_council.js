@@ -26,6 +26,37 @@ class CityCouncilView extends React.Component {
             activeTab: this.currentDate,
             canSwitchPage: true,
         };
+
+
+        document.addEventListener("keydown", ::this.handleKeyDownEvent);
+    }
+
+
+    canUseSwitchPage() {
+        this.setState({
+            canSwitchPage: false
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    canSwitchPage: true
+                });
+            }, Constants.MINIMUM_WAIT_TIME);
+        });
+    }
+
+
+    handleKeyDownEvent(e) {
+        if(e.keyCode === 37 && this.state.canSwitchPage) {
+            // Left arrow was pressed
+            this.getPreviousPageContent();
+            // Prevent the user from pressing the button too fast (wait 0.5s)
+            this.canUseSwitchPage();
+        } else if(e.keyCode === 39 && this.state.canSwitchPage) {
+            // Right arrow was pressed
+            this.getNextPageContent();
+            // Prevent the user from pressing the button too fast (wait 0.5s)
+            this.canUseSwitchPage();
+        }
     }
 
 
@@ -130,6 +161,35 @@ class CityCouncilView extends React.Component {
     }
 
 
+    getPreviousPageContent() {
+        const { dispatch } = this.props;
+        let obj = this.dateAndPageMappings[this.currentDate];
+        let currentPage = obj.page;
+
+        if(currentPage > 1) {
+            obj.page -= 1;
+
+            dispatch(GeneralObjectsActions.getDataByPageCityCouncil(this.currentDate,
+                obj.mapping, obj.page));
+        }
+    }
+
+
+    getNextPageContent() {
+        const { cityCouncil, dispatch } = this.props;
+        let obj = this.dateAndPageMappings[this.currentDate];
+        let currentPage = obj.page;
+        let cityCouncilMapping = cityCouncil.data[obj.mapping];
+
+        if(currentPage < cityCouncilMapping.objects.max_pages) {
+            obj.page += 1;
+
+            dispatch(GeneralObjectsActions.getDataByPageCityCouncil(this.currentDate,
+                obj.mapping, obj.page));
+        }
+    }
+
+
     renderTabsContents() {
         const { cityCouncil } = this.props;
 
@@ -144,8 +204,8 @@ class CityCouncilView extends React.Component {
 
 
                 <div className="control-buttons">
-                    <div className="prev-button" />
-                    <div className="next-button" />
+                    <div className="prev-button" onClick={() => this.getPreviousPageContent()} />
+                    <div className="next-button" onClick={() => this.getNextPageContent()} />
                 </div>
             </div>
         );
