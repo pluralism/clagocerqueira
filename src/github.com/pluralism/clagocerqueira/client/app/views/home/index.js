@@ -705,11 +705,11 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderAssociacoesItem(title, description, link, altText = undefined) {
+  renderAssociacoesItem(title, description, link, imageName, altText = undefined) {
     return (
       <div className="item associacoes-list-item">
         <div className="img-wrapper img-wrapper--shadow">
-          <img src={require('../../static/img/orgaos_1.jpg')} className="img-responsive"
+          <img src={require('../../static/img/site/homepage/' + imageName)} className="img-responsive"
                alt={altText === undefined ? "Órgãos 1" : altText} />
         </div>
         <h3>{title}</h3>
@@ -740,31 +740,37 @@ class HomeIndexView extends React.Component {
                   {this.renderAssociacoesItem('Associações Sociais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/social',
+                    'social_bundle.jpg',
                     'Associações Sociais')}
 
                   {this.renderAssociacoesItem('Associações Cívicas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/civic',
+                    'civic_bundle.jpg',
                     'Associações Cívicas')}
 
                   {this.renderAssociacoesItem('Associações Desportivas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/sports',
+                    'sports_bundle.jpg',
                     'Associações Desportivas')}
 
                   {this.renderAssociacoesItem('Associações Recreativas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/recreational',
+                    'recreational_bundle.jpg',
                     'Associações Recreativas')}
 
                   {this.renderAssociacoesItem('Associações Culturais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/cultural',
+                    'cultural_bundle.jpg',
                     'Associações Culturais')}
 
                   {this.renderAssociacoesItem('Associações Religiosas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/religious',
+                    'cultural_bundle.jpg',
                     'Associações Religiosas')}
                 </div>
               </div>
