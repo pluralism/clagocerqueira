@@ -578,7 +578,7 @@ func insertCityCouncilOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	var currentDate = "1976_2013"
+	var currentDate = "1976-2013"
 	cityCouncilData := readGeneralFile("city_council/assembleiaMunicipal1976_2013.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 

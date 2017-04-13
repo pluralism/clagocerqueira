@@ -52,7 +52,7 @@ func getAssociations() *graphql.Field {
 func getCityCouncil() *graphql.Field {
 	return &graphql.Field{
 		Type: types.GeneralListType,
-		Description: "Extracts the city counci for a given date",
+		Description: "Extracts the city council for a given date",
 		Args: graphql.FieldConfigArgument{
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
@@ -62,10 +62,10 @@ func getCityCouncil() *graphql.Field {
 			},
 		},
 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-			name, nameOK := p.Args["name"].(string)
+			date, dateOK := p.Args["name"].(string)
 			page, pageOK := p.Args["page"].(int)
 
-			if !nameOK {
+			if !dateOK {
 				// Return no objects (nil) and the error to the user
 				return nil, errors.New("the \"name\" argument was not provided")
 			}
@@ -75,7 +75,7 @@ func getCityCouncil() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetcityCouncilByDate(refs.Session, name, page)
+			result := controllers.GetcityCouncilByDate(refs.Session, date, page)
 
 			if result != nil {
 				return result, nil
