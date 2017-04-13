@@ -39,7 +39,7 @@ class CouncilmenView extends React.Component {
 
 
     this.state = {
-      activeTab: Constants.DATES.d1836_1910,
+      activeTab: this.currentDate,
       canSwitchPage: true,
     };
 
