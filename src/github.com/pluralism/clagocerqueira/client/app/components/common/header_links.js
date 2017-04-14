@@ -61,12 +61,58 @@ class HeaderLinks extends React.Component {
                             </ul>
                         </li>
 
-                        <li>
-                            <Link to={"/pt/#orgaos_autarquicos"} target="_blank">Órgãos Autárquicos</Link>
+                        <li className="dropdown">
+                            <a href="#" className="dropdown-toggle"
+                                data-toggle="dropdown">Órgãos Autárquicos</a>
+
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a href="/pt/presidentes">Presidentes da câmara</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/vereadores">Vereadores da câmara</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/assembleia">Presidentes da assembleia municipal</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/presidentes">Presidentes das juntas</a>
+                                </li>
+                            </ul>
                         </li>
 
-                        <li>
-                            <Link to={"/pt/associacoes"}>Associações</Link>
+                        <li className="dropdown">
+                            <a href="#" className="dropdown-toggle"
+                               data-toggle="dropdown">Associações</a>
+
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a href="/pt/associacoes/social">Associações Sociais</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/associacoes/sports">Associações Desportivas</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/associacoes/recreational">Associações Recreativas</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/associacoes/civic">Associações Cívicas</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/associacoes/cultural">Associações Culturais</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/associacoes/religious">Associações Religiosas</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
