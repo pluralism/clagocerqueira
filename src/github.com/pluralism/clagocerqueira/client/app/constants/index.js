@@ -102,6 +102,13 @@ const Constants = {
   },
 
 
+  NATURAL_PATRIMONY: {
+    BROOKS: 'brooks',
+    RIVERS: 'rivers',
+    MOUNTAINS: 'mountains',
+  },
+
+
   PRESIDENTS: 'presidents',
   COUNCILMEN: 'councilmen',
   AUTHORS: 'authors',

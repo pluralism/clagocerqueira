@@ -13,6 +13,7 @@ import FestivitiesView from '../views/festivities/index';
 import StatutesView from '../views/misc/statutes';
 import LagoCerqueiraView from '../views/misc/lago_cerqueira';
 import SocialEntitiesView from '../views/misc/social_entities';
+import NaturalPatrimonyView from '../views/natural_patrimony/index';
 
 
 
@@ -34,6 +35,7 @@ export default function configRoutes(store) {
         <Route path="estatutos" component={StatutesView} />
         <Route path="lago_cerqueira" component={LagoCerqueiraView} />
         <Route path="orgaos_sociais" component={SocialEntitiesView} />
+        <Route path="patrimonio_natural" component={NaturalPatrimonyView} />
       </Route>
     </Route>
   );
