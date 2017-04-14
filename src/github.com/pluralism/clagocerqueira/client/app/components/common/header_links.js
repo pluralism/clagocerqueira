@@ -35,8 +35,30 @@ class HeaderLinks extends React.Component {
                             <Link to="/pt/">Início</Link>
                         </li>
 
-                        <li>
-                            <Link to="/pt/autores">Autores Amarantinos</Link>
+                        <li className="dropdown">
+                            <a href="#" className="dropdown-toggle"
+                                data-toggle="dropdown">Autores Amarantinos</a>
+
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a href="/pt/autores/1400-1500">Séc. XV</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/autores/1501-1600">Séc. XVI</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/autores/1601-1700">Séc. XVII</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/autores/1701-1800">Séc. XVIII</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/autores/1801-1900">Séc. XIX</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/autores/1901-2000">Séc. XX</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
