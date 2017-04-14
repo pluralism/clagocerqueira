@@ -62,7 +62,7 @@ export default function reduce(state = initialState, action = {}) {
                 currentName: action.currentName };
 
         case Constants.LOADING_DATA_ERROR_NATURAL_PATRIMONY:
-            return { initialState };
+            return initialState;
 
         case Constants.LOADING_DATA_SUCCESS_NATURAL_PATRIMONY:
             return { ...state,

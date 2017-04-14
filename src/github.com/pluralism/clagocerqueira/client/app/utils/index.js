@@ -52,5 +52,6 @@ export function httpPostGraphQL(data) {
 export function isActiveTab(tab, state) {
   if(state.activeTab === tab)
     return "active";
+
   return "";
 }

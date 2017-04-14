@@ -7,7 +7,7 @@ import authors from './authors';
 import associations from './associations';
 import press from './press';
 import parishes from './parishes';
-import naturalPatrimony from './natural_patrimony';
+import natural_patrimony from './natural_patrimony';
 
 
 export default combineReducers({
@@ -20,5 +20,5 @@ export default combineReducers({
   associations: associations,
   press: press,
   parishes: parishes,
-  natural_patrimony: naturalPatrimony,
+  natural_patrimony: natural_patrimony,
 });

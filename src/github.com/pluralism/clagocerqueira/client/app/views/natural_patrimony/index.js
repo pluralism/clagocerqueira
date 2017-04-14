@@ -35,6 +35,9 @@ class NaturalPatrimonyView extends React.Component {
             activeTab: Constants.NATURAL_PATRIMONY.BROOKS,
             canSwitchPage: true,
         };
+
+
+        document.addEventListener("keydown", (event) => this.handleKeyDownEvent(event));
     }
 
 
@@ -70,8 +73,47 @@ class NaturalPatrimonyView extends React.Component {
     }
 
 
+    canUseSwitchPage() {
+        this.setState({
+            canSwitchPage: false
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    canSwitchPage: true
+                });
+            }, Constants.MINIMUM_WAIT_TIME);
+        });
+    }
+
+
+    handleKeyDownEvent(e) {
+        if(e.keyCode === 37 && this.state.canSwitchPage) {
+            // Left arrow was pressed
+            this.getPreviousPageContent();
+            // Prevent the user from pressing the button too fast (wait 0.5s)
+            this.canUseSwitchPage();
+        } else if(e.keyCode === 39 && this.state.canSwitchPage) {
+            // Right arrow was pressed
+            this.getNextPageContent();
+            // Prevent the user from pressing the button too fast (wait 0.5s)
+            this.canUseSwitchPage();
+        }
+    }
+
+
+    updateCurrentName(value) {
+        this.currentName = value;
+
+
+        this.setState({
+            activeTab: this.currentName
+        });
+    }
+
+
     renderTabsContents() {
         const { natural_patrimony } = this.props;
+
 
         return (
             <div className="tab-content">
@@ -151,21 +193,21 @@ class NaturalPatrimonyView extends React.Component {
                     <div className="tab-v7">
                         <ul className="tab-v7-nav" role="tablist">
                             <li role="presentation"
-                                className={isActiveTab(Constants.NATURAL_PATRIMONY.BROOKS) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURAL_PATRIMONY.BROOKS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.BROOKS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.BROOKS}</Link>
                             </li>
                             <li role="presentation"
-                                className={isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.RIVERS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.RIVERS}</Link>
                             </li>
                             <li role="presentation"
-                                className={isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.MOUNTAINS)}
@@ -186,7 +228,7 @@ class NaturalPatrimonyView extends React.Component {
             <div>
                 <main className="container-fluid">
                     <HeaderLinks />
-
+                    {this.renderUpperSection()}
                     <Footer />
                 </main>
             </div>

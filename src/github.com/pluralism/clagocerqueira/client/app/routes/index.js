@@ -35,7 +35,7 @@ export default function configRoutes(store) {
         <Route path="estatutos" component={StatutesView} />
         <Route path="lago_cerqueira" component={LagoCerqueiraView} />
         <Route path="orgaos_sociais" component={SocialEntitiesView} />
-        <Route path="patrimonio_natural" component={NaturalPatrimonyView} />
+        <Route path="patrimonio_natural(/:type)" component={NaturalPatrimonyView} />
       </Route>
     </Route>
   );
