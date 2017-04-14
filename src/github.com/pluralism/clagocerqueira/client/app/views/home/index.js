@@ -408,10 +408,10 @@ class HomeIndexView extends React.Component {
         gridAdjustment: 'responsive',
         mediaQueries: [{
             width: 1500,
-            cols: 3
+            cols: 2
         }, {
             width: 1100,
-            cols: 3
+            cols: 2
         }, {
             width: 800,
             cols: 1
@@ -618,7 +618,7 @@ class HomeIndexView extends React.Component {
             <div className="cbp-l-caption-alignCenter">
               <div className="cbp-l-caption-body">
                 <div className="cbp-l-caption-title font-main">{year}</div>
-                  <p>Autores Amarantinos que viveram no século {sec}</p>
+                  <p>Autores Amarantinos que nasceram no século {sec}</p>
                 </div>
               </div>
             </div>
@@ -839,8 +839,6 @@ class HomeIndexView extends React.Component {
 
             <div className="grid">
               <div id="festividades-grid" className="cbp-l-grid-gallery">
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
                 {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
                 {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
                 {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
