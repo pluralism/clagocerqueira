@@ -37,6 +37,32 @@ class NaturalPatrimonyView extends React.Component {
                     <div className="search_on_list g-mb-30 text-center font-main">
                         <input type="text" placeholder="Pesquisar no património natural&#8230;" />
                     </div>
+
+                    <div className="tab-v7">
+                        <ul className="tab-v7-nav" role="tablist">
+                            <li role="presentation"
+                                className={this.isActiveTab(Constants.NATURAL_PATRIMONY.BROOKS) ? "active" : ""}>
+                                <Link to={"#first_tab"}
+                                      onClick={() =>
+                                          this.updateCurrentName(Constants.NATURAL_PATRIMONY.BROOKS)}
+                                      role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.BROOKS}</Link>
+                            </li>
+                            <li role="presentation"
+                                className={this.isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS) ? "active" : ""}>
+                                <Link to={"#first_tab"}
+                                      onClick={() =>
+                                          this.updateCurrentName(Constants.NATURAL_PATRIMONY.RIVERS)}
+                                      role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.RIVERS}</Link>
+                            </li>
+                            <li role="presentation"
+                                className={this.isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS) ? "active" : ""}>
+                                <Link to={"#first_tab"}
+                                      onClick={() =>
+                                          this.updateCurrentName(Constants.NATURAL_PATRIMONY.MOUNTAINS)}
+                                      role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.MOUNTAINS}</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         );
