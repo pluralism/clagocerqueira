@@ -49,6 +49,13 @@ func getAssociations() *graphql.Field {
 }
 
 
+func getNaturalPatrimony() *graphql.Field {
+	return &graphql.Field{
+		
+	}
+}
+
+
 func getCityCouncil() *graphql.Field {
 	return &graphql.Field{
 		Type: types.GeneralListType,
@@ -243,6 +250,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			},
 		},
 		"associations": getAssociations(),
+		"natural_patrimony": getNaturalPatrimony(),
 		"press":        getPress(),
 		"festivities": 	getFestivitiesForParish(),
 		"city_council": getCityCouncil(),
