@@ -192,6 +192,18 @@ GeneralObjectsActions.getDataByPageAssociations = (name, mapping, page) => {
 };
 
 
+GeneralObjectsActions.getDataByPageNaturalPatrimony = (name, mapping, page) => {
+    return GeneralObjectsActions.getDataByPage(
+      name,
+      mapping,
+      page,
+      Constants.NATURAL_PATRIMONY_TABLE,
+      Constants.LOADING_DATA_NATURAL_PATRIMONY,
+      Constants.LOADING_DATA_ERROR_NATURAL_PATRIMONY,
+      Constants.LOADING_DATA_SUCCESS_NATURAL_PATRIMONY);
+};
+
+
 GeneralObjectsActions.getDataByPageParishes = (name, mapping, page) => {
   return GeneralObjectsActions.getDataByPageSimple(
       name,
@@ -202,6 +214,7 @@ GeneralObjectsActions.getDataByPageParishes = (name, mapping, page) => {
       Constants.LOADING_DATA_ERROR_PARISH,
       Constants.LOADING_DATA_SUCCESS_PARISH);
 };
+
 
 
 GeneralObjectsActions.buildGraphQLDataFromMappings = (mappings, constant, page) => {
