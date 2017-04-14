@@ -32,7 +32,7 @@ class HeaderLinks extends React.Component {
                 <div className="collapse navbar-collapse clc-collapse">
                     <ul className="nav navbar-nav">
                         <li>
-                            <Link to="/pt/" target={"_blank"}>Início</Link>
+                            <Link to="/pt/">Início</Link>
                         </li>
 
                         <li>
