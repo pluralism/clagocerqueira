@@ -51,7 +51,39 @@ func getAssociations() *graphql.Field {
 
 func getNaturalPatrimony() *graphql.Field {
 	return &graphql.Field{
-		
+		Type: types.GeneralListType,
+		Description: "Extract natural patrimony data from the database",
+		Args: graphql.FieldConfigArgument{
+			"name": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			name, nameOK := p.Args["name"].(string)
+			page, pageOK := p.Args["page"].(int)
+
+			if !nameOK {
+				// Return no object (nil) and the error to the user
+				return nil, errors.New("the \"name\" argument was not provided")
+			}
+
+			if !pageOK {
+				// Return no objects if the "page" field is not passed in the query
+				return nil, errors.New("the \"page\" argument was not provided")
+			}
+
+			result := controllers.GetNaturalPatrimonyByName(refs.Session, name, page)
+
+			if result != nil {
+				// Success, return the result without errors
+				return result, nil
+			}
+
+			return nil, errors.New("the natural patrimony data could not be extracted")
+		},
 	}
 }
 
