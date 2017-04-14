@@ -59,7 +59,28 @@ class HomeIndexView extends React.Component {
       theme: 'flat'
     };
 
+
+
     $(function() {
+      $(window).on('load', function() {
+        if(window.location.hash) {
+            $.smoothScroll({
+                scrollTarget: window.location.hash
+            });
+        }
+      });
+
+
+      // Initialize smooth scroll
+      $('.page-scroll > a').click((e) => {
+          e.preventDefault();
+          let link = e.currentTarget;
+          $.smoothScroll({
+              scrollTarget: link.hash
+          });
+      });
+
+
       // Init backstretch with the image we want
       $('.fullscreen-static-image').backstretch(require('../../static/img/cover.jpg'));
 
@@ -366,7 +387,8 @@ class HomeIndexView extends React.Component {
         gapHorizontal: 50,
         gapVertical: 50,
         gridAdjustment: 'responsive',
-        mediaQueries: [{ width: 1440, cols: 4 },
+        mediaQueries: [
+            { width: 1440, cols: 4 },
             { width: 1024, cols: 3 },
             { width: 768, cols: 2 },
             { width: 480, cols: 2 },

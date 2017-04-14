@@ -29,6 +29,8 @@ export default function configRoutes(store) {
         <Route path="associacoes(/:type)" component={AssociationsView} />
         <Route path="imprensa(/:type)" component={PressView} />
         <Route path="festividades(/:type)" component={FestivitiesView} />
+
+
         <Route path="estatutos" component={StatutesView} />
         <Route path="lago_cerqueira" component={LagoCerqueiraView} />
         <Route path="orgaos_sociais" component={SocialEntitiesView} />

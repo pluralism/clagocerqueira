@@ -21,16 +21,6 @@ export default class MainLayout extends React.Component {
           $('.navbar-fixed-top').removeClass('top-nav-collapse');
         }
       });
-
-
-      // Initialize smooth scroll
-      $('.page-scroll > a').click((e) => {
-        e.preventDefault();
-        let link = e.currentTarget;
-        $.smoothScroll({
-          scrollTarget: link.hash
-        });
-      });
     });
   }
 
