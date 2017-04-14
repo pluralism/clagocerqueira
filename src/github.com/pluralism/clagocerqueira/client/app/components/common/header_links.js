@@ -155,8 +155,23 @@ class HeaderLinks extends React.Component {
                             <Link to={"/pt/personalidades"}>Personalidades</Link>
                         </li>
 
-                        <li>
-                            <Link to={"/pt/patrimonio_natural"}>Património Natural</Link>
+                        <li className="dropdown">
+                            <a href="#" className="dropdown-toggle"
+                             data-toggle="dropdown">Património Natural</a>
+
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a href="/pt/patrimonio_natural/brooks">Ribeiros</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/patrimonio_natural/rivers">Rios</a>
+                                </li>
+
+                                <li>
+                                    <a href="/pt/patrimonio_natural/mountains">Serras</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
