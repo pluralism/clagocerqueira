@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { isActiveTab } from '../../utils/index';
+import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import HeaderLinks from '../../components/common/header_links';
 import Footer from '../../components/common/footer';
 import { Constants } from '../../constants/index';
+import GeneralObjectsActions from '../../actions/generalObjects';
+
 
 
 
@@ -18,6 +21,43 @@ class NaturalPatrimonyView extends React.Component {
             activeTab: Constants.NATURAL_PATRIMONY.BROOKS,
             canSwitchPage: true,
         };
+    }
+
+
+    renderTabsContents() {
+        const { natural_patrimony } = this.props;
+
+        return (
+            <div className="tab-content">
+                <GeneralObjectTab
+                    tabID={'#first_tab'}
+                    subtitle={"Património Natural"}
+                    active={this.state.activeTab === Constants.NATURAL_PATRIMONY.BROOKS}
+                    data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.BROOKS].objects.objects_data} />
+
+                <GeneralObjectTab
+                    tabID={'#second_tab'}
+                    subtitle={"Património Natural"}
+                    active={this.state.activeTab === Constants.NATURAL_PATRIMONY.RIVERS}
+                    data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.RIVERS].objects.objects_data} />
+
+                <GeneralObjectTab
+                    tabID={'#third_tab'}
+                    subtitle={"Património Natural"}
+                    active={this.state.activeTab === Constants.NATURAL_PATRIMONY.MOUNTAINS}
+                    data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.MOUNTAINS].objects.objects_data} />
+
+                <div className="control-buttons">
+                    <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+                    <div className="next-button" onClick={() => this.getNextPageContent()}/>
+                </div>
+            </div>
+        );
+    }
+
+
+    getPreviousPageContent() {
+
     }
 
 
@@ -41,27 +81,29 @@ class NaturalPatrimonyView extends React.Component {
                     <div className="tab-v7">
                         <ul className="tab-v7-nav" role="tablist">
                             <li role="presentation"
-                                className={this.isActiveTab(Constants.NATURAL_PATRIMONY.BROOKS) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURAL_PATRIMONY.BROOKS) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.BROOKS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.BROOKS}</Link>
                             </li>
                             <li role="presentation"
-                                className={this.isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.RIVERS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.RIVERS}</Link>
                             </li>
                             <li role="presentation"
-                                className={this.isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.MOUNTAINS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.MOUNTAINS}</Link>
                             </li>
                         </ul>
+
+                        {this.renderTabsContents()}
                     </div>
                 </div>
             </section>

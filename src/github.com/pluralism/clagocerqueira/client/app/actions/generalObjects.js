@@ -329,4 +329,15 @@ GeneralObjectsActions.getAllDataFromCouncilmen = (mappings) => {
 };
 
 
+
+GeneralObjectsActions.getAllDatafromNaturalPatrimony = (mappings) =>  {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_NATURAL_PATRIMONY,
+    Constants.LOADING_DATA_SUCCESS_NATURAL_PATRIMONY,
+    Constants.LOADING_DATA_ERROR_NATURAL_PATRIMONY,
+    1,
+    mappings,
+    Constants.NATURAL_PATRIMONY_TABLE);
+};
+
+
 export default GeneralObjectsActions;
