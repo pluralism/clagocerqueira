@@ -414,10 +414,10 @@ class HomeIndexView extends React.Component {
             cols: 2
         }, {
             width: 800,
-            cols: 1
+            cols: 2
         }, {
             width: 480,
-            cols: 1
+            cols: 2
         }, {
             width: 320,
             cols: 1

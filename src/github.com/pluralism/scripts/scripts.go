@@ -21,9 +21,7 @@ const personalitiesCollection = "personalities"
 const authorsCollection = "authors"
 const associationsCollection = "associations"
 const pressCollection = "press"
-const riversCollection = "rivers"
-const brooksCollection = "brooks"
-const mountainsCollection = "mountains"
+const naturalPatrimonyCollection = "natural_patrimony"
 const parishesCollection = "parishes"
 const cityCouncilCollection = "city_council"
 
@@ -230,6 +228,42 @@ func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 		"/public/prod/images/monarquia.jpg", session)
 	readFileAndInsertOnDatabase("recreational", associationsCollection, "associations/assocRecreativas.csv",
 		"/public/prod/images/monarquia.jpg", session)
+}
+
+
+func insertNaturalPatrimonyOnDatabase(collectionNames []string, s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	db := session.DB(dbName)
+	// Check if the natural patrimony collection already exists on the database
+	naturalPatrimonyExist := findElement(collectionNames, naturalPatrimonyCollection)
+
+	if naturalPatrimonyExist {
+		// Drop the collection if it already exists
+		err := db.C(naturalPatrimonyCollection).DropCollection()
+
+		// Something went wrong while dropping the collection
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+
+
+	readFileAndInsertOnDatabase("brooks", naturalPatrimonyCollection,
+		"natural_patrimony/ribeiros.csv",
+		"/public/prod/images/monarquia.jpg",
+		session)
+
+	readFileAndInsertOnDatabase("rivers", naturalPatrimonyCollection,
+		"natural_patrimony/rios.csv",
+		"/public/prod/images/monarquia.jpg",
+		session)
+
+	readFileAndInsertOnDatabase("mountains", naturalPatrimonyCollection,
+		"natural_patrimony/serras.csv",
+		"/public/prod/images/monarquia.jpg",
+		session)
 }
 
 func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
@@ -508,61 +542,6 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 }
 
 
-func insertRiversOnDatabase(collectionNames []string, s *mgo.Session) {
-	session := s.Copy()
-	defer session.Close()
-
-	db := session.DB(dbName)
-	// Check if the collection already exists on the database
-	riversExist := findElement(collectionNames, riversCollection)
-
-	if riversExist {
-		// Drop the collection if it already exists on the database
-		err := db.C(riversCollection).DropCollection()
-
-		// Something went wrong while dropping the collection
-		if err != nil {
-			panic(err.Error())
-		}
-	}
-
-	rivers := readGeneralFileToObject("natural_patrimony/rios.csv",
-		"/public/prod/images/monarquia.jpg")
-
-	if !insertListOnDatabase(session, dbName, riversCollection, rivers) {
-		panic("[!] Rivers could not be inserted on the database!")
-	} else {
-		fmt.Println("[*] Rivers inserted with success!")
-	}
-}
-
-
-func insertBrooksOnDatabase(collectionNames []string, s *mgo.Session) {
-	session := s.Copy()
-	defer session.Close()
-
-	db := session.DB(dbName)
-	brooksExist := findElement(collectionNames, brooksCollection)
-
-	if brooksExist {
-		err := db.C(brooksCollection).DropCollection()
-
-		if err != nil {
-			panic(err.Error())
-		}
-	}
-
-	brooks := readGeneralFileToObject("natural_patrimony/ribeiros.csv",
-		"/public/prod/images/monarquia.jpg")
-
-	if !insertListOnDatabase(session, dbName, brooksCollection, brooks) {
-		panic("[!] Brooks could not be inserted on the database!")
-	} else {
-		fmt.Println("[*] Brooks inserted with success!")
-	}
-}
-
-
 func insertCityCouncilOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -586,31 +565,6 @@ func insertCityCouncilOnDatabase(collectionNames []string, s *mgo.Session) {
 		panic(fmt.Sprintf("[!] City council on date %s could not be inserted!", currentDate))
 	} else {
 		fmt.Println(fmt.Sprintf("[*] City council on date %s inserted with success!", currentDate))
-	}
-}
-
-func insertMountainsOnDatabase(collectionNames []string, s *mgo.Session) {
-	session := s.Copy()
-	defer session.Close()
-
-	db := session.DB(dbName)
-	mountainsExist := findElement(collectionNames, mountainsCollection)
-
-	if mountainsExist {
-		err := db.C(mountainsCollection).DropCollection()
-
-		if err != nil {
-			panic(err.Error())
-		}
-	}
-
-	mountains := readGeneralFileToObject("natural_patrimony/serras.csv",
-	"/public/prod/images/monarquia.jpg")
-
-	if !insertListOnDatabase(session, dbName, mountainsCollection, mountains) {
-		panic("[!] Mountains could not be inserted on the database!")
-	} else {
-		fmt.Println("[*] Mountains inserted with success!")
 	}
 }
 
@@ -673,11 +627,9 @@ func main() {
 	var authorsFlag = flag.Bool("authors", false, "inserts authors on the database")
 	var associationsFlag = flag.Bool("associations", false, "inserts associations on the database")
 	var pressFlag = flag.Bool("press", false, "inserts press on the database")
-	var riversFlag = flag.Bool("rivers", false, "inserts the rivers on the database")
-	var brooksFlag = flag.Bool("brooks", false, "inserts brooks on the database")
-	var mountainsFlag = flag.Bool("mountains", false, "inserts mountains on the database")
 	var parishesFlag = flag.Bool("parishes", false, "inserts parishes on the database")
 	var cityCouncilFlag = flag.Bool("cityCouncil", false, "inserts city council data on the database")
+	var naturalPatrimonyFlag = flag.Bool("naturalPatrimony", false, "inserts natural patrimony data on the database")
 
 	// Parse the flags
 	flag.Parse()
@@ -706,16 +658,8 @@ func main() {
 		insertPressOnDatabase(collectionNames, session)
 	}
 
-	if *riversFlag {
-		insertRiversOnDatabase(collectionNames, session)
-	}
-
-	if *brooksFlag {
-		insertBrooksOnDatabase(collectionNames, session)
-	}
-
-	if *mountainsFlag {
-		insertMountainsOnDatabase(collectionNames, session)
+	if *naturalPatrimonyFlag {
+		insertNaturalPatrimonyOnDatabase(collectionNames, session)
 	}
 
 	if *parishesFlag {
