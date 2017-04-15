@@ -471,6 +471,7 @@ class HomeIndexView extends React.Component {
         navText: [, ],
         nav: true,
         dots: false,
+        autoHeight: true,
         navContainerClass: 'owl-buttons'
       });
 
@@ -1342,7 +1343,7 @@ class HomeIndexView extends React.Component {
               <div className="modal-body font-main">
                 <h2>A Associação</h2>
 
-                <hr align="center" />
+                <hr />
 
                 <p>
                   Com o propósito de dar a conhecer profundamente a história e a cultura de Amarante, nas

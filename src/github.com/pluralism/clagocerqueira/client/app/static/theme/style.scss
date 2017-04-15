@@ -646,6 +646,17 @@ body {
                     color: #F3F2F2;
                     font-weight: normal;
                 }
+
+                
+                @media only screen and (max-width: 480px) {
+                    .title {
+                        font-size: 24px !important;
+                    }
+
+                    .subtitle {
+                        font-size: 20px !important;
+                    }
+                }
             }
         }
     }
