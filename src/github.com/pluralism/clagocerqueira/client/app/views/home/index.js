@@ -390,7 +390,7 @@ class HomeIndexView extends React.Component {
         gapVertical: 50,
         gridAdjustment: 'responsive',
         mediaQueries: [
-            { width: 1440, cols: 4 },
+            { width: 1440, cols: 3 },
             { width: 1024, cols: 3 },
             { width: 768, cols: 2 },
             { width: 480, cols: 2 },
@@ -407,11 +407,11 @@ class HomeIndexView extends React.Component {
         scrollByPage: false,
         defaultFilter: '*',
         animationType: 'slideLeft',
-        gapHorizontal: 50,
+        gapHorizontal: 70,
         gapVertical: 50,
-        gridAdjustment: 'responsive',
+        gridAdjustment: 'alignCenter',
         mediaQueries: [
-            { width: 1440, cols: 4 },
+            { width: 1440, cols: 3 },
             { width: 1024, cols: 3 },
             { width: 768, cols: 2 },
             { width: 480, cols: 2 },

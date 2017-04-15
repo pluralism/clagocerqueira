@@ -167,7 +167,8 @@ body {
     }
 
     .cbp-item {
-        height: 315px;
+        max-width: 350px;
+        max-height: 350px;
     }
 }
 
@@ -181,8 +182,8 @@ body {
     p {
         color: #FFFFFF;
 	    font-size: 16px;
-	    max-width: 80%;
-	    margin: 0 auto;
+	    //max-width: 80%;
+	    //margin: 0 auto;
 	    line-height: 2.0;
     }
 }
