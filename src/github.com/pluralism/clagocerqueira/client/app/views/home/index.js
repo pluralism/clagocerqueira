@@ -1338,11 +1338,11 @@ class HomeIndexView extends React.Component {
         <div id="associationModal" className="modal fade" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 className="modal-title">A Associação</h3>
-              </div>
               <div className="modal-body font-main">
+                <h2>A Associação</h2>
+
+                <hr align="center" />
+
                 <p>
                   Com o propósito de dar a conhecer profundamente a história e a cultura de Amarante, nas
                   suas mais diversas áreas temáticas, o Círculo Lago Cerqueira reformulou o seu Sítio da
@@ -1355,9 +1355,10 @@ class HomeIndexView extends React.Component {
                   Convidamos também todos aqueles que pretendam colaborar com informação relevante sobre
                   os assuntos tratados que enviem o seu contributo para o seguinte correio eletrónico <strong>info@clagocerqueira.pt</strong>.
                 </p>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-default" data-dismiss="modal">Fechar</button>
+
+                <div id="modalCloseButton">
+                  <button type="button" className="btn btn-lg" data-dismiss="modal">Fechar</button>
+                </div>
               </div>
             </div>
           </div>

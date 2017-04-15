@@ -1425,6 +1425,38 @@ body {
     .modal-body {
         font-size: 16px;
         font-weight: 300;
+
+        h2 {
+            display: block;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+            font-size: 30px;
+            padding-top: 25px;
+        }
+        
+        p {
+            text-align: justify;
+        }
+
+        hr {
+            width: 75%;
+            margin: 30px auto 30px auto;
+        }
+
+        #modalCloseButton {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+
+            button {
+                background-color: #5D2F30;
+                font-size: 16px;
+                padding: 10px 15px;
+                color: #FFF;
+                border-radius: 2px;
+            }
+        }
     }
 }
 
