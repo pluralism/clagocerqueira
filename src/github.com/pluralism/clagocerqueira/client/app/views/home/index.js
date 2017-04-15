@@ -498,7 +498,6 @@ class HomeIndexView extends React.Component {
         navText: [, ],
         nav: true,
         dots: false,
-        autoHeight: true,
         navContainerClass: 'owl-buttons'
       });
 
