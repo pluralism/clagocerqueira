@@ -593,7 +593,7 @@ class HomeIndexView extends React.Component {
               </li>
 
               <li className="page-scroll">
-                <a href="#">A Associação</a>
+                <a href="#" data-toggle="modal" data-target="#associationModal">A Associação</a>
               </li>
 
               <li className="page-scroll">
@@ -1333,6 +1333,39 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderAssociacaoModal() {
+    return (
+        <div id="associationModal" className="modal fade" role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 className="modal-title">A Associação</h3>
+              </div>
+              <div className="modal-body font-main">
+                <p>
+                  Com o propósito de dar a conhecer profundamente a história e a cultura de Amarante, nas
+                  suas mais diversas áreas temáticas, o Círculo Lago Cerqueira reformulou o seu Sítio da
+                  Internet, para que os amarantinos e todos aqueles cidadãos que queiram saber mais sobre a
+                  nossa terra encontrem neste espaço digital uma plataforma navegável orientada, para a
+                  descoberta da nossa memória coletiva.
+                </p>
+
+                <p>
+                  Convidamos também todos aqueles que pretendam colaborar com informação relevante sobre
+                  os assuntos tratados que enviem o seu contributo para o seguinte correio eletrónico <strong>info@clagocerqueira.pt</strong>.
+                </p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-default" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    );
+  }
+
+
 
   render() {
     return (
@@ -1348,6 +1381,7 @@ class HomeIndexView extends React.Component {
           {this.renderPersonalidades()}
           {this.renderPatrimonioNatural()}
           {this.renderContacto()}
+          {this.renderAssociacaoModal()}
           <Footer />
         </main>
       </div>
