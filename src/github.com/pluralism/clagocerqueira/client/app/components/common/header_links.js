@@ -10,7 +10,7 @@ class HeaderLinks extends React.Component {
 
     render() {
         return (
-            <nav className="clc-header one-page-header navbar navbar-default navbar-fixed-top navbar-toggleable-sm" data-role="navigation">
+            <nav className="clc-header one-page-header navbar navbar-default top-nav-collapse navbar-fixed-top navbar-toggleable-sm" data-role="navigation">
                 <div className="navbar-header">
                     <div className="menu-container page-scroll">
                         <button type="button" className="navbar-toggle" data-toggle="collapse"

@@ -9,13 +9,13 @@ export default class MainLayout extends React.Component {
 
   componentDidMount() {
     $(function() {
-      if($('.navbar').offset().top > 150) {
+      if($('.header-homepage').offset().top > 150) {
         $('.navbar-fixed-top').addClass('top-nav-collapse');
       }
 
 
       $(window).scroll(() => {
-        if($('.navbar').offset().top > 150) {
+        if($('.header-homepage').offset().top > 150) {
           $('.navbar-fixed-top').addClass('top-nav-collapse');
         } else {
           $('.navbar-fixed-top').removeClass('top-nav-collapse');
