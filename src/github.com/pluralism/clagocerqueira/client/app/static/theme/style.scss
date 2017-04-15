@@ -356,6 +356,10 @@ body {
     }
 
     #orgaos_autarquicos_list {
+        .orgaos-card-image {
+            height: 179px;
+        }
+
         .owl-buttons {
             position: absolute;
             top: 150px;

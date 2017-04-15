@@ -747,11 +747,11 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderOrgaosAutarquicosCard(title, description, link) {
+  renderOrgaosAutarquicosCard(title, description, link, image) {
     return (
       <div className="orgaos-card">
         <div className="orgaos-card-image">
-          <img src={require('../../static/img/orgaos_1.jpg')} alt="Órgãos 1" className="img-responsive" />
+          <img src={require('../../static/img/' + image)} alt="Órgãos 1" className="img-responsive"/>
         </div>
 
         <div className="orgaos-card-title">
@@ -788,19 +788,23 @@ class HomeIndexView extends React.Component {
               <div id="orgaos_autarquicos_list">
                 {this.renderOrgaosAutarquicosCard('Presidentes',
                     'Presidentes da câmara de Amarante',
-                    'presidentes')}
+                    'presidentes',
+                    'site/presidents/1976_2013/jose_jorge.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Vereadores',
                     'Vereadores da câmara de Amarante',
-                    'vereadores')}
+                    'vereadores',
+                    'orgaos_1.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes',
                     'Presidentes da Assembleia Municipal',
-                    'assembleia')}
+                    'assembleia',
+                    'site/presidents/1976_2013/armindo_abreu.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes',
                     'Presidentes das juntas de freguesia',
-                    'assembleia')}
+                    'assembleia',
+                    'orgaos_1.jpg')}
               </div>
             </div>
           </div>
