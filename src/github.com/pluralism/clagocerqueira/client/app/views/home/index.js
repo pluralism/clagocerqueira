@@ -384,7 +384,7 @@ class HomeIndexView extends React.Component {
           scrollByPage: false,
           defaultFilter: '*',
           gridAdjustment: 'responsive',
-          gapHorizontal: 0,
+          gapHorizontal: 10,
           gapVertical: 0,
           mediaQueries: [{
               width: 1100,
@@ -462,7 +462,7 @@ class HomeIndexView extends React.Component {
             items: 1
           },
           500: {
-            items: 2
+            items: 3
           },
           1100: {
             items: 4
@@ -483,7 +483,7 @@ class HomeIndexView extends React.Component {
           300: {
             items: 1
           },
-          768: {
+          500: {
             items: 2,
           },
           992: {
@@ -496,6 +496,7 @@ class HomeIndexView extends React.Component {
         navText: [, ],
         nav: true,
         dots: false,
+        autoHeight: true,
         navContainerClass: 'owl-buttons'
       });
 
