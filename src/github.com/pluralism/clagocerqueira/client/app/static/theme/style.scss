@@ -103,7 +103,7 @@ body {
 .clc-header.one-page-header .navbar-nav > .active > a:hover,
 .clc-header.one-page-header .navbar-nav > .active > a:focus {
     z-index: 1;
-    background: transparent none repeat scroll 0% 0%;
+    background: transparent none repeat scroll 0 0;
     color: #5D2F30 !important;
 }
 
@@ -160,7 +160,7 @@ body {
 
 
 
-#grid-container {
+#grid-container, #grid-autores-amarantinos {
     .cbp-l-caption-title {
         font-size: 26px;
         margin-bottom: 20px;
@@ -843,6 +843,8 @@ body {
   * Contacto section
 */
 #contacto {
+    background: #EDEDED;
+
     .contact-list {
         text-align: center;
 
@@ -892,7 +894,7 @@ body {
 
     .form-control {
         border: none;
-        background: #F5F5F5;
+        background: #f9f9f9;
         border-radius: 2px;
 
         &:focus {
@@ -975,7 +977,7 @@ body {
 
                 a {
                     font-size: 12px;
-                    color: #CCC;
+                    color: #DDD;
                     text-decoration: none;
                     text-transform: uppercase;
                     transition: all 0.4s ease-in-out;

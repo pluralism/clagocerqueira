@@ -91,6 +91,8 @@ class HomeIndexView extends React.Component {
       let festividadesGrid = $('#festividades-grid');
       let imprensaGrid = $('.imprensa-grid');
       let personalidadesGrid = $('#personalidades-grid');
+      let patrimonioNaturalGrid = $('#grid-autores-amarantinos');
+
 
       let mapHash = {}, colors = {}, mappings = {};
 
@@ -399,6 +401,27 @@ class HomeIndexView extends React.Component {
       });
 
 
+      patrimonioNaturalGrid.cubeportfolio({
+        layoutMode: 'grid',
+        rewindNav: true,
+        scrollByPage: false,
+        defaultFilter: '*',
+        animationType: 'slideLeft',
+        gapHorizontal: 50,
+        gapVertical: 50,
+        gridAdjustment: 'responsive',
+        mediaQueries: [
+            { width: 1440, cols: 4 },
+            { width: 1024, cols: 3 },
+            { width: 768, cols: 2 },
+            { width: 480, cols: 2 },
+            { width: 320, cols: 1 }],
+        caption: 'fadeIn',
+        displayType: 'lazyLoading',
+        displayTypeSpeed: 100
+      });
+
+
       festividadesGrid.cubeportfolio({
         layoutMode: 'grid',
         defaultFilter: '*',
@@ -606,6 +629,28 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderPatrimonioNaturalItem(name, desc, image, link) {
+    return (
+        <div className="cbp-item">
+          <Link to={link} target="_blank" className="cbp-caption">
+            <div className="cbp-caption-defaultWrap">
+              <img src={image} />
+            </div>
+
+            <div className="cbp-caption-activeWrap">
+              <div className="cbp-l-caption-alignCenter">
+                <div className="cbp-l-caption-body">
+                  <div className="cbp-l-caption-title font-main">{name}</div>
+                  <p>{desc}</p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+    );
+  }
+
+
   renderAutoresAmarantinosItem(year, sec, image, link) {
     return (
       <div className="cbp-item">
@@ -660,6 +705,35 @@ class HomeIndexView extends React.Component {
           </div>
         </div>
       </section>
+    );
+  }
+
+
+  renderPatrimonioNatural() {
+    return (
+        <section className="row" id="patrimonio_natural">
+          <div className="container-fluid">
+            <div className="g-pt-80 g-pb-80">
+              <div className="heading-v12 font-main text-center">
+                <h2 className="heading-v12__block-name font-main g-mb-20 title">Património Natural</h2>
+                <p className="heading-v12__block-text">
+                  Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+                </p>
+              </div>
+
+              <div className="cube-portfolio">
+                <div id="grid-autores-amarantinos" className="cbp-l-grid-gallery">
+                  {this.renderPatrimonioNaturalItem('Ribeiros', 'Ribeiros(as) de Amarante',
+                    '/public/prod/images/orgaos_1.jpg', 'patrimonio_natural/brooks')}
+                  {this.renderPatrimonioNaturalItem('Rios', 'Rios de Amarante',
+                      '/public/prod/images/orgaos_1.jpg', 'patrimonio_natural/rivers')}
+                  {this.renderPatrimonioNaturalItem('Serras', 'Serras de Amarante',
+                      '/public/prod/images/orgaos_1.jpg', 'patrimonio_natural/mountains')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
     );
   }
 
@@ -1266,6 +1340,7 @@ class HomeIndexView extends React.Component {
           {this.renderFestividades()}
           {this.renderImprensa()}
           {this.renderPersonalidades()}
+          {this.renderPatrimonioNatural()}
           {this.renderContacto()}
           <Footer />
         </main>
