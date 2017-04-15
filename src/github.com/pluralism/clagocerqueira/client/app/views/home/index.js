@@ -462,6 +462,9 @@ class HomeIndexView extends React.Component {
             items: 1
           },
           500: {
+            items: 2
+          },
+          800: {
             items: 3
           },
           1100: {
@@ -471,7 +474,6 @@ class HomeIndexView extends React.Component {
         navText: [, ],
         nav: true,
         dots: false,
-        autoHeight: true,
         navContainerClass: 'owl-buttons'
       });
 
