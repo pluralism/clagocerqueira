@@ -358,28 +358,6 @@ class HomeIndexView extends React.Component {
       });
 
 
-      personalidadesGrid.cubeportfolio({
-        layoutMode: 'grid',
-        mediaQueries: [{
-          width: 1100,
-          cols: 3
-        }, {
-          width: 800,
-          cols: 2
-        }, {
-          width: 500,
-          cols: 1
-        }],
-        defaultFilter: '*',
-        gapHorizontal: 0,
-        gapVertical: 0,
-        gridAdjustment: 'responsive',
-        caption: 'fadeIn',
-        displayType: 'sequentially',
-        displayTypeSpeed: 100
-      });
-
-
       gridContainer.cubeportfolio({
         layoutMode: 'grid',
         rewindNav: true,
@@ -401,6 +379,29 @@ class HomeIndexView extends React.Component {
       });
 
 
+      personalidadesGrid.cubeportfolio({
+          layoutMode: 'grid',
+          scrollByPage: false,
+          defaultFilter: '*',
+          gridAdjustment: 'responsive',
+          gapHorizontal: 0,
+          gapVertical: 0,
+          mediaQueries: [{
+              width: 1100,
+              cols: 3
+          }, {
+              width: 800,
+              cols: 3
+          }, {
+              width: 500,
+              cols: 1
+          }],
+          caption: 'fadeIn',
+          displayType: 'sequentially',
+          displayTypeSpeed: 100
+      });
+
+
       patrimonioNaturalGrid.cubeportfolio({
         layoutMode: 'grid',
         rewindNav: true,
@@ -413,8 +414,8 @@ class HomeIndexView extends React.Component {
         mediaQueries: [
             { width: 1440, cols: 3 },
             { width: 1024, cols: 3 },
-            { width: 768, cols: 2 },
-            { width: 480, cols: 2 },
+            { width: 768, cols: 1 },
+            { width: 480, cols: 1 },
             { width: 320, cols: 1 }],
         caption: 'fadeIn',
         displayType: 'lazyLoading',
