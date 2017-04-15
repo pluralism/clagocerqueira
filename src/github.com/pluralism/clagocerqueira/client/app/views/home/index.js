@@ -529,7 +529,7 @@ class HomeIndexView extends React.Component {
     return (
       <section id="intro" className="row cover-section">
         <div className="fullscreen-static-image fullheight">
-          <div className="flex-container">
+          <div className="flex-container-photo">
             <div className="start">
               <div className="month_photo">
                 <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
@@ -549,13 +549,15 @@ class HomeIndexView extends React.Component {
             </div>
           </div>
 
-          <div className="flex-container end">
-            <div className="bounce-icon page-scroll">
-              <a href={'#autores_amarantinos'} title="Autores Amarantinos">
-                <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
-                  <i className="fa fa-angle-down down-arrow" />
-                </div>
-              </a>
+          <div className="flex-container">
+            <div className="end">
+              <div className="bounce-icon page-scroll">
+                <a href="#autores_amarantinos" title="Autores Amarantinos">
+                  <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
+                    <i className="fa fa-angle-down down-arrow" />
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -588,6 +590,10 @@ class HomeIndexView extends React.Component {
             <ul className="nav navbar-nav">
               <li className="page-scroll home">
                 <a href="#intro">Início</a>
+              </li>
+
+              <li className="page-scroll">
+                <a href="#">A Associação</a>
               </li>
 
               <li className="page-scroll">

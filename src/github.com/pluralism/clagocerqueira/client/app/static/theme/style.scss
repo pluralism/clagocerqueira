@@ -190,9 +190,11 @@ body {
 
 
 .fullscreen-static-image {
-    .flex-container {
+    .flex-container-photo {
         display: flex;
         align-content: center;
+        align-items: flex-end;
+        justify-content: space-between;
         flex-wrap: wrap;
         flex-direction: row;
 
@@ -241,11 +243,23 @@ body {
                 }
             }
         }
+    }
 
-        &.end {
-            height: 20vh;
-            align-items: flex-end;
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+
+
+        > .end {
+            display: flex;
             justify-content: center;
+            height: 20vh;
+
+            .bounce-icon {
+                margin-top: auto;
+            }
 
             .down-arrow {
                 cursor: pointer;
@@ -1318,11 +1332,6 @@ body {
   .heading-v12__block-name {
     font-size: 40px !important;
   }
-}
-
-
-.bounce-icon {
-  margin-right: 20px;
 }
 
 
