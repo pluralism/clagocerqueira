@@ -556,7 +556,7 @@ class HomeIndexView extends React.Component {
           <div className="flex-container">
             <div className="end">
               <div className="bounce-icon page-scroll">
-                <a href="#autores_amarantinos" title="Autores Amarantinos">
+                <a href="#autores_amarantinos" title="Autores Literários">
                   <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
                     <i className="fa fa-angle-down down-arrow" />
                   </div>
@@ -592,10 +592,6 @@ class HomeIndexView extends React.Component {
         <div className="collapse navbar-collapse clc-collapse">
           <div className="menu-container">
             <ul className="nav navbar-nav">
-              <li className="page-scroll home">
-                <a href="#intro">Início</a>
-              </li>
-
               <li className="page-scroll">
                 <a href="#" data-toggle="modal" data-target="#associationModal">A Associação</a>
               </li>
@@ -673,7 +669,7 @@ class HomeIndexView extends React.Component {
             <div className="cbp-l-caption-alignCenter">
               <div className="cbp-l-caption-body">
                 <div className="cbp-l-caption-title font-main">{year}</div>
-                  <p>Autores Amarantinos que nasceram no século {sec}</p>
+                  <p>Autores Literários que nasceram no século {sec}</p>
                 </div>
               </div>
             </div>
@@ -689,7 +685,7 @@ class HomeIndexView extends React.Component {
         <div className="container-fluid">
           <div className="g-pt-80 g-pb-80">
             <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20 title">Autores Amarantinos</h2>
+              <h2 className="heading-v12__block-name font-main g-mb-20 title">Autores Literários</h2>
               <p className="heading-v12__block-text">
                 Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
               </p>
