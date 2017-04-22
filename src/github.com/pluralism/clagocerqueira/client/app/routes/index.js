@@ -28,7 +28,7 @@ export default function configRoutes(store) {
         <Route path="personalidades" component={PersonalitiesView} />
         <Route path="autores(/:type)" component={AuthorsView} />
         <Route path="associacoes(/:type)" component={AssociationsView} />
-        <Route path="imprensa(/:type)" component={PressView} />
+        <Route path="comunicacao_social(/:type)" component={PressView} />
         <Route path="festividades(/:type)" component={FestivitiesView} />
 
 

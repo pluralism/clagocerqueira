@@ -139,7 +139,7 @@ class PressView extends React.Component {
         <div className="g-pt-40">
           <div className="text-center g-mb-30">
             <div className="g-mb-30">
-              <h2><span className="g-color-default">Imprensa</span></h2>
+              <h2><span className="g-color-default">Comunicação Social</span></h2>
             </div>
             <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
               Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
@@ -147,7 +147,7 @@ class PressView extends React.Component {
 
 
           <div className="search_on_list g-mb-30 text-center font-main">
-            <input type="text" placeholder="Pesquisar na imprensa&#8230;" />
+            <input type="text" placeholder="Pesquisar na comunicação social&#8230;" />
           </div>
 
 
@@ -206,32 +206,32 @@ class PressView extends React.Component {
       <div className="tab-content">
         <GeneralObjectTab
           tabID={'#first_tab'}
-          subtitle={"Imprensa"}
+          subtitle={"Comunicação Social"}
           active={this.state.activeTab === Constants.PRESS.MAGAZINES}
           data={press.data[Constants.PRESS.MAGAZINES].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
-          subtitle={"Imprensa"}
+          subtitle={"Comunicação Social"}
           active={this.state.activeTab === Constants.PRESS.JOURNALS}
           data={press.data[Constants.PRESS.JOURNALS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
-          subtitle={"Imprensa"}
+          subtitle={"Comunicação Social"}
           active={this.state.activeTab === Constants.PRESS.RADIOS}
           data={press.data[Constants.PRESS.RADIOS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
-          subtitle={"Imprensa"}
+          subtitle={"Comunicação Social"}
           active={this.state.activeTab === Constants.PRESS.TELEVISIONS}
           data={press.data[Constants.PRESS.TELEVISIONS].objects.objects_data} />
 
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
-          subtitle={"Imprensa"}
+          subtitle={"Comunicação Social"}
           active={this.state.activeTab === Constants.PRESS.ONLINE}
           data={press.data[Constants.PRESS.ONLINE].objects.objects_data} />
 

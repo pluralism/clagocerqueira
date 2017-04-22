@@ -122,31 +122,27 @@ class HeaderLinks extends React.Component {
 
                         <li className="dropdown">
                             <a href="#" className="dropdown-toggle"
-                               data-toggle="dropdown">Imprensa</a>
+                               data-toggle="dropdown">Comunicação Social</a>
 
                             <ul className="dropdown-menu">
                                 <li>
-                                    <a href="/pt/imprensa/journals">Jornais</a>
+                                    <a href="/pt/comunicacao_social/journals">Jornais</a>
                                 </li>
 
                                 <li>
-                                    <a href="/pt/imprensa/online_journals">Jornais Online</a>
+                                    <a href="/pt/comunicacao_social/magazines">Revistas</a>
                                 </li>
 
                                 <li>
-                                    <a href="/pt/imprensa/magazines">Revistas</a>
+                                    <a href="/pt/comunicacao_social/radios">Rádios</a>
                                 </li>
 
                                 <li>
-                                    <a href="/pt/imprensa/radios">Rádios</a>
+                                    <a href="/pt/comunicacao_social/televisions">Televisão</a>
                                 </li>
 
                                 <li>
-                                    <a href="/pt/imprensa/online_radios">Rádios Online</a>
-                                </li>
-
-                                <li>
-                                    <a href="/pt/imprensa/televisions">Televisão</a>
+                                    <a href="/pt/comunicacao_social/online">Online</a>
                                 </li>
                             </ul>
                         </li>

@@ -617,7 +617,7 @@ class HomeIndexView extends React.Component {
               </li>
 
               <li className="page-scroll">
-                <a href="#imprensa">Imprensa</a>
+                <a href="#imprensa">Comunicação Social</a>
               </li>
 
               <li className="page-scroll">
@@ -977,7 +977,7 @@ class HomeIndexView extends React.Component {
         <div className="g-pt-80 g-pb-80 text-center">
           <div className="container-fluid">
             <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20">Imprensa</h2>
+              <h2 className="heading-v12__block-name font-main g-mb-20">Comunicação Social</h2>
               <p className="heading-v12__block-text">
                 Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
                 Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
@@ -988,17 +988,15 @@ class HomeIndexView extends React.Component {
 
             <div className="imprensa-grid imprensa-theme">
               {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina',
-                  'imprensa/journals/')}
-              {this.renderImprensaItem('Jornais Online', 'Jornais com origem Amarantina',
-                  'imprensa/online_journals/')}
+                  'comunicacao_social/journals/')}
               {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina',
-                  'imprensa/magazines/')}
+                  'comunicacao_social/magazines/')}
               {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina',
-                  'imprensa/radios/')}
-              {this.renderImprensaItem('Rádios Online', 'Rádios online de Amarante',
-                  'imprensa/online_radios/')}
+                  'comunicacao_social/radios/')}
               {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
-                  'imprensa/televisions/')}
+                  'comunicacao_social/televisions/')}
+              {this.renderImprensaItem('Online', 'Rádios e Jornais online',
+                  'comunicacao_social/online')}
             </div>
           </div>
         </div>
