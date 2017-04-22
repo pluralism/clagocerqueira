@@ -13,8 +13,29 @@ class PersonalitiesView extends React.Component {
   constructor(props) {
     super(props);
 
+    this.currentName = Constants.PERSONALITIES.ARTS_WRITING;
+    this.categoryMappings = {
+      [Constants.PERSONALITIES.ARTS_WRITING]: {
+        mapping: Constants.PERSONALITIES.ARTS_WRITING,
+        page: 1
+      },
+      [Constants.PERSONALITIES.SPORTS]: {
+          mapping: Constants.PERSONALITIES.SPORTS,
+          page: 1
+      },
+      [Constants.PERSONALITIES.SOCIAL_ECONOMICAL]: {
+          mapping: Constants.PERSONALITIES.SOCIAL_ECONOMICAL,
+          page: 1
+      },
+      [Constants.PERSONALITIES.POLITICAL]: {
+          mapping: Constants.PERSONALITIES.POLITICAL,
+          page: 1
+      },
+    };
+
+
     this.state = {
-      page: 1,
+      activeTab: Constants.PERSONALITIES.ARTS_WRITING,
       canSwitchPage: true
     };
 
@@ -27,11 +48,35 @@ class PersonalitiesView extends React.Component {
   }
 
 
-  componentDidMount() {
-    const { dispatch } = this.props;
+  updateCurrentName(value) {
+      this.currentName = value;
 
-    // Retrieve the initial data to the user (we always select page 1 in the first render)
-    dispatch(PersonalitiesActions.getDataByPage(1));
+
+      // Update the active tab!
+      this.setState({
+          activeTab: this.currentName
+      });
+  }
+
+
+  componentDidMount() {
+    const { dispatch, params } = this.props;
+
+    const mappings = [
+      [Constants.PERSONALITIES.ARTS_WRITING, Constants.PERSONALITIES.ARTS_WRITING],
+      [Constants.PERSONALITIES.SPORTS, Constants.PERSONALITIES.SPORTS],
+      [Constants.PERSONALITIES.SOCIAL_ECONOMICAL, Constants.PERSONALITIES.SOCIAL_ECONOMICAL],
+      [Constants.PERSONALITIES.POLITICAL, Constants.PERSONALITIES.POLITICAL]];
+
+
+    if(params.type !== undefined) {
+      if(params.type === Constants.PERSONALITIES.ARTS_WRITING ||
+          params.type === Constants.PERSONALITIES.SPORTS ||
+          params.type === Constants.PERSONALITIES.SOCIAL_ECONOMICAL ||
+          params.type === Constants.PERSONALITIES.POLITICAL) {
+        this.updateCurrentName(params.type);
+      }
+    }
   }
 
 

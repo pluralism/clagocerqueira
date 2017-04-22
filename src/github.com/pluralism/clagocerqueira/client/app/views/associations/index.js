@@ -118,11 +118,6 @@ class AssociationsView extends React.Component {
 
 
   updateCurrentName(value) {
-    /**
-     * Update the currentName variable and keep the page
-     * as the old one. This allow us to keep consistency
-     * with the lists of associations
-    */
     this.currentName = value;
 
 
