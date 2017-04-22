@@ -112,7 +112,7 @@ class PersonalitiesView extends React.Component {
   }
 
 
-  renderUpperSection() {
+  renderPageContent() {
     return (
       <section id="personalidades_data">
         <div className="g-pt-40">
@@ -133,35 +133,39 @@ class PersonalitiesView extends React.Component {
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation"
-                  className={isActiveTab(Constants.PERSONALITIES.ARTS_WRITING, this.state) ? "active" : ""}>
+                  className={isActiveTab(Constants.PERSONALITIES.ARTS_WRITING, this.state) ?
+                      "active" : ""}>
                 <Link to={"#first_tab"}
                   onClick={() =>
                     this.updateCurrentName(Constants.PERSONALITIES.ARTS_WRITING)}
-                  role="tab" data-toggle="tab">{Constants.PERSONALITIES.ARTS_WRITING}</Link>
+                  role="tab" data-toggle="tab">{Constants.PERSONALITIES_TEXT.ARTS_WRITING}</Link>
               </li>
 
               <li role="presentation"
-                  className={isActiveTab(Constants.PERSONALITIES.SPORTS, this.state) ? "active" : ""}>
+                  className={isActiveTab(Constants.PERSONALITIES.SPORTS, this.state) ?
+                      "active" : ""}>
                 <Link to={"#second_tab"}
                       onClick={() =>
                           this.updateCurrentName(Constants.PERSONALITIES.SPORTS)}
-                      role="tab" data-toggle="tab">{Constants.PERSONALITIES.SPORTS}</Link>
+                      role="tab" data-toggle="tab">{Constants.PERSONALITIES_TEXT.SPORTS}</Link>
               </li>
 
               <li role="presentation"
-                  className={isActiveTab(Constants.PERSONALITIES.SOCIAL_ECONOMICAL, this.state) ? "active" : ""}>
+                  className={isActiveTab(Constants.PERSONALITIES.SOCIAL_ECONOMICAL, this.state) ?
+                      "active" : ""}>
                 <Link to={"#third_tab"}
                       onClick={() =>
                           this.updateCurrentName(Constants.PERSONALITIES.SOCIAL_ECONOMICAL)}
-                      role="tab" data-toggle="tab">{Constants.PERSONALITIES.SOCIAL_ECONOMICAL}</Link>
+                      role="tab" data-toggle="tab">{Constants.PERSONALITIES_TEXT.SOCIAL_ECONOMICAL}</Link>
               </li>
 
               <li role="presentation"
-                  className={isActiveTab(Constants.PERSONALITIES.POLITICAL, this.state) ? "active" : ""}>
-                <Link to={"#second_tab"}
+                  className={isActiveTab(Constants.PERSONALITIES.POLITICAL, this.state) ?
+                      "active" : ""}>
+                <Link to={"#fourth_tab"}
                       onClick={() =>
                           this.updateCurrentName(Constants.PERSONALITIES.POLITICAL)}
-                      role="tab" data-toggle="tab">{Constants.PERSONALITIES.POLITICAL}</Link>
+                      role="tab" data-toggle="tab">{Constants.PERSONALITIES_TEXT.POLITICAL}</Link>
               </li>
             </ul>
 
@@ -248,7 +252,7 @@ class PersonalitiesView extends React.Component {
       <div>
         <main className="container-fluid">
           <HeaderLinks />
-          {this.renderUpperSection()}
+          {this.renderPageContent()}
           <Footer />
         </main>
       </div>

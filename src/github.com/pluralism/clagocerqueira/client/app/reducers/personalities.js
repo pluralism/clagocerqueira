@@ -63,15 +63,15 @@ const updateDataForName = (data, state) => {
 
 export default function reduce(state = initialState, action = {}) {
   switch(action.type) {
-    case Constants.LOADING_PERSONALITIES_DATA:
+    case Constants.LOADING_DATA_PERSONALITIES:
       return { ...state,
           loading: true,
           currentName: action.currentName };
 
-    case Constants.LOADING_PERSONALITIES_ERROR:
+    case Constants.LOADING_DATA_ERROR_PERSONALITIES:
       return { initialState };
 
-    case Constants.LOADING_PERSONALITIES_SUCCESS:
+    case Constants.LOADING_DATA_SUCCESS_PERSONALITIES:
       return { ...state,
           loading: false,
           data: updateDataForName(action.data, state),
