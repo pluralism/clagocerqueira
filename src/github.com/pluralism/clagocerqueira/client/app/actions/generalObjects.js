@@ -216,6 +216,18 @@ GeneralObjectsActions.getDataByPageParishes = (name, mapping, page) => {
 };
 
 
+GeneralObjectsActions.getDataByPagePersonalities = (name, mapping, page) => {
+  return GeneralObjectsActions.getDataByPage(
+      name,
+      mapping,
+      page,
+      Constants.PERSONALITIES_TABLE,
+      Constants.LOADING_DATA_PERSONALITIES,
+      Constants.LOADING_DATA_ERROR_PERSONALITIES,
+      Constants.LOADING_DATA_SUCCESS_PERSONALITIES);
+};
+
+
 
 GeneralObjectsActions.buildGraphQLDataFromMappings = (mappings, constant, page) => {
   let graphQLData = `{`;

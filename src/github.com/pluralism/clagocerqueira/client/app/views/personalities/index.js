@@ -187,7 +187,7 @@ class PersonalitiesView extends React.Component {
     if(currentPage < personalitiesMapping.objects.max_pages) {
         obj.page += 1;
 
-        dispatch(GeneralObjectsActions.getDataByPageNaturalPatrimony(this.currentName,
+        dispatch(GeneralObjectsActions.getDataByPagePersonalities(this.currentName,
             obj.mapping, obj.page));
     }
   }
@@ -201,7 +201,7 @@ class PersonalitiesView extends React.Component {
     if(currentPage > 1) {
         obj.page -= 1;
 
-        dispatch(GeneralObjectsActions.getDataByPageNaturalPatrimony(this.currentName,
+        dispatch(GeneralObjectsActions.getDataByPagePersonalities(this.currentName,
             obj.mapping, obj.page));
     }
   }
