@@ -186,11 +186,9 @@ func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
 
 	readFileAndInsertOnDatabase("journals", pressCollection, "press/jornais.csv",
 		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("online_journals", pressCollection, "press/jornais_online.csv",
+	readFileAndInsertOnDatabase("online", pressCollection, "press/online.csv",
 		"/public/prod/images/monarquia.jpg", session)
 	readFileAndInsertOnDatabase("radios", pressCollection, "press/radios.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("online_radios", pressCollection, "press/radios_online.csv",
 		"/public/prod/images/monarquia.jpg", session)
 	readFileAndInsertOnDatabase("televisions", pressCollection, "press/televisao.csv",
 		"/public/prod/images/monarquia.jpg", session)

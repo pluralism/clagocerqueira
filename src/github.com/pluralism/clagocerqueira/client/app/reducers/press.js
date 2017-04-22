@@ -23,16 +23,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.PRESS.ONLINE_JOURNALS]: {
-      name: "",
-      objects: {
-        objects_data: [],
-        total_items: 0,
-        max_pages: 0,
-      },
-      total_pages: 0
-    },
-    [Constants.PRESS.ONLINE_RADIOS]: {
+    [Constants.PRESS.ONLINE]: {
       name: "",
       objects: {
         objects_data: [],
@@ -63,6 +54,7 @@ const initialState = {
 };
 
 
+
 /**
  * Utility function to help us update the last state of the
  * Redux store.
@@ -77,6 +69,7 @@ const updateDataForName = (data, state) => {
   });
   return stateData;
 };
+
 
 
 export default function reduce(state = initialState, action = {}) {

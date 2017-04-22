@@ -79,20 +79,18 @@ const Constants = {
   PRESS: {
     MAGAZINES: 'magazines',
     JOURNALS: 'journals',
-    ONLINE_JOURNALS: 'online_journals',
     RADIOS: 'radios',
-    ONLINE_RADIOS: 'online_radios',
     TELEVISIONS: 'televisions',
+    ONLINE: 'online'
   },
 
 
   PRESS_TEXT: {
     MAGAZINES: 'Revistas',
     JOURNALS: 'Jornais',
-    ONLINE_JOURNALS: 'Jornais Online',
     RADIOS: 'Rádios',
-    ONLINE_RADIOS: 'Rádios Online',
     TELEVISIONS: 'Televisões',
+    ONLINE: 'Online'
   },
 
 

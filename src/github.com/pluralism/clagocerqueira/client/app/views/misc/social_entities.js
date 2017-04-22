@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HeaderLinks from '../../components/common/header_links';
+import HeaderLinks from '../../components/common/headerLinks';
 import Footer from '../../components/common/footer';
 
 

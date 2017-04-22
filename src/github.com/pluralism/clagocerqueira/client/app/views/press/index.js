@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import HeaderLinks from '../../components/common/header_links';
+import HeaderLinks from '../../components/common/headerLinks';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
@@ -23,12 +23,8 @@ class PressView extends React.Component {
         mapping: Constants.PRESS.MAGAZINES,
         page: 1
       },
-      [Constants.PRESS.ONLINE_JOURNALS]: {
-        mapping: Constants.PRESS.ONLINE_JOURNALS,
-        page: 1
-      },
-      [Constants.PRESS.ONLINE_RADIOS]: {
-        mapping: Constants.PRESS.ONLINE_RADIOS,
+      [Constants.PRESS.ONLINE]: {
+        mapping: Constants.PRESS.ONLINE,
         page: 1
       },
       [Constants.PRESS.RADIOS]: {
@@ -87,17 +83,15 @@ class PressView extends React.Component {
     const mappings = [
       [Constants.PRESS.JOURNALS, Constants.PRESS.JOURNALS],
       [Constants.PRESS.MAGAZINES, Constants.PRESS.MAGAZINES],
-      [Constants.PRESS.ONLINE_JOURNALS, Constants.PRESS.ONLINE_JOURNALS],
-      [Constants.PRESS.ONLINE_RADIOS, Constants.PRESS.ONLINE_RADIOS],
       [Constants.PRESS.RADIOS, Constants.PRESS.RADIOS],
-      [Constants.PRESS.TELEVISIONS, Constants.PRESS.TELEVISIONS]];
+      [Constants.PRESS.TELEVISIONS, Constants.PRESS.TELEVISIONS],
+      [Constants.PRESS.ONLINE, Constants.PRESS.ONLINE]];
 
 
     if(params.type !== undefined) {
       if(params.type === Constants.PRESS.JOURNALS ||
           params.type === Constants.PRESS.MAGAZINES ||
-          params.type === Constants.PRESS.ONLINE_JOURNALS ||
-          params.type === Constants.PRESS.ONLINE_RADIOS ||
+          params.type === Constants.PRESS.ONLINE ||
           params.type === Constants.PRESS.RADIOS ||
           params.type === Constants.PRESS.TELEVISIONS) {
         this.updateCurrentName(params.type);
@@ -165,35 +159,33 @@ class PressView extends React.Component {
                   onClick={() => this.updateCurrentName(Constants.PRESS.MAGAZINES)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.MAGAZINES}</Link>
               </li>
+
               <li role="presentation"
                   className={this.isActiveTab(Constants.PRESS.JOURNALS) ? "active" : ""}>
                 <Link to={"#second_tab"}
                   onClick={() => this.updateCurrentName(Constants.PRESS.JOURNALS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.JOURNALS}</Link>
               </li>
-              <li role="presentation"
-                  className={this.isActiveTab(Constants.PRESS.ONLINE_JOURNALS) ? "active" : ""}>
-                <Link to={"#third_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE_JOURNALS)}
-                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.ONLINE_JOURNALS}</Link>
-              </li>
+
               <li role="presentation"
                   className={this.isActiveTab(Constants.PRESS.RADIOS) ? "active" : ""}>
-                <Link to={"#fourth_tab"}
+                <Link to={"#third_tab"}
                   onClick={() => this.updateCurrentName(Constants.PRESS.RADIOS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.RADIOS}</Link>
               </li>
-              <li role="presentation"
-                  className={this.isActiveTab(Constants.PRESS.ONLINE_RADIOS) ? "active" : ""}>
-                <Link to={"#fifth_tab"}
-                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE_RADIOS)}
-                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.ONLINE_RADIOS}</Link>
-              </li>
+
               <li role="presentation"
                   className={this.isActiveTab(Constants.PRESS.TELEVISIONS) ? "active" : ""}>
-                <Link to={"#sixth_tab"}
+                <Link to={"#fourth_tab"}
                   onClick={() => this.updateCurrentName(Constants.PRESS.TELEVISIONS)}
                   role="tab" data-toggle="tab">{Constants.PRESS_TEXT.TELEVISIONS}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.ONLINE) ? "active" : ""}>
+                <Link to={"#fifth_tab"}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE)}
+                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.ONLINE}</Link>
               </li>
             </ul>
 
@@ -227,26 +219,21 @@ class PressView extends React.Component {
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab === Constants.PRESS.ONLINE_JOURNALS}
-          data={press.data[Constants.PRESS.ONLINE_JOURNALS].objects.objects_data} />
-
-        <GeneralObjectTab
-          tabID={'#fourth_tab'}
-          subtitle={"Imprensa"}
           active={this.state.activeTab === Constants.PRESS.RADIOS}
           data={press.data[Constants.PRESS.RADIOS].objects.objects_data} />
 
         <GeneralObjectTab
-          tabID={'#fifth_tab'}
+          tabID={'#fourth_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab === Constants.PRESS.ONLINE_RADIOS}
-          data={press.data[Constants.PRESS.ONLINE_RADIOS].objects.objects_data} />
+          active={this.state.activeTab === Constants.PRESS.TELEVISIONS}
+          data={press.data[Constants.PRESS.TELEVISIONS].objects.objects_data} />
+
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Imprensa"}
-          active={this.state.activeTab === Constants.PRESS.TELEVISIONS}
-          data={press.data[Constants.PRESS.TELEVISIONS].objects.objects_data} />
+          active={this.state.activeTab === Constants.PRESS.ONLINE}
+          data={press.data[Constants.PRESS.ONLINE].objects.objects_data} />
 
 
         <div className="control-buttons">

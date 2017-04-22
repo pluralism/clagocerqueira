@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import HeaderLinks from '../../components/common/header_links';
+import HeaderLinks from '../../components/common/headerLinks';
 import Footer from '../../components/common/footer';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
