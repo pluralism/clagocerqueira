@@ -311,11 +311,6 @@ GeneralObjectsActions.getAllDataFromPress = (mappings) => {
 
 
 
-/**
- * This function extracts all presidents from the database
- * This is the function that should be called in the initial rendering,
- * when the page number is 1
-*/
 GeneralObjectsActions.getAllDataFromPresidents = (mappings) => {
   return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA,
     Constants.LOADING_DATA_ERROR,
@@ -327,11 +322,6 @@ GeneralObjectsActions.getAllDataFromPresidents = (mappings) => {
 
 
 
-/**
- * This function extracts all councilmen from the database
- * This is the function that should be called in the initial rendering,
- * when the page number is 1
-*/
 GeneralObjectsActions.getAllDataFromCouncilmen = (mappings) => {
   return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA,
     Constants.LOADING_DATA_ERROR,
@@ -350,6 +340,17 @@ GeneralObjectsActions.getAllDatafromNaturalPatrimony = (mappings) =>  {
     1,
     mappings,
     Constants.NATURAL_PATRIMONY_TABLE);
+};
+
+
+
+GeneralObjectsActions.getAllDataFromPersonalities = (mappings) => {
+  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_PERSONALITIES,
+    Constants.LOADING_DATA_ERROR_PERSONALITIES,
+    Constants.LOADING_DATA_SUCCESS_PERSONALITIES,
+    1,
+    mappings,
+    Constants.PERSONALITIES_TABLE);
 };
 
 

@@ -15,7 +15,7 @@ class PersonalitiesView extends React.Component {
     super(props);
 
     this.currentName = Constants.PERSONALITIES.ARTS_WRITING;
-    this.categoryMappings = {
+    this.nameAndPageMappings = {
       [Constants.PERSONALITIES.ARTS_WRITING]: {
         mapping: Constants.PERSONALITIES.ARTS_WRITING,
         page: 1
@@ -78,6 +78,9 @@ class PersonalitiesView extends React.Component {
         this.updateCurrentName(params.type);
       }
     }
+
+
+    dispatch(GeneralObjectsActions.getAllDataFromPersonalities(mappings));
   }
 
 

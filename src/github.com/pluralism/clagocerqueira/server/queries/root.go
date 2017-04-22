@@ -324,22 +324,31 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			},
 		},
 		"personalities": &graphql.Field{
-			Type:        types.GeneralObjectDataType,
+			Type:        types.GeneralListType,
 			Description: "Extract personalities that are defined in a given page",
 			Args: graphql.FieldConfigArgument{
+				"name": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
 				"page": &graphql.ArgumentConfig{
 					Type: graphql.NewNonNull(graphql.Int),
 				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				category, categoryOK := p.Args["name"].(string)
 				page, pageOK := p.Args["page"].(int)
 
-				if !pageOK {
-					// Return no objects if the "page" field is not passed in the query
-					return nil, errors.New("the \"page\" arugment was not provided")
+				if !categoryOK {
+					// Return no objects if the "name" argument is not passed in the query
+					return nil, errors.New("the \"name\" argument was not provided")
 				}
 
-				result := controllers.GetPersonalities(refs.Session, page)
+				if !pageOK {
+					// Return no objects if the "page" argument is not passed in the query
+					return nil, errors.New("the \"page\" argument was not provided")
+				}
+
+				result := controllers.GetPersonalities(refs.Session, category, page)
 
 				if result != nil {
 					// Everything went fine, return the list of personalities
