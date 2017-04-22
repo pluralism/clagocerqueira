@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
+import { isActiveTab } from '../../utils/index';
 import HeaderLinks from '../../components/common/headerLinks';
 import Footer from '../../components/common/footer';
-import PersonalitiesActions from '../../actions/personalities';
 import { Constants } from '../../constants/index';
+import GeneralObjectsActions from '../../actions/generalObjects';
 
 
 
@@ -128,9 +129,36 @@ class PersonalitiesView extends React.Component {
 
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
-              <li role="presentation" className="active">
+              <li role="presentation"
+                  className={isActiveTab(Constants.PERSONALITIES.ARTS_WRITING, this.state) ? "active" : ""}>
                 <Link to={"#first_tab"}
-                  role="tab" data-toggle="tab">{Constants.PERSONALITIES_STRING}</Link>
+                  onClick={() =>
+                    this.updateCurrentName(Constants.PERSONALITIES.ARTS_WRITING)}
+                  role="tab" data-toggle="tab">{Constants.PERSONALITIES.ARTS_WRITING}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={isActiveTab(Constants.PERSONALITIES.SPORTS, this.state) ? "active" : ""}>
+                <Link to={"#second_tab"}
+                      onClick={() =>
+                          this.updateCurrentName(Constants.PERSONALITIES.SPORTS)}
+                      role="tab" data-toggle="tab">{Constants.PERSONALITIES.SPORTS}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={isActiveTab(Constants.PERSONALITIES.SOCIAL_ECONOMICAL, this.state) ? "active" : ""}>
+                <Link to={"#third_tab"}
+                      onClick={() =>
+                          this.updateCurrentName(Constants.PERSONALITIES.SOCIAL_ECONOMICAL)}
+                      role="tab" data-toggle="tab">{Constants.PERSONALITIES.SOCIAL_ECONOMICAL}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={isActiveTab(Constants.PERSONALITIES.POLITICAL, this.state) ? "active" : ""}>
+                <Link to={"#second_tab"}
+                      onClick={() =>
+                          this.updateCurrentName(Constants.PERSONALITIES.POLITICAL)}
+                      role="tab" data-toggle="tab">{Constants.PERSONALITIES.POLITICAL}</Link>
               </li>
             </ul>
 
@@ -145,29 +173,29 @@ class PersonalitiesView extends React.Component {
 
   getNextPageContent() {
     const { personalities, dispatch } = this.props;
-    let currentPage = this.state.page;
+    let obj = this.nameAndPageMappings[this.currentName];
+    let currentPage = obj.page;
+    let personalitiesMapping = personalities.data[obj.mapping];
 
+    if(currentPage < personalitiesMapping.objects.max_pages) {
+        obj.page += 1;
 
-    if(currentPage < personalities.max_pages) {
-      this.setState({
-        page: currentPage + 1
-      }, () => {
-        dispatch(PersonalitiesActions.getDataByPage(this.state.page));
-      });
+        dispatch(GeneralObjectsActions.getDataByPageNaturalPatrimony(this.currentName,
+            obj.mapping, obj.page));
     }
   }
 
 
   getPreviousPageContent() {
     const { dispatch } = this.props;
-    let currentPage = this.state.page;
+    let obj = this.nameAndPageMappings[this.currentName];
+    let currentPage = obj.page;
 
     if(currentPage > 1) {
-      this.setState({
-        page: currentPage - 1
-      }, () => {
-        dispatch(PersonalitiesActions.getDataByPage(this.state.page));
-      });
+        obj.page -= 1;
+
+        dispatch(GeneralObjectsActions.getDataByPageNaturalPatrimony(this.currentName,
+            obj.mapping, obj.page));
     }
   }
 
@@ -179,9 +207,27 @@ class PersonalitiesView extends React.Component {
       <div className="tab-content">
         <GeneralObjectTab
           tabID={'#first_tab'}
-          subtitle={Constants.PERSONALITIES_STRING}
-          active={true}
-          data={personalities.objects_data} />
+          subtitle={"Personalidades | Artes e Letras"}
+          active={this.state.activeTab === Constants.PERSONALITIES.ARTS_WRITING}
+          data={personalities.data[Constants.PERSONALITIES.ARTS_WRITING].objects.objects_data} />
+
+        <GeneralObjectTab
+          tabID={'#second_tab'}
+          subtitle={"Personalidades | Desporto"}
+          active={this.state.activeTab === Constants.PERSONALITIES.SPORTS}
+          data={personalities.data[Constants.PERSONALITIES.SPORTS].objects.objects_data} />
+
+        <GeneralObjectTab
+          tabID={'#third_tab'}
+          subtitle={"Personalidades | Social e Económico"}
+          active={this.state.activeTab === Constants.PERSONALITIES.SOCIAL_ECONOMICAL}
+          data={personalities.data[Constants.PERSONALITIES.SOCIAL_ECONOMICAL].objects.objects_data} />
+
+        <GeneralObjectTab
+            tabID={'#fourth_tab'}
+            subtitle={"Personalidades | Político"}
+            active={this.state.activeTab === Constants.PERSONALITIES.POLITICAL}
+            data={personalities.data[Constants.PERSONALITIES.POLITICAL].objects.objects_data} />
 
 
         <div className="control-buttons">

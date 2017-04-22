@@ -135,6 +135,8 @@ class NaturalPatrimonyView extends React.Component {
                     active={this.state.activeTab === Constants.NATURAL_PATRIMONY.MOUNTAINS}
                     data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.MOUNTAINS].objects.objects_data} />
 
+
+
                 <div className="control-buttons">
                     <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
                     <div className="next-button" onClick={() => this.getNextPageContent()}/>
@@ -199,6 +201,7 @@ class NaturalPatrimonyView extends React.Component {
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.BROOKS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.BROOKS}</Link>
                             </li>
+
                             <li role="presentation"
                                 className={isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
@@ -206,6 +209,7 @@ class NaturalPatrimonyView extends React.Component {
                                           this.updateCurrentName(Constants.NATURAL_PATRIMONY.RIVERS)}
                                       role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.RIVERS}</Link>
                             </li>
+
                             <li role="presentation"
                                 className={isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
