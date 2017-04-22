@@ -17,10 +17,12 @@ export default class MainLayout extends React.Component {
 
       $(window).scroll(() => {
         let headerHomepage = $('.header-homepage').offset();
-        if(headerHomepage !== undefined && headerHomepage.top > 150) {
-          $('.navbar-fixed-top').addClass('top-nav-collapse');
-        } else {
-          $('.navbar-fixed-top').removeClass('top-nav-collapse');
+        if(headerHomepage !== undefined) {
+          if(headerHomepage.top > 150) {
+              $('.navbar-fixed-top').addClass('top-nav-collapse');
+          } else {
+              $('.navbar-fixed-top').removeClass('top-nav-collapse');
+          }
         }
       });
     });
