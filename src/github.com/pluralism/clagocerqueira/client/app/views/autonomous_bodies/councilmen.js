@@ -82,11 +82,11 @@ class CouncilmenView extends React.Component {
 
 
     const mappings = [
-      [Constants.MAPPINGS.d1836_1910, Constants.DATES.d1836_1910],
-      [Constants.MAPPINGS.d1910_1926, Constants.DATES.d1910_1926],
-      [Constants.MAPPINGS.d1926_1974, Constants.DATES.d1926_1974],
-      [Constants.MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
-      [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
+      [Constants.DATE_MAPPINGS.d1836_1910, Constants.DATES.d1836_1910],
+      [Constants.DATE_MAPPINGS.d1910_1926, Constants.DATES.d1910_1926],
+      [Constants.DATE_MAPPINGS.d1926_1974, Constants.DATES.d1926_1974],
+      [Constants.DATE_MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
+      [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
 
 
     if(params.type !== undefined) {
@@ -197,31 +197,31 @@ class CouncilmenView extends React.Component {
           tabID={'#first_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab === Constants.DATES.d1836_1910}
-          data={councilmen.data[Constants.MAPPINGS.d1836_1910].objects.objects_data} />
+          data={councilmen.data[Constants.DATE_MAPPINGS.d1836_1910].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab === Constants.DATES.d1910_1926}
-          data={councilmen.data[Constants.MAPPINGS.d1910_1926].objects.objects_data} />
+          data={councilmen.data[Constants.DATE_MAPPINGS.d1910_1926].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab === Constants.DATES.d1926_1974}
-          data={councilmen.data[Constants.MAPPINGS.d1926_1974].objects.objects_data} />
+          data={councilmen.data[Constants.DATE_MAPPINGS.d1926_1974].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab === Constants.DATES.d1974_1976}
-          data={councilmen.data[Constants.MAPPINGS.d1974_1976].objects.objects_data} />
+          data={councilmen.data[Constants.DATE_MAPPINGS.d1974_1976].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Vereadores"}
           active={this.state.activeTab === Constants.DATES.d1976_2013}
-          data={councilmen.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
+          data={councilmen.data[Constants.DATE_MAPPINGS.d1976_2013].objects.objects_data} />
 
 
         <div className="control-buttons">

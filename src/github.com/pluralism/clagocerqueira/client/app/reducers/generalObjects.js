@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   currentName: "",
   data: {
-    [Constants.MAPPINGS.d1836_1910]: {
+    [Constants.DATE_MAPPINGS.d1836_1910]: {
       name: "",
       objects: {
         objects_data: [],
@@ -14,7 +14,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1910_1926]: {
+    [Constants.DATE_MAPPINGS.d1910_1926]: {
       name: "",
       objects: {
         objects_data: [],
@@ -23,7 +23,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1926_1974]: {
+    [Constants.DATE_MAPPINGS.d1926_1974]: {
       name: "",
       objects: {
         objects_data: [],
@@ -32,7 +32,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1974_1976]: {
+    [Constants.DATE_MAPPINGS.d1974_1976]: {
       name: "",
       objects: {
         objects_data: [],
@@ -41,7 +41,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1976_2013]: {
+    [Constants.DATE_MAPPINGS.d1976_2013]: {
       name: "",
       objects: {
         objects_data: [],

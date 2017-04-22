@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   currentName: "",
   data: {
-    [Constants.MAPPINGS.d1400_1500]: {
+    [Constants.DATE_MAPPINGS.d1400_1500]: {
       name: "",
       objects: {
         objects_data: [],
@@ -14,7 +14,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1501_1600]: {
+    [Constants.DATE_MAPPINGS.d1501_1600]: {
       name: "",
       objects: {
         objects_data: [],
@@ -23,7 +23,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1601_1700]: {
+    [Constants.DATE_MAPPINGS.d1601_1700]: {
       name: "",
       objects: {
         objects_data: [],
@@ -32,7 +32,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1701_1800]: {
+    [Constants.DATE_MAPPINGS.d1701_1800]: {
       name: "",
       objects: {
         objects_data: [],
@@ -41,7 +41,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1801_1900]: {
+    [Constants.DATE_MAPPINGS.d1801_1900]: {
       name: "",
       objects: {
         objects_data: [],
@@ -50,7 +50,7 @@ const initialState = {
       },
       total_pages: 0
     },
-    [Constants.MAPPINGS.d1901_2000]: {
+    [Constants.DATE_MAPPINGS.d1901_2000]: {
       name: "",
       objects: {
         objects_data: [],

@@ -66,7 +66,7 @@ class CityCouncilView extends React.Component {
         const { dispatch, params } = this.props;
 
         const mappings = [
-            [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
+            [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
         ];
 
 
@@ -138,8 +138,8 @@ class CityCouncilView extends React.Component {
                     tabID={'#first_tab'}
                     subtitle={"Assembleia Municipal"}
                     active={this.state.activeTab === Constants.DATES.d1976_2013}
-                    dateMapping={Constants.MAPPINGS.d1976_2013}
-                    data={cityCouncil.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
+                    dateMapping={Constants.DATE_MAPPINGS.d1976_2013}
+                    data={cityCouncil.data[Constants.DATE_MAPPINGS.d1976_2013].objects.objects_data} />
 
 
                 <div className="control-buttons">

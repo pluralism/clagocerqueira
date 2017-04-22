@@ -81,11 +81,11 @@ class PresidentsView extends React.Component {
     const { dispatch, params } = this.props;
 
     const mappings = [
-      [Constants.MAPPINGS.d1836_1910, Constants.DATES.d1836_1910],
-      [Constants.MAPPINGS.d1910_1926, Constants.DATES.d1910_1926],
-      [Constants.MAPPINGS.d1926_1974, Constants.DATES.d1926_1974],
-      [Constants.MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
-      [Constants.MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
+      [Constants.DATE_MAPPINGS.d1836_1910, Constants.DATES.d1836_1910],
+      [Constants.DATE_MAPPINGS.d1910_1926, Constants.DATES.d1910_1926],
+      [Constants.DATE_MAPPINGS.d1926_1974, Constants.DATES.d1926_1974],
+      [Constants.DATE_MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
+      [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]];
 
 
     if(params.type !== undefined) {
@@ -196,31 +196,31 @@ class PresidentsView extends React.Component {
           tabID={'#first_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab === Constants.DATES.d1836_1910}
-          data={presidents.data[Constants.MAPPINGS.d1836_1910].objects.objects_data} />
+          data={presidents.data[Constants.DATE_MAPPINGS.d1836_1910].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab === Constants.DATES.d1910_1926}
-          data={presidents.data[Constants.MAPPINGS.d1910_1926].objects.objects_data} />
+          data={presidents.data[Constants.DATE_MAPPINGS.d1910_1926].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab === Constants.DATES.d1926_1974}
-          data={presidents.data[Constants.MAPPINGS.d1926_1974].objects.objects_data} />
+          data={presidents.data[Constants.DATE_MAPPINGS.d1926_1974].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab === Constants.DATES.d1974_1976}
-          data={presidents.data[Constants.MAPPINGS.d1974_1976].objects.objects_data} />
+          data={presidents.data[Constants.DATE_MAPPINGS.d1974_1976].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Presidentes"}
           active={this.state.activeTab === Constants.DATES.d1976_2013}
-          data={presidents.data[Constants.MAPPINGS.d1976_2013].objects.objects_data} />
+          data={presidents.data[Constants.DATE_MAPPINGS.d1976_2013].objects.objects_data} />
 
 
         <div className="control-buttons">

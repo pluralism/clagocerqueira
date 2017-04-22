@@ -3,26 +3,79 @@ import { Constants } from '../constants/index';
 
 const initialState = {
   loading: false,
-  objects_data: [],
-  max_pages: 0,
-  total_items: 0
+  currentName: "",
+  data: {
+    [Constants.PERSONALITIES.ARTS_WRITING]: {
+      name: "",
+      objects: {
+        objects_data: [],
+        total_items: 0,
+        max_pages: 0,
+      },
+      total_pages: 0
+    },
+    [Constants.PERSONALITIES.SPORTS]: {
+      name: "",
+      objects: {
+          objects_data: [],
+          total_items: 0,
+          max_pages: 0,
+      },
+      total_pages: 0
+    },
+    [Constants.PERSONALITIES.SOCIAL_ECONOMICAL]: {
+      name: "",
+      objects: {
+          objects_data: [],
+          total_items: 0,
+          max_pages: 0,
+      },
+      total_pages: 0
+    },
+    [Constants.PERSONALITIES.POLITICAL]: {
+      name: "",
+      objects: {
+          objects_data: [],
+          total_items: 0,
+          max_pages: 0,
+      },
+      total_pages: 0
+    }
+  }
+};
+
+
+/**
+ * Utility function to help us update the last state of the
+ * Redux store.
+ * By doing we can update a single entry in the array instead of
+ * the whole array, and ultimately make the app faster
+ */
+const updateDataForName = (data, state) => {
+    const stateData = state.data;
+    let keys = Object.keys(data);
+    keys.forEach((key) => {
+        stateData[key] = data[key];
+    });
+    return stateData;
 };
 
 
 export default function reduce(state = initialState, action = {}) {
   switch(action.type) {
     case Constants.LOADING_PERSONALITIES_DATA:
-      return { ...state, loading: true };
+      return { ...state,
+          loading: true,
+          currentName: action.currentName };
 
     case Constants.LOADING_PERSONALITIES_ERROR:
       return { initialState };
 
     case Constants.LOADING_PERSONALITIES_SUCCESS:
       return { ...state,
-        loading: false,
-        objects_data: action.objects_data,
-        max_pages: action.max_pages,
-        total_items: action.total_items
+          loading: false,
+          data: updateDataForName(action.data, state),
+          currentName: action.currentName
       };
 
     default:

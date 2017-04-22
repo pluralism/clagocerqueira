@@ -86,30 +86,18 @@ func findElement(list []string, value string) bool {
 	return false
 }
 
-func readGeneralFileToObject(filename, image string) GeneralObjectData {
-	f, err := os.Open(filename)
-	var generalObjectData GeneralObjectData
 
-	if err != nil {
-		panic(err.Error())
-	}
+func readMapAndInsertListOnDatabase(m map[string]string, s *mgo.Session, dbName string, collection string) {
+	for k, v := range m {
+		data := readGeneralFile(v, "/public/prod/images/monarquia.jpg", k)
 
-	reader := csv.NewReader(bufio.NewReader(f))
-	for {
-		record, err := reader.Read()
-		if err == io.EOF {
-			break
+		if !insertListOnDatabase(s, dbName, collection, data) {
+			panic(fmt.Sprintf("[!] Data(%s) could not be inserted on the database!",
+				k))
+		} else {
+			fmt.Println(fmt.Sprintf("[*] Data(%s) inserted with success!", k))
 		}
-
-		generalObjectData.ObjectsData = append(generalObjectData.ObjectsData, GeneralObject{
-			Name:        strings.TrimSpace(record[0]),
-			Image:       image,
-			Description: "",
-		})
 	}
-	generalObjectData.TotalItems = len(generalObjectData.ObjectsData)
-
-	return generalObjectData
 }
 
 func readGeneralFile(filename, image, date string) GeneralList {
@@ -184,16 +172,15 @@ func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	readFileAndInsertOnDatabase("journals", pressCollection, "press/jornais.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("online", pressCollection, "press/online.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("radios", pressCollection, "press/radios.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("televisions", pressCollection, "press/televisao.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("magazines", pressCollection, "press/revistas.csv",
-		"/public/prod/images/monarquia.jpg", session)
+
+	m := make(map[string]string)
+	m["journals"] = "press/jornais.csv"
+	m["online"] = "press/online.csv"
+	m["radios"] = "press/radios.csv"
+	m["televisions"] = "press/televisao.csv"
+	m["magazines"] = "press/revistas.csv"
+
+	readMapAndInsertListOnDatabase(m, session, dbName, pressCollection)
 }
 
 func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
@@ -214,18 +201,15 @@ func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 		}
 	}
 
-	readFileAndInsertOnDatabase("sports", associationsCollection, "associations/assocDesportivas.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("cultural", associationsCollection, "associations/assocCulturais.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("religious", associationsCollection, "associations/assocReligiosas.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("social", associationsCollection, "associations/assocSociais.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("civic", associationsCollection, "associations/assocCivicas.csv",
-		"/public/prod/images/monarquia.jpg", session)
-	readFileAndInsertOnDatabase("recreational", associationsCollection, "associations/assocRecreativas.csv",
-		"/public/prod/images/monarquia.jpg", session)
+	m := make(map[string]string)
+	m["sports"] = "associations/assocDesportivas.csv"
+	m["cultural"] = "associations/assocCulturais.csv"
+	m["religious"] = "associations/assocReligiosas.csv"
+	m["social"] = "associations/assocSociais.csv"
+	m["civic"] = "associations/assocCivicas.csv"
+	m["recreational"] = "associations/assocRecreativas.csv"
+
+	readMapAndInsertListOnDatabase(m, session, dbName, associationsCollection)
 }
 
 
@@ -248,20 +232,12 @@ func insertNaturalPatrimonyOnDatabase(collectionNames []string, s *mgo.Session) 
 	}
 
 
-	readFileAndInsertOnDatabase("brooks", naturalPatrimonyCollection,
-		"natural_patrimony/ribeiros.csv",
-		"/public/prod/images/monarquia.jpg",
-		session)
+	m := make(map[string]string)
+	m["brooks"] = "natural_patrimony/ribeiros.csv"
+	m["rivers"] = "natural_patrimony/rios.csv"
+	m["mountains"] = "natural_patrimony/serras.csv"
 
-	readFileAndInsertOnDatabase("rivers", naturalPatrimonyCollection,
-		"natural_patrimony/rios.csv",
-		"/public/prod/images/monarquia.jpg",
-		session)
-
-	readFileAndInsertOnDatabase("mountains", naturalPatrimonyCollection,
-		"natural_patrimony/serras.csv",
-		"/public/prod/images/monarquia.jpg",
-		session)
+	readMapAndInsertListOnDatabase(m, session, dbName, naturalPatrimonyCollection)
 }
 
 func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
@@ -419,6 +395,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	fmt.Println("[*] All authors were inserted with success!")
 }
 
+
 func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -437,14 +414,13 @@ func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-	personalities := readGeneralFileToObject("personalities/personalities.csv",
-		"/public/prod/images/monarquia.jpg")
+	category_map := make(map[string]string)
+	category_map["arts_writing"] = "personalities/artes_letras.csv"
+	category_map["sports"] = "personalities/desporto.csv"
+	category_map["social_economical"] = "personalities/social_economico.csv"
+	category_map["political"] = "personalities/politico.csv"
 
-	if !insertListOnDatabase(session, dbName, personalitiesCollection, personalities) {
-		panic("[!] Personalities could not be inserted on the database!")
-	} else {
-		fmt.Println("[*] Personalities inserted with success!")
-	}
+	readMapAndInsertListOnDatabase(category_map, session, dbName, personalitiesCollection)
 }
 
 func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
@@ -584,6 +560,9 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 
 	// Populate the map of parishes
 	populateMap()
+
+
+	m := make(map[string]string)
 	files, _ := ioutil.ReadDir("parishes/")
 	for _, f := range files {
 		// Make sure it isn't a directory...
@@ -591,13 +570,16 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 			index := strings.Index(f.Name(), ".")
 			filename := f.Name()[0:index]
 
-			readFileAndInsertOnDatabase(filename,
-				parishesCollection,
-				fmt.Sprintf("parishes/%s", f.Name()),
-				"/public/prod/images/monarquia.jpg",
-				session)
+			m[filename] = fmt.Sprintf("parishes/%s", f.Name())
+			//readFileAndInsertOnDatabase(filename,
+				//parishesCollection,
+				//fmt.Sprintf("parishes/%s", f.Name()),
+				//"/public/prod/images/monarquia.jpg",
+				//session)
 		}
 	}
+
+	readMapAndInsertListOnDatabase(m, session, dbName, parishesCollection)
 }
 
 
@@ -668,5 +650,5 @@ func main() {
 		insertCityCouncilOnDatabase(collectionNames, session)
 	}
 
-	fmt.Println("[*] Completed!")
+	fmt.Println("[*] All tasks completed!")
 }

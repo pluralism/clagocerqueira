@@ -51,7 +51,8 @@ const Constants = {
     d1901_2000: "1901-2000",
   },
 
-  MAPPINGS: {
+
+  DATE_MAPPINGS: {
     d1836_1910: "data1836_1910",
     d1910_1926: "data1910_1926",
     d1926_1974: "data1926_1974",
@@ -76,6 +77,16 @@ const Constants = {
   },
 
 
+  ASSOCIATIONS_TEXT: {
+    CULTURAL: 'Culturais',
+    CIVIC: 'Cívicas',
+    SPORTS: 'Desportivas',
+    RELIGIOUS: 'Religiosas',
+    SOCIAL: 'Sociais',
+    RECREATIONAL: 'Recreativas',
+  },
+
+
   PRESS: {
     MAGAZINES: 'magazines',
     JOURNALS: 'journals',
@@ -94,16 +105,6 @@ const Constants = {
   },
 
 
-  ASSOCIATIONS_TEXT: {
-    CULTURAL: 'Culturais',
-    CIVIC: 'Cívicas',
-    SPORTS: 'Desportivas',
-    RELIGIOUS: 'Religiosas',
-    SOCIAL: 'Sociais',
-    RECREATIONAL: 'Recreativas',
-  },
-
-
   NATURAL_PATRIMONY: {
     BROOKS: 'brooks',
     RIVERS: 'rivers',
@@ -118,6 +119,22 @@ const Constants = {
   },
 
 
+  PERSONALITIES: {
+    ARTS_WRITING: 'arts_writing',
+    SPORTS: 'sports',
+    SOCIAL_ECONOMICAL: 'social_economical',
+    POLITICAL: 'political',
+  },
+
+
+  PERSONALITIES_TEXT: {
+    ARTS_WRITING: 'Artes e Letras',
+    SPORTS: 'Desporto',
+    SOCIAL_ECONOMICAL: 'Social e Económico',
+    POLITICAL: 'Político'
+  },
+
+
   PRESIDENTS: 'presidents',
   COUNCILMEN: 'councilmen',
   AUTHORS: 'authors',
@@ -126,6 +143,7 @@ const Constants = {
   FESTIVITIES_TABLE: 'festivities',
   CITY_COUNCIL_TABLE: 'city_council',
   NATURAL_PATRIMONY_TABLE: 'natural_patrimony',
+  PERSONALITIES_TABLE: 'personalities',
 
 
   PERSONALITIES_STRING: 'Personalidades',

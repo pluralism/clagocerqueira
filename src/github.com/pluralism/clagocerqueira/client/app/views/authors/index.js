@@ -87,12 +87,12 @@ class AuthorsView extends React.Component {
 
 
     const mappings = [
-      [Constants.MAPPINGS.d1400_1500, Constants.DATES.d1400_1500],
-      [Constants.MAPPINGS.d1501_1600, Constants.DATES.d1501_1600],
-      [Constants.MAPPINGS.d1601_1700, Constants.DATES.d1601_1700],
-      [Constants.MAPPINGS.d1701_1800, Constants.DATES.d1701_1800],
-      [Constants.MAPPINGS.d1801_1900, Constants.DATES.d1801_1900],
-      [Constants.MAPPINGS.d1901_2000, Constants.DATES.d1901_2000]];
+      [Constants.DATE_MAPPINGS.d1400_1500, Constants.DATES.d1400_1500],
+      [Constants.DATE_MAPPINGS.d1501_1600, Constants.DATES.d1501_1600],
+      [Constants.DATE_MAPPINGS.d1601_1700, Constants.DATES.d1601_1700],
+      [Constants.DATE_MAPPINGS.d1701_1800, Constants.DATES.d1701_1800],
+      [Constants.DATE_MAPPINGS.d1801_1900, Constants.DATES.d1801_1900],
+      [Constants.DATE_MAPPINGS.d1901_2000, Constants.DATES.d1901_2000]];
 
 
     if(params.type !== undefined) {
@@ -212,43 +212,43 @@ class AuthorsView extends React.Component {
           tabID={'#first_tab'}
           subtitle={"Autores"}
           active={this.state.activeTab === Constants.DATES.d1400_1500}
-          dateMapping={Constants.MAPPINGS.d1400_1500}
-          data={authors.data[Constants.MAPPINGS.d1400_1500].objects.objects_data} />
+          dateMapping={Constants.DATE_MAPPINGS.d1400_1500}
+          data={authors.data[Constants.DATE_MAPPINGS.d1400_1500].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
           subtitle={"Autores"}
           active={this.state.activeTab === Constants.DATES.d1501_1600}
-          dateMapping={Constants.MAPPINGS.d1501_1600}
-          data={authors.data[Constants.MAPPINGS.d1501_1600].objects.objects_data} />
+          dateMapping={Constants.DATE_MAPPINGS.d1501_1600}
+          data={authors.data[Constants.DATE_MAPPINGS.d1501_1600].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
           subtitle={"Autores"}
           active={this.state.activeTab === Constants.DATES.d1601_1700}
-          dateMapping={Constants.MAPPINGS.d1601_1700}
-          data={authors.data[Constants.MAPPINGS.d1601_1700].objects.objects_data} />
+          dateMapping={Constants.DATE_MAPPINGS.d1601_1700}
+          data={authors.data[Constants.DATE_MAPPINGS.d1601_1700].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
           subtitle={"Autores"}
           active={this.state.activeTab === Constants.DATES.d1701_1800}
-          dateMapping={Constants.MAPPINGS.d1701_1800}
-          data={authors.data[Constants.MAPPINGS.d1701_1800].objects.objects_data} />
+          dateMapping={Constants.DATE_MAPPINGS.d1701_1800}
+          data={authors.data[Constants.DATE_MAPPINGS.d1701_1800].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Autores"}
           active={this.state.activeTab === Constants.DATES.d1801_1900}
-          dateMapping={Constants.MAPPINGS.d1801_1900}
-          data={authors.data[Constants.MAPPINGS.d1801_1900].objects.objects_data} />
+          dateMapping={Constants.DATE_MAPPINGS.d1801_1900}
+          data={authors.data[Constants.DATE_MAPPINGS.d1801_1900].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
           subtitle={"Autores"}
           active={this.state.activeTab === Constants.DATES.d1901_2000}
-          dateMapping={Constants.MAPPINGS.d1901_2000}
-          data={authors.data[Constants.MAPPINGS.d1901_2000].objects.objects_data} />
+          dateMapping={Constants.DATE_MAPPINGS.d1901_2000}
+          data={authors.data[Constants.DATE_MAPPINGS.d1901_2000].objects.objects_data} />
 
 
         <div className="control-buttons">
