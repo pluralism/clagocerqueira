@@ -38,7 +38,7 @@ class HeaderLinks extends React.Component {
 
                         <li className="dropdown">
                             <a href="#" className="dropdown-toggle"
-                                data-toggle="dropdown">Autores Amarantinos</a>
+                                data-toggle="dropdown">Autores Literários</a>
 
                             <ul className="dropdown-menu">
                                 <li>

@@ -601,7 +601,7 @@ class HomeIndexView extends React.Component {
               </li>
 
               <li className="page-scroll">
-                <a href="#autores_amarantinos">Autores Amarantinos</a>
+                <a href="#autores_amarantinos">Autores Literários</a>
               </li>
 
               <li className="page-scroll">
