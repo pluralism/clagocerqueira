@@ -538,7 +538,7 @@ class HomeIndexView extends React.Component {
               <div className="month_photo">
                 <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
                   title="Imagem do Mês">
-                  <img src={require('../../static/img/month_photo.jpg')} width="200" height="150" />
+                  <img src={require('../../static/img/month_photo.jpg')} width="300" height="230" />
                 </Link>
               </div>
             </div>
