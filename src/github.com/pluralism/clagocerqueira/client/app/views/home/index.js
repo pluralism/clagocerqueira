@@ -583,6 +583,7 @@ class HomeIndexView extends React.Component {
               <span className="icon-bar"/>
             </button>
 
+
             <a href="#body" className="navbar-brand main-font">
               <img src={require('../../static/img/logo.jpg')} alt="Logo" className="img-responsive" />
             </a>
@@ -783,23 +784,23 @@ class HomeIndexView extends React.Component {
 
             <div className="orgaos_autarquicos_wrapper">
               <div id="orgaos_autarquicos_list">
-                {this.renderOrgaosAutarquicosCard('Presidentes',
-                    'Presidentes da câmara de Amarante',
+                {this.renderOrgaosAutarquicosCard('Presidentes da Câmara Municipal',
+                    'Encontre todos os presidentes da Câmara Municipal desde 1836',
                     'presidentes',
                     'site/presidents/1976_2013/jose_jorge.jpg')}
 
-                {this.renderOrgaosAutarquicosCard('Vereadores',
-                    'Vereadores da câmara de Amarante',
+                {this.renderOrgaosAutarquicosCard('Vereadores da Câmara Municipal',
+                    'Encontre todos os vereadores da Câmara Municipal desde 1836',
                     'vereadores',
                     'orgaos_1.jpg')}
 
-                {this.renderOrgaosAutarquicosCard('Presidentes',
-                    'Presidentes da Assembleia Municipal',
+                {this.renderOrgaosAutarquicosCard('Presidentes da Assembleia Municipal',
+                    'Encontre todos os presidentes da Assembleia Municipal',
                     'assembleia',
                     'site/presidents/1976_2013/armindo_abreu.jpg')}
 
-                {this.renderOrgaosAutarquicosCard('Presidentes',
-                    'Presidentes das juntas de freguesia',
+                {this.renderOrgaosAutarquicosCard('Presidentes das Juntas de Freguesia',
+                    'Encontre todos os presidentes das juntas de freguesia em Amarante',
                     'assembleia',
                     'orgaos_1.jpg')}
               </div>

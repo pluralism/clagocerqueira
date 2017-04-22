@@ -362,7 +362,7 @@ body {
 
         .owl-buttons {
             position: absolute;
-            top: 150px;
+            top: 200px;
             left: 0;
             right: 0;
         }
@@ -454,17 +454,20 @@ body {
             border-bottom: 1px solid #EEF1F1;
 
             h3 {
-                font-weight: bold;
+                font-weight: 400;
             }
         }
 
 
         .orgaos-card-text {
             padding: 20px 0 20px;
+            margin-left: 10px;
+            margin-right: 10px;
             font-size: 14px;
 
             p {
                 text-align: center;
+                font-weight: 300;
             }
         }
 
