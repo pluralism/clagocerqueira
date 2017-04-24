@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="313">
-              <caret line="1344" column="30" lean-forward="false" selection-start-line="1344" selection-start-column="30" selection-end-line="1344" selection-end-column="30" />
+              <caret line="1323" column="8" lean-forward="false" selection-start-line="1323" selection-start-column="8" selection-end-line="1323" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -1015,7 +1014,7 @@
       <workItem from="1492892483139" duration="1508000" />
       <workItem from="1492975451498" duration="1480000" />
       <workItem from="1492982340328" duration="433000" />
-      <workItem from="1493022848011" duration="221000" />
+      <workItem from="1493022848011" duration="284000" />
     </task>
     <task id="LOCAL-00001" summary="Updating via IntelliJ">
       <created>1492090611190</created>
@@ -1035,7 +1034,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142379000" />
+    <option name="totallyTimeSpent" value="142442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1421,7 +1420,7 @@
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
-          <caret line="1344" column="30" lean-forward="false" selection-start-line="1344" selection-start-column="30" selection-end-line="1344" selection-end-column="30" />
+          <caret line="1323" column="8" lean-forward="false" selection-start-line="1323" selection-start-column="8" selection-end-line="1323" selection-end-column="8" />
           <folding />
         </state>
       </provider>
