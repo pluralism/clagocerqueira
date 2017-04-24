@@ -594,7 +594,7 @@ class HomeIndexView extends React.Component {
           <div className="menu-container">
             <ul className="nav navbar-nav">
               <li className="page-scroll">
-                <a href="#" data-toggle="modal" data-target="#associationModal">A Associação</a>
+                <a href="#" data-toggle="modal" data-target="#associationModal">Quem Somos</a>
               </li>
 
               <li className="page-scroll">
@@ -1342,7 +1342,7 @@ class HomeIndexView extends React.Component {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-body font-main">
-                <h2>A Associação</h2>
+                <h2>Quem Somos</h2>
 
                 <hr />
 
