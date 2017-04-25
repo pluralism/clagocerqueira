@@ -13,7 +13,7 @@ class AssociationsView extends React.Component {
     super(props);
 
 
-    this.currentName = Constants.ASSOCIATIONS.CULTURAL;
+    this.currentName = Constants.ASSOCIATIONS.SOCIAL;
     this.nameAndPageMappings = {
       [Constants.ASSOCIATIONS.CIVIC]: {
         mapping: Constants.ASSOCIATIONS.CIVIC,
@@ -43,7 +43,7 @@ class AssociationsView extends React.Component {
 
 
     this.state = {
-      activeTab: Constants.ASSOCIATIONS.CULTURAL,
+      activeTab: this.currentName,
       canSwitchPage: true,
     };
 
@@ -248,37 +248,37 @@ class AssociationsView extends React.Component {
       <div className="tab-content">
         <GeneralObjectTab
           tabID={'#first_tab'}
-          subtitle={"Associações"}
+          subtitle={"Associações | Culturais"}
           active={this.state.activeTab === Constants.ASSOCIATIONS.CULTURAL}
           data={associations.data[Constants.ASSOCIATIONS.CULTURAL].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#second_tab'}
-          subtitle={"Associações"}
+          subtitle={"Associações | Cívicas"}
           active={this.state.activeTab === Constants.ASSOCIATIONS.CIVIC}
           data={associations.data[Constants.ASSOCIATIONS.CIVIC].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#third_tab'}
-          subtitle={"Associações"}
+          subtitle={"Associações | Desportivas"}
           active={this.state.activeTab === Constants.ASSOCIATIONS.SPORTS}
           data={associations.data[Constants.ASSOCIATIONS.SPORTS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fourth_tab'}
-          subtitle={"Associações"}
+          subtitle={"Associações | Religiosas"}
           active={this.state.activeTab === Constants.ASSOCIATIONS.RELIGIOUS}
           data={associations.data[Constants.ASSOCIATIONS.RELIGIOUS].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
-          subtitle={"Associações"}
+          subtitle={"Associações | Sociais"}
           active={this.state.activeTab === Constants.ASSOCIATIONS.SOCIAL}
           data={associations.data[Constants.ASSOCIATIONS.SOCIAL].objects.objects_data} />
 
         <GeneralObjectTab
           tabID={'#fifth_tab'}
-          subtitle={"Associações"}
+          subtitle={"Associações | Recreativas"}
           active={this.state.activeTab === Constants.ASSOCIATIONS.RECREATIONAL}
           data={associations.data[Constants.ASSOCIATIONS.RECREATIONAL].objects.objects_data} />
 
