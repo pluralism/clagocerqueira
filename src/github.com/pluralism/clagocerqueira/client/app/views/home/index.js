@@ -1321,7 +1321,7 @@ class HomeIndexView extends React.Component {
         });
 
 
-        
+
         this.showedMessage = true;
         /**
          * By setting isButtonDisabled to false we prevent the app from
