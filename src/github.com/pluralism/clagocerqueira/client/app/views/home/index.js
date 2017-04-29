@@ -535,12 +535,6 @@ class HomeIndexView extends React.Component {
         <div className="fullscreen-static-image fullheight">
           <div className="flex-container-photo">
             <div className="start">
-              <div className="month_photo">
-                <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
-                  title="Imagem do Mês">
-                  <img src={require('../../static/img/month_photo.jpg')} width="300" height="230" />
-                </Link>
-              </div>
             </div>
 
             <div className="center">
@@ -1015,6 +1009,7 @@ class HomeIndexView extends React.Component {
               A primeira dica para quem vai a Amarante pela primeira vez é parar o carro e passear pelo centro histórico. Caminhe pelas ruas antigas, veja o casario típico e a história que a cidade conta, siga assim até ver o rio e a ponte.
 
               Para quem gosta de apreciar a arquitetura antiga, em Amarante, principalmente no centro histórico, encontram-se inúmeros exemplos do românico e ainda muitos edifícios da Idade Média.
+              Siga o passeio pela ponte de S. Gonçalo (nome do frade dominicano que a terá mandado construir) e aprecie alguns dos pontos mais turísticos da cidade: a Igreja e Convento de São Gonçalo e o Museu Amadeo de Souza-Cardoso
             </p>
 
 
@@ -1024,7 +1019,7 @@ class HomeIndexView extends React.Component {
             </div>
           </div>
 
-          <div className="col-md-6 col-xs-12 col-lg-4 col-lg-offset-1 g-pt-80 g-pb-80">
+          <div className="col-md-6 col-xs-12 col-lg-4 col-lg-offset-1 g-pt-120 g-pb-80">
             <img src={require('../../static/img/month_photo.jpg')} />
           </div>
         </section>
