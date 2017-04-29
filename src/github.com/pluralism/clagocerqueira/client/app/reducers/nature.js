@@ -6,7 +6,7 @@ const initialState = {
     loading: false,
     currentName: "",
     data: {
-        [Constants.NATURAL_PATRIMONY.BROOKS]: {
+        [Constants.NATURE.BROOKS]: {
             name: "",
             objects: {
                 objects_data: [],
@@ -15,7 +15,7 @@ const initialState = {
             },
             total_pages: 0
         },
-        [Constants.NATURAL_PATRIMONY.RIVERS]: {
+        [Constants.NATURE.RIVERS]: {
             name: "",
             objects: {
                 objects_data: [],
@@ -24,7 +24,7 @@ const initialState = {
             },
             total_pages: 0
         },
-        [Constants.NATURAL_PATRIMONY.MOUNTAINS]: {
+        [Constants.NATURE.MOUNTAINS]: {
             name: "",
             objects: {
                 objects_data: [],
@@ -56,15 +56,15 @@ const updateDataForName = (data, state) => {
 
 export default function reduce(state = initialState, action = {}) {
     switch (action.type) {
-        case Constants.LOADING_DATA_NATURAL_PATRIMONY:
+        case Constants.LOADING_DATA_NATURE:
             return { ...state,
                 loading: true,
                 currentName: action.currentName };
 
-        case Constants.LOADING_DATA_ERROR_NATURAL_PATRIMONY:
+        case Constants.LOADING_DATA_ERROR_NATURE:
             return initialState;
 
-        case Constants.LOADING_DATA_SUCCESS_NATURAL_PATRIMONY:
+        case Constants.LOADING_DATA_SUCCESS_NATURE:
             return { ...state,
                 loading: false,
                 data: updateDataForName(action.data, state),

@@ -11,28 +11,28 @@ import GeneralObjectsActions from '../../actions/generalObjects';
 
 
 
-class NaturalPatrimonyView extends React.Component {
+class NatureView extends React.Component {
     constructor(props) {
         super(props);
 
-        this.currentName = Constants.NATURAL_PATRIMONY.BROOKS;
+        this.currentName = Constants.NATURE.BROOKS;
         this.nameAndPageMappings = {
-            [Constants.NATURAL_PATRIMONY.BROOKS]: {
-                mapping: Constants.NATURAL_PATRIMONY.BROOKS,
+            [Constants.NATURE.BROOKS]: {
+                mapping: Constants.NATURE.BROOKS,
                 page: 1
             },
-            [Constants.NATURAL_PATRIMONY.RIVERS]: {
-                mapping: Constants.NATURAL_PATRIMONY.RIVERS,
+            [Constants.NATURE.RIVERS]: {
+                mapping: Constants.NATURE.RIVERS,
                 page: 1
             },
-            [Constants.NATURAL_PATRIMONY.MOUNTAINS]: {
-                mapping: Constants.NATURAL_PATRIMONY.MOUNTAINS,
+            [Constants.NATURE.MOUNTAINS]: {
+                mapping: Constants.NATURE.MOUNTAINS,
                 page: 1
             },
         };
 
         this.state = {
-            activeTab: Constants.NATURAL_PATRIMONY.BROOKS,
+            activeTab: Constants.NATURE.BROOKS,
             canSwitchPage: true,
         };
 
@@ -43,9 +43,9 @@ class NaturalPatrimonyView extends React.Component {
 
     componentDidMount() {
         const mappings = [
-            [Constants.NATURAL_PATRIMONY.BROOKS, Constants.NATURAL_PATRIMONY.BROOKS],
-            [Constants.NATURAL_PATRIMONY.RIVERS, Constants.NATURAL_PATRIMONY.RIVERS],
-            [Constants.NATURAL_PATRIMONY.MOUNTAINS, Constants.NATURAL_PATRIMONY.MOUNTAINS]
+            [Constants.NATURE.BROOKS, Constants.NATURE.BROOKS],
+            [Constants.NATURE.RIVERS, Constants.NATURE.RIVERS],
+            [Constants.NATURE.MOUNTAINS, Constants.NATURE.MOUNTAINS]
         ];
 
 
@@ -53,9 +53,9 @@ class NaturalPatrimonyView extends React.Component {
 
 
         if(params.type !== undefined) {
-            if(params.type === Constants.NATURAL_PATRIMONY.BROOKS ||
-                params.type === Constants.NATURAL_PATRIMONY.RIVERS ||
-                params.type === Constants.NATURAL_PATRIMONY.MOUNTAINS) {
+            if(params.type === Constants.NATURE.BROOKS ||
+                params.type === Constants.NATURE.RIVERS ||
+                params.type === Constants.NATURE.MOUNTAINS) {
                 this.updateCurrentName(params.type);
             }
         }
@@ -69,7 +69,7 @@ class NaturalPatrimonyView extends React.Component {
          * On this function we try to extract all the natural patrimony data that
          * corresponds to the first page
          */
-        dispatch(GeneralObjectsActions.getAllDatafromNaturalPatrimony(mappings));
+        dispatch(GeneralObjectsActions.getAllDatafromNature(mappings));
     }
 
 
@@ -112,28 +112,28 @@ class NaturalPatrimonyView extends React.Component {
 
 
     renderTabsContents() {
-        const { natural_patrimony } = this.props;
+        const { nature } = this.props;
 
 
         return (
             <div className="tab-content">
                 <GeneralObjectTab
                     tabID={'#first_tab'}
-                    subtitle={"Património Natural"}
-                    active={this.state.activeTab === Constants.NATURAL_PATRIMONY.BROOKS}
-                    data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.BROOKS].objects.objects_data} />
+                    subtitle={"Natureza"}
+                    active={this.state.activeTab === Constants.NATURE.BROOKS}
+                    data={nature.data[Constants.NATURE.BROOKS].objects.objects_data} />
 
                 <GeneralObjectTab
                     tabID={'#second_tab'}
-                    subtitle={"Património Natural"}
-                    active={this.state.activeTab === Constants.NATURAL_PATRIMONY.RIVERS}
-                    data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.RIVERS].objects.objects_data} />
+                    subtitle={"Natureza"}
+                    active={this.state.activeTab === Constants.NATURE.RIVERS}
+                    data={nature.data[Constants.NATURE.RIVERS].objects.objects_data} />
 
                 <GeneralObjectTab
                     tabID={'#third_tab'}
-                    subtitle={"Património Natural"}
-                    active={this.state.activeTab === Constants.NATURAL_PATRIMONY.MOUNTAINS}
-                    data={natural_patrimony.data[Constants.NATURAL_PATRIMONY.MOUNTAINS].objects.objects_data} />
+                    subtitle={"Natureza"}
+                    active={this.state.activeTab === Constants.NATURE.MOUNTAINS}
+                    data={nature.data[Constants.NATURE.MOUNTAINS].objects.objects_data} />
 
 
 
@@ -154,22 +154,22 @@ class NaturalPatrimonyView extends React.Component {
         if(currentPage > 1) {
             obj.page -= 1;
 
-            dispatch(GeneralObjectsActions.getDataByPageNaturalPatrimony(this.currentName,
+            dispatch(GeneralObjectsActions.getDataByPageNature(this.currentName,
                 obj.mapping, obj.page));
         }
     }
 
 
     getNextPageContent() {
-        const { natural_patrimony, dispatch } = this.props;
+        const { nature, dispatch } = this.props;
         let obj = this.nameAndPageMappings[this.currentName];
         let currentPage = obj.page;
-        let naturalPatrimonyMapping = natural_patrimony.data[obj.mapping];
+        let natureMapping = nature.data[obj.mapping];
 
-        if(currentPage < naturalPatrimonyMapping.objects.max_pages) {
+        if(currentPage < natureMapping.objects.max_pages) {
             obj.page += 1;
 
-            dispatch(GeneralObjectsActions.getDataByPageNaturalPatrimony(this.currentName,
+            dispatch(GeneralObjectsActions.getDataByPageNature(this.currentName,
                 obj.mapping, obj.page));
         }
     }
@@ -181,7 +181,7 @@ class NaturalPatrimonyView extends React.Component {
                 <div className="g-pt-40">
                     <div className="text-center g-mb-30">
                         <div className="g-mb-30">
-                            <h2><span className="g-color-default">Património Natural</span></h2>
+                            <h2><span className="g-color-default">Natureza</span></h2>
                         </div>
                         <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
                             Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
@@ -189,33 +189,33 @@ class NaturalPatrimonyView extends React.Component {
 
 
                     <div className="search_on_list g-mb-30 text-center font-main">
-                        <input type="text" placeholder="Pesquisar no património natural&#8230;" />
+                        <input type="text" placeholder="Pesquisar na natureza&#8230;" />
                     </div>
 
                     <div className="tab-v7">
                         <ul className="tab-v7-nav" role="tablist">
                             <li role="presentation"
-                                className={isActiveTab(Constants.NATURAL_PATRIMONY.BROOKS, this.state) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURE.BROOKS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
-                                          this.updateCurrentName(Constants.NATURAL_PATRIMONY.BROOKS)}
-                                      role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.BROOKS}</Link>
+                                          this.updateCurrentName(Constants.NATURE.BROOKS)}
+                                      role="tab" data-toggle="tab">{Constants.NATURE.BROOKS}</Link>
                             </li>
 
                             <li role="presentation"
-                                className={isActiveTab(Constants.NATURAL_PATRIMONY.RIVERS, this.state) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURE.RIVERS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
-                                          this.updateCurrentName(Constants.NATURAL_PATRIMONY.RIVERS)}
-                                      role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.RIVERS}</Link>
+                                          this.updateCurrentName(Constants.NATURE.RIVERS)}
+                                      role="tab" data-toggle="tab">{Constants.NATURE.RIVERS}</Link>
                             </li>
 
                             <li role="presentation"
-                                className={isActiveTab(Constants.NATURAL_PATRIMONY.MOUNTAINS, this.state) ? "active" : ""}>
+                                className={isActiveTab(Constants.NATURE.MOUNTAINS, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
                                       onClick={() =>
-                                          this.updateCurrentName(Constants.NATURAL_PATRIMONY.MOUNTAINS)}
-                                      role="tab" data-toggle="tab">{Constants.NATURAL_PATRIMONY_TEXT.MOUNTAINS}</Link>
+                                          this.updateCurrentName(Constants.NATURE.MOUNTAINS)}
+                                      role="tab" data-toggle="tab">{Constants.NATURE.MOUNTAINS}</Link>
                             </li>
                         </ul>
 
@@ -243,7 +243,7 @@ class NaturalPatrimonyView extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-    natural_patrimony: state.natural_patrimony
+    nature: state.nature
 });
 
-export default connect(mapStateToProps)(NaturalPatrimonyView);
+export default connect(mapStateToProps)(NatureView);

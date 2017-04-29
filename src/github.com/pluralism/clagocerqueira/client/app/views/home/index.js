@@ -93,7 +93,7 @@ class HomeIndexView extends React.Component {
       let festividadesGrid = $('#festividades-grid');
       let imprensaGrid = $('.imprensa-grid');
       let personalidadesGrid = $('#personalidades-grid');
-      let patrimonioNaturalGrid = $('#grid-autores-amarantinos');
+      let naturezaGrid = $('#grid-nature');
 
 
       let mapHash = {}, colors = {}, mappings = {};
@@ -414,24 +414,24 @@ class HomeIndexView extends React.Component {
       });
 
 
-      patrimonioNaturalGrid.cubeportfolio({
-        layoutMode: 'grid',
-        rewindNav: true,
-        scrollByPage: false,
-        defaultFilter: '*',
-        animationType: 'slideLeft',
-        gapHorizontal: 70,
-        gapVertical: 50,
-        gridAdjustment: 'alignCenter',
-        mediaQueries: [
+        naturezaGrid.cubeportfolio({
+          layoutMode: 'grid',
+          rewindNav: true,
+          scrollByPage: false,
+          defaultFilter: '*',
+          animationType: 'slideLeft',
+          gapHorizontal: 70,
+          gapVertical: 50,
+          gridAdjustment: 'alignCenter',
+          mediaQueries: [
             { width: 1440, cols: 3 },
             { width: 1024, cols: 3 },
             { width: 768, cols: 1 },
             { width: 480, cols: 1 },
             { width: 320, cols: 1 }],
-        caption: 'fadeIn',
-        displayType: 'lazyLoading',
-        displayTypeSpeed: 100
+          caption: 'fadeIn',
+          displayType: 'lazyLoading',
+          displayTypeSpeed: 100
       });
 
 
@@ -628,7 +628,7 @@ class HomeIndexView extends React.Component {
               </li>
 
               <li className="page-scroll">
-                <a href="#patrimonio_natural">Património Natural</a>
+                <a href="#natureza">Natureza</a>
               </li>
 
               <li className="page-scroll">
@@ -642,7 +642,7 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderPatrimonioNaturalItem(name, desc, image, link) {
+  renderNaturezaItem(name, desc, image, link) {
     return (
         <div className="cbp-item">
           <Link to={link} target="_blank" className="cbp-caption">
@@ -725,26 +725,26 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderPatrimonioNatural() {
+  renderNatureza() {
     return (
-        <section className="row" id="patrimonio_natural">
+        <section className="row" id="natureza">
           <div className="container-fluid">
             <div className="g-pt-80 g-pb-80">
               <div className="heading-v12 font-main text-center">
-                <h2 className="heading-v12__block-name font-main g-mb-20 title">Património Natural</h2>
+                <h2 className="heading-v12__block-name font-main g-mb-20 title">Natureza</h2>
                 <p className="heading-v12__block-text">
                   Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
                 </p>
               </div>
 
               <div className="cube-portfolio">
-                <div id="grid-autores-amarantinos" className="cbp-l-grid-gallery">
-                  {this.renderPatrimonioNaturalItem('Ribeiros', 'Ribeiros(as) de Amarante',
-                    '/public/prod/images/orgaos_1.jpg', 'patrimonio_natural/brooks')}
-                  {this.renderPatrimonioNaturalItem('Rios', 'Rios de Amarante',
-                      '/public/prod/images/orgaos_1.jpg', 'patrimonio_natural/rivers')}
-                  {this.renderPatrimonioNaturalItem('Serras', 'Serras de Amarante',
-                      '/public/prod/images/orgaos_1.jpg', 'patrimonio_natural/mountains')}
+                <div id="grid-nature" className="cbp-l-grid-gallery">
+                  {this.renderNaturezaItem('Ribeiros', 'Ribeiros(as) de Amarante',
+                    '/public/prod/images/orgaos_1.jpg', 'natureza/brooks')}
+                  {this.renderNaturezaItem('Rios', 'Rios de Amarante',
+                      '/public/prod/images/orgaos_1.jpg', 'natureza/rivers')}
+                  {this.renderNaturezaItem('Serras', 'Serras de Amarante',
+                      '/public/prod/images/orgaos_1.jpg', 'natureza/mountains')}
                 </div>
               </div>
             </div>
@@ -1424,7 +1424,7 @@ class HomeIndexView extends React.Component {
           {this.renderFestividades()}
           {this.renderImprensa()}
           {this.renderPersonalidades()}
-          {this.renderPatrimonioNatural()}
+          {this.renderNatureza()}
           {this.renderContacto()}
           {this.renderAssociacaoModal()}
           <Footer />

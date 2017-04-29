@@ -192,15 +192,15 @@ GeneralObjectsActions.getDataByPageAssociations = (name, mapping, page) => {
 };
 
 
-GeneralObjectsActions.getDataByPageNaturalPatrimony = (name, mapping, page) => {
+GeneralObjectsActions.getDataByPageNature = (name, mapping, page) => {
     return GeneralObjectsActions.getDataByPage(
       name,
       mapping,
       page,
-      Constants.NATURAL_PATRIMONY_TABLE,
-      Constants.LOADING_DATA_NATURAL_PATRIMONY,
-      Constants.LOADING_DATA_ERROR_NATURAL_PATRIMONY,
-      Constants.LOADING_DATA_SUCCESS_NATURAL_PATRIMONY);
+      Constants.NATURE_TABLE,
+      Constants.LOADING_DATA_NATURE,
+      Constants.LOADING_DATA_ERROR_NATURE,
+      Constants.LOADING_DATA_SUCCESS_NATURE);
 };
 
 
@@ -345,19 +345,21 @@ GeneralObjectsActions.getAllDataFromCouncilmen = (mappings) => {
 
 
 
-GeneralObjectsActions.getAllDatafromNaturalPatrimony = (mappings) =>  {
-  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_NATURAL_PATRIMONY,
-    Constants.LOADING_DATA_ERROR_NATURAL_PATRIMONY,
-    Constants.LOADING_DATA_SUCCESS_NATURAL_PATRIMONY,
+GeneralObjectsActions.getAllDatafromNature = (mappings) =>  {
+  return GeneralObjectsActions.loadDataFromServer(
+    Constants.LOADING_DATA_NATURE,
+    Constants.LOADING_DATA_ERROR_NATURE,
+    Constants.LOADING_DATA_SUCCESS_NATURE,
     1,
     mappings,
-    Constants.NATURAL_PATRIMONY_TABLE);
+    Constants.NATURE_TABLE);
 };
 
 
 
 GeneralObjectsActions.getAllDataFromPersonalities = (mappings) => {
-  return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA_PERSONALITIES,
+  return GeneralObjectsActions.loadDataFromServer(
+    Constants.LOADING_DATA_PERSONALITIES,
     Constants.LOADING_DATA_ERROR_PERSONALITIES,
     Constants.LOADING_DATA_SUCCESS_PERSONALITIES,
     1,
