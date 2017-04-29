@@ -87,6 +87,7 @@ class HomeIndexView extends React.Component {
 
 
       let gridContainer = $('#grid-container');
+      let gridContainer2 = $('#grid-container2');
       let associacoesList = $('.associacoes-list');
       let orgaosAutarquicosList = $('#orgaos_autarquicos_list');
       let festividadesGrid = $('#festividades-grid');
@@ -367,13 +368,23 @@ class HomeIndexView extends React.Component {
         animationType: 'slideLeft',
         gapHorizontal: 50,
         gapVertical: 50,
-        gridAdjustment: 'responsive',
-        mediaQueries: [
-            { width: 1440, cols: 3 },
-            { width: 1024, cols: 3 },
-            { width: 768, cols: 2 },
-            { width: 480, cols: 2 },
-            { width: 320, cols: 1 }],
+        gridAdjustment: 'alignCenter',
+        caption: 'fadeIn',
+        displayType: 'lazyLoading',
+        displayTypeSpeed: 100
+      });
+
+
+
+      gridContainer2.cubeportfolio({
+        layoutMode: 'grid',
+        rewindNav: true,
+        scrollByPage: false,
+        defaultFilter: '*',
+        animationType: 'slideLeft',
+        gapHorizontal: 50,
+        gapVertical: 50,
+        gridAdjustment: 'alignCenter',
         caption: 'fadeIn',
         displayType: 'lazyLoading',
         displayTypeSpeed: 100
@@ -678,31 +689,34 @@ class HomeIndexView extends React.Component {
   renderAutoresAmarantinos() {
     return (
       <section className="row" id="autores_amarantinos">
-        <div className="container-fluid">
-          <div className="g-pt-80 g-pb-80">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20 title">Autores Literários</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
-            </div>
+        <div className="g-pt-80 g-pb-80">
+          <div className="heading-v12 font-main text-center">
+            <h2 className="heading-v12__block-name font-main g-mb-20 title">Autores Literários</h2>
+            <p className="heading-v12__block-text">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
+          </div>
 
 
-            <div className="cube-portfolio">
-              <div id="grid-container" className="cbp-l-grid-gallery">
+          <div className="cube-portfolio">
+            <div id="grid-container">
                 {this.renderAutoresAmarantinosItem('1400-1500', 'XV',
                     '/public/prod/images/1600.jpg', 'autores/1400-1500')}
                 {this.renderAutoresAmarantinosItem('1501-1600', 'XVI',
                     '/public/prod/images/1600.jpg', 'autores/1501-1600')}
                 {this.renderAutoresAmarantinosItem('1601-1700', 'XVII',
                     '/public/prod/images/1600.jpg', 'autores/1601-1700')}
+            </div>
+          </div>
+
+          <div className="cube-portfolio">
+            <div id="grid-container2">
                 {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII',
                     '/public/prod/images/1700.jpg', 'autores/1701-1800')}
                 {this.renderAutoresAmarantinosItem('1801-1900', 'XIX',
                     '/public/prod/images/1600.jpg', 'autores/1801-1900')}
                 {this.renderAutoresAmarantinosItem('1901-2000', 'XX',
                     '/public/prod/images/1600.jpg', 'autores/1901-2000')}
-              </div>
             </div>
           </div>
         </div>
@@ -811,8 +825,6 @@ class HomeIndexView extends React.Component {
     return (
       <div className="item associacoes-list-item">
         <div className="img-wrapper img-wrapper--shadow">
-          <img src={require('../../static/img/site/homepage/' + imageName)} className="img-responsive"
-               alt={altText === undefined ? "Órgãos 1" : altText} />
         </div>
         <h3>{title}</h3>
         <p>{description}</p>

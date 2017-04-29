@@ -173,6 +173,15 @@ body {
 }
 
 
+#grid-container, #grid-container2 {
+    .cbp-item {
+        max-width: 350px;
+        max-height: 287px;
+    }
+}
+
+
+
 .cbp-caption-fadeIn .cbp-l-caption-body {
     background-color: #5D2F30;
     opacity: 0.8;
@@ -357,7 +366,7 @@ body {
 
     #orgaos_autarquicos_list {
         .orgaos-card-image {
-            height: 179px;
+            height: 200px;
         }
 
         .owl-buttons {
@@ -430,7 +439,6 @@ body {
 
         .orgaos-card-image {
             overflow: hidden;
-            border-bottom: 1px solid #EEF1F1;
 
             img {
                 -webkit-transition: all 0.5s ease;
