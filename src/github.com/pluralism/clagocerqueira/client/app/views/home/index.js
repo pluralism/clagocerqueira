@@ -1002,6 +1002,39 @@ class HomeIndexView extends React.Component {
   }
 
 
+  renderImagemMes() {
+    return (
+        <section id="imagem_do_mes" className="row">
+          <div className="col-md-5 col-md-offset-1 col-xs-12 g-pt-80 g-pb-80">
+            <div className="heading-v12 font-main">
+              <h2 className="heading-v12__block-name">Imagem do Mês</h2>
+            </div>
+
+
+            <p className="g-mt-20">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
+
+
+            <div id="view_month_photo_button">
+              <Link to={'/public/prod/images/month_photo.jpg'} type="button"
+                    className="btn btn-lg btn-default font-main" target="_blank">Ver Imagem</Link>
+            </div>
+          </div>
+
+          <div className="col-md-6 col-xs-12 g-pt-80 g-pb-80">
+            <img src={require('../../static/img/month_photo.jpg')} />
+          </div>
+        </section>
+    );
+  }
+
+
   renderPersonalidadesItem(personalidadeName, personalidadeImg, altText = undefined) {
     return (
       <div className="cbp-item">
@@ -1379,6 +1412,7 @@ class HomeIndexView extends React.Component {
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderIntro()}
+          {this.renderImagemMes()}
           {this.renderAutoresAmarantinos()}
           {this.renderOrgaosAutarquicos()}
           {this.renderAssociacoes()}
