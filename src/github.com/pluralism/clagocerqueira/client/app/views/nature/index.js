@@ -199,7 +199,7 @@ class NatureView extends React.Component {
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURE.BROOKS)}
-                                      role="tab" data-toggle="tab">{Constants.NATURE.BROOKS}</Link>
+                                      role="tab" data-toggle="tab">{Constants.NATURE_TEXT.BROOKS}</Link>
                             </li>
 
                             <li role="presentation"
@@ -207,7 +207,7 @@ class NatureView extends React.Component {
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURE.RIVERS)}
-                                      role="tab" data-toggle="tab">{Constants.NATURE.RIVERS}</Link>
+                                      role="tab" data-toggle="tab">{Constants.NATURE_TEXT.RIVERS}</Link>
                             </li>
 
                             <li role="presentation"
@@ -215,7 +215,7 @@ class NatureView extends React.Component {
                                 <Link to={"#first_tab"}
                                       onClick={() =>
                                           this.updateCurrentName(Constants.NATURE.MOUNTAINS)}
-                                      role="tab" data-toggle="tab">{Constants.NATURE.MOUNTAINS}</Link>
+                                      role="tab" data-toggle="tab">{Constants.NATURE_TEXT.MOUNTAINS}</Link>
                             </li>
                         </ul>
 
