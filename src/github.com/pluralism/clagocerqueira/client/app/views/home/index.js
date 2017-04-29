@@ -1012,12 +1012,9 @@ class HomeIndexView extends React.Component {
 
 
             <p className="g-mt-20">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              A primeira dica para quem vai a Amarante pela primeira vez é parar o carro e passear pelo centro histórico. Caminhe pelas ruas antigas, veja o casario típico e a história que a cidade conta, siga assim até ver o rio e a ponte.
+
+              Para quem gosta de apreciar a arquitetura antiga, em Amarante, principalmente no centro histórico, encontram-se inúmeros exemplos do românico e ainda muitos edifícios da Idade Média.
             </p>
 
 
