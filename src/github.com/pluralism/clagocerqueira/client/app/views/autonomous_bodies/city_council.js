@@ -172,7 +172,7 @@ class CityCouncilView extends React.Component {
                     <div className="tab-v7">
                         <ul className="tab-v7-nav" role="tablist">
                             <li role="presentation"
-                                className={isActiveTab(Constants.DATES.d1976_2013, this.state)}>
+                                className={isActiveTab(Constants.DATES.d1976_2013, this.state) ? "active" : ""}>
                                 <Link to={"#fifth_tab"}
                                       onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013)}
                                       role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>

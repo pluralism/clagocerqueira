@@ -800,7 +800,7 @@ class HomeIndexView extends React.Component {
                     'site/presidents/1976_2013/armindo_abreu.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes das Juntas de Freguesia',
-                    'Encontre todos os presidentes das juntas de freguesia em Amarante',
+                    'Encontre todos os presidentes das juntas de freguesia',
                     'assembleia',
                     'orgaos_1.jpg')}
               </div>

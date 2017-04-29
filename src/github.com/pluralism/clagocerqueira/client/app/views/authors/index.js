@@ -157,37 +157,37 @@ class AuthorsView extends React.Component {
           <div className="tab-v7">
             <ul className="tab-v7-nav" role="tablist">
               <li role="presentation"
-                  className={isActiveTab(Constants.DATES.d1400_1500, this.state)}>
+                  className={isActiveTab(Constants.DATES.d1400_1500, this.state) ? "active" : ""}>
                 <Link to={"#first_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1400_1500)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1400_1500}</Link>
               </li>
               <li role="presentation"
-                  className={isActiveTab(Constants.DATES.d1501_1600, this.state)}>
+                  className={isActiveTab(Constants.DATES.d1501_1600, this.state) ? "active" : ""}>
                 <Link to={"#second_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1501_1600)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1501_1600}</Link>
               </li>
               <li role="presentation"
-                  className={isActiveTab(Constants.DATES.d1601_1700, this.state)}>
+                  className={isActiveTab(Constants.DATES.d1601_1700, this.state) ? "active" : ""}>
                 <Link to={"#third_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1601_1700)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1601_1700}</Link>
               </li>
               <li role="presentation"
-                  className={isActiveTab(Constants.DATES.d1701_1800, this.state)}>
+                  className={isActiveTab(Constants.DATES.d1701_1800, this.state) ? "active" : ""}>
                 <Link to={"#fourth_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1701_1800)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1701_1800}</Link>
               </li>
               <li role="presentation"
-                  className={isActiveTab(Constants.DATES.d1801_1900, this.state)}>
+                  className={isActiveTab(Constants.DATES.d1801_1900, this.state) ? "active" : ""}>
                 <Link to={"#fifth_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1801_1900)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1801_1900}</Link>
               </li>
               <li role="presentation"
-                  className={isActiveTab(Constants.DATES.d1901_2000, this.state)}>
+                  className={isActiveTab(Constants.DATES.d1901_2000, this.state) ? "active" : ""}>
                 <Link to={"#sixth_tab"}
                   onClick={() => this.updateCurrentDate(Constants.DATES.d1901_2000)}
                   role="tab" data-toggle="tab">{Constants.DATES.d1901_2000}</Link>
