@@ -1024,7 +1024,7 @@ class HomeIndexView extends React.Component {
             </div>
           </div>
 
-          <div className="col-md-6 col-xs-12 g-pt-80 g-pb-80">
+          <div className="col-md-6 col-xs-12 col-lg-4 col-lg-offset-1 g-pt-80 g-pb-80">
             <img src={require('../../static/img/month_photo.jpg')} />
           </div>
         </section>
