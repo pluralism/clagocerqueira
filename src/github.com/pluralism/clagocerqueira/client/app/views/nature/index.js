@@ -177,7 +177,7 @@ class NatureView extends React.Component {
 
     renderUpperSection() {
         return (
-            <section id="patrimonio_natural_data">
+            <section id="natureza_data">
                 <div className="g-pt-40">
                     <div className="text-center g-mb-30">
                         <div className="g-mb-30">
