@@ -11,5 +11,5 @@ const (
 	PRESS_COLLECTION             = "press"
 	PARISHES_COLLECTION 	     = "parishes"
 	CITY_COUNCIL_COLLECTION      = "city_council"
-	NATURAL_PATRIMONY_COLLECTION = "natural_patrimony"
+	NATURE_COLLECTION = "nature"
 )

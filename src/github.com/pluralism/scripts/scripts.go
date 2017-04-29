@@ -21,7 +21,7 @@ const personalitiesCollection = "personalities"
 const authorsCollection = "authors"
 const associationsCollection = "associations"
 const pressCollection = "press"
-const naturalPatrimonyCollection = "natural_patrimony"
+const natureCollection = "nature"
 const parishesCollection = "parishes"
 const cityCouncilCollection = "city_council"
 
@@ -213,17 +213,17 @@ func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 }
 
 
-func insertNaturalPatrimonyOnDatabase(collectionNames []string, s *mgo.Session) {
+func insertNatureOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
 
 	db := session.DB(dbName)
-	// Check if the natural patrimony collection already exists on the database
-	naturalPatrimonyExist := findElement(collectionNames, naturalPatrimonyCollection)
+	// Check if the nature collection already exists on the database
+	natureExists := findElement(collectionNames, natureCollection)
 
-	if naturalPatrimonyExist {
+	if natureExists {
 		// Drop the collection if it already exists
-		err := db.C(naturalPatrimonyCollection).DropCollection()
+		err := db.C(natureCollection).DropCollection()
 
 		// Something went wrong while dropping the collection
 		if err != nil {
@@ -233,11 +233,11 @@ func insertNaturalPatrimonyOnDatabase(collectionNames []string, s *mgo.Session) 
 
 
 	m := make(map[string]string)
-	m["brooks"] = "natural_patrimony/ribeiros.csv"
-	m["rivers"] = "natural_patrimony/rios.csv"
-	m["mountains"] = "natural_patrimony/serras.csv"
+	m["brooks"] = "nature/ribeiros.csv"
+	m["rivers"] = "nature/rios.csv"
+	m["mountains"] = "nature/serras.csv"
 
-	readMapAndInsertListOnDatabase(m, session, dbName, naturalPatrimonyCollection)
+	readMapAndInsertListOnDatabase(m, session, dbName, natureCollection)
 }
 
 func insertCouncilmenOnDatabase(collectionNames []string, s *mgo.Session) {
@@ -609,7 +609,7 @@ func main() {
 	var pressFlag = flag.Bool("press", false, "inserts press on the database")
 	var parishesFlag = flag.Bool("parishes", false, "inserts parishes on the database")
 	var cityCouncilFlag = flag.Bool("cityCouncil", false, "inserts city council data on the database")
-	var naturalPatrimonyFlag = flag.Bool("naturalPatrimony", false, "inserts natural patrimony data on the database")
+	var natureFlag = flag.Bool("nature", false, "inserts nature data on the database")
 
 	// Parse the flags
 	flag.Parse()
@@ -638,8 +638,8 @@ func main() {
 		insertPressOnDatabase(collectionNames, session)
 	}
 
-	if *naturalPatrimonyFlag {
-		insertNaturalPatrimonyOnDatabase(collectionNames, session)
+	if *natureFlag {
+		insertNatureOnDatabase(collectionNames, session)
 	}
 
 	if *parishesFlag {

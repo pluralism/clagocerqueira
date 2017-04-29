@@ -142,7 +142,7 @@ const Constants = {
   PRESS_TABLE: 'press',
   FESTIVITIES_TABLE: 'festivities',
   CITY_COUNCIL_TABLE: 'city_council',
-  NATURE_TABLE: 'natural_patrimony',
+  NATURE_TABLE: 'nature',
   PERSONALITIES_TABLE: 'personalities',
 
 

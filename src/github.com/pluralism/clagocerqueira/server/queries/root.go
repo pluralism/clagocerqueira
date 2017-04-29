@@ -49,10 +49,10 @@ func getAssociations() *graphql.Field {
 }
 
 
-func getNaturalPatrimony() *graphql.Field {
+func getNature() *graphql.Field {
 	return &graphql.Field{
 		Type: types.GeneralListType,
-		Description: "Extract natural patrimony data from the database",
+		Description: "Extract nature data from the database",
 		Args: graphql.FieldConfigArgument{
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
@@ -75,14 +75,14 @@ func getNaturalPatrimony() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetNaturalPatrimonyByName(refs.Session, name, page)
+			result := controllers.GeyNatureByName(refs.Session, name, page)
 
 			if result != nil {
 				// Success, return the result without errors
 				return result, nil
 			}
 
-			return nil, errors.New("the natural patrimony data could not be extracted")
+			return nil, errors.New("the nature data could not be extracted")
 		},
 	}
 }
@@ -282,7 +282,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			},
 		},
 		"associations": getAssociations(),
-		"natural_patrimony": getNaturalPatrimony(),
+		"nature": getNature(),
 		"press":        getPress(),
 		"festivities": 	getFestivitiesForParish(),
 		"city_council": getCityCouncil(),

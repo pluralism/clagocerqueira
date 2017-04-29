@@ -9,11 +9,11 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetNaturalPatrimonyByName(s *mgo.Session, name string, page int) *models.GeneralObject {
+func GeyNatureByName(s *mgo.Session, name string, page int) *models.GeneralObject {
 	session := s.Copy()
 	defer session.Close()
 
-	c := session.DB(constants.DB_NAME).C(constants.NATURAL_PATRIMONY_COLLECTION)
+	c := session.DB(constants.DB_NAME).C(constants.NATURE_COLLECTION)
 	offset := 10 * (page - 1)
 	query := c.Find(bson.M{"name": name}).
 		Select(bson.M{"objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
