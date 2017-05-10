@@ -230,6 +230,7 @@ body {
 
                 &:hover {
                     img {
+                        // For screens smaller than 800px
                         @media only screen and (min-width: 800px) {
                             width: 600px;
                             height: 460px;

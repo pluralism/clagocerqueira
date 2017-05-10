@@ -547,6 +547,12 @@ class HomeIndexView extends React.Component {
         <div className="fullscreen-static-image fullheight">
           <div className="flex-container-photo">
             <div className="start">
+              <div className="month_photo">
+                <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
+                      title="Imagem do Mês">
+                  <img src={require('../../static/img/month_photo.jpg')} width="300" height="230" />
+                </Link>
+              </div>
             </div>
 
             <div className="center">

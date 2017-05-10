@@ -39,7 +39,7 @@ class SocialEntitiesView extends React.Component {
                         <strong>Secretário</strong> – João Pedro Sousa Alves Pinheiro
                     </p>
                     <p className="social_entities_text">
-                        <strong>Secretário</strong> – Pedro Joaquim Catão dos Santos
+                        <strong>Secretário</strong> – António José Moura Ferreira
                     </p>
                 </div>
 
@@ -75,7 +75,7 @@ class SocialEntitiesView extends React.Component {
 
                 <div className="text-center g-pt-20">
                     <p className="social_entities_text">
-                        <strong>Presidente</strong> – António José Moura Ferreira
+                        <strong>Presidente</strong> – Pedro Joaquim Catão dos Santos
                     </p>
                     <p className="social_entities_text">
                         <strong>Vice-presidente</strong> – André Pinto da Silva Clemente Teixeira
