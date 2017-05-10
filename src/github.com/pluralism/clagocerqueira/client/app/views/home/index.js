@@ -547,11 +547,16 @@ class HomeIndexView extends React.Component {
         <div className="fullscreen-static-image fullheight">
           <div className="flex-container-photo">
             <div className="start">
-              <div className="month_photo">
-                <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
-                      title="Imagem do Mês">
-                  <img src={require('../../static/img/month_photo.jpg')} width="300" height="230" />
-                </Link>
+              <div>
+                <h3 className="month-photo-title">Imagens com História</h3>
+
+                <figure className="month-photo">
+                  <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
+                        title="Imagem do Mês">
+                    <img src={require('../../static/img/month_photo.jpg')} width="300" height="230" />
+                  </Link>
+                  <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
+                </figure>
               </div>
             </div>
 
@@ -1423,7 +1428,6 @@ class HomeIndexView extends React.Component {
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderIntro()}
-          {this.renderImagemMes()}
           {this.renderAutoresAmarantinos()}
           {this.renderOrgaosAutarquicos()}
           {this.renderAssociacoes()}

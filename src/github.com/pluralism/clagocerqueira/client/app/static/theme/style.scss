@@ -208,6 +208,8 @@ body {
         flex-wrap: wrap;
         flex-direction: row;
 
+
+
         > .start {
             display: flex;
             width: 100%;
@@ -219,14 +221,38 @@ body {
                 justify-content: center;
             }
 
-            .month_photo {
-                margin-right: 30px;
+
+            .month-photo-title {
                 margin-top: 40px;
+                margin-right: 30px;
+                text-align: center;
+                color: #FFFFFF;
+                font-weight: 400;
                 z-index: 1000;
+                cursor: pointer;
+            }
+
+            .month-photo {
+                margin-right: 30px;
+                padding: 5px;
+                z-index: 1000;
+
 
                 img {
                     transition: all .5s ease-in-out;
+                    border-radius: 4px;
                 }
+
+
+                figcaption {
+                    text-align: center;
+                    margin-top: 5px;
+                    color: #FFFFFF;
+                    font-size: 14px;
+                    font-style: italic;
+                    font-weight: 400;
+                }
+
 
                 &:hover {
                     img {
