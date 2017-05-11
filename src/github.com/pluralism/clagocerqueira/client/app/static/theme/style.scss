@@ -222,44 +222,47 @@ body {
             }
 
 
-            .month-photo-title {
-                margin-top: 40px;
+            .intro-month-photo {
                 margin-right: 30px;
-                text-align: center;
-                color: #FFFFFF;
-                font-weight: 400;
-                z-index: 1000;
-                cursor: pointer;
-            }
-
-            .month-photo {
-                margin-right: 30px;
-                padding: 5px;
-                z-index: 1000;
 
 
-                img {
-                    transition: all .5s ease-in-out;
-                    border-radius: 4px;
-                }
-
-
-                figcaption {
+                .month-photo-title {
+                    margin-top: 40px;
                     text-align: center;
-                    margin-top: 5px;
                     color: #FFFFFF;
-                    font-size: 14px;
-                    font-style: italic;
                     font-weight: 400;
+                    z-index: 1000;
+                    cursor: pointer;
                 }
 
+                .month-photo {
+                    padding: 5px;
+                    z-index: 1000;
 
-                &:hover {
+
                     img {
-                        // For screens smaller than 800px
-                        @media only screen and (min-width: 800px) {
-                            width: 600px;
-                            height: 460px;
+                        transition: all .5s ease-in-out;
+                        border-radius: 4px;
+                    }
+
+
+                    figcaption {
+                        text-align: center;
+                        margin-top: 5px;
+                        color: #FFFFFF;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-style: italic;
+                    }
+
+
+                    &:hover {
+                        img {
+                            // For screens smaller than 800px
+                            @media only screen and (min-width: 800px) {
+                                width: 600px;
+                                height: 460px;
+                            }
                         }
                     }
                 }

@@ -547,7 +547,7 @@ class HomeIndexView extends React.Component {
         <div className="fullscreen-static-image fullheight">
           <div className="flex-container-photo">
             <div className="start">
-              <div>
+              <div className="intro-month-photo">
                 <h3 className="month-photo-title">Imagens com História</h3>
 
                 <figure className="month-photo">
