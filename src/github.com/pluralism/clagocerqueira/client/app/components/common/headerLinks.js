@@ -24,7 +24,7 @@ class HeaderLinks extends React.Component {
 
                         <Link onClick={::this.logoClickHandler} target={"_blank"}
                               className="navbar-brand main-font">
-                            <img src={require('../../static/img/logo.jpg')} alt="Logo"
+                            <img src={require('../../static/img/site/logo.jpg')} alt="Logo"
                                  className="img-responsive" />
                         </Link>
                     </div>

@@ -83,7 +83,7 @@ class HomeIndexView extends React.Component {
 
 
       // Init backstretch with the image we want
-      $('.fullscreen-static-image').backstretch(require('../../static/img/cover.jpg'));
+      $('.fullscreen-static-image').backstretch(require('../../static/img/site/cover.jpg'));
 
 
       let gridContainer = $('#grid-container');
@@ -551,9 +551,9 @@ class HomeIndexView extends React.Component {
                 <h3 className="month-photo-title">Imagens com História</h3>
 
                 <figure className="month-photo">
-                  <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
+                  <Link to={require('../../static/img/site/month_photo.jpg')} target="_blank"
                         title="Imagem do Mês">
-                    <img src={require('../../static/img/month_photo.jpg')} width="250" height="200" />
+                    <img src={require('../../static/img/site/month_photo.jpg')} width="250" height="200" />
                   </Link>
                   <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
                 </figure>
@@ -602,7 +602,7 @@ class HomeIndexView extends React.Component {
 
 
             <a href="#body" className="navbar-brand main-font">
-              <img src={require('../../static/img/logo.jpg')} alt="Logo" className="img-responsive" />
+              <img src={require('../../static/img/site/logo.jpg')} alt="Logo" className="img-responsive" />
             </a>
           </div>
         </div>
@@ -788,7 +788,7 @@ class HomeIndexView extends React.Component {
     return (
       <div className="orgaos-card">
         <div className="orgaos-card-image">
-          <img src={require('../../static/img/' + image)} alt="Órgãos 1" className="img-responsive"/>
+          <img src={image} alt="Órgãos 1" className="img-responsive"/>
         </div>
 
         <div className="orgaos-card-title">
@@ -826,22 +826,22 @@ class HomeIndexView extends React.Component {
                 {this.renderOrgaosAutarquicosCard('Presidentes da Câmara Municipal',
                     'Encontre todos os presidentes da Câmara Municipal desde 1836',
                     'presidentes',
-                    'site/presidents/1976_2013/jose_jorge.jpg')}
+                    '/public/prod/images/jose_jorge.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Vereadores da Câmara Municipal',
                     'Encontre todos os vereadores da Câmara Municipal desde 1836',
                     'vereadores',
-                    'orgaos_1.jpg')}
+                    '/public/prod/images/orgaos_1.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes da Assembleia Municipal',
                     'Encontre todos os presidentes da Assembleia Municipal',
                     'assembleia',
-                    'site/presidents/1976_2013/armindo_abreu.jpg')}
+                    '/public/prod/images/armindo_abreu.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes das Juntas de Freguesia',
                     'Encontre todos os presidentes das juntas de freguesia',
                     'assembleia',
-                    'orgaos_1.jpg')}
+                    '/public/prod/images/orgaos_1.jpg')}
               </div>
             </div>
           </div>
@@ -932,7 +932,7 @@ class HomeIndexView extends React.Component {
         <Link to={'festividades'} target="_blank" className="cbp-caption"
           data-title="Festividades">
           <div className="cbp-caption-defaultWrap">
-            <img src={require('../../static/img/orgaos_1.jpg')} />
+            <img src={require('../../static/img/site/orgaos_1.jpg')} />
           </div>
         </Link>
 
@@ -984,7 +984,7 @@ class HomeIndexView extends React.Component {
       <div className="item text-left">
         <div className="item-info">
           <div className="item-info__block">
-            <img className="item-info__img" src={require('../../static/img/orgaos_1.jpg')} />
+            <img className="item-info__img" src={require('../../static/img/site/orgaos_1.jpg')} />
             <h2 className="item-info__title font-main">
               <Link to={link} className="item-info__link" target="_blank">
                 {title}
@@ -1063,7 +1063,7 @@ class HomeIndexView extends React.Component {
           </div>
 
           <div className="col-md-6 col-xs-12 col-lg-4 col-lg-offset-1 g-pt-120 g-pb-80">
-            <img src={require('../../static/img/month_photo.jpg')} />
+            <img src={require('../../static/img/site/month_photo.jpg')} />
           </div>
         </section>
     );
