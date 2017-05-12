@@ -610,8 +610,27 @@ class HomeIndexView extends React.Component {
         <div className="collapse navbar-collapse clc-collapse">
           <div className="menu-container">
             <ul className="nav navbar-nav">
-              <li className="">
-                <a href="#" data-toggle="modal" data-target="#associationModal">Quem Somos</a>
+              <li className="dropdown">
+                <a href="#" className="dropdown-toggle"
+                   data-toggle="dropdown">Quem Somos</a>
+
+                <ul className="dropdown-menu">
+                  <li>
+                    <a href="/pt/estatutos" target="_blank">Estatutos da Associação</a>
+                  </li>
+
+                  <li>
+                    <a href="/pt/orgaos_sociais" target="_blank">Órgãos Sociais</a>
+                  </li>
+
+                  <li>
+                    <a href="/pt/lago_cerqueira" target="_blank">António do Lago Cerqueira</a>
+                  </li>
+
+                  <li>
+                    <a href="#" data-toggle="modal" data-target="#associationModal">O Seu Contributo</a>
+                  </li>
+                </ul>
               </li>
 
               <li className="page-scroll">
