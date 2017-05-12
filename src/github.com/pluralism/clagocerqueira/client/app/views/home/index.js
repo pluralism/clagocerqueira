@@ -553,7 +553,7 @@ class HomeIndexView extends React.Component {
                 <figure className="month-photo">
                   <Link to={require('../../static/img/month_photo.jpg')} target="_blank"
                         title="Imagem do Mês">
-                    <img src={require('../../static/img/month_photo.jpg')} width="300" height="230" />
+                    <img src={require('../../static/img/month_photo.jpg')} width="250" height="200" />
                   </Link>
                   <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
                 </figure>
@@ -610,7 +610,7 @@ class HomeIndexView extends React.Component {
         <div className="collapse navbar-collapse clc-collapse">
           <div className="menu-container">
             <ul className="nav navbar-nav">
-              <li className="page-scroll">
+              <li className="">
                 <a href="#" data-toggle="modal" data-target="#associationModal">Quem Somos</a>
               </li>
 
