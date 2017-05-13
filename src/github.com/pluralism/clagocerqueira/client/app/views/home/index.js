@@ -83,7 +83,7 @@ class HomeIndexView extends React.Component {
 
 
       // Init backstretch with the image we want
-      $('.fullscreen-static-image').backstretch(require('../../static/img/site/cover.jpg'));
+      $('.fullscreen-static-image').backstretch(require('../../static/img/site/homepage/cover.jpg'));
 
 
       let gridContainer = $('#grid-container');
@@ -551,9 +551,9 @@ class HomeIndexView extends React.Component {
                 <h3 className="month-photo-title">Imagens com História</h3>
 
                 <figure className="month-photo">
-                  <Link to={require('../../static/img/site/month_photo.jpg')} target="_blank"
+                  <Link to={require('../../static/img/site/homepage/month_photo.jpg')} target="_blank"
                         title="Imagem do Mês">
-                    <img src={require('../../static/img/site/month_photo.jpg')} width="250" height="200" />
+                    <img src={require('../../static/img/site/homepage/month_photo.jpg')} width="250" height="200" />
                   </Link>
                   <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
                 </figure>
@@ -831,7 +831,7 @@ class HomeIndexView extends React.Component {
                 {this.renderOrgaosAutarquicosCard('Vereadores da Câmara Municipal',
                     'Encontre todos os vereadores da Câmara Municipal desde 1836',
                     'vereadores',
-                    '/public/prod/images/orgaos_1.jpg')}
+                    '/public/prod/images/vereadores_inicial.png')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes da Assembleia Municipal',
                     'Encontre todos os presidentes da Assembleia Municipal',
@@ -841,7 +841,7 @@ class HomeIndexView extends React.Component {
                 {this.renderOrgaosAutarquicosCard('Presidentes das Juntas de Freguesia',
                     'Encontre todos os presidentes das juntas de freguesia',
                     'assembleia',
-                    '/public/prod/images/orgaos_1.jpg')}
+                    '/public/prod/images/mapa_imagem.png')}
               </div>
             </div>
           </div>
@@ -1063,7 +1063,7 @@ class HomeIndexView extends React.Component {
           </div>
 
           <div className="col-md-6 col-xs-12 col-lg-4 col-lg-offset-1 g-pt-120 g-pb-80">
-            <img src={require('../../static/img/site/month_photo.jpg')} />
+            <img src={require('../../static/img/site/homepage/month_photo.jpg')} />
           </div>
         </section>
     );
@@ -1076,7 +1076,7 @@ class HomeIndexView extends React.Component {
         <div className="cbp-caption">
           <Link to={'personalidades'} target="_blank">
             <div className="cbp-caption-defaultWrap">
-              <img src={require('../../static/img/site/' + personalidadeImg)}
+              <img src={require('../../static/img/site/homepage/' + personalidadeImg)}
                 alt={altText !== undefined ? altText : 'Item de personalidade'} />
             </div>
 
