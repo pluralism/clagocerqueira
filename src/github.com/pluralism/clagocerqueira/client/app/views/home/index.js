@@ -573,7 +573,7 @@ class HomeIndexView extends React.Component {
           <div className="flex-container">
             <div className="end">
               <div className="bounce-icon page-scroll">
-                <a href="#imagem_do_mes" title="Autores Literários">
+                <a href="#autores_amarantinos" title="Autores Literários">
                   <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
                     <i className="fa fa-angle-down down-arrow" />
                   </div>
