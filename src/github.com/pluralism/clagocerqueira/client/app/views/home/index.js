@@ -1203,7 +1203,7 @@ class HomeIndexView extends React.Component {
           </p>
         </div>
 
-        <div className="form-wrapper">
+        <div className="form-wrapper container-fluid">
           <div className="row">
             <div className="col-md-9 col-sm-6 form no-side-padding">
               <form className="sky-form contact-style" onSubmit={::this.handleContactFormSubmit}>
@@ -1438,23 +1438,21 @@ class HomeIndexView extends React.Component {
 
   render() {
     return (
-      <div>
-        <main className="container-fluid">
-          {this.renderHeader()}
-          {this.renderIntro()}
-          {this.renderAutoresAmarantinos()}
-          {this.renderOrgaosAutarquicos()}
-          {this.renderAssociacoes()}
-          {this.renderFestividades()}
-          {this.renderImprensa()}
-          {this.renderPersonalidades()}
-          {this.renderNatureza()}
-          {this.renderContacto()}
-          {this.renderAssociacaoModal()}
-          {this.renderAAssociacaoModal()}
+        <main>
+            {this.renderHeader()}
+            {this.renderIntro()}
+            {this.renderAutoresAmarantinos()}
+            {this.renderOrgaosAutarquicos()}
+            {this.renderAssociacoes()}
+            {this.renderFestividades()}
+            {this.renderImprensa()}
+            {this.renderPersonalidades()}
+            {this.renderNatureza()}
+            {this.renderContacto()}
+            {this.renderAssociacaoModal()}
+            {this.renderAAssociacaoModal()}
           <Footer />
         </main>
-      </div>
     );
   }
 }
