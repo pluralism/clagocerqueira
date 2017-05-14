@@ -620,16 +620,12 @@ body {
         }
 
 
-        h3 {
+        h2 {
             color: #fff;
-            font-size: 18px;
-            margin-top: 50px;
-        }
-
-        p {
-            margin: 0 45px 35px;
-            color: #FFF;
-            font-size: 16px;
+            font-size: 50px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            font-weight: 400;
         }
 
         .btn-u-lg {
@@ -1471,7 +1467,7 @@ body {
 }
 
 
-#associationModal {
+#associationModal, #theAssociationModal {
     .modal-body {
         font-size: 16px;
         font-weight: 300;
@@ -1509,6 +1505,7 @@ body {
         }
     }
 }
+
 
 
 body {

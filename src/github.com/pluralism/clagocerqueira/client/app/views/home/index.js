@@ -564,7 +564,7 @@ class HomeIndexView extends React.Component {
               <div className="title">
                 <div className="col-md-12 col-sm-12 col-xs-12 promo-section__promo-info text-center">
                   <input id="search_anything" type="text" name="search"
-                    placeholder="Pesquise qualquer coisa&#8230;" autoFocus />
+                    placeholder="Pesquise&#8230;" autoFocus />
                 </div>
               </div>
             </div>
@@ -616,7 +616,11 @@ class HomeIndexView extends React.Component {
 
                 <ul className="dropdown-menu">
                   <li>
-                    <a href="/pt/estatutos" target="_blank">Estatutos da Associação</a>
+                    <a href="#" data-toggle="modal" data-target="#theAssociationModal">A Associação</a>
+                  </li>
+
+                  <li>
+                    <a href="/pt/estatutos" target="_blank">Estatutos</a>
                   </li>
 
                   <li>
@@ -634,32 +638,39 @@ class HomeIndexView extends React.Component {
               </li>
 
               <li className="page-scroll">
-                <a href="#autores_amarantinos">Autores Literários</a>
-              </li>
-
-              <li className="page-scroll">
-                <a href="#orgaos_autarquicos">Órgãos Autárquicos</a>
-              </li>
-
-              <li className="page-scroll">
                 <a href="#associacoes">Associações</a>
               </li>
 
+
               <li className="page-scroll">
-                <a href="#festividades">Festividades</a>
+                <a href="#autores_amarantinos">Autores Literários</a>
               </li>
+
 
               <li className="page-scroll">
                 <a href="#imprensa">Comunicação Social</a>
               </li>
 
+
               <li className="page-scroll">
-                <a href="#personalidades">Personalidades</a>
+                <a href="#festividades">Festividades</a>
               </li>
+
 
               <li className="page-scroll">
                 <a href="#natureza">Natureza</a>
               </li>
+
+
+              <li className="page-scroll">
+                <a href="#orgaos_autarquicos">Órgãos Autárquicos</a>
+              </li>
+
+
+              <li className="page-scroll">
+                <a href="#personalidades">Personalidades</a>
+              </li>
+
 
               <li className="page-scroll">
                 <a href="#contacto">Contacto</a>
@@ -758,24 +769,22 @@ class HomeIndexView extends React.Component {
   renderNatureza() {
     return (
         <section className="row" id="natureza">
-          <div className="container-fluid">
-            <div className="g-pt-80 g-pb-80">
-              <div className="heading-v12 font-main text-center">
-                <h2 className="heading-v12__block-name font-main g-mb-20 title">Natureza</h2>
-                <p className="heading-v12__block-text">
-                  Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-                </p>
-              </div>
+          <div className="g-pt-80 g-pb-80">
+            <div className="heading-v12 font-main text-center">
+              <h2 className="heading-v12__block-name font-main g-mb-20 title">Natureza</h2>
+              <p className="heading-v12__block-text">
+                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              </p>
+            </div>
 
-              <div className="cube-portfolio">
-                <div id="grid-nature" className="cbp-l-grid-gallery">
+            <div className="cube-portfolio">
+              <div id="grid-nature" className="cbp-l-grid-gallery">
                   {this.renderNaturezaItem('Ribeiros', 'Ribeiros(as) de Amarante',
-                    '/public/prod/images/orgaos_1.jpg', 'natureza/brooks')}
+                      '/public/prod/images/orgaos_1.jpg', 'natureza/brooks')}
                   {this.renderNaturezaItem('Rios', 'Rios de Amarante',
                       '/public/prod/images/orgaos_1.jpg', 'natureza/rivers')}
                   {this.renderNaturezaItem('Serras', 'Serras de Amarante',
                       '/public/prod/images/orgaos_1.jpg', 'natureza/mountains')}
-                </div>
               </div>
             </div>
           </div>
@@ -813,16 +822,15 @@ class HomeIndexView extends React.Component {
     return (
       <section className="row" id="orgaos_autarquicos">
         <div className="g-pt-80 g-pb-80 text-center">
-          <div className="container-fluid">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20 title">Órgãos Autárquicos</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
-            </div>
+          <div className="heading-v12 font-main text-center">
+            <h2 className="heading-v12__block-name font-main g-mb-20 title">Órgãos Autárquicos</h2>
+            <p className="heading-v12__block-text">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
+          </div>
 
-            <div className="orgaos_autarquicos_wrapper">
-              <div id="orgaos_autarquicos_list">
+          <div className="orgaos_autarquicos_wrapper">
+            <div id="orgaos_autarquicos_list">
                 {this.renderOrgaosAutarquicosCard('Presidentes da Câmara Municipal',
                     'Encontre todos os presidentes da Câmara Municipal desde 1836',
                     'presidentes',
@@ -842,7 +850,6 @@ class HomeIndexView extends React.Component {
                     'Encontre todos os presidentes das juntas de freguesia',
                     'assembleia',
                     '/public/prod/images/mapa_imagem.png')}
-              </div>
             </div>
           </div>
         </div>
@@ -854,10 +861,7 @@ class HomeIndexView extends React.Component {
   renderAssociacoesItem(title, description, link, imageName, altText = undefined) {
     return (
       <div className="item associacoes-list-item">
-        <div className="img-wrapper img-wrapper--shadow">
-        </div>
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h2>{title}</h2>
         <Link to={link} target="_blank" className="btn-u btn-u-lg btn-u-upper">Ver Mais</Link>
       </div>
     );
@@ -881,37 +885,37 @@ class HomeIndexView extends React.Component {
             <div className="content-wrapper">
               <div className="col-md-12 associacoes-list-wrapper">
                 <div className="associacoes-list">
-                  {this.renderAssociacoesItem('Associações Sociais',
+                  {this.renderAssociacoesItem('Sociais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/social',
                     'social_bundle.jpg',
                     'Associações Sociais')}
 
-                  {this.renderAssociacoesItem('Associações Cívicas',
+                  {this.renderAssociacoesItem('Cívicas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/civic',
                     'civic_bundle.jpg',
                     'Associações Cívicas')}
 
-                  {this.renderAssociacoesItem('Associações Desportivas',
+                  {this.renderAssociacoesItem('Desportivas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/sports',
                     'sports_bundle.jpg',
                     'Associações Desportivas')}
 
-                  {this.renderAssociacoesItem('Associações Recreativas',
+                  {this.renderAssociacoesItem('Recreativas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/recreational',
                     'recreational_bundle.jpg',
                     'Associações Recreativas')}
 
-                  {this.renderAssociacoesItem('Associações Culturais',
+                  {this.renderAssociacoesItem('Culturais',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/cultural',
                     'cultural_bundle.jpg',
                     'Associações Culturais')}
 
-                  {this.renderAssociacoesItem('Associações Religiosas',
+                  {this.renderAssociacoesItem('Religiosas',
                     'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
                     'associacoes/religious',
                     'cultural_bundle.jpg',
@@ -1101,7 +1105,7 @@ class HomeIndexView extends React.Component {
             <div className="personalidades-wrapper">
               <div id="personalidades-grid">
                 {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
-                  'amadeo_homepage.jpg')}
+                  'amadeo_homepage2.jpg')}
                 {this.renderPersonalidadesItem('António do Lago Cerqueira',
                   'lago_cerqueira_homepage.jpg')}
                 {this.renderPersonalidadesItem('Teixeira de Pascoaes',
@@ -1398,13 +1402,46 @@ class HomeIndexView extends React.Component {
   }
 
 
+    renderAAssociacaoModal() {
+        return (
+            <div id="theAssociationModal" className="modal fade" role="dialog">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-body font-main">
+                    <h2>A Associação</h2>
+
+                    <hr />
+
+                    <p>
+                      O Círculo Lago Cerqueira é uma associação cultural Amarantina fundada a 2 de março
+                      de 2005.
+                    </p>
+
+                    <p>
+                      Tem como missão divulgar e promover a cultura de Amarante e da região através da
+                      edição de livros, conferências, exposições, atividades e outros projetos culturais.
+                      É seu patrono António do Lago Cerqueira (1880-1945), ilustre figura pública de
+                      Amarante.
+                    </p>
+
+                    <div id="modalCloseButton">
+                      <button type="button" className="btn btn-lg" data-dismiss="modal">Fechar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        );
+    }
+
+
   renderAssociacaoModal() {
     return (
         <div id="associationModal" className="modal fade" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-body font-main">
-                <h2>Quem Somos</h2>
+                <h2>O Seu Contributo</h2>
 
                 <hr />
 
@@ -1449,6 +1486,7 @@ class HomeIndexView extends React.Component {
           {this.renderNatureza()}
           {this.renderContacto()}
           {this.renderAssociacaoModal()}
+          {this.renderAAssociacaoModal()}
           <Footer />
         </main>
       </div>
