@@ -729,7 +729,7 @@ class HomeIndexView extends React.Component {
 
   renderAutoresAmarantinos() {
     return (
-      <section className="row" id="autores_amarantinos">
+      <section id="autores_amarantinos" className="row">
         <div className="g-pt-80 g-pb-80">
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20 title">Autores Literários</h2>
@@ -872,55 +872,53 @@ class HomeIndexView extends React.Component {
     return (
       <section id="associacoes" className="row">
         <div className="g-pt-80 g-pb-80 text-center">
-          <div className="container-fluid">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20">Associações</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
-            </div>
+          <div className="heading-v12 font-main text-center">
+            <h2 className="heading-v12__block-name font-main g-mb-20">Associações</h2>
+            <p className="heading-v12__block-text">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
+          </div>
 
-            <div className="content-wrapper">
-              <div className="col-md-12 associacoes-list-wrapper">
-                <div className="associacoes-list">
+          <div className="content-wrapper">
+            <div className="col-md-12 associacoes-list-wrapper">
+              <div className="associacoes-list">
                   {this.renderAssociacoesItem('Sociais',
-                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/social',
-                    'social_bundle.jpg',
-                    'Associações Sociais')}
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'associacoes/social',
+                      'social_bundle.jpg',
+                      'Associações Sociais')}
 
                   {this.renderAssociacoesItem('Cívicas',
-                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/civic',
-                    'civic_bundle.jpg',
-                    'Associações Cívicas')}
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'associacoes/civic',
+                      'civic_bundle.jpg',
+                      'Associações Cívicas')}
 
                   {this.renderAssociacoesItem('Desportivas',
-                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/sports',
-                    'sports_bundle.jpg',
-                    'Associações Desportivas')}
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'associacoes/sports',
+                      'sports_bundle.jpg',
+                      'Associações Desportivas')}
 
                   {this.renderAssociacoesItem('Recreativas',
-                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/recreational',
-                    'recreational_bundle.jpg',
-                    'Associações Recreativas')}
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'associacoes/recreational',
+                      'recreational_bundle.jpg',
+                      'Associações Recreativas')}
 
                   {this.renderAssociacoesItem('Culturais',
-                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/cultural',
-                    'cultural_bundle.jpg',
-                    'Associações Culturais')}
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'associacoes/cultural',
+                      'cultural_bundle.jpg',
+                      'Associações Culturais')}
 
                   {this.renderAssociacoesItem('Religiosas',
-                    'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                    'associacoes/religious',
-                    'cultural_bundle.jpg',
-                    'Associações Religiosas')}
-                </div>
+                      'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
+                      'associacoes/religious',
+                      'cultural_bundle.jpg',
+                      'Associações Religiosas')}
               </div>
             </div>
           </div>
@@ -951,32 +949,30 @@ class HomeIndexView extends React.Component {
 
   renderFestividades() {
     return (
-      <section id="festividades" className="row">
-        <div className="g-pt-80 g-pb-80 text-center">
-          <div className="container-fluid">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20">Festividades</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
-            </div>
-
-            <div className="grid">
-              <div id="festividades-grid" className="cbp-l-grid-gallery">
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-              </div>
-            </div>
-
-
-            <div id="map_amarante"
-                 className="col-md-6 col-sm-12 col-sm-offset-0 col-md-offset-3"
-                 style={{height: '400px'}} />
+      <section id="festividades" className="row g-pt-80 g-pb-80 ">
+        <div className="text-center">
+          <div className="heading-v12 font-main text-center">
+            <h2 className="heading-v12__block-name font-main g-mb-20">Festividades</h2>
+            <p className="heading-v12__block-text">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
           </div>
+
+          <div className="grid">
+            <div id="festividades-grid" className="cbp-l-grid-gallery">
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+            </div>
+          </div>
+
+
+          <div id="map_amarante"
+               className="col-md-6 col-sm-12 col-sm-offset-0 col-md-offset-3"
+               style={{height: '400px'}} />
         </div>
       </section>
     );
@@ -1011,20 +1007,19 @@ class HomeIndexView extends React.Component {
 
   renderImprensa() {
     return (
-      <section id="imprensa" className="row">
-        <div className="g-pt-80 g-pb-80 text-center">
-          <div className="container-fluid">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20">Comunicação Social</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
-            </div>
+      <section id="imprensa" className="row g-pt-80 g-pb-80 ">
+        <div className="text-center">
+          <div className="heading-v12 font-main text-center">
+            <h2 className="heading-v12__block-name font-main g-mb-20">Comunicação Social</h2>
+            <p className="heading-v12__block-text">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
+          </div>
 
 
-            <div className="imprensa-grid imprensa-theme">
+          <div className="imprensa-grid imprensa-theme">
               {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina',
                   'comunicacao_social/journals/')}
               {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina',
@@ -1035,35 +1030,12 @@ class HomeIndexView extends React.Component {
                   'comunicacao_social/televisions/')}
               {this.renderImprensaItem('Online', 'Rádios e Jornais online',
                   'comunicacao_social/online')}
-            </div>
           </div>
         </div>
       </section>
     );
   }
 
-
-  renderImagemMes() {
-    return (
-        <section id="imagem_do_mes">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-md-6 col-md-offset-4 g-pt-80 g-pb-30">
-                <div className="heading-v12 font-main">
-                  <h2 className="heading-v12__block-name">Imagem do Mês</h2>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-6 col-md-offset-4 g-pb-80">
-                <img src={'/public/prod/images/month_photo.jpg'} />
-              </div>
-            </div>
-          </div>
-        </section>
-    );
-  }
 
 
   renderPersonalidadesItem(personalidadeName, personalidadeImg, altText = undefined) {
@@ -1090,33 +1062,31 @@ class HomeIndexView extends React.Component {
 
   renderPersonalidades() {
     return (
-      <section id="personalidades" className="row">
-        <div className="g-pt-80 g-pb-80 text-center">
-          <div className="container-fluid">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20">Personalidades</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
-            </div>
+      <section id="personalidades" className="row g-pt-80 g-pb-80">
+        <div className="text-center">
+          <div className="heading-v12 font-main text-center">
+            <h2 className="heading-v12__block-name font-main g-mb-20">Personalidades</h2>
+            <p className="heading-v12__block-text">
+              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            </p>
+          </div>
 
-            <div className="personalidades-wrapper">
-              <div id="personalidades-grid">
+          <div className="personalidades-wrapper">
+            <div id="personalidades-grid">
                 {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
-                  'amadeo_homepage2.jpg')}
+                    'amadeo_homepage2.jpg')}
                 {this.renderPersonalidadesItem('António do Lago Cerqueira',
-                  'lago_cerqueira_homepage.jpg')}
+                    'lago_cerqueira_homepage.jpg')}
                 {this.renderPersonalidadesItem('Teixeira de Pascoaes',
-                  'teixeira_pascoaes_homepage.jpg')}
-              </div>
+                    'teixeira_pascoaes_homepage.jpg')}
             </div>
+          </div>
 
 
-            <div className="view_all_personalidades">
-              <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'personalidades'}>Ver Todos</Link>
-            </div>
+          <div className="view_all_personalidades">
+            <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'personalidades'}>Ver Todos</Link>
           </div>
         </div>
       </section>
@@ -1223,114 +1193,110 @@ class HomeIndexView extends React.Component {
 
   renderContacto() {
     return (
-      <section id="contacto" className="row">
-        <div className="g-pt-80 g-pb-80">
-          <div className="container-fluid">
-            <div className="heading-v12 font-main text-center">
-              <h2 className="heading-v12__block-name font-main g-mb-20">Contacto</h2>
-              <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-                Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-                justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
-              </p>
+      <section id="contacto" className="row g-pt-80 g-pb-80">
+        <div className="heading-v12 font-main text-center">
+          <h2 className="heading-v12__block-name font-main g-mb-20">Contacto</h2>
+          <p className="heading-v12__block-text">
+            Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
+            Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
+            justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+          </p>
+        </div>
+
+        <div className="form-wrapper">
+          <div className="row">
+            <div className="col-md-9 col-sm-6 form no-side-padding">
+              <form className="sky-form contact-style" onSubmit={::this.handleContactFormSubmit}>
+                <fieldset>
+                  <div className="row margin-bottom-30">
+                    <div className="col-md-6">
+                      <input type="text" ref={(ref) => this.nameInput = ref} id="name"
+                             className={classNames({
+                                 "form-control": true,
+                                 "invalid": this.state.contactFormFields.name.invalid
+                             })}
+                             placeholder="Nome"
+                             onChange={::this.handleContactInputChange} />
+                    </div>
+
+                    <div className="col-md-6">
+                      <input type="text" ref={(ref) => this.phoneInput = ref} id="phone"
+                             className={classNames({
+                                 "form-control": true,
+                                 "invalid": this.state.contactFormFields.phone.invalid
+                             })}
+                             placeholder="Telemóvel"
+                             onChange={::this.handleContactInputChange} />
+                    </div>
+                  </div>
+
+
+                  <div className="row margin-bottom-30">
+                    <div className="col-md-6">
+                      <input type="email" ref={(ref) => this.emailInput = ref} id="email"
+                             className={classNames({
+                                 "form-control": true,
+                                 "invalid": this.state.contactFormFields.email.invalid
+                             })}
+                             placeholder="Email *"
+                             onChange={::this.handleContactInputChange} />
+                    </div>
+
+                    <div className="col-md-6">
+                      <input type="text" ref={(ref) => this.subjectInput = ref} id="subject"
+                             className={classNames({
+                                 "form-control": true,
+                                 "invalid": this.state.contactFormFields.subject.invalid
+                             })}
+                             placeholder="Assunto"
+                             onChange={::this.handleContactInputChange} />
+                    </div>
+                  </div>
+
+
+                  <div className="row margin-bottom-30">
+                    <div className="col-md-12">
+                          <textarea rows="4" ref={(ref) => this.messageInput = ref} id="message"
+                                    className={classNames({
+                                        "form-control": true,
+                                        "g-textarea-noresize": true,
+                                        "invalid": this.state.contactFormFields.message.invalid
+                                    })}
+                                    placeholder="Mensagem&#8230;"
+                                    onChange={::this.handleContactInputChange} />
+                    </div>
+                  </div>
+
+                  <p>
+                    <button type="submit"
+                            className="submit-button btn-u btn-u-lg btn-u-bg-default btn-u-upper"
+                            disabled={this.state.submitButtonDisabled}>
+                        {this.state.submitButtonDisabled ? 'A enviar...' : 'Enviar Mensagem'}
+                    </button>
+                  </p>
+                </fieldset>
+              </form>
             </div>
 
-            <div className="form-wrapper">
-              <div className="row">
-                <div className="col-md-9 col-sm-6 form no-side-padding">
-                  <form className="sky-form contact-style" onSubmit={::this.handleContactFormSubmit}>
-                    <fieldset>
-                      <div className="row margin-bottom-30">
-                        <div className="col-md-6">
-                          <input type="text" ref={(ref) => this.nameInput = ref} id="name"
-                            className={classNames({
-                              "form-control": true,
-                              "invalid": this.state.contactFormFields.name.invalid
-                            })}
-                            placeholder="Nome"
-                            onChange={::this.handleContactInputChange} />
-                        </div>
 
-                        <div className="col-md-6">
-                          <input type="text" ref={(ref) => this.phoneInput = ref} id="phone"
-                            className={classNames({
-                              "form-control": true,
-                              "invalid": this.state.contactFormFields.phone.invalid
-                            })}
-                            placeholder="Telemóvel"
-                            onChange={::this.handleContactInputChange} />
-                        </div>
-                      </div>
+            <div className="col-md-3 col-sm-6 contact-list">
+              <ul className="list-unstyled margin-bottom-30">
+                <li><span aria-hidden="true" className="icon-directions icon"/></li>
+                <li className="first-item">Morada</li>
+                <li className="second-item">Apartado 35, Amarante</li>
+              </ul>
 
+              <ul className="list-unstyled margin-bottom-30">
+                <li><span aria-hidden="true" className="icon-call-in icon"/></li>
+                <li className="first-item">Telemóvel</li>
+                <li className="second-item">+351 918 601 719</li>
+              </ul>
 
-                      <div className="row margin-bottom-30">
-                        <div className="col-md-6">
-                          <input type="email" ref={(ref) => this.emailInput = ref} id="email"
-                            className={classNames({
-                              "form-control": true,
-                              "invalid": this.state.contactFormFields.email.invalid
-                            })}
-                            placeholder="Email *"
-                            onChange={::this.handleContactInputChange} />
-                        </div>
-
-                        <div className="col-md-6">
-                          <input type="text" ref={(ref) => this.subjectInput = ref} id="subject"
-                            className={classNames({
-                              "form-control": true,
-                              "invalid": this.state.contactFormFields.subject.invalid
-                            })}
-                            placeholder="Assunto"
-                            onChange={::this.handleContactInputChange} />
-                        </div>
-                      </div>
-
-
-                      <div className="row margin-bottom-30">
-                        <div className="col-md-12">
-                          <textarea rows="4" ref={(ref) => this.messageInput = ref} id="message"
-                            className={classNames({
-                              "form-control": true,
-                              "g-textarea-noresize": true,
-                              "invalid": this.state.contactFormFields.message.invalid
-                            })}
-                            placeholder="Mensagem&#8230;"
-                            onChange={::this.handleContactInputChange} />
-                        </div>
-                      </div>
-
-                      <p>
-                        <button type="submit"
-                          className="submit-button btn-u btn-u-lg btn-u-bg-default btn-u-upper"
-                          disabled={this.state.submitButtonDisabled}>
-                          {this.state.submitButtonDisabled ? 'A enviar...' : 'Enviar Mensagem'}
-                        </button>
-                      </p>
-                    </fieldset>
-                  </form>
-                </div>
-
-
-                <div className="col-md-3 col-sm-6 contact-list">
-                  <ul className="list-unstyled margin-bottom-30">
-                    <li><span aria-hidden="true" className="icon-directions icon"/></li>
-                    <li className="first-item">Morada</li>
-                    <li className="second-item">Apartado 35, Amarante</li>
-                  </ul>
-
-                  <ul className="list-unstyled margin-bottom-30">
-                    <li><span aria-hidden="true" className="icon-call-in icon"/></li>
-                    <li className="first-item">Telemóvel</li>
-                    <li className="second-item">+351 918 601 719</li>
-                  </ul>
-
-                  <ul className="list-unstyled margin-bottom-30">
-                    <li><span aria-hidden="true" className="icon-envelope-open icon"/></li>
-                    <li className="first-item">Email</li>
-                    <li className="second-item">info@clagocerqueira.com</li>
-                  </ul>
-                </div>
-              </div>
+              <ul className="list-unstyled margin-bottom-30">
+                <li><span aria-hidden="true" className="icon-envelope-open icon"/></li>
+                <li className="first-item">Email</li>
+                <li className="second-item">info@clagocerqueira.com</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1476,7 +1442,6 @@ class HomeIndexView extends React.Component {
         <main className="container-fluid">
           {this.renderHeader()}
           {this.renderIntro()}
-          {this.renderImagemMes()}
           {this.renderAutoresAmarantinos()}
           {this.renderOrgaosAutarquicos()}
           {this.renderAssociacoes()}
