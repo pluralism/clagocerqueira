@@ -194,13 +194,11 @@ class FestivitiesView extends React.Component {
 
     render() {
         return (
-            <div>
-                <main className="container-fluid">
-                    <HeaderLinks />
-                    {this.renderContent()}
-                    <Footer />
-                </main>
-            </div>
+            <main>
+                <HeaderLinks />
+                {this.renderContent()}
+                <Footer />
+            </main>
         );
     }
 }

@@ -104,13 +104,11 @@ class SocialEntitiesView extends React.Component {
 
     render() {
         return (
-            <div>
-                <main className="container-fluid">
-                    <HeaderLinks />
-                    {this.renderTitleAndContent()}
-                    <Footer />
-                </main>
-            </div>
+            <main>
+                <HeaderLinks />
+                {this.renderTitleAndContent()}
+                <Footer />
+            </main>
         );
     }
 }

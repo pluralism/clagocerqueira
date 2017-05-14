@@ -229,13 +229,11 @@ class NatureView extends React.Component {
 
     render() {
         return (
-            <div>
-                <main className="container-fluid">
-                    <HeaderLinks />
-                    {this.renderUpperSection()}
-                    <Footer />
-                </main>
-            </div>
+            <main>
+                <HeaderLinks />
+                {this.renderUpperSection()}
+                <Footer />
+            </main>
         );
     }
 }

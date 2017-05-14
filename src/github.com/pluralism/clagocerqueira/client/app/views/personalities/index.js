@@ -249,13 +249,11 @@ class PersonalitiesView extends React.Component {
 
   render() {
     return (
-      <div>
-        <main className="container-fluid">
+        <main>
           <HeaderLinks />
-          {this.renderPageContent()}
+            {this.renderPageContent()}
           <Footer />
         </main>
-      </div>
     );
   }
 }

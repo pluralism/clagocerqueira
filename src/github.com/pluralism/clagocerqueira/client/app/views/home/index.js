@@ -1368,7 +1368,7 @@ class HomeIndexView extends React.Component {
   }
 
 
-    renderAAssociacaoModal() {
+    renderAssociacaoModal() {
         return (
             <div id="theAssociationModal" className="modal fade" role="dialog">
               <div className="modal-dialog" role="document">
@@ -1401,7 +1401,7 @@ class HomeIndexView extends React.Component {
     }
 
 
-  renderAssociacaoModal() {
+  renderSeuContributoModal() {
     return (
         <div id="associationModal" className="modal fade" role="dialog">
           <div className="modal-dialog" role="document">
@@ -1450,7 +1450,7 @@ class HomeIndexView extends React.Component {
             {this.renderNatureza()}
             {this.renderContacto()}
             {this.renderAssociacaoModal()}
-            {this.renderAAssociacaoModal()}
+            {this.renderSeuContributoModal()}
           <Footer />
         </main>
     );

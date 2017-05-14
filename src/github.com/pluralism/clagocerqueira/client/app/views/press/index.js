@@ -276,13 +276,11 @@ class PressView extends React.Component {
 
   render() {
     return (
-      <div>
-        <main className="container-fluid">
+        <main>
           <HeaderLinks />
-          {this.renderUpperSection()}
+            {this.renderUpperSection()}
           <Footer />
         </main>
-      </div>
     );
   }
 }
