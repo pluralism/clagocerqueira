@@ -545,27 +545,25 @@ class HomeIndexView extends React.Component {
     return (
       <section id="intro" className="row cover-section">
         <div className="fullscreen-static-image fullheight">
-          <div className="flex-container-photo">
-            <div className="start">
-              <div className="intro-month-photo">
-                <h3 className="month-photo-title">Imagens com História</h3>
-
-                <figure className="month-photo">
-                  <Link to={require('../../static/img/site/homepage/month_photo.jpg')} target="_blank"
-                        title="Imagem do Mês">
-                    <img src={require('../../static/img/site/homepage/month_photo.jpg')} width="250" height="200" />
-                  </Link>
-                  <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
-                </figure>
-              </div>
-            </div>
-
+          <div className="flex-container-top">
             <div className="center">
               <div className="title">
                 <div className="col-md-12 col-sm-12 col-xs-12 promo-section__promo-info text-center">
                   <input id="search_anything" type="text" name="search"
                     placeholder="Pesquise&#8230;" autoFocus />
                 </div>
+              </div>
+
+
+              <div className="intro-month-photo">
+                <h3 className="month-photo-title">Imagens com História</h3>
+                <figure>
+                  <Link to={require('../../static/img/site/homepage/month_photo.jpg')} target="_blank"
+                        title="Imagem do Mês">
+                    <img src={require('../../static/img/site/homepage/month_photo.jpg')} width="250" height="200" />
+                  </Link>
+                  <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
+                </figure>
               </div>
             </div>
           </div>
