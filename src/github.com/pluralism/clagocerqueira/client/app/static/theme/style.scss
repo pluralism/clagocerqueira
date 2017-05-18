@@ -211,7 +211,6 @@ body {
             flex-direction: row;
 
             .title {
-                margin-right: auto;
                 @media only screen and (max-width: 800px) {
                     width: 80%;
                 }
@@ -226,6 +225,21 @@ body {
                     color: #FFFFFF;
                     font-weight: 400;
                     cursor: pointer;
+                }
+
+                figure {
+                    img {
+                        border-radius: 4px;
+                    }
+
+                    figcaption {
+                        text-align: center;
+                        margin-top: 5px;
+                        color: #FFFFFF;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-style: italic;
+                    }
                 }
             }
         }
