@@ -83,7 +83,7 @@ class HomeIndexView extends React.Component {
 
 
       // Init backstretch with the image we want
-      $('.fullscreen-static-image').backstretch(require('../../static/img/site/homepage/cover.jpg'));
+      // $('.fullscreen-static-image').backstretch(require('../../static/img/site/homepage/cover.jpg'));
 
 
       let gridContainer = $('#grid-container');
@@ -545,37 +545,21 @@ class HomeIndexView extends React.Component {
     return (
       <section id="intro" className="row cover-section">
         <div className="fullscreen-static-image fullheight">
-          <div className="flex-container-top">
-            <div className="center">
-              <div className="title">
-                <div className="col-md-12 col-sm-12 col-xs-12 promo-section__promo-info text-center">
-                  <input id="search_anything" type="text" name="search"
-                    placeholder="Pesquise&#8230;" autoFocus />
-                </div>
-              </div>
-
-
+          <div className="content">
+            <div className="col-lg-9 col-md-6 search-column promo-section__promo-info text-center">
+              <input id="search_anything" type="text" name="search"
+                     placeholder="Pesquise&#8230;" autoFocus />
+            </div>
+            <div className="col-lg-3 col-md-6 photo-column">
               <div className="intro-month-photo">
                 <h3 className="month-photo-title">Imagens com História</h3>
                 <figure>
                   <Link to={require('../../static/img/site/homepage/month_photo.jpg')} target="_blank"
                         title="Imagem do Mês">
-                    <img src={require('../../static/img/site/homepage/month_photo.jpg')} width="250" height="200" />
+                    <img src={require('../../static/img/site/homepage/month_photo.jpg')} className="img-responsive" />
                   </Link>
                   <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
                 </figure>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex-container">
-            <div className="end">
-              <div className="bounce-icon page-scroll">
-                <a href="#autores_amarantinos" title="Autores Literários">
-                  <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
-                    <i className="fa fa-angle-down down-arrow" />
-                  </div>
-                </a>
               </div>
             </div>
           </div>
@@ -753,9 +737,9 @@ class HomeIndexView extends React.Component {
                 {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII',
                     '/public/prod/images/1700.jpg', 'autores/1701-1800')}
                 {this.renderAutoresAmarantinosItem('1801-1900', 'XIX',
-                    '/public/prod/images/1600.jpg', 'autores/1801-1900')}
+                    '/public/prod/images/1800.jpg', 'autores/1801-1900')}
                 {this.renderAutoresAmarantinosItem('1901-2000', 'XX',
-                    '/public/prod/images/1600.jpg', 'autores/1901-2000')}
+                    '/public/prod/images/1900.jpg', 'autores/1901-2000')}
             </div>
           </div>
         </div>
@@ -778,11 +762,11 @@ class HomeIndexView extends React.Component {
             <div className="cube-portfolio">
               <div id="grid-nature" className="cbp-l-grid-gallery">
                   {this.renderNaturezaItem('Ribeiros', 'Ribeiros(as) de Amarante',
-                      '/public/prod/images/orgaos_1.jpg', 'natureza/brooks')}
+                      '/public/prod/images/ribeiros.jpg', 'natureza/brooks')}
                   {this.renderNaturezaItem('Rios', 'Rios de Amarante',
-                      '/public/prod/images/orgaos_1.jpg', 'natureza/rivers')}
+                      '/public/prod/images/rios.jpg', 'natureza/rivers')}
                   {this.renderNaturezaItem('Serras', 'Serras de Amarante',
-                      '/public/prod/images/orgaos_1.jpg', 'natureza/mountains')}
+                      '/public/prod/images/serras.jpg', 'natureza/mountains')}
               </div>
             </div>
           </div>
@@ -977,12 +961,12 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderImprensaItem(title, description, link) {
+  renderImprensaItem(title, description, link, img) {
     return (
       <div className="item text-left">
         <div className="item-info">
           <div className="item-info__block">
-            <img className="item-info__img" src={require('../../static/img/site/orgaos_1.jpg')} />
+            <img className="item-info__img" src={img} />
             <h2 className="item-info__title font-main">
               <Link to={link} className="item-info__link" target="_blank">
                 {title}
@@ -1019,15 +1003,15 @@ class HomeIndexView extends React.Component {
 
           <div className="imprensa-grid imprensa-theme">
               {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina',
-                  'comunicacao_social/journals/')}
+                  'comunicacao_social/journals/', '/public/prod/images/jornais.jpg')}
               {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina',
-                  'comunicacao_social/magazines/')}
+                  'comunicacao_social/magazines/', '/public/prod/images/revistas.jpg')}
               {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina',
-                  'comunicacao_social/radios/')}
+                  'comunicacao_social/radios/', '/public/prod/images/revistas.jpg')}
               {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
-                  'comunicacao_social/televisions/')}
+                  'comunicacao_social/televisions/', '/public/prod/images/revistas.jpg')}
               {this.renderImprensaItem('Online', 'Rádios e Jornais online',
-                  'comunicacao_social/online')}
+                  'comunicacao_social/online', '/public/prod/images/revistas.jpg')}
           </div>
         </div>
       </section>

@@ -1,3 +1,7 @@
+html, body {
+    height:100%;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -199,27 +203,27 @@ body {
 
 
 .fullscreen-static-image {
-    .flex-container-top {
-        display: flex;
-
-        > .center {
+    height: 85vh;
+    .content {
+        height: 100%;
+        .search-column {
+            height: 100%;
             display: flex;
             flex: 0 0 100%;
-            height: 50vh;
-            justify-content: center;
             align-items: center;
-            flex-direction: row;
+            justify-content: center;
+            flex-direction: column;
+        }
 
-            .title {
-                @media only screen and (max-width: 800px) {
-                    width: 80%;
-                }
-            }
+        .photo-column {
+            height: 100%;
+            display: flex;
+            flex: 0 0 100%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
 
             .intro-month-photo {
-                margin-left: auto;
-                margin-right: 15px;
-
                 > .month-photo-title {
                     text-align: center;
                     color: #FFFFFF;
@@ -230,6 +234,85 @@ body {
                 figure {
                     img {
                         border-radius: 4px;
+                        transition: all .5s ease-in-out;
+                    }
+
+                    &:hover {
+                        img {
+                            // For screens larger than 800px
+                            @media only screen and (min-width: 800px) {
+                                width: 400px;
+                                height: 320px;
+                            }
+                        }
+                    }
+
+                    figcaption {
+                        text-align: center;
+                        margin-top: 5px;
+                        color: #FFFFFF;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+
+    .flex-container-top {
+        > .center {
+            display: flex;
+            flex: 0 0 100%;
+            height: 50vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .title {
+                @media only screen and (min-width: 750px) {
+                    position: absolute;
+                    top: 45%;
+                    transform: translateY(-100%);
+                }
+
+                @media only screen and (max-width: 1000px) {
+                    align-self: flex-start;
+                }
+
+                @media only screen and (max-width: 800px) {
+                    width: 80%;
+                }
+            }
+
+            .intro-month-photo {
+                @media only screen and (min-width: 750px) {
+                    margin-right: 15px;
+                    align-self: flex-end;
+                }
+
+                > .month-photo-title {
+                    text-align: center;
+                    color: #FFFFFF;
+                    font-weight: 400;
+                    cursor: pointer;
+                }
+
+                figure {
+                    img {
+                        width: 100%;
+                        border-radius: 4px;
+                        transition: all .5s ease-in-out;
+                    }
+
+                    &:hover {
+                        img {
+                            // For screens larger than 800px
+                            @media only screen and (min-width: 800px) {
+                                width: 400px;
+                                height: 320px;
+                            }
+                        }
                     }
 
                     figcaption {
@@ -284,7 +367,6 @@ body {
 
 #search_anything {
     display: inline-block;
-    width: 100%;
     color: #FFF;
     font-size: 55px;
     font-style: normal;
@@ -298,7 +380,18 @@ body {
     border-bottom: solid 3px #C9C9C9;
     transition: border 0.3s;
     text-align: center;
+    margin-left: auto;
+    transform: translateX(-25%);
 
+    @media only screen and (max-width: 1280px) {
+        width: 70%;
+        font-size: 45px;
+    }
+
+    @media only screen and (max-width: 980px) {
+        width: 50%;
+        font-size: 40px;
+    }
 
     @media only screen and (max-width: 480px) {
         font-size: 25px;
@@ -327,6 +420,17 @@ body {
     .cover-section .promo-info__title {
         font-size: 60px;
     }
+}
+
+
+
+.cover-section {
+    background: url(../img/site/homepage/cover.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
 }
 
 
@@ -663,8 +767,7 @@ body {
 
 
 #imprensa {
-    // background: #FFF;
-    background: #EDEDED;
+    background: #FFF;
 
     .imprensa-grid {
         margin-top: 40px;
