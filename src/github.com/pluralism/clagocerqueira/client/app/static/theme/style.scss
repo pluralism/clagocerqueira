@@ -207,7 +207,9 @@ body {
     .content {
         height: 100%;
         .search-column {
-            height: 100%;
+            @media only screen and (min-width: 992px) {
+                height: 100%;
+            }
             display: flex;
             flex: 0 1 100%;
             flex-direction: row;
@@ -216,7 +218,9 @@ body {
         }
 
         .photo-column {
-            height: 100%;
+            @media only screen and (min-width: 992px) {
+                height: 100%;
+            }
             display: flex;
             flex: 0 0 100%;
             flex-direction: column;
@@ -380,8 +384,9 @@ body {
     border-bottom: solid 3px #C9C9C9;
     transition: border 0.3s;
     text-align: center;
-    margin-left: auto;
-    transform: translateX(-25%);
+    //margin-left: auto;
+    margin: 0 auto;
+    //transform: translateX(-25%);
 
     @media only screen and (max-width: 1280px) {
         width: 70%;
