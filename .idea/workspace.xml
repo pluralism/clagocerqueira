@@ -10,8 +10,8 @@
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,21 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="518" column="20" lean-forward="true" selection-start-line="518" selection-start-column="20" selection-end-line="518" selection-end-column="20" />
+            <state relative-caret-position="558">
+              <caret line="555" column="55" lean-forward="false" selection-start-line="555" selection-start-column="55" selection-end-line="555" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js">
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+            <state relative-caret-position="489">
+              <caret line="223" column="32" lean-forward="false" selection-start-line="223" selection-start-column="32" selection-end-line="223" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -58,8 +58,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vereadores_inicia</find>
-      <find>vereadores_inicial</find>
       <find>verea</find>
       <find>pesquise</find>
       <find>start</find>
@@ -88,6 +86,8 @@
       <find>imprensaGrid</find>
       <find>renderfe</find>
       <find>loop: tru</find>
+      <find>render()</find>
+      <find>search-column</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views</dir>
@@ -154,9 +154,9 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/autonomous_bodies/presidents.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/misc/social_entities.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/misc/statutes.js" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
       </list>
     </option>
   </component>
@@ -305,8 +305,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -645,7 +646,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -661,7 +661,7 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/node_modules/react-router/es/Route.js&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/node_modules/jvectormap-next/jquery-jvectormap.css&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/authors/1900.jpg&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/jquery-jvectormap/amarante.js&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/associations/sports/assoc_freixo_cima.png&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/static/prod/map.css" />
     <property name="GO_FMT" value="false" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="SearchEverywhereHistoryKey" value="webpack&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;style.scs&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style.scss&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack.con&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;index&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/index.html&#10;index.html&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/index.html&#10;style.sc&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;sty&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;home/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js&#10;style.&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;header&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/header_links.js&#10;footer&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js&#10;routes/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;style-&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style-one.css&#10;STYLE.SCSS&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
+    <property name="SearchEverywhereHistoryKey" value="styl&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;style.scs&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style.scss&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack.con&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;index&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/index.html&#10;index.html&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/index.html&#10;style.sc&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;sty&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;home/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js&#10;style.&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;header&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/header_links.js&#10;footer&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js&#10;routes/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;style-&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style-one.css&#10;STYLE.SCSS&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1146,7 +1146,8 @@
       <workItem from="1495136826674" duration="72000" />
       <workItem from="1495136979816" duration="47000" />
       <workItem from="1495140509775" duration="10399000" />
-      <workItem from="1495184304521" duration="5098000" />
+      <workItem from="1495184304521" duration="5243000" />
+      <workItem from="1495198287324" duration="1923000" />
     </task>
     <task id="LOCAL-00001" summary="Updating via IntelliJ">
       <created>1492090611190</created>
@@ -1166,7 +1167,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201679000" />
+    <option name="totallyTimeSpent" value="203747000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -1217,6 +1218,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1514,26 +1523,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="780" column="18" lean-forward="false" selection-start-line="780" selection-start-column="18" selection-end-line="780" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+        <state relative-caret-position="1560">
+          <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="518" column="20" lean-forward="true" selection-start-line="518" selection-start-column="20" selection-end-line="518" selection-end-column="20" />
+        <state relative-caret-position="558">
+          <caret line="555" column="55" lean-forward="false" selection-start-line="555" selection-start-column="55" selection-end-line="555" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="223" column="32" lean-forward="false" selection-start-line="223" selection-start-column="32" selection-end-line="223" selection-end-column="32" />
           <folding />
         </state>
       </provider>

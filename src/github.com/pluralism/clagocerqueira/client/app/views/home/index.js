@@ -541,16 +541,19 @@ class HomeIndexView extends React.Component {
   }
 
 
+
   renderIntro() {
     return (
       <section id="intro" className="row cover-section">
         <div className="fullscreen-static-image fullheight">
           <div className="content">
-            <div className="col-lg-9 col-md-6 search-column promo-section__promo-info text-center">
+            <div className="col-lg-9 col-md-8 col-xs-12 search-column promo-section__promo-info text-center">
               <input id="search_anything" type="text" name="search"
                      placeholder="Pesquise&#8230;" autoFocus />
             </div>
-            <div className="col-lg-3 col-md-6 photo-column">
+
+
+            <div className="col-lg-3 col-md-4 col-xs-12 photo-column">
               <div className="intro-month-photo">
                 <h3 className="month-photo-title">Imagens com História</h3>
                 <figure>
