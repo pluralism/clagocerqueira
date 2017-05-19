@@ -547,13 +547,14 @@ class HomeIndexView extends React.Component {
       <section id="intro" className="row cover-section">
         <div className="fullscreen-static-image fullheight">
           <div className="content">
-            <div className="col-lg-9 col-md-8 col-sm-12 search-column promo-section__promo-info text-center">
+            <div className="search-column col-lg-9 col-md-8 col-sm-12 col-xs-12 promo-section__promo-info text-center">
               <input id="search_anything" type="text" name="search"
                      placeholder="Pesquise&#8230;" autoFocus />
             </div>
 
 
-            <div className="col-lg-3 col-md-4 photo-column">
+            <div className="photo-column col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-0
+              col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
               <div className="intro-month-photo">
                 <h3 className="month-photo-title">Imagens com História</h3>
                 <figure>
