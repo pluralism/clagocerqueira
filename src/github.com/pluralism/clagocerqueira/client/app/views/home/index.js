@@ -491,7 +491,7 @@ class HomeIndexView extends React.Component {
 
 
       imprensaGrid.owlCarousel({
-        loop: true,
+        loop: false,
         margin: 30,
         responsive: {
           300: {
@@ -516,7 +516,7 @@ class HomeIndexView extends React.Component {
 
 
       orgaosAutarquicosList.owlCarousel({
-        loop: true,
+        loop: false,
         margin: 20,
         responsive: {
           0: {
@@ -910,13 +910,13 @@ class HomeIndexView extends React.Component {
   }
 
 
-  renderFestividadesItem(title, subTitle) {
+  renderFestividadesItem(title, subTitle, img) {
     return (
       <div className="cbp-item">
         <Link to={'festividades'} target="_blank" className="cbp-caption"
           data-title="Festividades">
           <div className="cbp-caption-defaultWrap">
-            <img src={require('../../static/img/site/orgaos_1.jpg')} />
+            <img src={img} />
           </div>
         </Link>
 
@@ -944,10 +944,10 @@ class HomeIndexView extends React.Component {
 
           <div className="grid">
             <div id="festividades-grid" className="cbp-l-grid-gallery">
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas1.jpg')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas2.jpg')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas1.jpg')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas1.jpg')}
             </div>
           </div>
 
