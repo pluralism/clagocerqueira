@@ -567,6 +567,17 @@ class HomeIndexView extends React.Component {
               </div>
             </div>
           </div>
+
+
+          <div className="content-down">
+            <div className="bounce-icon page-scroll">
+              <a href="#" title="Autores Literários">
+                <div className="bounce col-md-12 col-sm-12 col-xs-12 text-center">
+                  <i className="fa fa-angle-down down-arrow" />
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     );

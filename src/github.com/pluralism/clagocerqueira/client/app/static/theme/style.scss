@@ -204,8 +204,9 @@ body {
 
 .fullscreen-static-image {
     height: 85vh;
+
     .content {
-        height: 100%;
+        height: 80vh;
         .search-column {
             @media only screen and (min-width: 992px) {
                 height: 100%;
@@ -263,6 +264,69 @@ body {
             }
         }
     }
+
+
+    .content-down {
+        height: 20vh;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: center;
+
+        .bounce-icon {
+            margin-bottom: auto;
+        }
+
+        .down-arrow {
+            cursor: pointer;
+            font-size: 60px;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #FFFFFF;
+            border-radius: 50%;
+            display: inline-block;
+
+            &:before {
+                position: relative;
+            }
+        }
+    }
+
+
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+
+
+        > .end {
+            display: flex;
+            justify-content: center;
+            height: 20vh;
+
+            .bounce-icon {
+                margin-top: auto;
+            }
+
+            .down-arrow {
+                cursor: pointer;
+                font-size: 60px;
+                width: 60px;
+                height: 60px;
+                border: 3px solid #FFF;
+                border-radius: 50%;
+                margin-bottom: 10px;
+                display: inline-block;
+
+                &:before {
+                    position: relative;
+                    color: #FFF;
+                }
+            }
+        }
+    }
+
 
     .flex-container-top {
         > .center {
@@ -327,40 +391,6 @@ body {
                         font-weight: 400;
                         font-style: italic;
                     }
-                }
-            }
-        }
-    }
-
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: nowrap;
-        flex-direction: row;
-
-
-        > .end {
-            display: flex;
-            justify-content: center;
-            height: 20vh;
-
-            .bounce-icon {
-                margin-top: auto;
-            }
-
-            .down-arrow {
-                cursor: pointer;
-                font-size: 60px;
-                width: 60px;
-                height: 60px;
-                border: 3px solid #FFF;
-                border-radius: 50%;
-                margin-bottom: 10px;
-                display: inline-block;
-
-                &:before {
-                    position: relative;
-                    color: #FFF;
                 }
             }
         }

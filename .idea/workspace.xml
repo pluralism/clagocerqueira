@@ -26,21 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="549" column="79" lean-forward="false" selection-start-line="549" selection-start-column="79" selection-end-line="549" selection-end-column="79" />
+            <state relative-caret-position="300">
+              <caret line="575" column="63" lean-forward="true" selection-start-line="575" selection-start-column="63" selection-end-line="575" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="385" column="23" lean-forward="false" selection-start-line="385" selection-start-column="23" selection-end-line="385" selection-end-column="23" />
+            <state relative-caret-position="240">
+              <caret line="276" column="32" lean-forward="true" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -58,8 +58,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pesquise</find>
-      <find>start</find>
       <find>title</find>
       <find>month-</find>
       <find>flex-container-photo</find>
@@ -88,6 +86,8 @@
       <find>render()</find>
       <find>search-column</find>
       <find>search</find>
+      <find>.content</find>
+      <find>flex-container-top</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views</dir>
@@ -155,8 +155,8 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/misc/social_entities.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/misc/statutes.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
       </list>
     </option>
   </component>
@@ -305,6 +305,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -643,9 +646,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1148,7 +1148,8 @@
       <workItem from="1495140509775" duration="10399000" />
       <workItem from="1495184304521" duration="5243000" />
       <workItem from="1495198287324" duration="3469000" />
-      <workItem from="1495224339606" duration="1375000" />
+      <workItem from="1495224339606" duration="1977000" />
+      <workItem from="1495286171898" duration="1249000" />
     </task>
     <task id="LOCAL-00001" summary="Updating via IntelliJ">
       <created>1492090611190</created>
@@ -1168,7 +1169,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206668000" />
+    <option name="totallyTimeSpent" value="208519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -1243,6 +1244,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1571,18 +1580,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="385" column="23" lean-forward="false" selection-start-line="385" selection-start-column="23" selection-end-line="385" selection-end-column="23" />
+        <state relative-caret-position="300">
+          <caret line="575" column="63" lean-forward="true" selection-start-line="575" selection-start-column="63" selection-end-line="575" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="549" column="79" lean-forward="false" selection-start-line="549" selection-start-column="79" selection-end-line="549" selection-end-column="79" />
+        <state relative-caret-position="240">
+          <caret line="276" column="32" lean-forward="true" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
           <folding />
         </state>
       </provider>
