@@ -961,8 +961,8 @@ class HomeIndexView extends React.Component {
             <div id="festividades-grid" className="cbp-l-grid-gallery">
                 {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas1.jpg')}
                 {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas2.jpg')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas1.jpg')}
-                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas1.jpg')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas3.jpg')}
+                {this.renderFestividadesItem('Festividades', 'Festividades subtítulo', '/public/prod/images/festas4.jpg')}
             </div>
           </div>
 
