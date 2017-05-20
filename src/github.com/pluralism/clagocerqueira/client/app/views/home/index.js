@@ -739,9 +739,9 @@ class HomeIndexView extends React.Component {
           <div className="cube-portfolio">
             <div id="grid-container">
                 {this.renderAutoresAmarantinosItem('1400-1500', 'XV',
-                    '/public/prod/images/1600.jpg', 'autores/1400-1500')}
+                    '/public/prod/images/1400.jpg', 'autores/1400-1500')}
                 {this.renderAutoresAmarantinosItem('1501-1600', 'XVI',
-                    '/public/prod/images/1600.jpg', 'autores/1501-1600')}
+                    '/public/prod/images/1500.jpg', 'autores/1501-1600')}
                 {this.renderAutoresAmarantinosItem('1601-1700', 'XVII',
                     '/public/prod/images/1600.jpg', 'autores/1601-1700')}
             </div>
