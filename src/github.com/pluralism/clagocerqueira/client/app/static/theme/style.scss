@@ -222,6 +222,7 @@ body {
             @media only screen and (min-width: 992px) {
                 height: 100%;
             }
+
             display: flex;
             flex: 0 0 100%;
             flex-direction: column;
@@ -229,6 +230,22 @@ body {
             align-items: center;
 
             .intro-month-photo {
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    // For screens larger than 992px
+                    @media only screen and (min-width: 992px) {
+                        position: relative;
+                        z-index: 1000;
+                        transform: scale(1.5);
+                        -webkit-transform: scale(1.5);
+                        -ms-transform: scale(1.5);
+                        -moz-transform: scale(1.5);
+                        -o-transform: scale(1.5);
+                        transform-origin: right 50%;
+                    }
+                }
+
                 > .month-photo-title {
                     text-align: center;
                     color: #FFFFFF;
@@ -239,18 +256,8 @@ body {
                 figure {
                     img {
                         border-radius: 4px;
-                        transition: all .5s ease-in-out;
                     }
 
-                    &:hover {
-                        img {
-                            // For screens larger than 800px
-                            @media only screen and (min-width: 800px) {
-                                width: 400px;
-                                height: 320px;
-                            }
-                        }
-                    }
 
                     figcaption {
                         text-align: center;
@@ -355,12 +362,12 @@ body {
 
 
 .cover-section {
+    height: 100%;
     background: url(../img/site/homepage/cover.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100%;
 }
 
 
@@ -825,9 +832,8 @@ body {
 }
 
 
-/**
-  * Personalidades section
-*/
+
+// Personalidades section
 #personalidades {
     background: #EDEDED;
 
@@ -890,9 +896,7 @@ body {
 
 
 
-/**
-  * Contacto section
-*/
+// Contacto section
 #contacto {
     background: #EDEDED;
 
