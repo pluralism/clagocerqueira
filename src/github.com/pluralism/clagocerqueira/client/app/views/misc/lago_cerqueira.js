@@ -27,7 +27,7 @@ class LagoCerqueiraView extends React.Component {
             <div className="misc-content g-mb-50">
                 <div className="g-pt-10">
                     <img width={'300px'} height={'300px'}
-                        src={require('../../static/img/site/lago_cerqueira.jpg')}
+                        src={'/public/prod/images/lago_cerqueira_homepage.jpg'}
                         className="img-responsive pull-right" />
 
                     <p className="article">

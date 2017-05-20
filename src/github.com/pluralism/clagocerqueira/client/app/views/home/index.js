@@ -392,47 +392,45 @@ class HomeIndexView extends React.Component {
 
 
       personalidadesGrid.cubeportfolio({
-          layoutMode: 'grid',
-          scrollByPage: false,
-          defaultFilter: '*',
-          gridAdjustment: 'responsive',
-          gapHorizontal: 10,
-          gapVertical: 0,
-          mediaQueries: [{
-              width: 1100,
-              cols: 3
-          }, {
-              width: 800,
-              cols: 3
-          }, {
-              width: 500,
-              cols: 1
-          }],
-          caption: 'fadeIn',
-          displayType: 'sequentially',
-          displayTypeSpeed: 100
+        layoutMode: 'grid',
+        rewindNav: true,
+        scrollByPage: false,
+        defaultFilter: '*',
+        animationType: 'slideLeft',
+        gapHorizontal: 70,
+        gapVertical: 50,
+        gridAdjustment: 'alignCenter',
+        mediaQueries: [
+          { width: 1440, cols: 3 },
+          { width: 1024, cols: 3 },
+          { width: 768, cols: 1 },
+          { width: 480, cols: 1 },
+          { width: 320, cols: 1 }],
+        caption: 'fadeIn',
+        displayType: 'lazyLoading',
+        displayTypeSpeed: 100
       });
 
 
-        naturezaGrid.cubeportfolio({
-          layoutMode: 'grid',
-          rewindNav: true,
-          scrollByPage: false,
-          defaultFilter: '*',
-          animationType: 'slideLeft',
-          gapHorizontal: 70,
-          gapVertical: 50,
-          gridAdjustment: 'alignCenter',
-          mediaQueries: [
-            { width: 1440, cols: 3 },
-            { width: 1024, cols: 3 },
-            { width: 768, cols: 1 },
-            { width: 480, cols: 1 },
-            { width: 320, cols: 1 }],
-          caption: 'fadeIn',
-          displayType: 'lazyLoading',
-          displayTypeSpeed: 100
-      });
+      naturezaGrid.cubeportfolio({
+        layoutMode: 'grid',
+        rewindNav: true,
+        scrollByPage: false,
+        defaultFilter: '*',
+        animationType: 'slideLeft',
+        gapHorizontal: 70,
+        gapVertical: 50,
+        gridAdjustment: 'alignCenter',
+        mediaQueries: [
+          { width: 1440, cols: 3 },
+          { width: 1024, cols: 3 },
+          { width: 768, cols: 1 },
+          { width: 480, cols: 1 },
+          { width: 320, cols: 1 }],
+        caption: 'fadeIn',
+        displayType: 'lazyLoading',
+        displayTypeSpeed: 100
+    });
 
 
       festividadesGrid.cubeportfolio({
@@ -443,6 +441,10 @@ class HomeIndexView extends React.Component {
         gapVertical: 2,
         gridAdjustment: 'responsive',
         mediaQueries: [{
+            width: 2000,
+            cols: 4
+        },
+        {
             width: 1500,
             cols: 2
         }, {
@@ -765,7 +767,7 @@ class HomeIndexView extends React.Component {
 
   renderNatureza() {
     return (
-        <section className="row" id="natureza">
+        <section id="natureza" className="row">
           <div className="g-pt-80 g-pb-80">
             <div className="heading-v12 font-main text-center">
               <h2 className="heading-v12__block-name font-main g-mb-20 title">Natureza</h2>
@@ -1035,14 +1037,13 @@ class HomeIndexView extends React.Component {
 
 
 
-  renderPersonalidadesItem(personalidadeName, personalidadeImg, altText = undefined) {
+  renderPersonalidadesItem(personalidadeName, img, altText = undefined) {
     return (
       <div className="cbp-item">
         <div className="cbp-caption">
           <Link to={'personalidades'} target="_blank">
             <div className="cbp-caption-defaultWrap">
-              <img src={require('../../static/img/site/homepage/' + personalidadeImg)}
-                alt={altText !== undefined ? altText : 'Item de personalidade'} />
+              <img src={img} alt={altText !== undefined ? altText : 'Item de personalidade'} />
             </div>
 
             <div className="popup-title font-main">
@@ -1059,8 +1060,8 @@ class HomeIndexView extends React.Component {
 
   renderPersonalidades() {
     return (
-      <section id="personalidades" className="row g-pt-80 g-pb-80">
-        <div className="text-center">
+      <section id="personalidades" className="row">
+        <div className="g-pt-80 g-pb-80">
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20">Personalidades</h2>
             <p className="heading-v12__block-text">
@@ -1070,20 +1071,16 @@ class HomeIndexView extends React.Component {
             </p>
           </div>
 
-          <div className="personalidades-wrapper">
-            <div id="personalidades-grid">
+
+          <div className="cube-portfolio">
+            <div id="personalidades-grid" className="cbp-l-grid-gallery">
                 {this.renderPersonalidadesItem('Amadeo de Souza Cardoso',
-                    'amadeo_homepage2.jpg')}
+                    '/public/prod/images/amadeo_homepage2.jpg')}
                 {this.renderPersonalidadesItem('António do Lago Cerqueira',
-                    'lago_cerqueira_homepage.jpg')}
+                    '/public/prod/images/lago_cerqueira_homepage.jpg')}
                 {this.renderPersonalidadesItem('Teixeira de Pascoaes',
-                    'teixeira_pascoaes_homepage.jpg')}
+                    '/public/prod/images/teixeira_pascoaes_homepage.jpg')}
             </div>
-          </div>
-
-
-          <div className="view_all_personalidades">
-            <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'personalidades'}>Ver Todos</Link>
           </div>
         </div>
       </section>

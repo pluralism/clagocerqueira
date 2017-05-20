@@ -163,7 +163,7 @@ body {
 
 
 
-#grid-container, #grid-nature {
+#grid-container, #grid-nature, #personalidades-grid {
     .cbp-l-caption-title {
         font-size: 26px;
         margin-bottom: 20px;
@@ -840,9 +840,7 @@ body {
     background: #EDEDED;
 
 
-    .personalidades-wrapper {
-        margin-top: 40px;
-
+    #personalidades-grid {
         .cbp-item {
             &:hover {
                 .popup-title {
@@ -876,6 +874,7 @@ body {
             }
         }
     }
+
 
     .view_all_personalidades {
         margin-top: 20px;
@@ -1273,11 +1272,6 @@ body {
             content: "\f105";
         }
     }
-}
-
-
-#personalidades-grid .cbp-item img {
-    height: 449px;
 }
 
 
