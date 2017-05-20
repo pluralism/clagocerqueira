@@ -1046,9 +1046,10 @@ class HomeIndexView extends React.Component {
               <img src={img} alt={altText !== undefined ? altText : 'Item de personalidade'} />
             </div>
 
-            <div className="popup-title font-main">
-              <h3>
-                <em>{personalidadeName}</em>
+
+            <div className="popup-title">
+              <h3 className="author-name">
+                  {personalidadeName}
               </h3>
             </div>
           </Link>
@@ -1081,6 +1082,10 @@ class HomeIndexView extends React.Component {
                 {this.renderPersonalidadesItem('Teixeira de Pascoaes',
                     '/public/prod/images/teixeira_pascoaes_homepage.jpg')}
             </div>
+          </div>
+
+          <div className="view-all-personalidades">
+            <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'personalidades'}>Ver Todos</Link>
           </div>
         </div>
       </section>

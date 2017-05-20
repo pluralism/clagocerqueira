@@ -163,7 +163,7 @@ body {
 
 
 
-#grid-container, #grid-nature, #personalidades-grid {
+#grid-container, #grid-nature {
     .cbp-l-caption-title {
         font-size: 26px;
         margin-bottom: 20px;
@@ -842,33 +842,33 @@ body {
 
     #personalidades-grid {
         .cbp-item {
+            .popup-title {
+                margin: 0;
+                text-align: center;
+                padding: 30px 0;
+                transition: all .5s ease-in-out;
+
+                h3 {
+                    &.author-name {
+                        display: block;
+                        letter-spacing: 2px;
+                        font-style: italic;
+                        font-weight: 300;
+                        color: #A1A1B2;
+                        margin: 5px 5px 10px;
+                        transition: all .5s ease-in-out;
+                    }
+                }
+            }
+
             &:hover {
                 .popup-title {
                     background: #976B59;
 
                     h3 {
-                        em {
+                        &.author-name {
                             color: #FFF;
                         }
-                    }
-                }
-            }
-
-            .popup-title {
-                margin: 0;
-                text-align: center;
-                text-transform: uppercase;
-                padding: 30px 0;
-                transition: all 0.4s ease-in-out;
-
-                h3 {
-                    em {
-                        display: block;
-                        letter-spacing: 2px;
-                        margin: 5px 0 10px;
-                        color: #A1A1B2;
-                        font-weight: 300;
-                        transition: all 0.4s ease-in-out;
                     }
                 }
             }
@@ -876,7 +876,7 @@ body {
     }
 
 
-    .view_all_personalidades {
+    .view-all-personalidades {
         margin-top: 20px;
         display: flex;
         justify-content: center;
