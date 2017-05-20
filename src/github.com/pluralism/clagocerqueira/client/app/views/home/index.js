@@ -546,7 +546,7 @@ class HomeIndexView extends React.Component {
     return (
       <section id="intro" className="row cover-section">
         <div className="fullscreen-static-image fullheight">
-          <div className="content">
+          <div className="content-top">
             <div className="search-column col-lg-9 col-md-8 col-sm-12 col-xs-12 promo-section__promo-info text-center">
               <input id="search_anything" type="text" name="search"
                      placeholder="Pesquise&#8230;" autoFocus />
