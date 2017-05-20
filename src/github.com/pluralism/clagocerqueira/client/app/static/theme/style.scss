@@ -1455,6 +1455,11 @@ body {
 
 #festividades-grid {
     width: 70%;
+
+    .cbp-item {
+        max-width: 500px;
+        max-height: 500px;
+    }
 }
 
 
