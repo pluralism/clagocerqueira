@@ -147,15 +147,6 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 }
 
 
-func readFileAndInsertOnDatabase(currentName, collection, fileName, image string, session *mgo.Session) {
-	data := readGeneralFile(fileName, image, currentName)
-
-	if !insertListOnDatabase(session, dbName, collection, data) {
-		panic(fmt.Sprintf("[!] Data with name %s could not be inserted!", currentName))
-	} else {
-		fmt.Println(fmt.Sprintf("[*] Data with name %s inserted with success!", currentName))
-	}
-}
 
 func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
