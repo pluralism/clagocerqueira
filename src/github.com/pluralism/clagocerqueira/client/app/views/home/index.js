@@ -1024,7 +1024,7 @@ class HomeIndexView extends React.Component {
               {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina',
                   'comunicacao_social/magazines/', '/public/prod/images/revistas.jpg')}
               {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina',
-                  'comunicacao_social/radios/', '/public/prod/images/revistas.jpg')}
+                  'comunicacao_social/radios/', '/public/prod/images/radios.jpg')}
               {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
                   'comunicacao_social/televisions/', '/public/prod/images/revistas.jpg')}
               {this.renderImprensaItem('Online', 'Rádios e Jornais online',
