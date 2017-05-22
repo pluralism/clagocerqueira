@@ -1,4 +1,5 @@
 import { httpPostGraphQL } from '../utils/index';
+import { Constants } from '../constants/index';
 
 
 const ParishesPresidentsActions = {};
@@ -24,7 +25,7 @@ ParishesPresidentsActions.buildGraphQLQuery = (name, date, page) =>  {
 
     return `
     {
-        ${name}: parishes_presidents(name: ${name}, date: ${date}, page: ${page}) {
+        parish: parishes_presidents(name: "${name}", date: "${date}", page: ${page}) {
             ${fields}
         }
     }`;
@@ -32,10 +33,10 @@ ParishesPresidentsActions.buildGraphQLQuery = (name, date, page) =>  {
 
 
 
-ParishesPresidentsActions.loadDataFromServer = (loadingAction, errorAction, successAction, name, date, page) => {
+ParishesPresidentsActions.loadDataFromServer = (name, date, page) => {
     return dispatch => {
         dispatch({
-            type: loadingAction
+            type: Constants.LOADING_DATA_PARISHES_PRESIDENTS
         });
 
         let graphQLData = ParishesPresidentsActions.buildGraphQLQuery(name, date, page);
@@ -46,14 +47,14 @@ ParishesPresidentsActions.loadDataFromServer = (loadingAction, errorAction, succ
             if(data.hasOwnProperty('errors')) {
                 // Dispatch an error
                 dispatch({
-                    type: errorAction
+                    type: Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS
                 });
             } else {
                 // Success, retrieve the data!
                 dispatch({
-                    type: successAction,
-                    data: data.data,
-                    currentPage: data.name
+                    type: Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS,
+                    data: data.data['parish'],
+                    currentName: data.name
                 });
             }
         });

@@ -46,6 +46,7 @@ class FestivitiesView extends React.Component {
         };
 
 
+
         dispatch(GeneralObjectsActions.
         getDataByPageParishes(this.state.currentParish,
             obj.mapping,

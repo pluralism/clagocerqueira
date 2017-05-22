@@ -16,6 +16,7 @@ export class GeneralObjectTab extends React.Component {
 
   render() {
     const { data } = this.props;
+    console.log(data);
 
     return (
       <div id={this.props.tabID} role="tabpanel" className={classNames({
@@ -26,12 +27,12 @@ export class GeneralObjectTab extends React.Component {
         })}>
 
         <ul className="listing-list">
-          {data.map((object) => {
+          {data.length > 0 ? data.map((object) => {
             return <GeneralObjectItem key={object.name} imgURL={object.image}
               subtitle={this.props.subtitle} title={object.name}
               text={object.description !== null ?
                   object.description : 'Descrição indisponível'} />
-          })}
+          }) : ''}
         </ul>
       </div>
     );

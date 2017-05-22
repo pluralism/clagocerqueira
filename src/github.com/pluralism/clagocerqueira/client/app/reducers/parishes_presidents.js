@@ -15,14 +15,14 @@ export default function reduce(state = initialState, action = {}) {
             return { ...state, loading: true };
 
         case Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS:
-            return { initialState };
+            return initialState;
 
         case Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS:
             return { ...state,
                 loading: false,
-                objects_data: action.dates[0].objects.objects_data,
-                max_pages: action.dates[0].max_pages,
-                total_items: action.dates[0].total_items
+                objects_data: action.data.dates[0].objects.objects_data,
+                max_pages: action.data.dates[0].objects.max_pages,
+                total_items: action.data.dates[0].objects.total_items
             };
 
         default:

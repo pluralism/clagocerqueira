@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import { isActiveTab } from '../../utils/index';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
+import ParishesPresidentsActions from '../../actions/parishes_presidents';
 
 
 
@@ -25,27 +26,39 @@ class ParishesPresidentsView extends React.Component {
     componentDidMount() {
         const { dispatch } = this.props;
 
-        let obj = {
-            name: this.state.currentParish,
-            page: this.state.currentPage
-        };
+
+        dispatch(ParishesPresidentsActions.loadDataFromServer(this.state.currentParish, this.currentDate,
+            this.state.currentPage));
     }
 
 
     updateCurrentDate(value) {
+        const { dispatch } = this.props;
+
         this.currentDate = value;
         // Update the active tab!
         this.setState({
-            activeTab: this.currentDate
+            activeTab: this.currentDate,
+            currentPage: 1
+        }, () => {
+            dispatch(ParishesPresidentsActions.loadDataFromServer(this.state.currentParish, this.currentDate,
+                this.state.currentPage));
         });
     }
 
 
     handleParishChange(e) {
+        const { dispatch } = this.props;
+
+        this.currentDate = "1976-2013";
         this.setState({
             currentParish: e.target.value,
             currentPage: 1
+        }, () => {
+            dispatch(ParishesPresidentsActions.loadDataFromServer(this.state.currentParish, this.currentDate,
+                this.state.currentPage));
         });
+
     }
 
 
@@ -112,6 +125,39 @@ class ParishesPresidentsView extends React.Component {
 
 
     renderTabsContents() {
+        const { parishesPresidents } = this.props;
+
+        return (
+            <div className="tab-content">
+                <GeneralObjectTab
+                    tabID={'#first_tab'}
+                    subtitle={"Vereadores"}
+                    active={this.state.activeTab === Constants.DATES.d1974_1976}
+                    data={parishesPresidents.objects_data} />
+
+
+                <GeneralObjectTab
+                    tabID={'#first_tab'}
+                    subtitle={"Vereadores"}
+                    active={this.state.activeTab === Constants.DATES.d1976_2013}
+                    data={parishesPresidents.objects_data} />
+
+
+                <div className="control-buttons">
+                    <div className="prev-button" onClick={() => this.getPreviousPageContent()} />
+                    <div className="next-button" onClick={() => this.getNextPageContent()} />
+                </div>
+            </div>
+        );
+    }
+
+
+    getPreviousPageContent() {
+
+    }
+
+
+    getNextPageContent() {
 
     }
 
@@ -129,7 +175,7 @@ class ParishesPresidentsView extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-
+    parishesPresidents: state.parishesPresidents
 });
 
 
