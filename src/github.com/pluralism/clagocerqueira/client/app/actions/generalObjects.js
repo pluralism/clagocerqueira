@@ -274,6 +274,8 @@ GeneralObjectsActions.loadDataFromServer =
 };
 
 
+
+
 /**
  * This function extracts all authors from the database
  * This is the function that should be called in the initial rendering,

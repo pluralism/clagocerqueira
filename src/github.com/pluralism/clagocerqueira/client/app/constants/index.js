@@ -152,7 +152,6 @@ const Constants = {
   MINIMUM_WAIT_TIME: 500,
 
 
-
   PARISHES: {
       'aboadela_sanche': 'Aboadela e Sanche',
       'aboim_vila_garcia': 'Aboim e Vila Garcia',
@@ -183,6 +182,17 @@ const Constants = {
       'vila_cha_marao': 'Vila Chã do Marão',
       'vila_mea': 'Vila Meã'
   },
+
+
+  PARISHES_NAMES: ['Aboadela', 'Aboim', 'Amarante (S. Gonçalo)', 'Ansiães', 'Ataíde', 'Bustelo',
+  'Canadelo', 'Candemil', 'Carneiro', 'Carvalho de Rei', 'Cepelos', 'Chapa', 'Figueiró Santa Cristina',
+  'Figueiro Santiago', 'Fregim', 'Freixo de Baixo', 'Freixo de Cima', 'Fridão', 'Gatão', 'Gondar',
+  'Gouveia - S. Simão', 'Jazente', 'Lomba', 'Louredo', 'Lufrei', 'Madalena', 'Mancelos', 'Oliveira',
+  'Ôlo', 'Padronelo',  'Real', 'Rebordelo', 'Salvador do Monte', 'Sanche', 'Telões', 'Travanca', 'Várzea',
+  'Vila Caíz', 'Vila Chã do Marão', 'Vila Garcia', 'Vila Meã', 'União de Freguesias de Aboadela, Sanche e Várzea',
+  'União de Freguesias de Amarante (S. Gonçalo), Madalena, Cepelos e Gatão', 'União de Freguesias de Bustelo, Carneiro e Carvalho de Rei',
+  'União de Freguesias Figueiró (Santiago e Santa Cristina)', 'União de Freguesias de Freixo de Cima e de Baixo',
+  'União de Freguesias de Ôlo e Canadelo', 'União de Freguesias de Vila Garcia, Aboim e Chapa']
 };
 
 
