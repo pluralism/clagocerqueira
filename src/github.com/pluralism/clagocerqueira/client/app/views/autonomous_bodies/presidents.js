@@ -266,7 +266,7 @@ class PresidentsView extends React.Component {
     return (
         <main>
           <HeaderLinks />
-            {this.renderUpperSection()}
+          {this.renderUpperSection()}
           <Footer />
         </main>
     );

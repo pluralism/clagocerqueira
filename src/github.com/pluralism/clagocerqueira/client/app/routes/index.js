@@ -4,6 +4,7 @@ import MainLayout from '../layouts/main';
 import HomeIndexView from '../views/home';
 import PresidentsView from '../views/autonomous_bodies/presidents';
 import CouncilmenView from '../views/autonomous_bodies/councilmen';
+import ParishesPresidentsView from '../views/autonomous_bodies/parishes_presidents';
 import CityCouncilView from '../views/autonomous_bodies/city_council';
 import PersonalitiesView from '../views/personalities/index';
 import AuthorsView from '../views/authors/index';
@@ -14,6 +15,7 @@ import StatutesView from '../views/misc/statutes';
 import LagoCerqueiraView from '../views/misc/lago_cerqueira';
 import SocialEntitiesView from '../views/misc/social_entities';
 import NatureView from '../views/nature/index';
+import
 
 
 
@@ -24,6 +26,7 @@ export default function configRoutes(store) {
         <IndexRoute component={HomeIndexView} />
         <Route path="presidentes(/:type)" component={PresidentsView} />
         <Route path="vereadores(/:type)" component={CouncilmenView} />
+        <Route path="presientes_junta" component={ParishesPresidentsView} />
         <Route path="assembleia" component={CityCouncilView} />
         <Route path="personalidades" component={PersonalitiesView} />
         <Route path="autores(/:type)" component={AuthorsView} />

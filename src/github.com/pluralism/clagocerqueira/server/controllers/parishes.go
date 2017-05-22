@@ -9,10 +9,6 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetPresidentsByParish(s *mgo.Session, name string, page int) *models.GeneralObjectPresident {
-	return nil
-}
-
 
 func GetFestivitiesForParish(s *mgo.Session, name string, page int) *models.GeneralObject {
 	session := s.Copy()
