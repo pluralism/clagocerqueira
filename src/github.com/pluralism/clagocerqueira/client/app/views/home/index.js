@@ -847,7 +847,7 @@ class HomeIndexView extends React.Component {
 
                 {this.renderOrgaosAutarquicosCard('Presidentes das Juntas de Freguesia',
                     'Encontre todos os presidentes das juntas de freguesia',
-                    'assembleia',
+                    'presidentes_junta',
                     '/public/prod/images/mapa_imagem.png')}
             </div>
           </div>

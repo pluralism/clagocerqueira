@@ -87,9 +87,6 @@ class ParishesPresidentsView extends React.Component {
                         <div className="g-mb-30">
                             <h2><span className="g-color-default">Presidentes das Juntas de Freguesia</span></h2>
                         </div>
-                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.
-                        </p>
                     </div>
 
 

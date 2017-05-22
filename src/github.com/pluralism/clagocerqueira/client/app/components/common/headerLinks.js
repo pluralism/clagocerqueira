@@ -80,7 +80,7 @@ class HeaderLinks extends React.Component {
                                 </li>
 
                                 <li>
-                                    <a href="/pt/presidentes">Presidentes das juntas de freguesia</a>
+                                    <a href="/pt/presidentes_junta">Presidentes das juntas de freguesia</a>
                                 </li>
                             </ul>
                         </li>
