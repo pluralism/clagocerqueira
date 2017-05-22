@@ -88,6 +88,55 @@ func getNature() *graphql.Field {
 }
 
 
+func getParishesPresidents() *graphql.Field {
+	return &graphql.Field{
+		Type: types.ParishPresidentsList,
+		Description: "Extract the presidents from a given parish, in a given date",
+		Args: graphql.FieldConfigArgument{
+			"name": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"date": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			name, nameOK := p.Args["name"].(string)
+			page, pageOK := p.Args["page"].(int)
+			date, dateOK := p.Args["date"].(string)
+
+			if !nameOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"name\" argument was not provided")
+			}
+
+			if !pageOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"page\" argument was not provided")
+			}
+
+			if !dateOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"date\" argument was not provided")
+			}
+
+
+			result := controllers.GetPresidentsByParish(refs.Session,name, date, page)
+
+			if result != nil {
+				return result, nil
+			}
+
+			return nil, errors.New("the presidents of the given parish could not be extracted")
+		},
+	}
+}
+
+
+
 func getCityCouncil() *graphql.Field {
 	return &graphql.Field{
 		Type: types.GeneralListType,
@@ -286,6 +335,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 		"press":        getPress(),
 		"festivities": 	getFestivitiesForParish(),
 		"city_council": getCityCouncil(),
+		"parishes_presidents": getParishesPresidents(),
 		"authors": &graphql.Field{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",
