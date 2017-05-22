@@ -27,6 +27,7 @@ GeneralObjectsActions.buildQueryForDate = (mapping, type, page) => {
 };
 
 
+
 GeneralObjectsActions.getDataByPageSimple =
     (name, mapping, page, type, loadingAction, actionError, actionSuccess) => {
   return dispatch => {

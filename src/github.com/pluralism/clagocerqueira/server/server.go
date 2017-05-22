@@ -80,10 +80,12 @@ func graphqlAPIHandler(context *iris.Context) {
 	context.JSON(iris.StatusOK, result)
 }
 
+
 var schema, _ = graphql.NewSchema(graphql.SchemaConfig{
 	Mutation: mutations.RootMutation,
 	Query:    queries.RootQuery,
 })
+
 
 func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
 	result := graphql.Do(graphql.Params{

@@ -100,13 +100,13 @@ func getParishesPresidents() *graphql.Field {
 				Type: graphql.NewNonNull(graphql.String),
 			},
 			"page": &graphql.ArgumentConfig{
-				Type: graphql.NewNonNull(graphql.String),
+				Type: graphql.NewNonNull(graphql.Int),
 			},
 		},
 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 			name, nameOK := p.Args["name"].(string)
-			page, pageOK := p.Args["page"].(int)
 			date, dateOK := p.Args["date"].(string)
+			page, pageOK := p.Args["page"].(int)
 
 			if !nameOK {
 				// Return no objects (nil) and the error to the user
