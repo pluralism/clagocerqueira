@@ -1,4 +1,3 @@
-import { Constants } from '../constants/index';
 import { httpPostGraphQL } from '../utils/index';
 
 
@@ -60,3 +59,6 @@ ParishesPresidentsActions.loadDataFromServer = (loadingAction, errorAction, succ
         });
     };
 };
+
+
+export default ParishesPresidentsActions;

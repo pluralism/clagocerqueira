@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import HeaderLinks from '../../components/common/headerLinks';
 import Footer from '../../components/common/footer';
+import { Link } from 'react-router';
 import { isActiveTab } from '../../utils/index';
+import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
 
 
@@ -11,8 +13,10 @@ class ParishesPresidentsView extends React.Component {
     constructor(props) {
         super(props);
 
+        this.currentDate = "1976-2013";
         this.state = {
             currentParish: Constants.PARISHES_NAMES[0],
+            activeTab: this.currentDate,
             currentPage: 1
         };
     }
@@ -22,9 +26,18 @@ class ParishesPresidentsView extends React.Component {
         const { dispatch } = this.props;
 
         let obj = {
-            mapping: this.state.currentParish,
+            name: this.state.currentParish,
             page: this.state.currentPage
         };
+    }
+
+
+    updateCurrentDate(value) {
+        this.currentDate = value;
+        // Update the active tab!
+        this.setState({
+            activeTab: this.currentDate
+        });
     }
 
 
@@ -72,9 +85,34 @@ class ParishesPresidentsView extends React.Component {
                     </div>
 
                     {this.renderParishesSelect()}
+
+                    <div className="tab-v7 g-mt-30">
+                        <ul className="tab-v7-nav" role="tablist">
+                            <li role="presentation"
+                                className={isActiveTab(Constants.DATES.d1974_1976, this.state) ? "active" : ""}>
+                                <Link to={"#first_tab"}
+                                      onClick={() => this.updateCurrentDate(Constants.DATES.d1974_1976)}
+                                      role="tab" data-toggle="tab">{Constants.DATES.d1974_1976}</Link>
+                            </li>
+                            <li role="presentation"
+                                className={isActiveTab(Constants.DATES.d1976_2013, this.state) ? "active" : ""}>
+                                <Link to={"#second_tab"}
+                                      onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013)}
+                                      role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
+                            </li>
+                        </ul>
+
+
+                        {this.renderTabsContents()}
+                    </div>
                 </div>
             </section>
         );
+    }
+
+
+    renderTabsContents() {
+
     }
 
 

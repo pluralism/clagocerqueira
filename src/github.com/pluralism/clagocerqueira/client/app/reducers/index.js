@@ -8,6 +8,8 @@ import associations from './associations';
 import press from './press';
 import parishes from './parishes';
 import nature from './nature';
+import parishesPresidents from './parishes_presidents';
+
 
 
 export default combineReducers({
@@ -21,4 +23,5 @@ export default combineReducers({
   press: press,
   parishes: parishes,
   nature: nature,
+  parishesPresidents: parishesPresidents,
 });
