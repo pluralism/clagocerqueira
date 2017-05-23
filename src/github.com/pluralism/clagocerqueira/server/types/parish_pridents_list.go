@@ -10,7 +10,7 @@ var ParishPresidentsList = graphql.NewObject(graphql.ObjectConfig{
 			Type: graphql.String,
 		},
 		"dates": &graphql.Field{
-			Type: graphql.NewList(GeneralListType),
+			Type: graphql.NewNonNull(GeneralListType),
 		},
 	},
 })

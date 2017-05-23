@@ -16,7 +16,6 @@ export class GeneralObjectTab extends React.Component {
 
   render() {
     const { data } = this.props;
-    console.log(data);
 
     return (
       <div id={this.props.tabID} role="tabpanel" className={classNames({

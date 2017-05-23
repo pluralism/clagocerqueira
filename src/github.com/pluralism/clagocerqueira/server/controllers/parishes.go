@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"math"
 
 	"github.com/pluralism/clagocerqueira/server/constants"
@@ -17,8 +18,15 @@ func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *models.
 	c := session.DB(constants.DB_NAME).C(constants.PARISHES_PRESIDENTS_COLLECTION)
 	offset := 10 * (page - 1)
 	// Filter by name and date
-	query := c.Find(bson.M{"name": name, "dates.name": date}).
-		Select(bson.M{"dates.objects.objects_data": bson.M{"$slice": []int{offset, 10}}})
+	query := c.Pipe([]bson.M{{"$match": bson.M{"name": name}},
+		{"$unwind": "$dates"},
+		{"$match": bson.M{"dates.name": date}},
+		{"$project": bson.M{"name": 1,
+			"dates.name": 1,
+			"dates.objects.total_items": 1,
+			"dates.objects.objects_data": bson.M{"$slice": []interface{}{
+			"$dates.objects.objects_data", offset, 10}}}}})
+
 
 	result := models.ParishPresidents{}
 	// Return only one result from the query
@@ -30,8 +38,9 @@ func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *models.
 		return nil
 	}
 
+
 	// The maximum page an user can query for!
-	maxPage := int(math.Ceil(float64(result.Dates[0].Objects.TotalItems) / 10))
+	maxPage := int(math.Ceil(float64(result.Dates.Objects.TotalItems) / 10))
 
 
 	// There are no results after we've passed the limit of pages
@@ -40,7 +49,7 @@ func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *models.
 	}
 
 	// Update the maxPage value
-	result.Dates[0].Objects.MaxPages = maxPage
+	result.Dates.Objects.MaxPages = maxPage
 
 	// Return a reference to the result
 	return &result

@@ -190,7 +190,7 @@ const Constants = {
 
   PARISHES_NAMES: ['Aboadela', 'Aboim', 'Amarante (S. Gonçalo)', 'Ansiães', 'Ataíde', 'Bustelo',
   'Canadelo', 'Candemil', 'Carneiro', 'Carvalho de Rei', 'Cepelos', 'Chapa', 'Figueiró Santa Cristina',
-  'Figueiro Santiago', 'Fregim', 'Freixo de Baixo', 'Freixo de Cima', 'Fridão', 'Gatão', 'Gondar',
+  'Figueiró Santiago', 'Fregim', 'Freixo de Baixo', 'Freixo de Cima', 'Fridão', 'Gatão', 'Gondar',
   'Gouveia - S. Simão', 'Jazente', 'Lomba', 'Louredo', 'Lufrei', 'Madalena', 'Mancelos', 'Oliveira',
   'Ôlo', 'Padronelo',  'Real', 'Rebordelo', 'Salvador do Monte', 'Sanche', 'Telões', 'Travanca', 'Várzea',
   'Vila Caíz', 'Vila Chã do Marão', 'Vila Garcia', 'Vila Meã', 'União de Freguesias de Aboadela, Sanche e Várzea',

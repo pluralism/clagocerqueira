@@ -20,9 +20,9 @@ export default function reduce(state = initialState, action = {}) {
         case Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS:
             return { ...state,
                 loading: false,
-                objects_data: action.data.dates[0].objects.objects_data,
-                max_pages: action.data.dates[0].objects.max_pages,
-                total_items: action.data.dates[0].objects.total_items
+                objects_data: action.data.dates.objects.objects_data,
+                max_pages: action.data.dates.objects.max_pages,
+                total_items: action.data.dates.objects.total_items
             };
 
         default:

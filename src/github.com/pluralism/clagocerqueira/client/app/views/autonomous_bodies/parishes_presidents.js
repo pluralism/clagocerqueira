@@ -87,6 +87,8 @@ class ParishesPresidentsView extends React.Component {
                         <div className="g-mb-30">
                             <h2><span className="g-color-default">Presidentes das Juntas de Freguesia</span></h2>
                         </div>
+                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
+                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
                     </div>
 
 
@@ -128,14 +130,14 @@ class ParishesPresidentsView extends React.Component {
             <div className="tab-content">
                 <GeneralObjectTab
                     tabID={'#first_tab'}
-                    subtitle={"Vereadores"}
+                    subtitle={"Presidente"}
                     active={this.state.activeTab === Constants.DATES.d1974_1976}
                     data={parishesPresidents.objects_data} />
 
 
                 <GeneralObjectTab
                     tabID={'#first_tab'}
-                    subtitle={"Vereadores"}
+                    subtitle={"Presidente"}
                     active={this.state.activeTab === Constants.DATES.d1976_2013}
                     data={parishesPresidents.objects_data} />
 
