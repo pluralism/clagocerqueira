@@ -4,10 +4,8 @@ import (
 	"sync"
 
 	"github.com/graphql-go/graphql"
-	"github.com/pluralism/clagocerqueira/server/controllers"
 	"github.com/pluralism/clagocerqueira/server/mailer"
 	"github.com/pluralism/clagocerqueira/server/models"
-	"github.com/pluralism/clagocerqueira/server/refs"
 	"github.com/pluralism/clagocerqueira/server/types"
 )
 
@@ -54,12 +52,12 @@ var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 				go mailer.SendContactEmail(newMessage, &wg)
 				wg.Add(1)
 				// Save the message in the database while sending the email
-				go controllers.AddMessage(refs.Session, newMessage, &wg)
+				go models.AddMessage(models.Session, newMessage, &wg)
 				wg.Wait()
 
 				// Wait for the result from the channel here
-				resultMessage := <-refs.MessagesChannel
-				resultMessageCreate := <-refs.CreateMessageChannel
+				resultMessage := <-models.Channels.MessagesError
+				resultMessageCreate := <-models.Channels.CreateMessage
 
 				// Return the error if something goes wrong...
 				if resultMessage != nil {

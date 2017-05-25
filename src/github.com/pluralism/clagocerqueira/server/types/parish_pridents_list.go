@@ -1,6 +1,11 @@
 package types
 
-import "github.com/graphql-go/graphql"
+import (
+	"errors"
+	"fmt"
+
+	"github.com/graphql-go/graphql"
+)
 
 
 var ParishPresidentsList = graphql.NewObject(graphql.ObjectConfig{
@@ -10,7 +15,26 @@ var ParishPresidentsList = graphql.NewObject(graphql.ObjectConfig{
 			Type: graphql.String,
 		},
 		"dates": &graphql.Field{
-			Type: graphql.NewNonNull(GeneralListType),
+			Type: GeneralListType,
+			Args: graphql.FieldConfigArgument{
+				"date": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.String),
+				},
+				"page": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.Int),
+				},
+			},
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				date := p.Args["date"].(string)
+				page := p.Args["page"].(int)
+				fmt.Println(date)
+				fmt.Println(page)
+				//_, ok := p.Source.(*models.ParishPresidents)
+				//if !ok {
+					//return nil, errors.New("Can't convert map to type *models.ParishPresidents")
+				//}
+				return nil, errors.New("pasoidpaosdiaspodisapd")
+			},
 		},
 	},
 })

@@ -8,8 +8,8 @@ import (
 	"sync"
 
 	"github.com/pluralism/clagocerqueira/server/models"
-	"github.com/pluralism/clagocerqueira/server/refs"
 )
+
 
 func SendContactEmail(message *models.Message, wg *sync.WaitGroup) {
 	const emailTemplate = `
@@ -53,5 +53,5 @@ func SendContactEmail(message *models.Message, wg *sync.WaitGroup) {
 
 func sendEmailResult(wg *sync.WaitGroup, err error) {
 	wg.Done()
-	refs.MessagesChannel <- err
+	models.Channels.MessagesError <- err
 }

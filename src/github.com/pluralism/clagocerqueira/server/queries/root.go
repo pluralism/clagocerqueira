@@ -5,7 +5,7 @@ import (
 
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/controllers"
-	"github.com/pluralism/clagocerqueira/server/refs"
+	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/types"
 )
 
@@ -35,7 +35,7 @@ func getAssociations() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetAssociationsByNameId(refs.Session, name, page)
+			result := controllers.GetAssociationsByNameId(models.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -75,7 +75,7 @@ func getNature() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GeyNatureByName(refs.Session, name, page)
+			result := controllers.GeyNatureByName(models.Session, name, page)
 
 			if result != nil {
 				// Success, return the result without errors
@@ -96,16 +96,9 @@ func getParishesPresidents() *graphql.Field {
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
 			},
-			"date": &graphql.ArgumentConfig{
-				Type: graphql.NewNonNull(graphql.String),
-			},
-			"page": &graphql.ArgumentConfig{
-				Type: graphql.NewNonNull(graphql.Int),
-			},
 		},
 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 			name, nameOK := p.Args["name"].(string)
-			date, dateOK := p.Args["date"].(string)
 			page, pageOK := p.Args["page"].(int)
 
 			if !nameOK {
@@ -118,13 +111,7 @@ func getParishesPresidents() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			if !dateOK {
-				// Return no objects (nil) and the error to the user
-				return nil, errors.New("the \"date\" argument was not provided")
-			}
-
-
-			result := controllers.GetPresidentsByParish(refs.Session,name, date, page)
+			result := models.GetPresidentsByParish(models.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -145,29 +132,20 @@ func getCityCouncil() *graphql.Field {
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
 			},
-			"page": &graphql.ArgumentConfig{
-				Type: graphql.NewNonNull(graphql.Int),
-			},
 		},
 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-			date, dateOK := p.Args["name"].(string)
-			page, pageOK := p.Args["page"].(int)
+			//date, dateOK := p.Args["name"].(string)
 
-			if !dateOK {
+			//if !dateOK {
 				// Return no objects (nil) and the error to the user
-				return nil, errors.New("the \"name\" argument was not provided")
-			}
+				//return nil, errors.New("the \"name\" argument was not provided")
+			//}
 
-			if !pageOK {
-				// Return no objects (nil) and the error to the user
-				return nil, errors.New("the \"page\" argument was not provided")
-			}
+			// result := controllers.GetcityCouncilByDate(refs.Session, date, page)
 
-			result := controllers.GetcityCouncilByDate(refs.Session, date, page)
-
-			if result != nil {
-				return result, nil
-			}
+			//if result != nil {
+				//return result, nil
+			//}
 
 			// Something went wrong, return nil and an error informing that
 			// the city council data could not be extracted from the database
@@ -202,7 +180,7 @@ func getFestivitiesForParish() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetFestivitiesForParish(refs.Session, name, page)
+			result := models.GetFestivitiesForParish(models.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -241,7 +219,7 @@ func getPress() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetPressByNameId(refs.Session, name, page)
+			result := controllers.GetPressByNameId(models.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -282,7 +260,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetPresidentsByDate(refs.Session, date, page)
+				result := controllers.GetPresidentsByDate(models.Session, date, page)
 
 				if result != nil {
 					return result, nil
@@ -318,7 +296,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetCouncilmenByDate(refs.Session, date, page)
+				result := controllers.GetCouncilmenByDate(models.Session, date, page)
 
 				if result != nil {
 					// Everything went fine, return the list of councilmen
@@ -361,7 +339,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetAuthorsByDate(refs.Session, date, page)
+				result := controllers.GetAuthorsByDate(models.Session, date, page)
 
 				if result != nil {
 					// Everything went fine, return the list of councilmen
@@ -398,7 +376,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetPersonalities(refs.Session, category, page)
+				result := controllers.GetPersonalities(models.Session, category, page)
 
 				if result != nil {
 					// Everything went fine, return the list of personalities

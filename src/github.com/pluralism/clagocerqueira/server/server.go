@@ -5,9 +5,9 @@ import (
 	"log"
 
 	"github.com/graphql-go/graphql"
+	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/mutations"
 	"github.com/pluralism/clagocerqueira/server/queries"
-	"github.com/pluralism/clagocerqueira/server/refs"
 	iris "gopkg.in/kataras/iris.v6"
 	"gopkg.in/kataras/iris.v6/adaptors/cors"
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
@@ -18,16 +18,16 @@ import (
 func main() {
 	var err error
 	app := iris.New()
-	refs.Session, err = mgo.Dial("mongodb://localhost")
+	models.Session, err = mgo.Dial("mongodb://localhost")
 
 	if err != nil {
 		panic(err)
 	}
 
 	// Make sure the session is actually closed
-	defer refs.Session.Close()
+	defer models.Session.Close()
 
-	refs.Session.SetMode(mgo.Monotonic, true)
+	models.Session.SetMode(mgo.Monotonic, true)
 
 	app.Adapt(
 		// Prints all errors to the os.Stdout

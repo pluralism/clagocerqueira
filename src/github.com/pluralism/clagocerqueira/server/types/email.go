@@ -19,7 +19,7 @@ var Email = graphql.NewScalar(graphql.ScalarConfig{
 		case *ast.StringValue:
 			emailRegex := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 
-			// Invalid email, just return nil
+			// Invalid email, just return nil!
 			if !emailRegex.MatchString(valueAST.Value) {
 				return nil
 			}
@@ -31,6 +31,8 @@ var Email = graphql.NewScalar(graphql.ScalarConfig{
 		return nil
 	},
 })
+
+
 
 func coerceEmail(value interface{}) interface{} {
 	return fmt.Sprintf("%v", value)
