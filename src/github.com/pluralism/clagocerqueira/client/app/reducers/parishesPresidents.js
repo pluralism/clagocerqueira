@@ -9,8 +9,14 @@ const initialState = {
 
 
 const updateDataForName = (data, state) => {
-    const stateData = state.data;
-    console.log(stateData);
+    const realData = data.data;
+    const stateData = state.objects_data;
+    const keys = Object.keys(realData);
+    keys.forEach((key) => {
+        stateData[key] = realData[key];
+    });
+    
+    return stateData;
 };
 
 
