@@ -57,7 +57,6 @@ ParishesPresidentsActions.loadDataFromServer =
             name,
             mappings,
             page);
-        console.log(graphQLData);
 
 
         httpPostGraphQL(graphQLData)
@@ -66,14 +65,14 @@ ParishesPresidentsActions.loadDataFromServer =
             if(data.hasOwnProperty('errors')) {
                 // Dispatch an error
                 dispatch({
-                    type: Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS
+                    type: errorAction
                 });
             } else {
                 // Success, retrieve the data!
                 dispatch({
-                    type: Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS,
-                    data: data.data['parish'],
-                    currentName: data.name
+                    type: successAction,
+                    data: data,
+                    currentName: mappings[0][1],
                 });
             }
         });

@@ -3,9 +3,14 @@ import { Constants } from '../constants/index';
 
 const initialState = {
     loading: false,
-    objects_data: [],
-    max_pages: 0,
-    total_items: 0
+    objects_data: {},
+    currentName: "",
+};
+
+
+const updateDataForName = (data, state) => {
+    const stateData = state.data;
+    console.log(stateData);
 };
 
 
@@ -17,13 +22,13 @@ export default function reduce(state = initialState, action = {}) {
         case Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS:
             return initialState;
 
-        case Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS:
+        case Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS: {
             return { ...state,
                 loading: false,
-                objects_data: action.data.dates.objects.objects_data,
-                max_pages: action.data.dates.objects.max_pages,
-                total_items: action.data.dates.objects.total_items
+                objects_data: updateDataForName(action.data, state),
+                currentname: action.currentName,
             };
+        }
 
         default:
             return state;

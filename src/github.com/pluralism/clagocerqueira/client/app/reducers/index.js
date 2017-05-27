@@ -8,7 +8,7 @@ import associations from './associations';
 import press from './press';
 import parishes from './parishes';
 import nature from './nature';
-import parishesPresidents from './parishes_presidents';
+import parishesPresidents from './parishesPresidents';
 
 
 
