@@ -15,7 +15,7 @@ const updateDataForName = (data, state) => {
     keys.forEach((key) => {
         stateData[key] = realData[key];
     });
-    
+
     return stateData;
 };
 
@@ -32,7 +32,7 @@ export default function reduce(state = initialState, action = {}) {
             return { ...state,
                 loading: false,
                 objects_data: updateDataForName(action.data, state),
-                currentname: action.currentName,
+                currentName: action.currentName,
             };
         }
 
