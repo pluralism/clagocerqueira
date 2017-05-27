@@ -18,7 +18,7 @@ type ParishPresidents struct {
 
 
 
-func GetPresidentsByParish(s *mgo.Session, name string, page int) *ParishPresidents {
+func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *ParishPresidents {
 	session := s.Copy()
 	defer session.Close()
 
@@ -26,12 +26,13 @@ func GetPresidentsByParish(s *mgo.Session, name string, page int) *ParishPreside
 	offset := 10 * (page - 1)
 	// Filter by name and date
 	query := c.Pipe([]bson.M{{"$match": bson.M{"name": name}},
-				 {"$unwind": "$dates"},
-		{"$project": bson.M{"name": 1,
-			"dates.name": 1,
-			"dates.objects.total_items": 1,
-			"dates.objects.objects_data": bson.M{"$slice": []interface{}{
-				"$dates.objects.objects_data", offset, 10}}}}})
+			 {"$unwind": "$dates"},
+			 {"$match": bson.M{"dates.name": date}},
+			 {"$project": bson.M{"name": 1,
+				"dates.name": 1,
+				"dates.objects.total_items": 1,
+				"dates.objects.objects_data": bson.M{"$slice": []interface{}{
+					"$dates.objects.objects_data", offset, 10}}}}})
 
 
 

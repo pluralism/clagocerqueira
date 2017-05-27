@@ -96,9 +96,16 @@ func getParishesPresidents() *graphql.Field {
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
 			},
+			"date": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
 		},
 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 			name, nameOK := p.Args["name"].(string)
+			date, dateOK := p.Args["date"].(string)
 			page, pageOK := p.Args["page"].(int)
 
 			if !nameOK {
@@ -106,16 +113,22 @@ func getParishesPresidents() *graphql.Field {
 				return nil, errors.New("the \"name\" argument was not provided")
 			}
 
+			if !dateOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"date\" argument was not provided")
+			}
+
 			if !pageOK {
 				// Return no objects (nil) and the error to the user
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := models.GetPresidentsByParish(models.Session, name, page)
+			result := models.GetPresidentsByParish(models.Session, name, date, page)
 
 			if result != nil {
 				return result, nil
 			}
+
 
 			return nil, errors.New("the presidents of the given parish could not be extracted")
 		},

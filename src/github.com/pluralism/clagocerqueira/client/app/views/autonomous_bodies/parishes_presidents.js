@@ -27,7 +27,9 @@ class ParishesPresidentsView extends React.Component {
         const { dispatch } = this.props;
 
 
-        dispatch(ParishesPresidentsActions.loadDataFromServer(this.state.currentParish, this.currentDate,
+        dispatch(ParishesPresidentsActions.loadDataFromServer(
+            this.state.currentParish,
+            this.currentDate,
             this.state.currentPage));
     }
 
@@ -41,7 +43,9 @@ class ParishesPresidentsView extends React.Component {
             activeTab: this.currentDate,
             currentPage: 1
         }, () => {
-            dispatch(ParishesPresidentsActions.loadDataFromServer(this.state.currentParish, this.currentDate,
+            dispatch(ParishesPresidentsActions.loadDataFromServer(
+                this.state.currentParish,
+                this.currentDate,
                 this.state.currentPage));
         });
     }
