@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import { isActiveTab } from '../../utils/index';
 import { GeneralObjectTab } from '../../components/common/generalObjectTab';
 import { Constants } from '../../constants/index';
-import ParishesPresidentsActions from '../../actions/parishes_presidents';
+import ParishesPresidentsActions from '../../actions/parishesPresidents';
 
 
 
@@ -14,11 +14,21 @@ class ParishesPresidentsView extends React.Component {
     constructor(props) {
         super(props);
 
-        this.currentDate = "1976-2013";
+        this.currentDate = Constants.DATES.d1974_1976;
         this.state = {
             currentParish: Constants.PARISHES_NAMES[0],
             activeTab: this.currentDate,
             currentPage: 1
+        };
+        this.nameAndPageMappings = {
+            [Constants.DATES.d1974_1976]: {
+                mapping: Constants.DATE_MAPPINGS.d1974_1976,
+                page: 1
+            },
+            [Constants.DATES.d1976_2013]: {
+                mapping: Constants.DATE_MAPPINGS.d1976_2013,
+                page: 1
+            },
         };
     }
 
@@ -26,16 +36,22 @@ class ParishesPresidentsView extends React.Component {
     componentDidMount() {
         const { dispatch } = this.props;
 
+        const mappings = [
+            [Constants.DATE_MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
+            [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
+        ];
+
 
         dispatch(ParishesPresidentsActions.loadDataFromServer(
             this.state.currentParish,
-            this.currentDate,
-            this.state.currentPage));
+            mappings,
+            page));
     }
 
 
     updateCurrentDate(value) {
         const { dispatch } = this.props;
+
 
         this.currentDate = value;
         // Update the active tab!
@@ -59,7 +75,9 @@ class ParishesPresidentsView extends React.Component {
             currentParish: e.target.value,
             currentPage: 1
         }, () => {
-            dispatch(ParishesPresidentsActions.loadDataFromServer(this.state.currentParish, this.currentDate,
+            dispatch(ParishesPresidentsActions.loadDataFromServer(
+                this.state.currentParish,
+                this.currentDate,
                 this.state.currentPage));
         });
 
