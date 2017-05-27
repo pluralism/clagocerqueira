@@ -44,8 +44,11 @@ class ParishesPresidentsView extends React.Component {
 
         dispatch(ParishesPresidentsActions.loadDataFromServer(
             this.state.currentParish,
-            mappings,
-            page));
+            Constants.LOADING_DATA_PARISHES_PRESIDENTS,
+            Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS,
+            Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS,
+            this.state.currentPage,
+            mappings));
     }
 
 

@@ -8,14 +8,17 @@ const ParishesPresidentsActions = {};
 ParishesPresidentsActions.buildQueryForDate = (mapping, name, page, type) => {
     const fields = `
     name
-    objects {
-        objects_data {
-          name
-          image
-          description
+    dates {
+        name
+        objects {
+            objects_data {
+            name
+            image
+            description
+            }
+            total_items
+            max_pages
         }
-        total_items
-        max_pages
     }`;
 
 
@@ -30,7 +33,11 @@ ParishesPresidentsActions.buildGraphQLDataFromMappings = (name, mappings, page) 
     let graphQLData = `{`;
 
     mappings.forEach((mapping) => {
-        graphQLData += ParishesPresidentsActions.buildQueryForDate(mapping, name, page);
+        graphQLData += ParishesPresidentsActions.buildQueryForDate(
+            mapping,
+            name,
+            page,
+            Constants.PARISHES_PRESIDENTS);
     });
     graphQLData += `}`;
 
@@ -51,6 +58,7 @@ ParishesPresidentsActions.loadDataFromServer =
             mappings,
             page);
         console.log(graphQLData);
+
 
         httpPostGraphQL(graphQLData)
         .then((data) => {

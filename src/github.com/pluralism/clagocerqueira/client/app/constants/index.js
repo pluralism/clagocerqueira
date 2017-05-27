@@ -148,6 +148,7 @@ const Constants = {
   CITY_COUNCIL_TABLE: 'city_council',
   NATURE_TABLE: 'nature',
   PERSONALITIES_TABLE: 'personalities',
+  PARISHES_PRESIDENTS: 'parishes_presidents',
 
 
   PERSONALITIES_STRING: 'Personalidades',
