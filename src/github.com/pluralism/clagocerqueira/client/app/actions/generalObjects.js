@@ -293,7 +293,7 @@ GeneralObjectsActions.getAllDataFromAuthors = (mappings) => {
 
 
 
-GeneralObjectsActions.getAlLDataFromCityCouncil = (mappings) => {
+GeneralObjectsActions.getAllDataFromCityCouncil = (mappings) => {
   return GeneralObjectsActions.loadDataFromServer(Constants.LOADING_DATA,
     Constants.LOADING_DATA_ERROR,
     Constants.LOADING_DATA_SUCCESS,

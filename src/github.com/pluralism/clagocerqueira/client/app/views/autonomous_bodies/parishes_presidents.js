@@ -42,13 +42,11 @@ class ParishesPresidentsView extends React.Component {
         ];
 
 
-        dispatch(ParishesPresidentsActions.loadDataFromServer(
+        console.log('aqui');
+        dispatch(ParishesPresidentsActions.getAllDataFromParishesPresidents(
             this.state.currentParish,
-            Constants.LOADING_DATA_PARISHES_PRESIDENTS,
-            Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS,
-            Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS,
-            this.state.currentPage,
-            mappings));
+            mappings
+        ));
     }
 
 
@@ -128,13 +126,15 @@ class ParishesPresidentsView extends React.Component {
                             <li role="presentation"
                                 className={isActiveTab(Constants.DATES.d1974_1976, this.state) ? "active" : ""}>
                                 <Link to={"#first_tab"}
-                                      onClick={() => this.updateCurrentDate(Constants.DATES.d1974_1976)}
+                                      onClick={() =>
+                                          this.updateCurrentDate(Constants.DATES.d1974_1976)}
                                       role="tab" data-toggle="tab">{Constants.DATES.d1974_1976}</Link>
                             </li>
                             <li role="presentation"
                                 className={isActiveTab(Constants.DATES.d1976_2013, this.state) ? "active" : ""}>
                                 <Link to={"#second_tab"}
-                                      onClick={() => this.updateCurrentDate(Constants.DATES.d1976_2013)}
+                                      onClick={() =>
+                                          this.updateCurrentDate(Constants.DATES.d1976_2013)}
                                       role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
                             </li>
                         </ul>
@@ -157,14 +157,18 @@ class ParishesPresidentsView extends React.Component {
                     tabID={'#first_tab'}
                     subtitle={"Presidente"}
                     active={this.state.activeTab === Constants.DATES.d1974_1976}
-                    data={parishesPresidents.objects_data} />
+                    dateMapping={Constants.DATE_MAPPINGS.d1974_1976}
+                    data={parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1974_1976].
+                        dates.objects.objects_data} />
 
 
                 <GeneralObjectTab
                     tabID={'#first_tab'}
                     subtitle={"Presidente"}
                     active={this.state.activeTab === Constants.DATES.d1976_2013}
-                    data={parishesPresidents.objects_data} />
+                    dateMapping={Constants.DATE_MAPPINGS.d1976_2013}
+                    data={parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1976_2013].
+                        dates.objects.objects_data} />
 
 
                 <div className="control-buttons">

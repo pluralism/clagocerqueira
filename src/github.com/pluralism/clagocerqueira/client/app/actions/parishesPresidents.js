@@ -46,6 +46,18 @@ ParishesPresidentsActions.buildGraphQLDataFromMappings = (name, mappings, page) 
 
 
 
+ParishesPresidentsActions.getAllDataFromParishesPresidents = (name, mappings) => {
+    return ParishesPresidentsActions.loadDataFromServer(
+        name,
+        Constants.LOADING_DATA_PARISHES_PRESIDENTS,
+        Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS,
+        Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS,
+        1,
+        mappings);
+};
+
+
+
 ParishesPresidentsActions.loadDataFromServer =
     (name, loadingAction, errorAction, successAction, page, mappings) => {
     return dispatch => {

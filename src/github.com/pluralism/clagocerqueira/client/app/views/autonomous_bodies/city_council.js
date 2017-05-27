@@ -81,7 +81,7 @@ class CityCouncilView extends React.Component {
          * This is a good place to load data from a remote endpoint and to perform
          * network requests.
          */
-        dispatch(GeneralObjectsActions.getAlLDataFromCityCouncil(mappings));
+        dispatch(GeneralObjectsActions.getAllDataFromCityCouncil(mappings));
     }
 
 

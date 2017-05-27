@@ -3,7 +3,32 @@ import { Constants } from '../constants/index';
 
 const initialState = {
     loading: false,
-    objects_data: {},
+    objects_data: {
+        [Constants.DATE_MAPPINGS.d1974_1976]: {
+            name: "",
+            dates: {
+                name: "",
+                objects: {
+                    objects_data: [],
+                    total_items: 0,
+                    max_pages: 0,
+                },
+                total_pages: 0
+            }
+        },
+        [Constants.DATE_MAPPINGS.d1976_2013]: {
+            name: "",
+            dates: {
+                name: "",
+                objects: {
+                    objects_data: [],
+                    total_items: 0,
+                    max_pages: 0,
+                },
+                total_pages: 0
+            }
+        }
+    },
     currentName: "",
 };
 
@@ -35,7 +60,6 @@ export default function reduce(state = initialState, action = {}) {
                 currentName: action.currentName,
             };
         }
-
         default:
             return state;
     }
