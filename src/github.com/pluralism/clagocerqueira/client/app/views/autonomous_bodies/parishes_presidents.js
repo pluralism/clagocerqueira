@@ -184,13 +184,17 @@ class ParishesPresidentsView extends React.Component {
 
         return (
             <div className="tab-content">
-                <GeneralObjectTab
-                    tabID={'#first_tab'}
-                    subtitle={"Presidente"}
-                    active={this.state.activeTab === Constants.DATES.d1974_1976}
-                    dateMapping={Constants.DATE_MAPPINGS.d1974_1976}
-                    data={parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1974_1976].
-                        dates.objects.objects_data} />
+                {parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1974_1976].
+                    dates.objects.objects_data.length !== 0 ?
+                    <GeneralObjectTab
+                        tabID={'#first_tab'}
+                        subtitle={"Presidente"}
+                        active={this.state.activeTab === Constants.DATES.d1974_1976}
+                        dateMapping={Constants.DATE_MAPPINGS.d1974_1976}
+                        data={parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1974_1976].
+                            dates.objects.objects_data} />
+                :
+                <p className="for_clearing">Por Apurar</p>}
 
 
                 <GeneralObjectTab
