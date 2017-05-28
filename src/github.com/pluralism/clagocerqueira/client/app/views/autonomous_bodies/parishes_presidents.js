@@ -14,13 +14,20 @@ class ParishesPresidentsView extends React.Component {
     constructor(props) {
         super(props);
 
+        this.generalMappings = [
+            [Constants.DATE_MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
+            [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
+        ];
+
         this.currentDate = Constants.DATES.d1974_1976;
         this.state = {
             currentParish: Constants.PARISHES_NAMES[0],
             activeTab: this.currentDate,
             currentPage: 1
         };
-        this.nameAndPageMappings = {
+
+
+        this.dateAndPageMappings = {
             [Constants.DATES.d1974_1976]: {
                 mapping: Constants.DATE_MAPPINGS.d1974_1976,
                 page: 1
@@ -36,50 +43,74 @@ class ParishesPresidentsView extends React.Component {
     componentDidMount() {
         const { dispatch } = this.props;
 
-        const mappings = [
-            [Constants.DATE_MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
-            [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
-        ];
 
-
-        console.log('aqui');
         dispatch(ParishesPresidentsActions.getAllDataFromParishesPresidents(
             this.state.currentParish,
-            mappings
+            this.generalMappings
         ));
     }
 
 
     updateCurrentDate(value) {
-        const { dispatch } = this.props;
-
-
+        /**
+         * Update the currentDate variable and keep the page
+         * as the old one. This allow us to mantain consistency
+         * with the lists of councilmen
+         */
         this.currentDate = value;
         // Update the active tab!
         this.setState({
-            activeTab: this.currentDate,
-            currentPage: 1
-        }, () => {
-            dispatch(ParishesPresidentsActions.loadDataFromServer(
-                this.state.currentParish,
-                this.currentDate,
-                this.state.currentPage));
+            activeTab: this.currentDate
         });
+    }
+
+
+    getNextPageContent() {
+        const { parishesPresidents, dispatch } = this.props;
+        let obj = this.dateAndPageMappings[this.currentDate];
+        let currentPage = obj.page;
+        let parishPresidentMapping = parishesPresidents.objects_data[obj.mapping].dates.objects;
+
+        if(currentPage < parishPresidentMapping.max_pages) {
+            obj.page += 1;
+
+            dispatch(ParishesPresidentsActions.getParishPresidentsByPage(
+                this.currentDate,
+                this.state.currentParish,
+                obj.mapping,
+                obj.page));
+        }
+    }
+
+
+    getPreviousPageContent() {
+        const { dispatch } = this.props;
+        let obj = this.dateAndPageMappings[this.currentDate];
+        let currentPage = obj.page;
+
+        if(currentPage > 1) {
+            obj.page -= 1;
+
+            dispatch(ParishesPresidentsActions.getParishPresidentsByPage(
+                this.currentDate,
+                this.state.currentParish,
+                obj.mapping,
+                obj.page));
+        }
     }
 
 
     handleParishChange(e) {
         const { dispatch } = this.props;
 
-        this.currentDate = "1976-2013";
         this.setState({
             currentParish: e.target.value,
             currentPage: 1
         }, () => {
-            dispatch(ParishesPresidentsActions.loadDataFromServer(
+            dispatch(ParishesPresidentsActions.getAllDataFromParishesPresidents(
                 this.state.currentParish,
-                this.currentDate,
-                this.state.currentPage));
+                this.generalMappings
+            ));
         });
 
     }
@@ -179,15 +210,6 @@ class ParishesPresidentsView extends React.Component {
         );
     }
 
-
-    getPreviousPageContent() {
-
-    }
-
-
-    getNextPageContent() {
-
-    }
 
 
     render() {

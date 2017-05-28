@@ -45,6 +45,67 @@ ParishesPresidentsActions.buildGraphQLDataFromMappings = (name, mappings, page) 
 };
 
 
+ParishesPresidentsActions.getParishPresidentsByPage = (date, name, mapping, page) => {
+    return ParishesPresidentsActions.getDataByPage(
+        name,
+        date,
+        mapping,
+        page,
+        Constants.PARISHES_PRESIDENTS,
+        Constants.LOADING_DATA_PARISHES_PRESIDENTS,
+        Constants.LOADING_DATA_ERROR_PARISHES_PRESIDENTS,
+        Constants.LOADING_DATA_SUCCESS_PARISHES_PRESIDENTS
+    );
+};
+
+
+ParishesPresidentsActions.getDataByPage =
+    (name, date, mapping, page, type, loadingAction, errorAction, successAction) => {
+    return dispatch => {
+        // Inform the user that the application is loading data
+        dispatch({
+            type: loadingAction
+        });
+
+
+        // Query that will be sent to the GraphQL server
+        const graphQLData = `{
+        ${mapping}: ${type}(name: "${name}", date: "${date}", page: ${page}) {
+            name
+            dates {
+                name
+                objects {
+                    total_items
+    				objects_data {
+    					name
+    					image
+    					description
+    				}
+    			}
+    		}
+        }}`;
+
+        httpPostGraphQL(graphQLData)
+            .then((data) => {
+                // Something went wrong...
+                if(data.hasOwnProperty('errors')) {
+                    // Dispatch an error
+                    dispatch({
+                        type: errorAction
+                    });
+                } else {
+                    // Success, retrieve the data to the user
+                    dispatch({
+                        type: successAction,
+                        data: data,
+                        currentName: name
+                    });
+                }
+        });
+    };
+};
+
+
 
 ParishesPresidentsActions.getAllDataFromParishesPresidents = (name, mappings) => {
     return ParishesPresidentsActions.loadDataFromServer(
@@ -84,7 +145,7 @@ ParishesPresidentsActions.loadDataFromServer =
                 dispatch({
                     type: successAction,
                     data: data,
-                    currentName: mappings[0][1],
+                    currentName: name,
                 });
             }
         });
