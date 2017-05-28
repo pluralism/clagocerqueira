@@ -49,6 +49,14 @@ func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *ParishP
 	maxPage := int(math.Ceil(float64(result.Dates.Objects.TotalItems) / 10))
 
 
+	// If there are no results just return the object with no data
+	if maxPage == 0 {
+		// Update the maxPage value
+		result.Dates.Objects.MaxPages = maxPage
+
+		return &result
+	}
+
 	// There are no results after we've passed the limit of pages
 	if page > maxPage || page < 1 {
 		return nil

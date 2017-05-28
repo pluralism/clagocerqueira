@@ -6,7 +6,7 @@ var GeneralPersonType = graphql.NewObject(graphql.ObjectConfig{
 	Name: "GeneralPerson",
 	Fields: graphql.Fields{
 		"name": &graphql.Field{
-			Type: graphql.NewNonNull(graphql.String),
+			Type: graphql.String,
 		},
 		"image": &graphql.Field{
 			Type: graphql.String,
