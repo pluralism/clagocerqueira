@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"math"
 
 	"github.com/pluralism/clagocerqueira/server/constants"
@@ -14,14 +13,6 @@ type GeneralObject struct {
 	ID      bson.ObjectId     `json:"id" bson:"_id"`
 	Name    string            `json:"name" bson:"name"`
 	Objects GeneralObjectData `json:"objects" bson:"objects"`
-}
-
-
-
-func GetObjectByNameDateAndPage(s *mgo.Session, name, date string, page int) {
-	session := s.Clone()
-	defer session.Close()
-	fmt.Println("aqui")
 }
 
 
