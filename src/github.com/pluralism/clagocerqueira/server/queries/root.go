@@ -2,7 +2,6 @@ package queries
 
 import (
 	"errors"
-
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/controllers"
 	"github.com/pluralism/clagocerqueira/server/models"
@@ -248,7 +247,7 @@ func getPress() *graphql.Field {
 
 func searchHomepage() *graphql.Field {
 	return &graphql.Field{
-		Type: types.GeneralListType,
+		Type: types.SearchResultsObjectType,
 		Description: "Perform searches on the homepage",
 		Args: graphql.FieldConfigArgument{
 			"value": &graphql.ArgumentConfig{
@@ -262,7 +261,10 @@ func searchHomepage() *graphql.Field {
 				return nil, errors.New("the \"value\" argument was not provided")
 			}
 
-			controllers.SearchHomepage(value)
+			result := controllers.SearchHomepage(value)
+			if result != nil {
+				return result, nil
+			}
 
 			return nil, errors.New("the search could not be performed")
 		},
