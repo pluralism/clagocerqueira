@@ -4,6 +4,7 @@ import { Link }                             from 'react-router';
 import Footer                               from '../../components/common/footer';
 import classNames                           from 'classnames';
 import ContactMessageActions                from '../../actions/contactMessage';
+import SearchActions                        from '../../actions/search';
 
 
 require('jvectormap-next');
@@ -37,7 +38,8 @@ class HomeIndexView extends React.Component {
           invalid: false
         }
       },
-      submitButtonDisabled: false
+      submitButtonDisabled: false,
+      search: '',
     };
 
 
@@ -543,6 +545,19 @@ class HomeIndexView extends React.Component {
   }
 
 
+  onSubmitSearch(e) {
+    e.preventDefault();
+    SearchActions.homepageSearch(this.state.search);
+  }
+
+
+  handleSearchChange(e) {
+    this.setState({
+        search: e.target.value
+    });
+  }
+
+
 
   renderIntro() {
     return (
@@ -550,8 +565,10 @@ class HomeIndexView extends React.Component {
         <div className="fullscreen-static-image">
           <div className="content-top">
             <div className="search-column col-lg-9 col-md-8 col-sm-12 col-xs-12 promo-section__promo-info text-center">
-              <input id="search_anything" type="text" name="search"
-                     placeholder="Pesquise&#8230;" autoFocus />
+              <form onSubmit={::this.onSubmitSearch}>
+                <input id="search_anything" type="text" value={this.state.seearch} onChange={::this.handleSearchChange} name="search"
+                       placeholder="Pesquise&#8230;" autoFocus />
+              </form>
             </div>
 
 

@@ -9,6 +9,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+
 func GetAssociationsByNameId(s *mgo.Session, name string, page int) *models.GeneralObject {
 	session := s.Copy()
 	defer session.Close()

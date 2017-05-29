@@ -245,6 +245,30 @@ func getPress() *graphql.Field {
 	}
 }
 
+
+func searchHomepage() *graphql.Field {
+	return &graphql.Field{
+		Type: types.GeneralListType,
+		Description: "Perform searches on the homepage",
+		Args: graphql.FieldConfigArgument{
+			"value": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			value, valueOK := p.Args["value"].(string)
+
+			if !valueOK {
+				return nil, errors.New("the \"value\" argument was not provided")
+			}
+
+			controllers.SearchHomepage(value)
+
+			return nil, errors.New("the search could not be performed")
+		},
+	}
+}
+
 var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 	Name: "CLagoCerqueiraRootQuery",
 	Fields: graphql.Fields{
@@ -327,6 +351,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 		"festivities": 	getFestivitiesForParish(),
 		"city_council": getCityCouncil(),
 		"parishes_presidents": getParishesPresidents(),
+		"search_homepage": searchHomepage(),
 		"authors": &graphql.Field{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",

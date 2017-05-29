@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"log"
 
 	"github.com/graphql-go/graphql"
@@ -13,12 +14,21 @@ import (
 	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
 	"gopkg.in/kataras/iris.v6/adaptors/view"
 	mgo "gopkg.in/mgo.v2"
+	"gopkg.in/olivere/elastic.v5"
 )
 
 func main() {
 	var err error
 	app := iris.New()
 	models.Session, err = mgo.Dial("mongodb://localhost")
+
+	if err != nil {
+		panic(err)
+	}
+
+	// Start ElasticSearch components here
+	models.Context = context.Background()
+	models.Elastic, err = elastic.NewClient()
 
 	if err != nil {
 		panic(err)
