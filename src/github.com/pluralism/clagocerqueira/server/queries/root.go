@@ -231,7 +231,7 @@ func getPress() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetPressByNameId(models.Session, name, page)
+			result := models.GetPressByNameId(models.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -299,7 +299,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetPresidentsByDate(models.Session, date, page)
+				result := models.GetPresidentsByDate(models.Session, date, page)
 
 				if result != nil {
 					return result, nil
@@ -416,7 +416,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetPersonalities(models.Session, category, page)
+				result := models.GetPersonalities(models.Session, category, page)
 
 				if result != nil {
 					// Everything went fine, return the list of personalities

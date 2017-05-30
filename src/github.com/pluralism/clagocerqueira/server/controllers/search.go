@@ -35,7 +35,7 @@ func SearchHomepage(value string) *models.SearchResults {
 			t.Index = hit.Index
 			t.Type = hit.Type
 
-			// Append to slice
+			// Append the object to the slice
 			res = append(res, t)
 		}
 	}
