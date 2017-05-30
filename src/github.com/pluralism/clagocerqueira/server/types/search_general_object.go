@@ -37,7 +37,7 @@ var SearchObjectType = graphql.NewObject(graphql.ObjectConfig{
 	Name: "SearchObjectType",
 	Fields: graphql.Fields{
 		"objects_data": &graphql.Field{
-			Type: graphql.NewNonNull(SearchGeneralType),
+			Type: graphql.NewNonNull(SearchObjectsDataType),
 		},
 		"total_items": &graphql.Field{
 			Type: graphql.Int,

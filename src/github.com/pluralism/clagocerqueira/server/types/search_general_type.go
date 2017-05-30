@@ -2,8 +2,8 @@ package types
 
 import "github.com/graphql-go/graphql"
 
-var SearchGeneralType = graphql.NewObject(graphql.ObjectConfig{
-	Name: "GeneralPerson",
+var SearchObjectsDataType = graphql.NewObject(graphql.ObjectConfig{
+	Name: "SearchObjectsDataType",
 	Fields: graphql.Fields{
 		"name": &graphql.Field{
 			Type: graphql.String,
