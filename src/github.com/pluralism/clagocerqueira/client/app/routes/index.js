@@ -1,5 +1,5 @@
-import { Route, IndexRoute } from 'react-router';
 import React from 'react';
+import { Route, IndexRoute } from 'react-router';
 import MainLayout from '../layouts/main';
 import HomeIndexView from '../views/home';
 import PresidentsView from '../views/autonomous_bodies/presidents';
@@ -15,6 +15,7 @@ import StatutesView from '../views/misc/statutes';
 import LagoCerqueiraView from '../views/misc/lago_cerqueira';
 import SocialEntitiesView from '../views/misc/social_entities';
 import NatureView from '../views/nature/index';
+import SearchView from '../views/search/index';
 
 
 
@@ -33,6 +34,7 @@ export default function configRoutes(store) {
         <Route path="associacoes(/:type)" component={AssociationsView} />
         <Route path="comunicacao_social(/:type)" component={PressView} />
         <Route path="festividades(/:type)" component={FestivitiesView} />
+        <Route path="pesquisa" component={SearchView} />
 
 
         <Route path="estatutos" component={StatutesView} />
@@ -42,4 +44,4 @@ export default function configRoutes(store) {
       </Route>
     </Route>
   );
-}
+};
