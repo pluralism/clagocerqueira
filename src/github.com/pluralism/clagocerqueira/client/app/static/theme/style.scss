@@ -157,13 +157,14 @@ body {
 }
 
 
+
 .cube-portfolio {
     margin-top: 40px;
 }
 
 
 
-#grid-container, #grid-nature {
+#grid-container, #grid-nature, #grid-container2 {
     .cbp-l-caption-title {
         font-size: 26px;
         margin-bottom: 20px;
@@ -172,14 +173,6 @@ body {
     .cbp-item {
         max-width: 350px;
         max-height: 350px;
-    }
-}
-
-
-#grid-container, #grid-container2 {
-    .cbp-item {
-        max-width: 350px;
-        max-height: 287px;
     }
 }
 

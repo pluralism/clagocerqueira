@@ -82,10 +82,6 @@ class HomeIndexView extends React.Component {
       });
 
 
-      // Init backstretch with the image we want
-      // $('.fullscreen-static-image').backstretch(require('../../static/img/site/homepage/cover.jpg'));
-
-
       let gridContainer = $('#grid-container');
       let gridContainer2 = $('#grid-container2');
       let associacoesList = $('.associacoes-list');
@@ -749,6 +745,7 @@ class HomeIndexView extends React.Component {
                     '/public/prod/images/1600.jpg', 'autores/1601-1700')}
             </div>
           </div>
+
 
           <div className="cube-portfolio">
             <div id="grid-container2">
