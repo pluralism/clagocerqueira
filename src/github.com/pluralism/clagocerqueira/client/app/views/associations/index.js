@@ -90,7 +90,9 @@ class AssociationsView extends React.Component {
       [Constants.ASSOCIATIONS.RECREATIONAL, Constants.ASSOCIATIONS.RECREATIONAL],
       [Constants.ASSOCIATIONS.RELIGIOUS, Constants.ASSOCIATIONS.RELIGIOUS],
       [Constants.ASSOCIATIONS.SOCIAL, Constants.ASSOCIATIONS.SOCIAL],
-      [Constants.ASSOCIATIONS.SPORTS, Constants.ASSOCIATIONS.SPORTS]];
+      [Constants.ASSOCIATIONS.SPORTS, Constants.ASSOCIATIONS.SPORTS]
+    ];
+
 
 
     if(params.type !== undefined) {

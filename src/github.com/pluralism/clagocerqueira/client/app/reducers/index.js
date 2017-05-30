@@ -9,6 +9,7 @@ import press from './press';
 import parishes from './parishes';
 import nature from './nature';
 import parishesPresidents from './parishesPresidents';
+import search from './search';
 
 
 
@@ -24,4 +25,5 @@ export default combineReducers({
   parishes: parishes,
   nature: nature,
   parishesPresidents: parishesPresidents,
+  search: search,
 });
