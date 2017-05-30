@@ -3,7 +3,6 @@ package queries
 import (
 	"errors"
 	"github.com/graphql-go/graphql"
-	"github.com/pluralism/clagocerqueira/server/controllers"
 	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/types"
 )
@@ -261,7 +260,8 @@ func searchHomepage() *graphql.Field {
 				return nil, errors.New("the \"value\" argument was not provided")
 			}
 
-			result := controllers.SearchHomepage(value)
+			result := models.SearchHomepage(value)
+
 			if result != nil {
 				return result, nil
 			}
@@ -270,6 +270,7 @@ func searchHomepage() *graphql.Field {
 		},
 	}
 }
+
 
 var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 	Name: "CLagoCerqueiraRootQuery",
@@ -405,6 +406,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 				category, categoryOK := p.Args["name"].(string)
 				page, pageOK := p.Args["page"].(int)
+
 
 				if !categoryOK {
 					// Return no objects if the "name" argument is not passed in the query
