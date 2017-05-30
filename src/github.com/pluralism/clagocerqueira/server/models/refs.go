@@ -7,6 +7,7 @@ import (
 	"gopkg.in/olivere/elastic.v5"
 )
 
+
 var Session *mgo.Session
 var Channels = ProgChannelData{
 	CreateMessage: make(chan CreateMessageResult),

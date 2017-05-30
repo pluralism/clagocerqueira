@@ -34,7 +34,7 @@ func getAssociations() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GetAssociationsByNameId(models.Session, name, page)
+			result := models.GetAssociationsByNameId(models.Session, name, page)
 
 			if result != nil {
 				return result, nil
@@ -74,7 +74,7 @@ func getNature() *graphql.Field {
 				return nil, errors.New("the \"page\" argument was not provided")
 			}
 
-			result := controllers.GeyNatureByName(models.Session, name, page)
+			result := models.GeyNatureByName(models.Session, name, page)
 
 			if result != nil {
 				// Success, return the result without errors
@@ -335,7 +335,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetCouncilmenByDate(models.Session, date, page)
+				result := models.GetCouncilmenByDate(models.Session, date, page)
 
 				if result != nil {
 					// Everything went fine, return the list of councilmen
@@ -379,7 +379,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 					return nil, errors.New("the \"page\" argument was not provided")
 				}
 
-				result := controllers.GetAuthorsByDate(models.Session, date, page)
+				result := models.GetAuthorsByDate(models.Session, date, page)
 
 				if result != nil {
 					// Everything went fine, return the list of councilmen

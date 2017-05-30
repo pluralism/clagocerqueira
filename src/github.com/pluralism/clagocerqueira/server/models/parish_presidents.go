@@ -9,7 +9,7 @@ import (
 )
 
 
-type ParishPresidents struct {
+type ParishPresidentsObject struct {
 	ID      bson.ObjectId     `json:"id" bson:"_id"`
 	Name    string            `json:"name" bson:"name"`
 	Dates  	GeneralObject 	  `json:"dates" bson:"dates"`
@@ -18,7 +18,7 @@ type ParishPresidents struct {
 
 
 
-func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *ParishPresidents {
+func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *ParishPresidentsObject {
 	session := s.Copy()
 	defer session.Close()
 
@@ -36,7 +36,7 @@ func GetPresidentsByParish(s *mgo.Session, name, date string, page int) *ParishP
 
 
 
-	result := ParishPresidents{}
+	result := ParishPresidentsObject{}
 	// Return only one result from the query
 	err := query.One(&result)
 
