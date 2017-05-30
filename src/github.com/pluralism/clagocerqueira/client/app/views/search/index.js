@@ -5,6 +5,7 @@ import HeaderLinks from '../../components/common/headerLinks';
 import Footer from '../../components/common/footer';
 import { Constants } from '../../constants/index';
 import SearchActions from '../../actions/search';
+import { SearchTab } from '../../components/common/searchTab';
 
 
 class SearchResultsView extends React.Component {
@@ -16,7 +17,13 @@ class SearchResultsView extends React.Component {
     render() {
         if(this.props.results !== null && this.props.results.length > 0) {
             return (
-                <p>apodiapsdiaspod</p>
+                <div className="tab-content">
+                    <SearchTab
+                        tabID={'#first_tab'}
+                        active="true"
+                        data={this.props.results}
+                    />
+                </div>
             );
         }
     }

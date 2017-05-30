@@ -16,7 +16,7 @@ export class GeneralObjectItem extends React.Component {
             <div className="listing-list-media-wrap listing-list-center">
               <div className="listing-list-media">
                 <img className="listing-list-media-img" src={this.props.imgURL}
-                alt={this.props.altText !== undefined ? altText : "Presidente"} />
+                alt={this.props.altText !== undefined ? altText : "Elemento"} />
               </div>
             </div>
 

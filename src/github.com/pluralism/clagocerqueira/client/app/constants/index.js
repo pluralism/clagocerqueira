@@ -129,6 +129,20 @@ const Constants = {
 
   SEARCH_TEXT: {
     RESULTS: 'Resultados da pesquisa',
+
+
+    MAPPINGS: {
+      "author": "Autor",
+      "personalitie": "Personalidade",
+      "parishes_president": "Presidente de Junta",
+      "city_council": "Presidente da Assembleia",
+      "nature": "Natureza",
+      "association": "Associação",
+      "president": "Presidente",
+      "press": "Imprensa",
+      "parishe": "Freguesia",
+      "councilman": "Vereador"
+    }
   },
 
 
