@@ -7,6 +7,22 @@ import { Constants } from '../../constants/index';
 import SearchActions from '../../actions/search';
 
 
+class SearchResultsView extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+
+    render() {
+        if(this.props.results !== null && this.props.results.length > 0) {
+            return (
+                <p>apodiapsdiaspod</p>
+            );
+        }
+    }
+}
+
+
 
 class SearchView extends React.Component {
     constructor(props) {
@@ -49,7 +65,7 @@ class SearchView extends React.Component {
                         </ul>
 
 
-                        {this.renderTabsContents()}
+                        {this.renderSearchResults()}
                     </div>
                 </div>
             </section>
@@ -57,12 +73,14 @@ class SearchView extends React.Component {
     }
 
 
-    renderTabsContents() {
-        return (
-            <div className="tab-content">
-            </div>
-        );
+    renderSearchResults() {
+        const { search } = this.props;
+
+        if(search.loading === false && search.success === true) {
+            return <SearchResultsView results={search.data} />;
+        }
     }
+
 
 
     render() {
