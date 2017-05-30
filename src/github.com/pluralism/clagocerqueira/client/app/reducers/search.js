@@ -3,7 +3,8 @@ import { Constants } from '../constants/index';
 
 const initialState = {
     loading: false,
-    success: false
+    success: false,
+    data: [],
 };
 
 
@@ -14,6 +15,9 @@ export default function reduce(state = initialState, action = {}) {
 
         case Constants.LOADING_DATA_ERROR_SEARCH:
             return { ...state, loading: false, success: false };
+
+        case Constants.LOADING_DATA_SUCCESS_SEARCH:
+            return { ...state, loading: false, success: true, data: action.data };
 
         default:
             return state;

@@ -42,7 +42,10 @@ SearchActions.homepageSearch = (value) => {
                     type: Constants.LOADING_DATA_ERROR_SEARCH
                 });
             } else {
-                console.log(JSON.stringify(data));
+                dispatch({
+                    type: Constants.LOADING_DATA_SUCCESS_SEARCH,
+                    data: data.data.search.results
+                });
             }
         });
     };
