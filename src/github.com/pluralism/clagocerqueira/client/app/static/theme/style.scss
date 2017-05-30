@@ -190,6 +190,7 @@ body {
 	    max-width: 80%;
         margin: 0 auto;
 	    line-height: 2.0;
+        font-weight: 300;
     }
 }
 
@@ -636,10 +637,6 @@ body {
 
 
 
-
-/**
- * Festividades section
-*/
 #festividades {
     background: #EDEDED;
 
@@ -1447,11 +1444,32 @@ body {
 
 
 #festividades-grid {
-    width: 70%;
+    width: 50%;
+    margin: 0 auto;
 
     .cbp-item {
-        max-width: 500px;
-        max-height: 500px;
+        max-height: 470px;
+        max-width: 470px;
+
+        .cbp-l-caption-body {
+            background-color: #5D2F30;
+            opacity: 0.6;
+            transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+            text-align: center;
+
+            .cbp-l-caption-title {
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            p {
+                color: #FFFFFF;
+                line-height: 2.0;
+                margin: 0 auto;
+                font-weight: 300;
+                font-size: 24px;
+            }
+        }
     }
 }
 

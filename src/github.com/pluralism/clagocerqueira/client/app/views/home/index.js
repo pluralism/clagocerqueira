@@ -71,7 +71,7 @@ class HomeIndexView extends React.Component {
       });
 
 
-      // Initialize smooth scroll
+      // Initialize smooth scroll!
       $('.page-scroll > a').click((e) => {
           e.preventDefault();
           let link = e.currentTarget;
@@ -394,7 +394,6 @@ class HomeIndexView extends React.Component {
         defaultFilter: '*',
         animationType: 'slideLeft',
         gapHorizontal: 70,
-        gapVertical: 50,
         gridAdjustment: 'alignCenter',
         mediaQueries: [
           { width: 1440, cols: 3 },
@@ -933,12 +932,15 @@ class HomeIndexView extends React.Component {
           <div className="cbp-caption-defaultWrap">
             <img src={img} />
           </div>
+          <div className="cbp-caption-activeWrap">
+            <div className="cbp-l-caption-alignCenter">
+              <div className="cbp-l-caption-body font-main">
+                <div className="cbp-l-caption-title">{title}</div>
+                <p>{subTitle}</p>
+              </div>
+            </div>
+          </div>
         </Link>
-
-        <div className="item-content">
-          <h1 className="title">{title}</h1>
-          <h2 className="subtitle">{subTitle}</h2>
-        </div>
       </div>
     );
   }
