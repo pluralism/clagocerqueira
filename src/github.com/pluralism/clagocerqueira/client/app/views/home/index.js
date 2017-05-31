@@ -4,6 +4,7 @@ import { Link }                             from 'react-router';
 import Footer                               from '../../components/common/footer';
 import classNames                           from 'classnames';
 import ContactMessageActions                from '../../actions/contactMessage';
+import { isValidEmail, isValidPhoneNumber } from '../../utils/index';
 
 
 require('jvectormap-next');
@@ -1165,11 +1166,9 @@ class HomeIndexView extends React.Component {
       return value.length === 0;
     } else if(name === "phone") {
       // Check if the phone matches a certain regex
-      const nameRegex = /^\+?(\d{9,})$/;
-      return nameRegex.test(value) !== true;
+      return isValidPhoneNumber(value) !== true;
     } else if(name === "email") {
-      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return emailRegex.test(value) !== true;
+      return isValidEmail(value) !== true;
     }
     return true;
   }
@@ -1281,7 +1280,7 @@ class HomeIndexView extends React.Component {
               <ul className="list-unstyled margin-bottom-30">
                 <li><span aria-hidden="true" className="icon-envelope-open icon"/></li>
                 <li className="first-item">Email</li>
-                <li className="second-item">info@clagocerqueira.com</li>
+                <li className="second-item">info@clagocerqueira.pt</li>
               </ul>
             </div>
           </div>
