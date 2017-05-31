@@ -143,8 +143,12 @@ class AssociationsView extends React.Component {
             <div className="g-mb-30">
               <h2><span className="g-color-default">Associações</span></h2>
             </div>
-            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-              Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+            <p className="g-page-title">
+              Explore diversas associações com sede em Amarante. Pode explorar desde associações cívicas até associações religiosas.
+            </p>
+            <p className="g-page-title">
+              Se preferir pode pesquisar pela associação que procura na caixa de texto em baixo.
+            </p>
           </div>
 
 

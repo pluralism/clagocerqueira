@@ -183,8 +183,12 @@ class NatureView extends React.Component {
                         <div className="g-mb-30">
                             <h2><span className="g-color-default">Natureza</span></h2>
                         </div>
-                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+                        <p className="g-page-title">
+                            Explore o património natural de Amarante! Aqui poderá encontrar ribeiros, rios e serras de Amarante.
+                        </p>
+                        <p className="g-page-title">
+                            Se assim preferir pode pesquisar na caixa de texto em baixo pelo elemento do património natural que procura!
+                        </p>
                     </div>
 
 

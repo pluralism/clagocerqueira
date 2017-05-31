@@ -120,8 +120,13 @@ class PersonalitiesView extends React.Component {
             <div className="g-mb-30">
               <h2><span className="g-color-default">{Constants.PERSONALITIES_STRING}</span></h2>
             </div>
-            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-              Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+            <p className="g-page-title">
+                Encontre as personalidadesa que nasceram em Amarante, desde as mais antigas até às mais atuais.
+            </p>
+            <p className="g-page-title">
+                As personalidades encontram-se divididas pelas áreas de maior de destaque. Se preferir pode pesquisar na caixa de texto em baixo
+                pela personalidade que procura.
+            </p>
           </div>
 
 

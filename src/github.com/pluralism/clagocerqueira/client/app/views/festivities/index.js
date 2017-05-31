@@ -62,8 +62,12 @@ class FestivitiesView extends React.Component {
                         <div className="g-mb-30">
                             <h2><span className="g-color-default">Festividades</span></h2>
                         </div>
-                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.
+                        <p className="g-page-title">
+                            Encontre todas as festas que fazem parte das freguesias de Amarante.
+                        </p>
+                        <p className="g-page-title">
+                            Seleccione uma freguesia e serão apresentadas as festas que são comemoradas nessa freguesia. Se assim preferir,
+                            pode pesquisar por uma festa que procura.
                         </p>
                     </div>
 
