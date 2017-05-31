@@ -252,6 +252,41 @@ func getPress() *graphql.Field {
 	}
 }
 
+func searchByType() *graphql.Field  {
+	return &graphql.Field{
+		Type: types.SearchResultsObjectType,
+		Description: "Perform searches by a specific type and value",
+		Args: graphql.FieldConfigArgument{
+			"value": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+			"type": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.String),
+			},
+		},
+		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+			value, valueOK := p.Args["value"].(string)
+			objType, typeOK := p.Args["type"].(string)
+
+			if !valueOK {
+				return nil, errors.New("the \"value\" argument was not provided")
+			}
+
+			if !typeOK {
+				return nil, errors.New("the \type\" argument was not provided")
+			}
+
+			result := models.SearchByType(value, objType)
+
+			if result != nil {
+				return result, nil
+			}
+
+			return nil, errors.New("the search by type could not be performed")
+		},
+	}
+}
+
 
 func searchHomepage() *graphql.Field {
 	return &graphql.Field{
@@ -364,6 +399,7 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 		"city_council": getCityCouncil(),
 		"parishes_presidents": getParishesPresidents(),
 		"search_homepage": searchHomepage(),
+		"search_type": searchByType(),
 		"authors": &graphql.Field{
 			Type:        types.GeneralListType,
 			Description: "Extract authors that are defined in a given date and page",
