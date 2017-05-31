@@ -719,7 +719,7 @@ class HomeIndexView extends React.Component {
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20 title">Autores Literários</h2>
             <p className="heading-v12__block-text">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Nesta secção pode encontrar todos os autores literários que nasceram em Amarante entre os séculos XV e XX
             </p>
           </div>
 
@@ -753,7 +753,7 @@ class HomeIndexView extends React.Component {
             <div className="heading-v12 font-main text-center">
               <h2 className="heading-v12__block-name font-main g-mb-20 title">Natureza</h2>
               <p className="heading-v12__block-text">
-                Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+                Aqui poderá explorar o património natural de Amarante! Passe o rato nas imagens e explore os ribeiros, rios e serras de Amarante!
               </p>
             </div>
 
@@ -805,7 +805,10 @@ class HomeIndexView extends React.Component {
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20 title">Órgãos Autárquicos</h2>
             <p className="heading-v12__block-text">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in. Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Aqui pode navegar pelas listas dos vários órgãos autárquicos, desde os presidentes da câmara municipal de Amarante até aos presidentes das juntas de freguesia.
+            </p>
+            <p className="heading-v12__block-text">
+              Existe informação desde <strong>1836</strong>.
             </p>
           </div>
 
@@ -855,9 +858,7 @@ class HomeIndexView extends React.Component {
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20">Associações</h2>
             <p className="heading-v12__block-text">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Explore diversas associações com sede em Amarante. Todas as associações estão agrupadas por secções.
             </p>
           </div>
 
@@ -937,9 +938,10 @@ class HomeIndexView extends React.Component {
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20">Festividades</h2>
             <p className="heading-v12__block-text">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Encontre aqui as festividades que decorrem ao longo do ano em todas as freguesias de Amarante.
+            </p>
+            <p className="heading-v12__block-text">
+              Pode utilizar o <strong>mapa interativo</strong> para selecionar as festividades de uma freguesia em particular!
             </p>
           </div>
 
@@ -995,9 +997,8 @@ class HomeIndexView extends React.Component {
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20">Comunicação Social</h2>
             <p className="heading-v12__block-text">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Explore os jornais, revistas, rádios e televisões com origem amarantina!
+              Poderá encontrar os jornais e revistas que atualmente já não se encontram na banca.
             </p>
           </div>
 
@@ -1010,7 +1011,7 @@ class HomeIndexView extends React.Component {
               {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina',
                   'comunicacao_social/radios/', '/public/prod/images/radios.jpg')}
               {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
-                  'comunicacao_social/televisions/', '/public/prod/images/revistas.jpg')}
+                  'comunicacao_social/televisions/', '/public/prod/images/televisao.jpg')}
               {this.renderImprensaItem('Online', 'Rádios e Jornais online',
                   'comunicacao_social/online', '/public/prod/images/revistas.jpg')}
           </div>
@@ -1050,9 +1051,10 @@ class HomeIndexView extends React.Component {
           <div className="heading-v12 font-main text-center">
             <h2 className="heading-v12__block-name font-main g-mb-20">Personalidades</h2>
             <p className="heading-v12__block-text">
-              Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-              Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-              justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+              Veja as personalidades que nasceram em Amarante.
+            </p>
+            <p className="heading-v12__block-text">
+              Todas as personalidades estão devidamente identificadas pela área em que destacaram!
             </p>
           </div>
 
@@ -1180,9 +1182,10 @@ class HomeIndexView extends React.Component {
         <div className="heading-v12 font-main text-center">
           <h2 className="heading-v12__block-name font-main g-mb-20">Contacto</h2>
           <p className="heading-v12__block-text">
-            Sed feugiat porttitor nunc, non dignissim ipsum vestibulum in.
-            Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper,
-            justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel.
+            Entre em contacto com o <strong>Círculo Lago Cerqueira</strong>, preenchendo o formulário apresentado em baixo.
+          </p>
+          <p className="heading-v12__block-text">
+            Daremos uma resposta com a maior celeridade possível.
           </p>
         </div>
 

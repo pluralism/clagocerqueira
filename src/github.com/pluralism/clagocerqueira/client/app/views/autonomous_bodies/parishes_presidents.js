@@ -141,14 +141,21 @@ class ParishesPresidentsView extends React.Component {
                         <div className="g-mb-30">
                             <h2><span className="g-color-default">Presidentes das Juntas de Freguesia</span></h2>
                         </div>
-                        <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-                            Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+                        <p className="g-page-title">
+                            Seleccione a freguesia e de seguida serão apresentados todos os presidentes para o intervalo de tempo definido.
+                        </p>
+                        <p className="g-page-title">
+                            Poderá também optar por pesquisar pelo presidente que procura.
+                        </p>
+                        <p className="g-page-title">
+                            A pesquisa será realizada entre todas as freguesias.
+                        </p>
                     </div>
 
 
                     <div className="search_on_list g-mb-30 text-center font-main">
                         <form target={"_blank"} action={"/pt/pesquisa"} method={"get"}>
-                            <input type="text" name="value" placeholder="Pesquisar presidents&#8230;" autoFocus />
+                            <input type="text" name="value" placeholder="Pesquisar presidentes&#8230;" autoFocus />
                             <input type="hidden" name="type" defaultValue={"parishes_president"} />
                         </form>
                     </div>

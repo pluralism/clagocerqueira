@@ -134,8 +134,12 @@ class PresidentsView extends React.Component {
             <div className="g-mb-30">
               <h2><span className="g-color-default">Presidentes</span></h2>
             </div>
-            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-              Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+            <p className="g-page-title">
+              Tenha acesso aos nomes dos presidentes de Amarante desde o ano <strong>1836</strong>.
+            </p>
+            <p className="g-page-title">
+              Se preferir, pode pesquisar pelo nome do presidente que pretende encontrar.
+            </p>
           </div>
 
 

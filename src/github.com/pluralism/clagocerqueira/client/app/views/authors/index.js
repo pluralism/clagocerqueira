@@ -144,8 +144,10 @@ class AuthorsView extends React.Component {
             <div className="g-mb-30">
               <h2><span className="g-color-default">Autores Amarantinos</span></h2>
             </div>
-            <p className="g-page-title">Nam sed erat aliquet libero aliquet commodo.
-              Donec euismod augue non quam finibus, nec iaculis tellus gravida. Integer <br /> efficitur eros ut dui laoreet, ut blandit turpis tincidunt.</p>
+            <p className="g-page-title">
+              Percorra as listas dos Autores Amarantinos nascidos a partir do século <strong>XV</strong>.
+              Pode também optar por pesquisar pelo nome do autor que pretende encontrar.
+            </p>
           </div>
 
 
