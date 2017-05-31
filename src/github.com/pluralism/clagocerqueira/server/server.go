@@ -16,6 +16,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/olivere/elastic.v5"
 	"github.com/gorilla/handlers"
+	"time"
 )
 
 func main() {
@@ -54,8 +55,15 @@ func main() {
 
 
 	fmt.Println("[*] Server started...")
+	// Create a custom server with defined timeouts
 	// Enable gzip for better compression and start the server
-	http.ListenAndServe(":8080", handlers.CompressHandler(handlers.CORS(corsObj)(r)))
+	srv := &http.Server{
+		Handler: handlers.CompressHandler(handlers.CORS(corsObj)(r)),
+		Addr: "127.0.0.1:8080",
+		WriteTimeout: 15 * time.Second,
+		ReadTimeout: 15 * time.Second,
+	}
+	srv.ListenAndServe()
 }
 
 
