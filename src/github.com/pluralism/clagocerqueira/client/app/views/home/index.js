@@ -556,9 +556,9 @@ class HomeIndexView extends React.Component {
               <div className="intro-month-photo">
                 <h3 className="month-photo-title">Imagens com História</h3>
                 <figure>
-                  <Link to={require('../../static/img/site/homepage/month_photo.jpg')} target="_blank"
+                  <Link to={'/public/prod/images/month_photo.jpg'} target="_blank"
                         title="Imagem do Mês">
-                    <img src={require('../../static/img/site/homepage/month_photo.jpg')} className="img-responsive" />
+                    <img src={'/public/prod/images/month_photo.jpg'} className="img-responsive" />
                   </Link>
                   <figcaption className="font-main">Avenida General Silveira na década de 50</figcaption>
                 </figure>
