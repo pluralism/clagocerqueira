@@ -398,6 +398,9 @@ body {
 
     #orgaos_autarquicos_list {
         .orgaos-card-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             height: 200px;
         }
 

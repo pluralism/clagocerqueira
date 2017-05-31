@@ -818,7 +818,7 @@ class HomeIndexView extends React.Component {
                 {this.renderOrgaosAutarquicosCard('Vereadores da Câmara Municipal',
                     'Encontre todos os vereadores da Câmara Municipal desde 1836',
                     'vereadores',
-                    '/public/prod/images/vereadores_inicial.png')}
+                    '/public/prod/images/vereadores_inicial.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes da Assembleia Municipal',
                     'Encontre todos os presidentes da Assembleia Municipal',
