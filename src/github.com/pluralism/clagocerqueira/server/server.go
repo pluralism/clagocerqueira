@@ -3,23 +3,23 @@ package main
 import (
 	"bytes"
 	"context"
+	"encoding/json"
+	"fmt"
 	"log"
+	"net/http"
 
+	"github.com/gorilla/mux"
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/mutations"
 	"github.com/pluralism/clagocerqueira/server/queries"
-	iris "gopkg.in/kataras/iris.v6"
-	"gopkg.in/kataras/iris.v6/adaptors/cors"
-	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
-	"gopkg.in/kataras/iris.v6/adaptors/view"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/olivere/elastic.v5"
+	"github.com/gorilla/handlers"
 )
 
 func main() {
 	var err error
-	app := iris.New()
 	models.Session, err = mgo.Dial("mongodb://localhost")
 
 	if err != nil {
@@ -38,56 +38,43 @@ func main() {
 	defer models.Session.Close()
 
 	models.Session.SetMode(mgo.Monotonic, true)
+	corsObj := handlers.AllowedOrigins([]string{"*"})
 
-	app.Adapt(
-		// Prints all errors to the os.Stdout
-		iris.DevLogger(),
-		// Router from HTTP router (apparently it has the best performance among all routers)
-		httprouter.New(),
-		// HTML standard engine for all files inside "../client/app/views" folder with extension ".html"
-		view.HTML("../client/app/views", ".html"),
-		// Allows all origins
-		cors.New(cors.Options{AllowedOrigins: []string{"*"}}))
-
-	// Serve static files from "static/prod" to the GET route http://IP:Port/public
-	app.StaticServe("../server/static", "/public")
-
-	app.Get("/", homePageRedirectHandler)
+	r := mux.NewRouter()
+	r.HandleFunc("/", homePageRedirectHandler)
 	// Match all GET routes under /pt/ to homePageHandler
-	app.Get("/pt/*path", homePageHandler)
+	r.HandleFunc(`/pt/{rest:.*}`, homePageHandler)
 	// Route used to handle API requests
-	app.Post("/graphql", graphqlAPIHandler)
+	r.HandleFunc("/graphql", graphqlAPIHandler).
+		Methods("POST").
+		Headers("Content-Type", "application/graphql")
 
-	// Start the server on port 8080
-	app.Listen(":8080")
+	// Serve static files
+	r.PathPrefix("/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./static/"))))
+
+
+	fmt.Println("[*] Server started...")
+	// Enable gzip for better compression and start the server
+	http.ListenAndServe(":8080", handlers.CompressHandler(handlers.CORS(corsObj)(r)))
 }
 
-func homePageRedirectHandler(context *iris.Context) {
-	context.Redirect("/pt/", iris.StatusTemporaryRedirect)
+
+func homePageRedirectHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/pt/", 301)
 }
 
-func homePageHandler(context *iris.Context) {
-	// Enable gzip for better compression
-	context.Render("index.html", iris.RenderOptions{"gzip": true})
+
+func homePageHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "../client/app/views/index.html")
 }
 
-func graphqlAPIHandler(context *iris.Context) {
-	contentType := context.RequestHeader("Content-Type")
 
-	// The content-type header must "application/graphql"
-	if contentType != "application/graphql" {
-		// Maps are reference types, so if we don't use make the value is nil
-		res := make(map[string]interface{})
-		res["error"] = "Bad Request"
-
-		context.JSON(iris.StatusBadRequest, res)
-		return
-	}
-
+func graphqlAPIHandler(w http.ResponseWriter, r *http.Request) {
 	buf := new(bytes.Buffer)
-	buf.ReadFrom(context.Request.Body)
+	buf.ReadFrom(r.Body)
+
 	result := executeGraphQLQuery(buf.String(), schema)
-	context.JSON(iris.StatusOK, result)
+	json.NewEncoder(w).Encode(result)
 }
 
 
