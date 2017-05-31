@@ -140,7 +140,10 @@ class PresidentsView extends React.Component {
 
 
           <div className="search_on_list g-mb-30 text-center font-main">
-            <input type="text" placeholder="Pesquisar presidentes&#8230;" />
+            <form target={"_blank"} action={"/pt/pesquisa"} method={"get"}>
+              <input type="text" name="value" placeholder="Pesquisar presidentes&#8230;" autoFocus />
+              <input type="hidden" name="type" defaultValue={"president"} />
+            </form>
           </div>
 
 

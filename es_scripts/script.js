@@ -85,4 +85,4 @@ function indexDataParishesPresidents(filename, indexname, type) {
 
 
 
-indexData('./press.json', 'press', 'press');
+indexData('./personalities.json', 'personalities', 'personality');

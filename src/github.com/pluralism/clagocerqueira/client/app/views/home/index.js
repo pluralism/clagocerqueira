@@ -534,7 +534,7 @@ class HomeIndexView extends React.Component {
           <div className="content-top">
             <div className="search-column col-lg-9 col-md-8 col-sm-12 col-xs-12 promo-section__promo-info text-center">
               <form target={"_blank"} action={"pesquisa"} method={"get"}>
-                <input id="search_anything" type="text" name="valor"
+                <input id="search_anything" type="text" name="value"
                        placeholder="Pesquise&#8230;" autoFocus />
               </form>
             </div>

@@ -150,7 +150,10 @@ class AuthorsView extends React.Component {
 
 
           <div className="search_on_list g-mb-30 text-center font-main">
-            <input type="text" placeholder="Pesquisar autores&#8230;" />
+            <form target={"_blank"} action={"/pt/pesquisa"} method={"get"}>
+              <input type="text" name="value" placeholder="Pesquisar autores&#8230;" autoFocus />
+              <input type="hidden" name="type" value={"author"} />
+            </form>
           </div>
 
 

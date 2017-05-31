@@ -38,13 +38,17 @@ class SearchView extends React.Component {
 
 
     componentDidMount() {
-        let searchValue = this.props.location.query.valor;
+        let searchValue = this.props.location.query.value;
+        let typeValue = this.props.location.query.type;
 
         if(searchValue !== undefined) {
             const { dispatch } = this.props;
 
-            // Perform the actual search here!
-            dispatch(SearchActions.homepageSearch(searchValue));
+            if(typeValue !== undefined) {
+                dispatch(SearchActions.searchByType(searchValue, typeValue));
+            } else {
+                dispatch(SearchActions.homepageSearch(searchValue));
+            }
         }
     }
 

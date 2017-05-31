@@ -132,16 +132,17 @@ const Constants = {
 
 
     MAPPINGS: {
-      "author": "Autor",
-      "personalitie": "Personalidade",
+      "author": "Autores",
+      "personality": "Personalidade",
       "parishes_president": "Presidente de Junta",
       "city_council": "Presidente da Assembleia",
       "nature": "Natureza",
       "association": "Associação",
       "president": "Presidente",
-      "press": "Imprensa",
+      "press": "Comunicação Social",
       "parishe": "Freguesia",
-      "councilman": "Vereador"
+      "councilman": "Vereador",
+      "festivity": "Festividade",
     }
   },
 

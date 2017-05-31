@@ -1317,23 +1317,26 @@ body {
 
 
 .search_on_list {
-    input {
+    form {
         width: 50%;
         display: inline-block;
-        font-style: normal;
-        line-height: 1;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 10px;
-        font-size: 18px;
+        input {
+            width: 100%;
+            font-style: normal;
+            line-height: 1;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 10px;
+            font-size: 18px;
 
-        border: none;
-        border-bottom: solid 3px #C9C9C9;
-        transition: border 0.3s ease-in-out;
-
-        &:focus, &:hover {
-            outline: none;
-            border-bottom: solid 3px #969696;
+            border: none;
+            border-bottom: solid 3px #C9C9C9;
+            transition: border 0.3s ease-in-out;
+            text-align: center;
+            &:focus, &:hover {
+                outline: none;
+                border-bottom: solid 3px #969696;
+            }
         }
     }
 }
