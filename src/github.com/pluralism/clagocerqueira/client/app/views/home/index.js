@@ -621,28 +621,9 @@ class HomeIndexView extends React.Component {
                 </ul>
               </li>
 
-              <li className="page-scroll">
-                <a href="#associacoes">Associações</a>
-              </li>
-
 
               <li className="page-scroll">
                 <a href="#autores_amarantinos">Autores Literários</a>
-              </li>
-
-
-              <li className="page-scroll">
-                <a href="#imprensa">Comunicação Social</a>
-              </li>
-
-
-              <li className="page-scroll">
-                <a href="#festividades">Festividades</a>
-              </li>
-
-
-              <li className="page-scroll">
-                <a href="#natureza">Natureza</a>
               </li>
 
 
@@ -652,7 +633,27 @@ class HomeIndexView extends React.Component {
 
 
               <li className="page-scroll">
+                <a href="#associacoes">Associações</a>
+              </li>
+
+
+              <li className="page-scroll">
+                <a href="#festividades">Festividades</a>
+              </li>
+
+
+              <li className="page-scroll">
+                <a href="#imprensa">Comunicação Social</a>
+              </li>
+
+
+              <li className="page-scroll">
                 <a href="#personalidades">Personalidades</a>
+              </li>
+
+
+              <li className="page-scroll">
+                <a href="#natureza">Natureza</a>
               </li>
 
 

@@ -1,13 +1,14 @@
 package mutations
 
 import (
-	"sync"
-
 	"github.com/graphql-go/graphql"
+	"github.com/pkg/errors"
 	"github.com/pluralism/clagocerqueira/server/mailer"
 	"github.com/pluralism/clagocerqueira/server/models"
 	"github.com/pluralism/clagocerqueira/server/types"
 )
+
+
 
 var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 	Name: "CLagoCerqueiraRootMutation",
@@ -46,30 +47,20 @@ var RootMutation = graphql.NewObject(graphql.ObjectConfig{
 					Subject: subject,
 					Content: content,
 				}
-				var wg sync.WaitGroup
-				wg.Add(1)
-				// Try to send the email
-				go mailer.SendContactEmail(newMessage, &wg)
-				wg.Add(1)
-				// Save the message in the database while sending the email
-				go models.AddMessage(models.Session, newMessage, &wg)
-				wg.Wait()
 
-				// Wait for the result from the channel here
-				resultMessage := <-models.Channels.MessagesError
-				resultMessageCreate := <-models.Channels.CreateMessage
+				// Try to send the email
+				go mailer.SendContactEmail(newMessage)
+				// Save the message in the database while sending the email
+				result := models.AddMessage(models.Session, newMessage)
 
 				// Return the error if something goes wrong...
-				if resultMessage != nil {
-					return nil, resultMessage
+				if result != true {
+					return nil, errors.New("The message could not be created!")
 				}
 
-				if resultMessageCreate.Error != nil {
-					return nil, resultMessageCreate.Error
-				}
 
 				// Success, everything went fine!
-				return resultMessageCreate.Message, nil
+				return newMessage, nil
 			},
 		},
 	},

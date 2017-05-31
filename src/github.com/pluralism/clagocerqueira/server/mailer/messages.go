@@ -5,53 +5,54 @@ import (
 	"html/template"
 	"net/smtp"
 	"os"
-	"sync"
-
 	"github.com/pluralism/clagocerqueira/server/models"
 )
 
 
-func SendContactEmail(message *models.Message, wg *sync.WaitGroup) {
+func SendContactEmail(message *models.Message) {
 	const emailTemplate = `
-  Mensagem recebida de: {{.Name}}({{.Email}})
-  Número de telemóvel: {{.Phone}}
-  Assunto: {{.Subject}}
-  Conteúdo da mensagem:
+  		Mensagem recebida de: {{.Name}}({{.Email}})
+  		Número de telemóvel: {{.Phone}}
+  		Assunto: {{.Subject}}
+  		Conteúdo da mensagem:
 
-  {{.Content}}
-  `
+		{{.Content}}
+  	`
 	var buffer bytes.Buffer
 
 	template := template.New("emailTemplate")
 	template, err := template.Parse(emailTemplate)
 
 	if err != nil {
-		sendEmailResult(wg, err)
+		sendEmailResult(err)
 	}
 
 	err = template.Execute(&buffer, message)
 
 	if err != nil {
-		sendEmailResult(wg, err)
+		sendEmailResult(err)
 	}
 
 	// Send the email
 	err = smtp.SendMail("smtp.gmail.com:587",
-		smtp.PlainAuth("", "andrepdpinheiro@gmail.com", os.Getenv("EMAIL_PASSWORD"), "smtp.gmail.com"),
+		smtp.PlainAuth("",
+			"andrepdpinheiro@gmail.com",
+			os.Getenv("EMAIL_PASSWORD"),
+			"smtp.gmail.com"),
 		"andrepdpinheiro@gmail.com",
 		[]string{"andrepdpinheiro@gmail.com"},
 		buffer.Bytes())
 
 	if err != nil {
-		sendEmailResult(wg, err)
+		sendEmailResult(err)
 	} else {
 		// No errors returned, return success
-		sendEmailResult(wg, nil)
+		sendEmailResult(nil)
 	}
 	return
 }
 
-func sendEmailResult(wg *sync.WaitGroup, err error) {
-	wg.Done()
+
+func sendEmailResult(err error) {
 	models.Channels.MessagesError <- err
 }

@@ -10,7 +10,6 @@ import (
 
 var Session *mgo.Session
 var Channels = ProgChannelData{
-	CreateMessage: make(chan CreateMessageResult),
 	MessagesError: make(chan error)}
 var Context context.Context
 var Elastic *elastic.Client

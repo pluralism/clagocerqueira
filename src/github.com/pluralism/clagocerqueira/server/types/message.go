@@ -2,6 +2,7 @@ package types
 
 import "github.com/graphql-go/graphql"
 
+
 /*
 MessageType defines a custom GraphQL ObjectType for our
 struct Message in the models package. The fields in the
@@ -24,9 +25,6 @@ var MessageType = graphql.NewObject(graphql.ObjectConfig{
 			Type: graphql.String,
 		},
 		"content": &graphql.Field{
-			Type: graphql.String,
-		},
-		"created_at": &graphql.Field{
 			Type: graphql.String,
 		},
 	},

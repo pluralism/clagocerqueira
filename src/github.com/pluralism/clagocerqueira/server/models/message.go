@@ -1,8 +1,6 @@
 package models
 
 import (
-	"errors"
-	"sync"
 	"time"
 
 	"github.com/pluralism/clagocerqueira/server/constants"
@@ -27,7 +25,7 @@ type Message struct {
 
 
 
-func AddMessage(s *mgo.Session, message *Message, wg *sync.WaitGroup) {
+func AddMessage(s *mgo.Session, message *Message) bool {
 	session := s.Copy()
 	defer session.Close()
 
@@ -37,7 +35,7 @@ func AddMessage(s *mgo.Session, message *Message, wg *sync.WaitGroup) {
 	message.ID = bson.NewObjectId()
 
 	if !message.ID.Valid() {
-		SendAddMessageRes(errors.New("the ID is invalid"), message, wg)
+		return false
 	}
 
 	// Update the CreatedAt field according to the ID of the document
@@ -45,19 +43,10 @@ func AddMessage(s *mgo.Session, message *Message, wg *sync.WaitGroup) {
 	err := c.Insert(message)
 
 	if err != nil {
-		SendAddMessageRes(errors.New("the message could not be created"), message, wg)
+		return false
 	} else {
-		SendAddMessageRes(nil, message, wg)
+		return true
 	}
-	return
-}
 
-
-
-func SendAddMessageRes(err error, message *Message, wg *sync.WaitGroup) {
-	wg.Done()
-	Channels.CreateMessage <- CreateMessageResult{
-		Error:   err,
-		Message: message,
-	}
+	return false
 }
