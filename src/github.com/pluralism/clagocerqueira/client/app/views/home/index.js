@@ -1013,8 +1013,6 @@ class HomeIndexView extends React.Component {
                   'comunicacao_social/radios/', '/public/prod/images/radios.jpg')}
               {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
                   'comunicacao_social/televisions/', '/public/prod/images/televisao.jpg')}
-              {this.renderImprensaItem('Online', 'Rádios e Jornais online',
-                  'comunicacao_social/online', '/public/prod/images/revistas.jpg')}
           </div>
         </div>
       </section>
