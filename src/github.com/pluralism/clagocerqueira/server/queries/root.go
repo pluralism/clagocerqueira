@@ -143,20 +143,29 @@ func getCityCouncil() *graphql.Field {
 			"name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
 			},
+			"page": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
 		},
 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-			//date, dateOK := p.Args["name"].(string)
+			date, dateOK := p.Args["name"].(string)
+			page, pageOK := p.Args["page"].(int)
 
-			//if !dateOK {
+			if !dateOK {
 				// Return no objects (nil) and the error to the user
-				//return nil, errors.New("the \"name\" argument was not provided")
-			//}
+				return nil, errors.New("the \"name\" argument was not provided")
+			}
 
-			// result := controllers.GetcityCouncilByDate(refs.Session, date, page)
+			if !pageOK {
+				// Return no objects (nil) and the error to the user
+				return nil, errors.New("the \"page\" argument was not provided")
+			}
 
-			//if result != nil {
-				//return result, nil
-			//}
+			result := models.GetCityCouncilByDate(models.Session, date, page)
+
+			if result != nil {
+				return result, nil
+			}
 
 			// Something went wrong, return nil and an error informing that
 			// the city council data could not be extracted from the database

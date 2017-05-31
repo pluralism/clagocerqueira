@@ -56,7 +56,6 @@ module.exports = {
 
 
       web('static/bootstrap/js/bootstrap.min.js'),
-      web('static/backstretch/jquery.backstretch.min.js'),
       web('static/smoothScroll/smoothScroll.js'),
       web('static/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js'),
       web('static/owl-carousel2/owl.carousel.min.js'),
@@ -151,6 +150,7 @@ module.exports = {
       }
     ]
   },
+
 
 
   plugins: [
