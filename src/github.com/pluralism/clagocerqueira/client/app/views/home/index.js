@@ -83,7 +83,6 @@ class HomeIndexView extends React.Component {
 
 
       let gridContainer = $('#grid-container');
-      let gridContainer2 = $('#grid-container2');
       let associacoesList = $('.associacoes-list');
       let orgaosAutarquicosList = $('#orgaos_autarquicos_list');
       let festividadesGrid = $('#festividades-grid');
@@ -365,22 +364,12 @@ class HomeIndexView extends React.Component {
         gapHorizontal: 50,
         gapVertical: 50,
         gridAdjustment: 'alignCenter',
-        caption: 'fadeIn',
-        displayType: 'lazyLoading',
-        displayTypeSpeed: 100
-      });
-
-
-
-      gridContainer2.cubeportfolio({
-        layoutMode: 'grid',
-        rewindNav: true,
-        scrollByPage: false,
-        defaultFilter: '*',
-        animationType: 'slideLeft',
-        gapHorizontal: 50,
-        gapVertical: 50,
-        gridAdjustment: 'alignCenter',
+        mediaQueries: [
+            { width: 1440, cols: 3 },
+            { width: 1024, cols: 3 },
+            { width: 768, cols: 2 },
+            { width: 480, cols: 1 },
+            { width: 320, cols: 1 }],
         caption: 'fadeIn',
         displayType: 'lazyLoading',
         displayTypeSpeed: 100
@@ -742,12 +731,6 @@ class HomeIndexView extends React.Component {
                     '/public/prod/images/1500.jpg', 'autores/1501-1600')}
                 {this.renderAutoresAmarantinosItem('1601-1700', 'XVII',
                     '/public/prod/images/1600.jpg', 'autores/1601-1700')}
-            </div>
-          </div>
-
-
-          <div className="cube-portfolio">
-            <div id="grid-container2">
                 {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII',
                     '/public/prod/images/1700.jpg', 'autores/1701-1800')}
                 {this.renderAutoresAmarantinosItem('1801-1900', 'XIX',

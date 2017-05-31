@@ -8,7 +8,6 @@ export class SearchItem extends React.Component {
         super(props);
 
         this.object = this.props.object;
-        console.log(this.object);
     }
 
 

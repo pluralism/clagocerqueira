@@ -163,8 +163,13 @@ body {
 }
 
 
+#grid-container {
+    width: 80%;
+}
 
-#grid-container, #grid-nature, #grid-container2 {
+
+
+#grid-container, #grid-nature {
     .cbp-l-caption-title {
         font-size: 26px;
         margin-bottom: 20px;
