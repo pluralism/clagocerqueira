@@ -14,9 +14,9 @@ class Footer extends React.Component {
           <div className="vertical-center">
             <ul className="list-inline footer-list">
               <li><Link to={'#'}><i className="fa fa-twitter" /></Link></li>
-              <li><Link to={'#'}><i className="fa fa-facebook" /></Link></li>
+              <li><Link to={'https://www.facebook.com/lagocerqueiracirculo'}><i className="fa fa-facebook" /></Link></li>
               <li><Link to={'#'}><i className="fa fa-instagram" /></Link></li>
-              <li><Link to={'#'}><i className="fa fa-youtube" /></Link></li>
+              <li><Link to={'https://www.youtube.com/user/clagocerqueira'}><i className="fa fa-youtube" /></Link></li>
             </ul>
           </div>
 
