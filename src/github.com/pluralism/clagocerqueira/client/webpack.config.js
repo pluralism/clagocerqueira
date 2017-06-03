@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const fs = require('fs');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 function join(dest) {
@@ -65,6 +65,7 @@ module.exports = {
     ],
 
     images: [].concat.apply([], [
+            extractImages('static/img/site/'),
             extractImages('static/img/site/presidents/1976_2013/'),
             extractImages('static/img/site/councilmen/1976_2013/'),
             extractImages('static/img/site/homepage/'),

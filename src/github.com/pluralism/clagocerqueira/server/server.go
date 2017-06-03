@@ -7,7 +7,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/graphql-go/graphql"
 	"github.com/pluralism/clagocerqueira/server/models"
@@ -15,8 +17,6 @@ import (
 	"github.com/pluralism/clagocerqueira/server/queries"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/olivere/elastic.v5"
-	"github.com/gorilla/handlers"
-	"time"
 )
 
 func main() {
