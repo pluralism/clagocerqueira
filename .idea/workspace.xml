@@ -9,10 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="Updating via IntelliJ">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/server.go" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/server.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" afterPath="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,7 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/controllers/authors.go" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/controllers/city_council.go" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/models/general_person.go" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/models/general_object_data.go" />
@@ -140,6 +136,7 @@
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/server.go" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" />
       </list>
     </option>
   </component>
@@ -330,6 +327,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clagocerqueira" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clagocerqueira" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pluralism" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clagocerqueira" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clagocerqueira" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pluralism" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -888,7 +933,7 @@
       <workItem from="1496261252213" duration="7997000" />
       <workItem from="1496352639594" duration="8084000" />
       <workItem from="1496411108765" duration="2566000" />
-      <workItem from="1496488879334" duration="53000" />
+      <workItem from="1496488879334" duration="91000" />
     </task>
     <task id="LOCAL-00001" summary="Updating via IntelliJ">
       <created>1492090611190</created>
@@ -908,7 +953,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334456000" />
+    <option name="totallyTimeSpent" value="334494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -984,13 +1029,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/actions/generalObjects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/models/general_object.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
@@ -1311,6 +1349,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="18" column="89" lean-forward="false" selection-start-line="18" selection-start-column="89" selection-end-line="18" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="574" column="0" lean-forward="false" selection-start-line="574" selection-start-column="0" selection-end-line="574" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

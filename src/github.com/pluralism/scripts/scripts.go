@@ -575,6 +575,7 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 
 
 
+
 func main() {
 	session, err := mgo.Dial("mongodb://localhost")
 	// Make sure that the connection is closed at the end
