@@ -21,7 +21,14 @@ import (
 
 func main() {
 	var err error
-	models.Session, err = mgo.Dial("mongodb://localhost")
+	info := &mgo.DialInfo{
+		Addrs:    []string{"localhost"},
+		Timeout:  60 * time.Second,
+		Database: "clagocerqueira",
+		Username: "clagocerqueira",
+		Password: "@clagocerqueira*",
+	}
+	models.Session, err = mgo.DialWithInfo(info)
 
 	if err != nil {
 		panic(err)
@@ -54,7 +61,6 @@ func main() {
 	r.PathPrefix("/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./static/"))))
 
 
-	fmt.Println("[*] Server started...")
 	// Create a custom server with defined timeouts
 	// Enable gzip for better compression and start the server
 	srv := &http.Server{
@@ -63,6 +69,7 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout: 15 * time.Second,
 	}
+	fmt.Println("[*] Server started on port 8080...")
 	srv.ListenAndServe()
 }
 
@@ -73,7 +80,7 @@ func homePageRedirectHandler(w http.ResponseWriter, r *http.Request) {
 
 
 func homePageHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "../client/app/views/index.html")
+	http.ServeFile(w, r, "./homepage/index.html")
 }
 
 

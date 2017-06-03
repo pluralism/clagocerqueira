@@ -913,7 +913,7 @@ class HomeIndexView extends React.Component {
   renderFestividadesItem(title, subTitle, img) {
     return (
       <div className="cbp-item">
-        <Link to={'festividades'} target="_blank" className="cbp-caption"
+        <Link to={'/pt/festividades'} target="_blank" className="cbp-caption"
           data-title="Festividades">
           <div className="cbp-caption-defaultWrap">
             <img src={img} />
@@ -1025,7 +1025,7 @@ class HomeIndexView extends React.Component {
     return (
       <div className="cbp-item">
         <div className="cbp-caption">
-          <Link to={'personalidades'} target="_blank">
+          <Link to={'/pt/personalidades'} target="_blank">
             <div className="cbp-caption-defaultWrap">
               <img src={img} alt={altText !== undefined ? altText : 'Item de personalidade'} />
             </div>
@@ -1070,7 +1070,7 @@ class HomeIndexView extends React.Component {
           </div>
 
           <div className="view-all-personalidades">
-            <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'personalidades'}>Ver Todos</Link>
+            <Link type="button" target="_blank" className="btn-u btn-u-lg btn-u-upper" to={'/pt/personalidades'}>Ver Todos</Link>
           </div>
         </div>
       </section>
