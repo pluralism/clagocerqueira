@@ -425,26 +425,14 @@ class HomeIndexView extends React.Component {
         gapHorizontal: 0,
         gapVertical: 2,
         gridAdjustment: 'responsive',
-        mediaQueries: [{
-            width: 2000,
-            cols: 4
-        },
-        {
-            width: 1500,
-            cols: 2
-        }, {
-            width: 1100,
-            cols: 2
-        }, {
-            width: 800,
-            cols: 2
-        }, {
-            width: 480,
-            cols: 2
-        }, {
-            width: 320,
-            cols: 1
-        }],
+        mediaQueries: [
+          { width: 2000, cols: 4 },
+          { width: 1500, cols: 2 },
+          { width: 1100, cols: 2 },
+          { width: 800, cols: 2 },
+          { width: 480, cols: 2 },
+          { width: 320, cols: 1 }
+        ],
         caption: 'zoom',
         displayType: 'lazyLoading',
         displayTypeSpeed: 100
@@ -728,17 +716,17 @@ class HomeIndexView extends React.Component {
           <div className="cube-portfolio">
             <div id="grid-container">
                 {this.renderAutoresAmarantinosItem('1400-1500', 'XV',
-                    '/public/prod/images/1400.jpg', 'autores/1400-1500')}
+                    '/public/prod/images/1400.jpg', '/pt/autores/1400-1500')}
                 {this.renderAutoresAmarantinosItem('1501-1600', 'XVI',
-                    '/public/prod/images/1500.jpg', 'autores/1501-1600')}
+                    '/public/prod/images/1500.jpg', '/pt/autores/1501-1600')}
                 {this.renderAutoresAmarantinosItem('1601-1700', 'XVII',
-                    '/public/prod/images/1600.jpg', 'autores/1601-1700')}
+                    '/public/prod/images/1600.jpg', '/pt/autores/1601-1700')}
                 {this.renderAutoresAmarantinosItem('1701-1800', 'XVIII',
-                    '/public/prod/images/1700.jpg', 'autores/1701-1800')}
+                    '/public/prod/images/1700.jpg', '/pt/autores/1701-1800')}
                 {this.renderAutoresAmarantinosItem('1801-1900', 'XIX',
-                    '/public/prod/images/1800.jpg', 'autores/1801-1900')}
+                    '/public/prod/images/1800.jpg', '/pt/autores/1801-1900')}
                 {this.renderAutoresAmarantinosItem('1901-2000', 'XX',
-                    '/public/prod/images/1900.jpg', 'autores/1901-2000')}
+                    '/public/prod/images/1900.jpg', '/pt/autores/1901-2000')}
             </div>
           </div>
         </div>
@@ -761,11 +749,11 @@ class HomeIndexView extends React.Component {
             <div className="cube-portfolio">
               <div id="grid-nature" className="cbp-l-grid-gallery">
                   {this.renderNaturezaItem('Ribeiros', 'Ribeiros(as) de Amarante',
-                      '/public/prod/images/ribeiros.jpg', 'natureza/brooks')}
+                      '/public/prod/images/ribeiros.jpg', '/pt/natureza/brooks')}
                   {this.renderNaturezaItem('Rios', 'Rios de Amarante',
-                      '/public/prod/images/rios.jpg', 'natureza/rivers')}
+                      '/public/prod/images/rios.jpg', '/pt/natureza/rivers')}
                   {this.renderNaturezaItem('Serras', 'Serras de Amarante',
-                      '/public/prod/images/serras.jpg', 'natureza/mountains')}
+                      '/public/prod/images/serras.jpg', '/pt/natureza/mountains')}
               </div>
             </div>
           </div>
@@ -817,22 +805,22 @@ class HomeIndexView extends React.Component {
             <div id="orgaos_autarquicos_list">
                 {this.renderOrgaosAutarquicosCard('Presidentes da Câmara Municipal',
                     'Encontre todos os presidentes da Câmara Municipal desde 1836',
-                    'presidentes',
+                    '/pt/presidentes',
                     '/public/prod/images/jose_jorge.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Vereadores da Câmara Municipal',
                     'Encontre todos os vereadores da Câmara Municipal desde 1836',
-                    'vereadores',
+                    '/pt/vereadores',
                     '/public/prod/images/vereadores_inicial.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes da Assembleia Municipal',
                     'Encontre todos os presidentes da Assembleia Municipal',
-                    'assembleia',
+                    '/pt/assembleia',
                     '/public/prod/images/armindo_abreu.jpg')}
 
                 {this.renderOrgaosAutarquicosCard('Presidentes das Juntas de Freguesia',
                     'Encontre todos os presidentes das juntas de freguesia',
-                    'presidentes_junta',
+                    '/pt/presidentes_junta',
                     '/public/prod/images/mapa_imagem.png')}
             </div>
           </div>
@@ -868,37 +856,37 @@ class HomeIndexView extends React.Component {
               <div className="associacoes-list">
                   {this.renderAssociacoesItem('Sociais',
                       'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'associacoes/social',
+                      '/pt/associacoes/social',
                       'social_bundle.jpg',
                       'Associações Sociais')}
 
                   {this.renderAssociacoesItem('Cívicas',
                       'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'associacoes/civic',
+                      '/pt/associacoes/civic',
                       'civic_bundle.jpg',
                       'Associações Cívicas')}
 
                   {this.renderAssociacoesItem('Desportivas',
                       'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'associacoes/sports',
+                      '/pt/associacoes/sports',
                       'sports_bundle.jpg',
                       'Associações Desportivas')}
 
                   {this.renderAssociacoesItem('Recreativas',
                       'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'associacoes/recreational',
+                      '/pt/associacoes/recreational',
                       'recreational_bundle.jpg',
                       'Associações Recreativas')}
 
                   {this.renderAssociacoesItem('Culturais',
                       'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'associacoes/cultural',
+                      '/pt/associacoes/cultural',
                       'cultural_bundle.jpg',
                       'Associações Culturais')}
 
                   {this.renderAssociacoesItem('Religiosas',
                       'Cras sit amet varius velit. Maecenas porta condimentum tortor at sagittis. Cum sociis natoque penatibus et magnis dis',
-                      'associacoes/religious',
+                      '/pt/associacoes/religious',
                       'cultural_bundle.jpg',
                       'Associações Religiosas')}
               </div>
@@ -1006,13 +994,13 @@ class HomeIndexView extends React.Component {
 
           <div className="imprensa-grid imprensa-theme">
               {this.renderImprensaItem('Jornais', 'Jornais com origem Amarantina',
-                  'comunicacao_social/journals/', '/public/prod/images/jornais.jpg')}
+                  '/pt/comunicacao_social/journals/', '/public/prod/images/jornais.jpg')}
               {this.renderImprensaItem('Revistas', 'Revistas com origem Amarantina',
-                  'comunicacao_social/magazines/', '/public/prod/images/revistas.jpg')}
+                  '/pt/comunicacao_social/magazines/', '/public/prod/images/revistas.jpg')}
               {this.renderImprensaItem('Rádios', 'Rádios com origem Amarantina',
-                  'comunicacao_social/radios/', '/public/prod/images/radios.jpg')}
+                  '/pt/comunicacao_social/radios/', '/public/prod/images/radios.jpg')}
               {this.renderImprensaItem('Televisão', 'Canais televisivos de Amarante',
-                  'comunicacao_social/televisions/', '/public/prod/images/televisao.jpg')}
+                  '/pt/comunicacao_social/televisions/', '/public/prod/images/televisao.jpg')}
           </div>
         </div>
       </section>
