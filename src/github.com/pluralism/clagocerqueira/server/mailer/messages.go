@@ -9,16 +9,32 @@ import (
 )
 
 
-func SendContactEmail(message *models.Message) {
-	const emailTemplate = `
-  		Mensagem recebida de: {{.Name}}({{.Email}})
-  		Número de telemóvel: {{.Phone}}
-  		Assunto: {{.Subject}}
-  		Conteúdo da mensagem:
+func sendEmailResult(err error) {
+	models.Channels.MessagesError <- err
+}
 
-		{{.Content}}
+
+
+func SendContactEmail(message *models.Message) {
+	const mime = "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
+
+	const emailTemplate = `
+		<html>
+			<body>
+				<strong>Mensagem recebida de</strong>: {{.Name}}({{.Email}})
+				<br />
+  				<strong>Número de telemóvel</strong>: {{.Phone}}
+  				<br />
+  				<strong>Assunto</strong>: {{.Subject}}
+  				<br />
+  				<strong>Conteúdo da mensagem</strong>:
+
+  				<p>{{.Content}}</p>
+			</body>
+		</html>
   	`
-	var buffer bytes.Buffer
+	var body bytes.Buffer
+	var bodyStr string
 
 	template := template.New("emailTemplate")
 	template, err := template.Parse(emailTemplate)
@@ -27,11 +43,15 @@ func SendContactEmail(message *models.Message) {
 		sendEmailResult(err)
 	}
 
-	err = template.Execute(&buffer, message)
+	err = template.Execute(&body, message)
 
 	if err != nil {
 		sendEmailResult(err)
 	}
+
+	// Convert the response body to string
+	bodyStr = body.String()
+	result := []byte(mime + "\n" + bodyStr)
 
 	// Send the email
 	err = smtp.SendMail("smtp.gmail.com:587",
@@ -41,18 +61,15 @@ func SendContactEmail(message *models.Message) {
 			"smtp.gmail.com"),
 		"andrepdpinheiro@gmail.com",
 		[]string{"andrepdpinheiro@gmail.com"},
-		buffer.Bytes())
+		result)
+
 
 	if err != nil {
+		// Sent the error result to the channel
 		sendEmailResult(err)
 	} else {
 		// No errors returned, return success
 		sendEmailResult(nil)
 	}
 	return
-}
-
-
-func sendEmailResult(err error) {
-	models.Channels.MessagesError <- err
 }
