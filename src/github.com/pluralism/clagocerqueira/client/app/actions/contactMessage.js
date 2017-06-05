@@ -12,8 +12,16 @@ ContactMessageActions.sendMessage = (data) => {
     });
 
     // Perform a POST request to the GraphQL server
-    const graphQLData = `mutation _{createMessage(name: "${data.name}", phone: "${data.phone}", email:"${data.email}", subject: "${data.subject}", content: "${data.content}"){
-    name,email,created_at,content}}`;
+    const graphQLData = `
+      mutation _{ 
+        createMessage(name: "${data.name}", phone: "${data.phone}", email:"${data.email}", subject: "${data.subject}", content: "${data.content}") {
+          name
+          email
+          content
+          created_at
+        }
+      }`;
+
 
     httpPostGraphQL(graphQLData)
     .then((data) => {
