@@ -3,7 +3,6 @@ let request = require('request');
 let es = require('elasticsearch');
 
 
- 
 let client = new es.Client({
   host: 'localhost:9200'
 });
