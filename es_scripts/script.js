@@ -16,6 +16,7 @@ function callback(error, response) {
 }
 
 
+
 function indexData(filename, indexname, type) {
   fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
     data = JSON.parse(data);
@@ -83,6 +84,7 @@ function indexDataParishesPresidents(filename, indexname, type) {
     }
   });
 }
+
 
 
 indexData('./personalities.json', 'personalities', 'personality');
