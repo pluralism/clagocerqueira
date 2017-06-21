@@ -1,18 +1,16 @@
 let fs = require('fs');
 let request = require('request');
 let es = require('elasticsearch');
-
-let client = new es.Client({
-  host: 'localhost:9200'
+let client = new es.Client({ 
+    host: 'localhost:9200' 
 });
-
 
 function callback(error, response) {
     if (error) {
         console.log(error);
     }
 }
-
+ 
 function indexData(filename, indexname, type) {
   fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
     data = JSON.parse(data);
@@ -27,6 +25,7 @@ function indexData(filename, indexname, type) {
       bulk_request.push({index: {_index: indexname, _type: type, _id: objFinal.id}});
       bulk_request.push(objFinal);
     }
+    
 
     let insertData = function() {
       client.bulk({
@@ -44,8 +43,6 @@ function indexData(filename, indexname, type) {
     }
   });
 }
-
-
 
 function indexDataParishesPresidents(filename, indexname, type) {
   fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
@@ -81,8 +78,6 @@ function indexDataParishesPresidents(filename, indexname, type) {
     }
   });
 }
-
-
 
 
 indexData('./personalities.json', 'personalities', 'personality');
