@@ -189,32 +189,31 @@ class ParishesPresidentsView extends React.Component {
     }
 
 
+    renderCustomTab(date, mapping, parishesPresidents) {
+        if(this.state.activeTab === date &&
+            parishesPresidents.objects_data[mapping].dates.objects.objects_data.length !== 0) {
+            return <GeneralObjectTab
+                tabID={'#first_tab'}
+                subtitle={"Presidentes"}
+                active={this.state.activeTab === date}
+                dateMapping={mapping}
+                data={parishesPresidents.objects_data[mapping].
+                    dates.objects.objects_data} />
+        } else
+            return (
+                <p className="for_clearing">Por Apurar</p>
+            );
+    }
+
+
     renderTabsContents() {
         const { parishesPresidents } = this.props;
 
         return (
             <div className="tab-content">
-                {parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1974_1976].
-                    dates.objects.objects_data.length !== 0 ?
-                    <GeneralObjectTab
-                        tabID={'#first_tab'}
-                        subtitle={"Presidente"}
-                        active={this.state.activeTab === Constants.DATES.d1974_1976}
-                        dateMapping={Constants.DATE_MAPPINGS.d1974_1976}
-                        data={parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1974_1976].
-                            dates.objects.objects_data} />
-                :
-                <p className="for_clearing">Por Apurar</p>}
-
-
-                <GeneralObjectTab
-                    tabID={'#first_tab'}
-                    subtitle={"Presidente"}
-                    active={this.state.activeTab === Constants.DATES.d1976_2013}
-                    dateMapping={Constants.DATE_MAPPINGS.d1976_2013}
-                    data={parishesPresidents.objects_data[Constants.DATE_MAPPINGS.d1976_2013].
-                        dates.objects.objects_data} />
-
+                {this.state.activeTab === Constants.DATES.d1974_1976 ?
+                    this.renderCustomTab(Constants.DATES.d1974_1976, Constants.DATE_MAPPINGS.d1974_1976, parishesPresidents) :
+                    this.renderCustomTab(Constants.DATES.d1976_2013, Constants.DATE_MAPPINGS.d1976_2013, parishesPresidents) }
 
                 <div className="control-buttons">
                     <div className="prev-button" onClick={() => this.getPreviousPageContent()} />

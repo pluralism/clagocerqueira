@@ -56,11 +56,11 @@ func SendContactEmail(message *models.Message) {
 	// Send the email
 	err = smtp.SendMail("smtp.gmail.com:587",
 		smtp.PlainAuth("",
-			"andrepdpinheiro@gmail.com",
+			"info@clagocerqueira.pt",
 			os.Getenv("EMAIL_PASSWORD"),
 			"smtp.gmail.com"),
-		"andrepdpinheiro@gmail.com",
-		[]string{"andrepdpinheiro@gmail.com"},
+		"info@clagocerqueira.pt",
+		[]string{"info@clagocerqueira.pt"},
 		result)
 
 
