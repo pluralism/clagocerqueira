@@ -5,6 +5,7 @@ let client = new es.Client({
     host: 'localhost:9200' 
 });
 
+
 function callback(error, response) {
     if (error) {
         console.log(error);
