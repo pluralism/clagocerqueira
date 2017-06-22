@@ -79,6 +79,4 @@ function indexDataParishesPresidents(filename, indexname, type) {
   });
 }
 
-
-
 indexData('./personalities.json', 'personalities', 'personality');
