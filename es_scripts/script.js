@@ -54,6 +54,7 @@ function indexDataParishesPresidents(filename, indexname, type) {
         name: obj.name,
         objects: obj.dates.objects
       };
+        
       // Add an extra field for parishes presidents
       objFinal.objects.objects_data.extra = obj.dates.name;
 
