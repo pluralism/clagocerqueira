@@ -10,8 +10,12 @@ class Footer extends React.Component {
   render() {
     return (
       <section id="footer" className="row">
-        <div className="informations container-fluid page-scroll">
+        <div className="informations page-scroll col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div className="vertical-center">
+            <img className="img-responsive" src="/public/prod/images/logotipouf.jpg" />
+          </div>
+
+          <div className="vertical-center social-networks">
             <ul className="list-inline footer-list">
               <li><a href={'#'}><i className="fa fa-twitter" /></a></li>
               <li><a href={'https://www.facebook.com/lagocerqueiracirculo'} target="_blank"><i className="fa fa-facebook" /></a></li>

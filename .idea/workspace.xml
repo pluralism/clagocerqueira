@@ -7,14 +7,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/search/index.js" line="6" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="Updating via IntelliJ">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Go_SDK.xml" afterPath="" />
+    <list default="true" id="855c1a62-8e8c-494c-acb0-ed301bfeb19a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" afterPath="$PROJECT_DIR$/src/github.com/graphql-go/graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/clagocerqueira.iml" afterPath="$PROJECT_DIR$/.idea/clagocerqueira.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/autonomous_bodies/parishes_presidents.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/autonomous_bodies/parishes_presidents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/mailer/messages.go" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/mailer/messages.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" afterPath="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +26,18 @@
     <favorites_list name="clagocerqueira" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-700">
+              <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,12 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pesquisa</find>
-      <find>search</find>
-      <find>message</find>
-      <find>ListenAndServe</find>
-      <find>televi</find>
-      <find>rend</find>
       <find>render</find>
       <find>renderass</find>
       <find>g-page-title</find>
@@ -71,6 +74,12 @@
       <find>/pt/</find>
       <find>isValidEmail</find>
       <find>for_cl</find>
+      <find>vertical-center</find>
+      <find>img</find>
+      <find>-15px</find>
+      <find>footer</find>
+      <find>#footer</find>
+      <find>vertical-c</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views</dir>
@@ -120,16 +129,11 @@
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/press/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/personalities/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/nature/index.js" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/search/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/server.go" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/etc/nginx/sites-available/default" />
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/server.go" />
-        <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go" />
-        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
-        <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js" />
         <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/utils/index.js" />
@@ -143,6 +147,11 @@
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/data.json" />
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/es_scripts/script.js" />
         <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/es_scripts/parishes_presidents_2.json" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
+        <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
+        <option value="&lt;f851604d-73bd-494e-ab8a-309e1dd1e7ef&gt;/home/pluralism/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js" />
+        <option value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js" />
       </list>
     </option>
   </component>
@@ -169,9 +178,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
-    <option name="y" value="-4" />
+    <option name="y" value="-11" />
     <option name="width" value="1857" />
-    <option name="height" value="1085" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -293,24 +302,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extensions" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.intellij.database" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,188 +312,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pluralism" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clagocerqueira" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -523,27 +333,28 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/homepage/amadeo_homepage2.jpg&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/node_modules/react-router/es/Route.js&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/node_modules/jvectormap-next/jquery-jvectormap.css&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/authors/1900.jpg&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/jquery-jvectormap/amarante.js&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/associations/sports/assoc_freixo_cima.png&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/static/prod/map.css&#10;/home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/static/prod/map.js" />
     <property name="GO_FMT" value="false" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="SearchEverywhereHistoryKey" value="webpac&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;webpack.&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;style.scs&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style.&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;constants&#9;null&#9;null&#10;queries/roo&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/queries/root.go&#10;style.s&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;constant&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/constants/constants.go&#10;mailer/messages.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/mailer/messages.go&#10;queries/root.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/queries/root.go&#10;mutations/root.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/mutations/root.go&#10;models/message.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/models/message.go&#10;channels&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/channels/channels.go&#10;message.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/models/message.go&#10;messa&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/types/message.go&#10;general&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/models/general_object.go&#10;index&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;routes/in&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;reducer/&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/reducers&#10;routes/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;styl&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;style.scss&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack.con&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;index.html&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/index.html&#10;style.sc&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;sty&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;home/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js&#10;header&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/header_links.js&#10;footer&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js&#10;style-&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style-one.css&#10;STYLE.SCSS&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
+    <property name="SearchEverywhereHistoryKey" value="style.s&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpac&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;webpack.&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;style.scs&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style.&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;style&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;constants&#9;null&#9;null&#10;queries/roo&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/queries/root.go&#10;constant&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/constants/constants.go&#10;mailer/messages.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/mailer/messages.go&#10;queries/root.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/queries/root.go&#10;mutations/root.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/mutations/root.go&#10;models/message.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/models/message.go&#10;channels&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/channels/channels.go&#10;message.go&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/models/message.go&#10;messa&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/types/message.go&#10;general&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/server/models/general_object.go&#10;index&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;routes/in&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;reducer/&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/reducers&#10;routes/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/routes/index.js&#10;styl&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;style.scss&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;webpack.con&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/webpack.config.js&#10;index.html&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/index.html&#10;style.sc&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;sty&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss&#10;home/inde&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js&#10;header&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/header_links.js&#10;footer&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js&#10;style-&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style-one.css&#10;STYLE.SCSS&#9;FILE&#9;file:///home/pluralism/Desktop/clagocerqueira/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod" />
-      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static" />
-      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/press/homepage" />
-      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/homepage" />
-      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/models" />
       <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/types" />
       <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/festivities/homepage" />
       <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/homepage" />
       <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/sponsors" />
+      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod" />
+      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static" />
+      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/press/homepage" />
+      <recent name="$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/img/site/homepage" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1048,6 +859,9 @@
       <workItem from="1496691606635" duration="2610000" />
       <workItem from="1496785583938" duration="20000" />
       <workItem from="1498077245025" duration="4075000" />
+      <workItem from="1498905245742" duration="88000" />
+      <workItem from="1499105837075" duration="987000" />
+      <workItem from="1499107004328" duration="2963000" />
     </task>
     <task id="LOCAL-00001" summary="Updating via IntelliJ">
       <created>1492090611190</created>
@@ -1067,10 +881,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347955000" />
+    <option name="totallyTimeSpent" value="351993000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1080,10 +894,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30889487" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3078167" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21132076" sideWeight="0.490316" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21132076" sideWeight="0.490316" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258595" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31428573" sideWeight="0.50968397" order="3" side_tool="true" content_ui="tabs" />
@@ -1095,7 +910,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258595" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1130,7 +944,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updating via IntelliJ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating via IntelliJ" />
+    <MESSAGE value="Minor updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1143,13 +958,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/reducers/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/searchItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1237,22 +1045,8 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="708" column="0" lean-forward="true" selection-start-line="708" selection-start-column="0" selection-end-line="708" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod/map.js" />
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod/map.css" />
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-740">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/scripts/scripts.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1341,7 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1356,13 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="26" column="60" lean-forward="true" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1388,13 +1174,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="985" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="1437" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod/pace/pace.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1455,7 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1463,6 +1241,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1578">
           <caret line="187" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="244" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/views/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="538" column="66" lean-forward="false" selection-start-line="538" selection-start-column="32" selection-end-line="538" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/static/theme/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="1016" column="25" lean-forward="false" selection-start-line="1016" selection-start-column="25" selection-end-line="1016" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/app/components/common/footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="90" lean-forward="true" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/server/static/prod/images.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/pluralism/clagocerqueira/client/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-700">
+          <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="20" />
           <folding />
         </state>
       </provider>
