@@ -3,13 +3,11 @@ let request = require('request');
 let es = require('elasticsearch');
 let client = new es.Client({ host: 'localhost:9200' });
 
-
 function callback(error, response) {
     if (error)
         console.log(error);
 }
  
-
 function indexData(filename, indexname, type) {
   fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
     data = JSON.parse(data);
