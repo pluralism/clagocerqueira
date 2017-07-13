@@ -9,6 +9,7 @@ function callback(error, response) {
         console.log(error);
 }
 
+
 function indexData(filename, indexname, type) {
   fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
     data = JSON.parse(data);
