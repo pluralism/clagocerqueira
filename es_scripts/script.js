@@ -65,7 +65,6 @@ function indexDataParishesPresidents(filename, indexname, type) {
         body: bulk_request.slice(0, 1000)
       }, callback);
     }
-    
 
     bulk_request = bulk_request.slice(0, 1000);
     console.log(bulk_request.length);
@@ -77,6 +76,5 @@ function indexDataParishesPresidents(filename, indexname, type) {
     }
   });
 }
-
 
 indexData('./personalities.json', 'personalities', 'personality');
