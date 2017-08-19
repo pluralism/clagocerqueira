@@ -562,11 +562,6 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 			filename := f.Name()[0:index]
 
 			m[filename] = fmt.Sprintf("parishes/%s", f.Name())
-			//readFileAndInsertOnDatabase(filename,
-				//parishesCollection,
-				//fmt.Sprintf("parishes/%s", f.Name()),
-				//"/public/prod/images/monarquia.jpg",
-				//session)
 		}
 	}
 
