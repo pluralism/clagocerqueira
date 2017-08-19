@@ -619,16 +619,7 @@ func main() {
 	}
 
 	if *authorsFlag {
-		var currentDate = "1801-1900"
-		councilmen := readGeneralFile("authors/autores1801_1900.csv",
-			"/public/prod/images/monarquia.jpg", currentDate)
-
-		if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
-			panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
-		} else {
-			fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
-		}
-		// insertAuthorsOnDatabase(collectionNames, session)
+		insertAuthorsOnDatabase(collectionNames, session)
 	}
 
 	if *associationsFlag {

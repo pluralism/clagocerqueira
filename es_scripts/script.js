@@ -7,7 +7,7 @@ function indexData(filename, indexname, type) {
   fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
     data = JSON.parse(data);
     let bulk_request = [];
-    for(var i = 0; i < data.length; i++) {
+    for(let i = 0; i < data.length; i++) {
       let obj = data[i];
       let objFinal = {
         id: obj._id.$oid,
@@ -22,7 +22,7 @@ function indexData(filename, indexname, type) {
       client.bulk({
         body: bulk_request.slice(0, 1000)
       }, callback);
-    }
+    };
 
     bulk_request = bulk_request.slice(0, 1000);
     console.log(bulk_request.length);
@@ -63,7 +63,7 @@ function indexDataParishesPresidents(filename, indexname, type) {
       client.bulk({
         body: bulk_request.slice(0, 1000)
       }, callback);
-    }
+    };
 
     bulk_request = bulk_request.slice(0, 1000);
     console.log(bulk_request.length);
@@ -76,4 +76,4 @@ function indexDataParishesPresidents(filename, indexname, type) {
   });
 }
 
-indexData('./personalities.json', 'personalities', 'personality');
+indexData('./authors.json', 'authors', 'author');
