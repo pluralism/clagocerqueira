@@ -164,7 +164,6 @@ func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
 		}
 	}
 
-
 	m := make(map[string]string)
 	m["journals"] = "press/jornais.csv"
 	m["online"] = "press/online.csv"
@@ -364,7 +363,7 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	}
 
 	currentDate = "1801-1900"
-	councilmen = readGeneralFile("authors/autores1701_1800.csv",
+	councilmen = readGeneralFile("authors/autores1801_1900.csv",
 		"/public/prod/images/monarquia.jpg", currentDate)
 
 	if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
@@ -620,7 +619,16 @@ func main() {
 	}
 
 	if *authorsFlag {
-		insertAuthorsOnDatabase(collectionNames, session)
+		var currentDate = "1801-1900"
+		councilmen := readGeneralFile("authors/autores1801_1900.csv",
+			"/public/prod/images/monarquia.jpg", currentDate)
+
+		if !insertListOnDatabase(session, dbName, authorsCollection, councilmen) {
+			panic(fmt.Sprintf("[!] Authors on date %s could not be inserted!", currentDate))
+		} else {
+			fmt.Println(fmt.Sprintf("[*] Authors on date %s inserted with success!", currentDate))
+		}
+		// insertAuthorsOnDatabase(collectionNames, session)
 	}
 
 	if *associationsFlag {

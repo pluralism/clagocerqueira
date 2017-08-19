@@ -82,8 +82,6 @@ class AuthorsView extends React.Component {
   componentDidMount() {
     const { dispatch, params } = this.props;
 
-
-
     const mappings = [
       [Constants.DATE_MAPPINGS.d1400_1500, Constants.DATES.d1400_1500],
       [Constants.DATE_MAPPINGS.d1501_1600, Constants.DATES.d1501_1600],
@@ -91,7 +89,6 @@ class AuthorsView extends React.Component {
       [Constants.DATE_MAPPINGS.d1701_1800, Constants.DATES.d1701_1800],
       [Constants.DATE_MAPPINGS.d1801_1900, Constants.DATES.d1801_1900],
       [Constants.DATE_MAPPINGS.d1901_2000, Constants.DATES.d1901_2000]];
-
 
     if(params.type !== undefined) {
       if(params.type === Constants.DATES.d1400_1500 ||

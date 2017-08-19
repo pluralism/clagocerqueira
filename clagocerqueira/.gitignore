@@ -1,8 +1,0 @@
-/bin
-/pkg
-/src/github.com/pluralism/clagocerqueira/client/node_modules
-/es_scripts/node_modules/*
-!/src/github.com/pluralism/clagocerqueira/client/app/static/theme/*
-/src/github.com/pluralism/clagocerqueira/client/app/static/*
-/src/github.com/pluralism/clagocerqueira/server/static
-src/github.com/go-mgo/
