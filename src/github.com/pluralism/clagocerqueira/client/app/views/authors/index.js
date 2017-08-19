@@ -42,12 +42,10 @@ class AuthorsView extends React.Component {
       },
     };
 
-
     this.state = {
       activeTab: Constants.DATES.d1400_1500,
       canSwitchPage: true,
     };
-
 
     document.addEventListener("keydown", (event) => this.handleKeyDownEvent(event));
   }

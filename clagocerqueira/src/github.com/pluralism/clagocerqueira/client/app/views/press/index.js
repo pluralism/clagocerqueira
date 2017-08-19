@@ -1,0 +1,302 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import HeaderLinks from '../../components/common/headerLinks';
+import Footer from '../../components/common/footer';
+import { GeneralObjectTab } from '../../components/common/generalObjectTab';
+import { Constants } from '../../constants/index';
+import GeneralObjectsActions from '../../actions/generalObjects';
+
+
+class PressView extends React.Component {
+  constructor(props) {
+    super(props);
+
+
+    this.currentName = Constants.PRESS.MAGAZINES;
+    this.nameAndPageMappings = {
+      [Constants.PRESS.JOURNALS]: {
+        mapping: Constants.PRESS.JOURNALS,
+        page: 1
+      },
+      [Constants.PRESS.MAGAZINES]: {
+        mapping: Constants.PRESS.MAGAZINES,
+        page: 1
+      },
+      [Constants.PRESS.ONLINE]: {
+        mapping: Constants.PRESS.ONLINE,
+        page: 1
+      },
+      [Constants.PRESS.RADIOS]: {
+        mapping: Constants.PRESS.RADIOS,
+        page: 1
+      },
+      [Constants.PRESS.TELEVISIONS]: {
+        mapping: Constants.PRESS.TELEVISIONS,
+        page: 1
+      },
+    };
+
+
+    this.state = {
+      activeTab: Constants.PRESS.MAGAZINES,
+      canSwitchPage: true,
+    };
+
+
+    document.addEventListener("keydown", (event) => this.handleKeyDownEvent(event));
+  }
+
+
+  canUseSwitchPage() {
+    this.setState({
+      canSwitchPage: false
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          canSwitchPage: true
+        });
+      }, Constants.MINIMUM_WAIT_TIME);
+    });
+  }
+
+
+  handleKeyDownEvent(e) {
+    if(e.keyCode === 37 && this.state.canSwitchPage) {
+      // Left arrow was pressed
+      this.getPreviousPageContent();
+      // Prevent the user from pressing the button too fast (wait 0.5s)
+      this.canUseSwitchPage();
+    } else if(e.keyCode === 39 && this.state.canSwitchPage) {
+      // Right arrow was pressed
+      this.getNextPageContent();
+      // Prevent the user from pressing the button too fast (wait 0.5s)
+      this.canUseSwitchPage();
+    }
+  }
+
+
+  componentDidMount() {
+    const { dispatch, params } = this.props;
+
+
+    const mappings = [
+      [Constants.PRESS.JOURNALS, Constants.PRESS.JOURNALS],
+      [Constants.PRESS.MAGAZINES, Constants.PRESS.MAGAZINES],
+      [Constants.PRESS.RADIOS, Constants.PRESS.RADIOS],
+      [Constants.PRESS.TELEVISIONS, Constants.PRESS.TELEVISIONS],
+      [Constants.PRESS.ONLINE, Constants.PRESS.ONLINE]];
+
+
+    if(params.type !== undefined) {
+      if(params.type === Constants.PRESS.JOURNALS ||
+          params.type === Constants.PRESS.MAGAZINES ||
+          params.type === Constants.PRESS.ONLINE ||
+          params.type === Constants.PRESS.RADIOS ||
+          params.type === Constants.PRESS.TELEVISIONS) {
+        this.updateCurrentName(params.type);
+      }
+    }
+
+
+    /**
+      * This function is invoked immediately after a component is mounted.
+      * This is a good place to load data from a remote endpoint and to perform
+      * network requests.
+      *
+      * On this function we try to extract the press from all possible types
+      * on this page the component is always called with the first page
+    */
+    dispatch(GeneralObjectsActions.getAllDataFromPress(mappings));
+  }
+
+
+
+  updateCurrentName(value) {
+    /**
+     * Update the currentName variable and keep the page
+     * as the old one. This allow us to mantain consistency
+     * with the lists of press data
+    */
+    this.currentName = value;
+
+    // Update the active tab!
+    this.setState({
+      activeTab: this.currentName
+    });
+  }
+
+
+
+  isActiveTab(tab) {
+    return this.state.activeTab === tab
+  }
+
+
+  renderUpperSection() {
+    return (
+      <section id="associacoes_data">
+        <div className="g-pt-40">
+          <div className="text-center g-mb-30">
+            <div className="g-mb-30">
+              <h2><span className="g-color-default">Comunicação Social</span></h2>
+            </div>
+            <p className="g-page-title">
+              Procure no repositório de revistas, jornais, rádios e televisões de Amarante.
+            </p>
+            <p className="g-page-title">
+              Também existe uma secção <strong>Online</strong> onde estão agregados todos os órgãos de comunicação social que trabalham online.
+            </p>
+          </div>
+
+
+          <div className="search_on_list g-mb-30 text-center font-main">
+            <form target={"_blank"} action={"/pt/pesquisa"} method={"get"}>
+              <input type="text" name="value" placeholder="Pesquisar na comunicação social&#8230;" autoFocus />
+              <input type="hidden" name="type" defaultValue={"press"} />
+            </form>
+          </div>
+
+
+          <div className="tab-v7">
+            <ul className="tab-v7-nav" role="tablist">
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.MAGAZINES) ? "active" : ""}>
+                <Link to={"#first_tab"}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.MAGAZINES)}
+                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.MAGAZINES}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.JOURNALS) ? "active" : ""}>
+                <Link to={"#second_tab"}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.JOURNALS)}
+                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.JOURNALS}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.RADIOS) ? "active" : ""}>
+                <Link to={"#third_tab"}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.RADIOS)}
+                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.RADIOS}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.TELEVISIONS) ? "active" : ""}>
+                <Link to={"#fourth_tab"}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.TELEVISIONS)}
+                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.TELEVISIONS}</Link>
+              </li>
+
+              <li role="presentation"
+                  className={this.isActiveTab(Constants.PRESS.ONLINE) ? "active" : ""}>
+                <Link to={"#fifth_tab"}
+                  onClick={() => this.updateCurrentName(Constants.PRESS.ONLINE)}
+                  role="tab" data-toggle="tab">{Constants.PRESS_TEXT.ONLINE}</Link>
+              </li>
+            </ul>
+
+
+            {this.renderTabsContents()}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
+  renderTabsContents() {
+    const { press } = this.props;
+
+
+    return (
+      <div className="tab-content">
+        <GeneralObjectTab
+          tabID={'#first_tab'}
+          subtitle={"Comunicação Social"}
+          active={this.state.activeTab === Constants.PRESS.MAGAZINES}
+          data={press.data[Constants.PRESS.MAGAZINES].objects.objects_data} />
+
+        <GeneralObjectTab
+          tabID={'#second_tab'}
+          subtitle={"Comunicação Social"}
+          active={this.state.activeTab === Constants.PRESS.JOURNALS}
+          data={press.data[Constants.PRESS.JOURNALS].objects.objects_data} />
+
+        <GeneralObjectTab
+          tabID={'#third_tab'}
+          subtitle={"Comunicação Social"}
+          active={this.state.activeTab === Constants.PRESS.RADIOS}
+          data={press.data[Constants.PRESS.RADIOS].objects.objects_data} />
+
+        <GeneralObjectTab
+          tabID={'#fourth_tab'}
+          subtitle={"Comunicação Social"}
+          active={this.state.activeTab === Constants.PRESS.TELEVISIONS}
+          data={press.data[Constants.PRESS.TELEVISIONS].objects.objects_data} />
+
+
+        <GeneralObjectTab
+          tabID={'#fifth_tab'}
+          subtitle={"Comunicação Social"}
+          active={this.state.activeTab === Constants.PRESS.ONLINE}
+          data={press.data[Constants.PRESS.ONLINE].objects.objects_data} />
+
+
+        <div className="control-buttons">
+          <div className="prev-button" onClick={() => this.getPreviousPageContent()}/>
+          <div className="next-button" onClick={() => this.getNextPageContent()}/>
+        </div>
+      </div>
+    );
+  }
+
+
+  getPreviousPageContent() {
+    const { dispatch } = this.props;
+    let obj = this.nameAndPageMappings[this.currentName];
+    let currentPage = obj.page;
+
+    if(currentPage > 1) {
+      obj.page -= 1;
+
+      dispatch(GeneralObjectsActions.getDataByPagePress(this.currentName,
+        obj.mapping, obj.page));
+    }
+  }
+
+
+  getNextPageContent() {
+    const { press, dispatch } = this.props;
+    let obj = this.nameAndPageMappings[this.currentName];
+    let currentPage = obj.page;
+    let pressMapping = press.data[obj.mapping];
+
+    if(currentPage < pressMapping.objects.max_pages) {
+      obj.page += 1;
+
+      dispatch(GeneralObjectsActions.getDataByPagePress(this.currentName,
+        obj.mapping, obj.page));
+    }
+  }
+
+
+  render() {
+    return (
+        <main>
+          <HeaderLinks />
+            {this.renderUpperSection()}
+          <Footer />
+        </main>
+    );
+  }
+}
+
+
+
+const mapStateToProps = (state) => ({
+  press: state.press
+});
+
+
+export default connect(mapStateToProps)(PressView);
