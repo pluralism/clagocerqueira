@@ -78,7 +78,6 @@ function indexDataParishesPresidents(filename, indexname, type) {
     });
 }
 
-
 //indexData('./associations.json', 'associations', 'association');
 //indexData('./festivities.json', 'festivites', 'festivity');
 indexData('./authors.json', 'authors', 'author');
