@@ -82,8 +82,6 @@ function indexDataParishesPresidents(filename, indexname, type) {
 //indexData('./festivities.json', 'festivites', 'festivity');
 indexData('./authors.json', 'authors', 'author');
 //indexData('./city_council.json', 'city_councils', 'city_council');
-//indexData('./nature.json', 'nature', 'nature');
-//indexData('./press.json', 'press', 'press');
 //indexData('./presidents.json', 'presidents', 'president');
 //indexData('./councilmen.json', 'councilmen', 'councilman');
 //indexData('./personalities.json', 'personalities', 'personality');
