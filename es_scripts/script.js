@@ -6,9 +6,8 @@ let client = new es.Client({
 });
 
 function callback(error, response) {
-    if (error) {
+    if (error)
         console.log(error);
-    }
 }
 
 function indexData(filename, indexname, type) {
