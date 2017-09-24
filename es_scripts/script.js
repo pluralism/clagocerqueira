@@ -4,8 +4,9 @@ let es = require('elasticsearch');
 let client = new es.Client({ host: 'localhost:9200' });
 
 function callback(error, response) {
-    if (error)
+    if (error) {
         console.log(error);
+    }
 }
 
 function indexData(filename, indexname, type) {
@@ -28,9 +29,7 @@ function indexData(filename, indexname, type) {
                 body: bulk_request.slice(0, 1000)
             }, callback);
         };
-
         bulk_request = bulk_request.slice(0, 1000);
-        console.log(bulk_request.length);
 
         if(bulk_request.length > 0)
             setTimeout(insertData, 1000);
