@@ -21,13 +21,16 @@ function indexData(filename, indexname, type) {
             bulk_request.push({index: {_index: indexname, _type: type, _id: objFinal.id}});
             bulk_request.push(objFinal);
         }
-
+        
+        // Insert 1000 records each time
         let insertData = function() {
             client.bulk({
                 body: bulk_request.slice(0, 1000)
             }, callback);
         };
+        
         bulk_request = bulk_request.slice(0, 1000);
+        
         if(bulk_request.length > 0)
             setTimeout(insertData, 1000);
         else
