@@ -22,7 +22,6 @@ function indexData(filename, indexname, type) {
             bulk_request.push(objFinal);
         }
         
-        // Insert 1000 records each time
         let insertData = function() {
             client.bulk({
                 body: bulk_request.slice(0, 1000)
