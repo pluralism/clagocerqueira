@@ -48,9 +48,9 @@ function indexDataParishesPresidents(filename, indexname, type) {
                 name: obj.name,
                 objects: obj.dates.objects
             };
+            
             // Add an extra field for parishes presidents
             objFinal.objects.objects_data.extra = obj.dates.name;
-
             bulk_request.push({index: {_index: indexname, _type: type, _id: objFinal.id}});
             bulk_request.push(objFinal);
         }
