@@ -68,9 +68,10 @@ function indexDataParishesPresidents(filename, indexname, type) {
     });
 }
 
+
 //indexData('./associations.json', 'associations', 'association');
 //indexData('./festivities.json', 'festivites', 'festivity');
-indexData('./authors.json', 'authors', 'author');
+// indexData('./authors.json', 'authors', 'author');
 //indexData('./city_council.json', 'city_councils', 'city_council');
 //indexData('./presidents.json', 'presidents', 'president');
 //indexData('./councilmen.json', 'councilmen', 'councilman');
