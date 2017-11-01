@@ -13,8 +13,6 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
-
-
 const dbName = "clagocerqueira"
 const presidentsCollection = "presidents"
 const councilmenCollection = "councilmen"
@@ -29,7 +27,6 @@ const cityCouncilCollection = "city_council"
 // Maps are reference types, which means they must be initialized, like
 // pointers and slices
 var parishesMap map[string]string = make(map[string]string)
-
 
 type GeneralObject struct {
 	Name        string `bson:"name"`
@@ -86,7 +83,6 @@ func findElement(list []string, value string) bool {
 	}
 	return false
 }
-
 
 func readMapAndInsertListOnDatabase(m map[string]string, s *mgo.Session, dbName string, collection string) {
 	for k, v := range m {
@@ -147,8 +143,6 @@ func insertListOnDatabase(s *mgo.Session, db string, collection string, data int
 	return true
 }
 
-
-
 func insertPressOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -202,7 +196,6 @@ func insertAssociationsOnDatabase(collectionsNames []string, s *mgo.Session) {
 
 	readMapAndInsertListOnDatabase(m, session, dbName, associationsCollection)
 }
-
 
 func insertNatureOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
@@ -386,7 +379,6 @@ func insertAuthorsOnDatabase(collectionNames []string, s *mgo.Session) {
 	fmt.Println("[*] All authors were inserted with success!")
 }
 
-
 func insertPersonalitiesOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -506,7 +498,6 @@ func insertPresidentsOnDatabase(collectionNames []string, s *mgo.Session) {
 	fmt.Println("[*] All presidents were inserted with success!")
 }
 
-
 func insertCityCouncilOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
 	defer session.Close()
@@ -532,7 +523,6 @@ func insertCityCouncilOnDatabase(collectionNames []string, s *mgo.Session) {
 		fmt.Println(fmt.Sprintf("[*] City council on date %s inserted with success!", currentDate))
 	}
 }
-
 
 func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 	session := s.Copy()
@@ -567,9 +557,6 @@ func insertParishesOnDatabase(collectionNames []string, s *mgo.Session) {
 
 	readMapAndInsertListOnDatabase(m, session, dbName, parishesCollection)
 }
-
-
-
 
 func main() {
 	session, err := mgo.Dial("mongodb://localhost")
