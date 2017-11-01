@@ -73,16 +73,13 @@ func main() {
 	srv.ListenAndServe()
 }
 
-
 func homePageRedirectHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/pt/", 301)
 }
 
-
 func homePageHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./homepage/index.html")
 }
-
 
 func graphqlAPIHandler(w http.ResponseWriter, r *http.Request) {
 	buf := new(bytes.Buffer)
@@ -92,12 +89,10 @@ func graphqlAPIHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(result)
 }
 
-
 var schema, _ = graphql.NewSchema(graphql.SchemaConfig{
 	Mutation: mutations.RootMutation,
 	Query:    queries.RootQuery,
 })
-
 
 func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
 	result := graphql.Do(graphql.Params{
@@ -109,6 +104,5 @@ func executeGraphQLQuery(query string, schema graphql.Schema) *graphql.Result {
 	if len(result.Errors) > 0 {
 		log.Printf("Failed to execute query. Errors: %v", result.Errors)
 	}
-
 	return result
 }
