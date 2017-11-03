@@ -3,16 +3,13 @@ const webpack = require('webpack');
 const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
 function join(dest) {
   return path.resolve(__dirname, dest);
 }
 
-
 function web(dest) {
   return join('app/' + dest);
 }
-
 
 function extractImages(folder) {
   let result = [];
