@@ -77,13 +77,11 @@ module.exports = {
       extractImages('static/img/site/sponsors/')])
   },
 
-
   output: {
     path: join('../server/static/prod'),
     filename: "[name].js",
     publicPath: '/public/prod/'
   },
-
 
   module: {
     rules: [
@@ -144,8 +142,6 @@ module.exports = {
       }
     ]
   },
-
-
 
   plugins: [
     /**
