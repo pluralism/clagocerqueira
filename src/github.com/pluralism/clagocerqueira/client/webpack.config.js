@@ -29,12 +29,9 @@ function extractImages(folder) {
   return result.length === 0 ? ["error"] : result;
 }
 
-
 const extractText = new ExtractTextPlugin({
   filename: "[name].css"
 });
-
-
 
 module.exports = {
   entry: {
