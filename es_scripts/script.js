@@ -59,6 +59,7 @@ function indexDataParishesPresidents(filename, indexname, type) {
                 body: bulk_request.slice(0, 1000)
             }, insertCallback);
         };
+        
         bulk_request = bulk_request.slice(0, 1000);
         if(bulk_request.length > 0)
             setTimeout(insertData, 1000);
@@ -67,11 +68,11 @@ function indexDataParishesPresidents(filename, indexname, type) {
     });
 }
 
-//indexData('./associations.json', 'associations', 'association');
-//indexData('./festivities.json', 'festivites', 'festivity');
+// indexData('./associations.json', 'associations', 'association');
+// indexData('./festivities.json', 'festivites', 'festivity');
 // indexData('./authors.json', 'authors', 'author');
-//indexData('./city_council.json', 'city_councils', 'city_council');
-//indexData('./presidents.json', 'presidents', 'president');
-//indexData('./councilmen.json', 'councilmen', 'councilman');
-//indexData('./personalities.json', 'personalities', 'personality');
-//indexDataParishesPresidents('./parishes_presidents_2.json', 'parishes_presidents', 'parishes_president');
+// indexData('./city_council.json', 'city_councils', 'city_council');
+// indexData('./presidents.json', 'presidents', 'president');
+// indexData('./councilmen.json', 'councilmen', 'councilman');
+// indexData('./personalities.json', 'personalities', 'personality');
+// indexDataParishesPresidents('./parishes_presidents_2.json', 'parishes_presidents', 'parishes_president');
