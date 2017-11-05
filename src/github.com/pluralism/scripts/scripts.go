@@ -9,7 +9,6 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
-
 	mgo "gopkg.in/mgo.v2"
 )
 
@@ -121,7 +120,6 @@ func readGeneralFile(filename, image, date string) GeneralList {
 	}
 
 	generalData.TotalItems = len(generalData.ObjectsData)
-
 	presidentList := GeneralList{
 		Name:    date,
 		Objects: generalData,
