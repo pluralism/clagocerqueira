@@ -20,6 +20,7 @@ function indexData(filename, indexname, type) {
                 name: obj.name,
                 objects: obj.objects
             };
+            
             bulk_request.push({index: {_index: indexname, _type: type, _id: objFinal.id}});
             bulk_request.push(objFinal);
         }
@@ -37,6 +38,7 @@ function indexData(filename, indexname, type) {
             console.log('Inserted all records!')
     });
 }
+
 
 function indexDataParishesPresidents(filename, indexname, type) {
     fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
