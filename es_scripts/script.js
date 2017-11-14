@@ -8,7 +8,6 @@ function insertCallback(error, response) {
     }
 }
 
-
 function indexData(filename, indexname, type) {
     fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
         data = JSON.parse(data);
@@ -38,7 +37,6 @@ function indexData(filename, indexname, type) {
             console.log('Inserted all records!')
     });
 }
-
 
 function indexDataParishesPresidents(filename, indexname, type) {
     fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
