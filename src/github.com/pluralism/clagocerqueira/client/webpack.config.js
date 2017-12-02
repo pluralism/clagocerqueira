@@ -142,7 +142,6 @@ module.exports = {
       }
     ]
   },
-
   plugins: [
     /**
      * Automatically loaded modules
