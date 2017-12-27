@@ -5,7 +5,9 @@ let client = new es.Client({
 });
 
 function insertCallback(error, response) {
-    if (error) console.log(error);
+    if (error) {
+        console.log(error);
+    }
 }
 
 function indexData(filename, indexname, type) {
