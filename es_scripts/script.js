@@ -1,9 +1,7 @@
 let fs = require('fs');
 let es = require('elasticsearch');
 
-let client = new es.Client({ 
-    host: 'localhost:9200'
-});
+let client = new es.Client({ host: 'localhost:9200' });
 
 function insertCallback(error, response) {
     if (error) {
