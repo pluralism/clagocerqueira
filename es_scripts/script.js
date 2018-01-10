@@ -20,7 +20,6 @@ function indexData(filename, indexname, type) {
                 name: obj.name,
                 objects: obj.objects
             };
-            
             bulk_request.push({index: {_index: indexname, _type: type, _id: objFinal.id}});
             bulk_request.push(objFinal);
         }
