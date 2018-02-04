@@ -10,6 +10,7 @@ function insertCallback(error, response) {
 function indexData(filename, indexname, type) {
     fs.readFile(filename, {encoding: 'utf-8'}, function(err, data) {
         data = JSON.parse(data);
+        
         let bulk_request = [];
         for(let i = 0; i < data.length; i++) {
             let obj = data[i];
