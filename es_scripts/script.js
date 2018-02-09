@@ -14,6 +14,7 @@ function indexData(filename, indexname, type) {
         data = JSON.parse(data);
         
         let bulk_request = [];
+        
         for(let i = 0; i < data.length; i++) {
             let obj = data[i];
             let objFinal = {
