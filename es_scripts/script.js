@@ -26,9 +26,11 @@ function indexData(filename, indexname, type) {
             bulk_request.push(objFinal);
         }
         let insertData = function() {
+            
             client.bulk({
                 body: bulk_request.slice(0, 1000)
             }, insertCallback);
+            
         };
         
         bulk_request = bulk_request.slice(0, 1000);
@@ -47,6 +49,7 @@ function indexDataParishesPresidents(filename, indexname, type) {
         let bulk_request = [];
         for(let i = 0; i < data.length; i++) {
             let obj = data[i];
+            
             let objFinal = {
                 id: obj._id.$oid,
                 name: obj.name,
