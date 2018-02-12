@@ -35,7 +35,6 @@ function indexData(filename, indexname, type) {
         };
         
         bulk_request = bulk_request.slice(0, 1000);
-        
         if(bulk_request.length > 0) {
             setTimeout(insertData, 1000);
         } else {
