@@ -1,9 +1,7 @@
 import { httpPostGraphQL } from '../utils/index';
 import { Constants } from '../constants/index';
 
-
 const SearchActions = {};
-
 
 SearchActions.searchByType = (value, type) => {
     return dispatch => {
@@ -32,7 +30,6 @@ SearchActions.searchByType = (value, type) => {
         }
         `;
 
-
         httpPostGraphQL(query)
         .then((data) => {
             // Something went wrong...
@@ -50,7 +47,6 @@ SearchActions.searchByType = (value, type) => {
         });
     };
 };
-
 
 SearchActions.homepageSearch = (value) => {
     return dispatch => {
@@ -79,7 +75,6 @@ SearchActions.homepageSearch = (value) => {
         }
         `;
 
-
         httpPostGraphQL(query)
         .then((data) => {
             // Something went wrong...
@@ -97,6 +92,5 @@ SearchActions.homepageSearch = (value) => {
         });
     };
 };
-
 
 export default SearchActions;
