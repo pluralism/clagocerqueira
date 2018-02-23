@@ -26,7 +26,6 @@ function indexData(filename, indexname, type) {
             bulk_request.push(objFinal);
         }
         
-        
         let insertData = function() {
             
             client.bulk({
@@ -78,7 +77,6 @@ function indexDataParishesPresidents(filename, indexname, type) {
         }
     });
 }
-
 
 // indexData('./associations.json', 'associations', 'association');
 // indexData('./festivities.json', 'festivites', 'festivity');
