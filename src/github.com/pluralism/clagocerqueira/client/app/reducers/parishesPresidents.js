@@ -3,6 +3,7 @@ import { Constants } from '../constants/index';
 
 const initialState = {
     loading: false,
+    dates: [],
     objects_data: {
         [Constants.DATE_MAPPINGS.d1974_1976]: {
             name: "",
@@ -30,6 +31,9 @@ const initialState = {
         }
     },
     currentName: "",
+    dateAndPageMappings: {},
+    generalMappings: [],
+    currentDate: "",
 };
 
 
@@ -44,6 +48,24 @@ const updateDataForName = (data, state) => {
     return stateData;
 };
 
+const createInitialStateForDates = (dates) => {
+    var map = {};
+    for(var date = 0; date < dates.length; date++) {
+        map["data".concat(dates[date].replace("-", "_"))] = {
+            name: "",
+            dates: {
+                name: "",
+                objects: {
+                    objects_data: [],
+                    total_items: 0,
+                    max_pages: 0,
+                },
+                total_pages: 0
+            }
+        };
+    }
+    return map;
+};
 
 export default function reduce(state = initialState, action = {}) {
     switch(action.type) {
@@ -60,7 +82,23 @@ export default function reduce(state = initialState, action = {}) {
                 currentName: action.currentName,
             };
         }
-        default:
-            return state;
+        case Constants.LOADING_DATA_SUCCESS_PARISHES_DATES: {
+            state.objects_data = {};
+            return {
+                ...state,
+                dates: action.data,
+                objects_data: createInitialStateForDates(action.data),
+                generalMappings: action.generalMappings,
+                dateAndPageMappings: action.dateAndPageMappings,
+                currentDate: action.currentDate
+            };
+        }
+        case Constants.PARISHES_UPDATE_DATE: {
+            return {
+                ...state,
+                currentDate: action.currentDate
+            }
+        }
+        default: return state;
     }
 }
