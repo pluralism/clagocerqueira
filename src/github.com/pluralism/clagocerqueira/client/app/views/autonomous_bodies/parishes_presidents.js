@@ -9,65 +9,49 @@ import { Constants } from '../../constants/index';
 import ParishesPresidentsActions from '../../actions/parishesPresidents';
 
 
-
 class ParishesPresidentsView extends React.Component {
     constructor(props) {
         super(props);
 
-        this.generalMappings = [
-            [Constants.DATE_MAPPINGS.d1974_1976, Constants.DATES.d1974_1976],
-            [Constants.DATE_MAPPINGS.d1976_2013, Constants.DATES.d1976_2013]
-        ];
-
-        this.currentDate = Constants.DATES.d1974_1976;
         this.state = {
-            currentParish: Constants.PARISHES_NAMES[0],
-            activeTab: this.currentDate,
+            currentParish: "Aboadela",
+            activeTab: "",
             currentPage: 1
-        };
-
-
-        this.dateAndPageMappings = {
-            [Constants.DATES.d1974_1976]: {
-                mapping: Constants.DATE_MAPPINGS.d1974_1976,
-                page: 1
-            },
-            [Constants.DATES.d1976_2013]: {
-                mapping: Constants.DATE_MAPPINGS.d1976_2013,
-                page: 1
-            },
         };
     }
 
-
     componentDidMount() {
-        const { dispatch } = this.props;
+        const { dispatch, parishesPresidents } = this.props;
 
-
-        dispatch(ParishesPresidentsActions.getAllDataFromParishesPresidents(
-            this.state.currentParish,
-            this.generalMappings
-        ));
+        dispatch(ParishesPresidentsActions.getDatesForParish(this.state.currentParish, parishesPresidents.dateAndPageMappings, 
+            this.state, parishesPresidents.generalMappings));
     }
 
 
     updateCurrentDate(value) {
+        const { dispatch } = this.props;
+
         /**
          * Update the currentDate variable and keep the page
          * as the old one. This allow us to mantain consistency
          * with the lists of councilmen
          */
-        this.currentDate = value;
+        // this.currentDate = value;
         // Update the active tab!
         this.setState({
-            activeTab: this.currentDate
+            activeTab: value
+        }, () => {
+            dispatch({
+                type: Constants.PARISHES_UPDATE_DATE,
+                currentDate: value
+            });
         });
     }
 
 
     getNextPageContent() {
         const { parishesPresidents, dispatch } = this.props;
-        let obj = this.dateAndPageMappings[this.currentDate];
+        let obj = parishesPresidents.dateAndPageMappings[parishesPresidents.currentDate];
         let currentPage = obj.page;
         let parishPresidentMapping = parishesPresidents.objects_data[obj.mapping].dates.objects;
 
@@ -75,7 +59,7 @@ class ParishesPresidentsView extends React.Component {
             obj.page += 1;
 
             dispatch(ParishesPresidentsActions.getParishPresidentsByPage(
-                this.currentDate,
+                parishesPresidents.currentDate,
                 this.state.currentParish,
                 obj.mapping,
                 obj.page));
@@ -84,15 +68,15 @@ class ParishesPresidentsView extends React.Component {
 
 
     getPreviousPageContent() {
-        const { dispatch } = this.props;
-        let obj = this.dateAndPageMappings[this.currentDate];
+        const { parishesPresidents, dispatch } = this.props;
+        let obj = parishesPresidents.dateAndPageMappings[parishesPresidents.currentDate];
         let currentPage = obj.page;
 
         if(currentPage > 1) {
             obj.page -= 1;
 
             dispatch(ParishesPresidentsActions.getParishPresidentsByPage(
-                this.currentDate,
+                parishesPresidents.currentDate,
                 this.state.currentParish,
                 obj.mapping,
                 obj.page));
@@ -101,16 +85,15 @@ class ParishesPresidentsView extends React.Component {
 
 
     handleParishChange(e) {
-        const { dispatch } = this.props;
+        const { dispatch, parishesPresidents } = this.props;
 
         this.setState({
             currentParish: e.target.value,
             currentPage: 1
         }, () => {
-            dispatch(ParishesPresidentsActions.getAllDataFromParishesPresidents(
-                this.state.currentParish,
-                this.generalMappings
-            ));
+        const { dispatch, parishesPresidents } = this.props;
+            dispatch(ParishesPresidentsActions.getDatesForParish(this.state.currentParish, parishesPresidents.dateAndPageMappings, 
+                this.state, parishesPresidents.generalMappings));
         });
 
     }
@@ -134,6 +117,8 @@ class ParishesPresidentsView extends React.Component {
 
 
     renderContent() {
+        const { parishesPresidents } = this.props;
+
         return (
             <section id="parishes_presidents">
                 <div className="g-pt-40">
@@ -164,22 +149,12 @@ class ParishesPresidentsView extends React.Component {
 
                     <div className="tab-v7 g-mt-30">
                         <ul className="tab-v7-nav" role="tablist">
-                            <li role="presentation"
-                                className={isActiveTab(Constants.DATES.d1974_1976, this.state) ? "active" : ""}>
-                                <Link to={"#first_tab"}
-                                      onClick={() =>
-                                          this.updateCurrentDate(Constants.DATES.d1974_1976)}
-                                      role="tab" data-toggle="tab">{Constants.DATES.d1974_1976}</Link>
-                            </li>
-                            <li role="presentation"
-                                className={isActiveTab(Constants.DATES.d1976_2013, this.state) ? "active" : ""}>
-                                <Link to={"#second_tab"}
-                                      onClick={() =>
-                                          this.updateCurrentDate(Constants.DATES.d1976_2013)}
-                                      role="tab" data-toggle="tab">{Constants.DATES.d1976_2013}</Link>
-                            </li>
+                            {parishesPresidents.dates.map((item, index) => {
+                                return <li key={item} role="presentation" className={isActiveTab(item, this.state) ? "active" : ""}>
+                                    <Link role="tab" data-toggle="tab" onClick={() => this.updateCurrentDate(item)}>{item}</Link>
+                                </li>
+                            })}
                         </ul>
-
 
                         {this.renderTabsContents()}
                     </div>
@@ -190,7 +165,8 @@ class ParishesPresidentsView extends React.Component {
 
 
     renderCustomTab(date, mapping, parishesPresidents) {
-        if(this.state.activeTab === date &&
+        if(this.state.activeTab === date && 
+            parishesPresidents.objects_data[mapping] !== undefined &&
             parishesPresidents.objects_data[mapping].dates.objects.objects_data.length !== 0) {
             return <GeneralObjectTab
                 tabID={'#first_tab'}
@@ -208,12 +184,11 @@ class ParishesPresidentsView extends React.Component {
 
     renderTabsContents() {
         const { parishesPresidents } = this.props;
-
+        const mapping = parishesPresidents.dateAndPageMappings[parishesPresidents.currentDate] === undefined ? "" : 
+                        parishesPresidents.dateAndPageMappings[parishesPresidents.currentDate].mapping;
         return (
             <div className="tab-content">
-                {this.state.activeTab === Constants.DATES.d1974_1976 ?
-                    this.renderCustomTab(Constants.DATES.d1974_1976, Constants.DATE_MAPPINGS.d1974_1976, parishesPresidents) :
-                    this.renderCustomTab(Constants.DATES.d1976_2013, Constants.DATE_MAPPINGS.d1976_2013, parishesPresidents) }
+                {this.renderCustomTab(parishesPresidents.currentDate, mapping, parishesPresidents)}
 
                 <div className="control-buttons">
                     <div className="prev-button" onClick={() => this.getPreviousPageContent()} />
