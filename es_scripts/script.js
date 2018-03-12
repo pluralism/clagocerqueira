@@ -31,7 +31,6 @@ function indexData(filename, indexname, type) {
             client.bulk({
                 body: bulk_request.slice(0, 1000)
             }, insertCallback);
-            
         };
         
         bulk_request = bulk_request.slice(0, 1000);
