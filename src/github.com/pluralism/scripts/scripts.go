@@ -118,7 +118,6 @@ func readGeneralFile(filename, image, date string) GeneralList {
 			Description: "",
 		})
 	}
-
 	generalData.TotalItems = len(generalData.ObjectsData)
 	presidentList := GeneralList{
 		Name:    date,
