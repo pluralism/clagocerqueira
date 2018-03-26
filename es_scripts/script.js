@@ -25,6 +25,7 @@ function indexData(filename, indexname, type) {
             bulk_request.push(objFinal);
         }
         
+        
         let insertData = function() {
             
             client.bulk({
